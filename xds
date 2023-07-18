@@ -1,0 +1,106 @@
+import tkinter as tk
+from tkinter import filedialog, ttk, StringVar
+import pandas as pd
+from statsmodels.formula.api import ols
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+from patsy import dmatrices
+from itertools import combinations
+
+class App:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Excel Adjusted R^2 and VIF Calculation")
+
+        # Font ve stil tanımlamaları
+        style = ttk.Style(root)
+        style.configure("TLabel", font=("Arial", 12))
+        style.configure("TButton", font=("Arial", 12))
+
+        # Sol ve sağ frame oluşturma
+        self.left_frame = ttk.Frame(root)
+        self.left_frame.pack(side=tk.LEFT, padx=10)
+
+        self.right_frame = ttk.Frame(root)
+        self.right_frame.pack(side=tk.RIGHT, padx=10)
+        
+        # Sol frame'deki widgetler
+        self.file_label = ttk.Label(self.left_frame, text="Dosya: Yok")
+        self.file_label.pack(pady=10)
+        
+        self.browse_button = ttk.Button(self.left_frame, text="Dosya Seç", command=self.load_file)
+        self.browse_button.pack(pady=10)
+        
+        self.column_label = ttk.Label(self.left_frame, text="Sütunlar Seç: ")
+        self.column_label.pack(pady=10)
+
+        # Sütunların seçilmesi için listbox oluşturma
+        self.column_listbox = tk.Listbox(self.left_frame, selectmode=tk.MULTIPLE)
+        self.column_listbox.pack(pady=10)
+        
+        self.calculate_button = ttk.Button(self.left_frame, text="Hesapla", command=self.calculate)
+        self.calculate_button.pack(pady=10)
+        
+        # Sol frame'deki sonuçları göstermek için bir treeview oluşturma
+        self.result_treeview = ttk.Treeview(self.left_frame, columns=["Model", "AdjustedR2"], show="headings")
+        self.result_treeview.heading("Model", text="Model")
+        self.result_treeview.heading("AdjustedR2", text="Adjusted R^2")
+        self.result_treeview.pack(pady=10)
+
+        # Sağ frame'deki VIF sonuçlarını göstermek için bir text widget oluşturma
+        self.vif_text = tk.Text(self.right_frame)
+        self.vif_text.pack()
+
+        self.df = None
+        self.results = None
+
+    def load_file(self):
+        file_path = filedialog.askopenfilename(filetypes=(("Excel Files", "*.xlsx"), ("All Files", "*.*")))
+        if not file_path:
+            return
+        self.file_label.config(text="Dosya: " + file_path)
+        self.df = pd.read_excel(file_path)
+        # Sütun isimlerini listbox'a ekle
+        for column in self.df.columns.tolist():
+            self.column_listbox.insert(tk.END, column)
+
+    def calculate(self):
+        # Sonuçları temizle
+        for row in self.result_treeview.get_children():
+            self.result_treeview.delete(row)
+        self.vif_text.delete(1.0, tk.END)
+
+        # Seçili sütunlar için ikili kombinasyonları oluştur ve her biri için adjusted R^2'yi hesapla
+        selected_columns = [self.column_listbox.get(idx) for idx in self.column_listbox.curselection()]
+        if self.df is not None and selected_columns and "Probit_DR_diff" in self.df:
+            self.results = []
+            for combo in combinations(selected_columns, 2):
+                model_formula = "Probit_DR_diff~ " + " + ".join(combo)
+                model = ols(model_formula, data=self.df).fit()
+                adjusted_r2 = model.rsquared_adj
+                self.results.append((model_formula, adjusted_r2))
+
+            # Adjusted R^2'ye göre büyükten küçüğe sırala
+            self.results.sort(key=lambda x: x[1], reverse=True)
+
+            # En yüksek 10 modeli treeview'e ekle
+            for model_formula, adjusted_r2 in self.results[:10]:
+                self.result_treeview.insert('', 'end', values=(model_formula, "{:.2f}".format(adjusted_r2)))
+
+            # En iyi 10 model için VIF hesapla ve sağ frame'deki text widget'a ekle
+            for i, (model_formula, _) in enumerate(self.results[:10]):
+                y, X = dmatrices(model_formula, data=self.df, return_type='dataframe')
+                vif = pd.DataFrame()
+                vif["VIF Factor"] = [variance_inflation_factor(X.values, i) for i in range(X.shape[1])]
+                vif["Variable"] = X.columns
+                
+                self.vif_text.insert(tk.END, f"VIF Hesaplama\nModel {i+1} VIF Results:\n")
+                for _, row in vif.iterrows():
+                    self.vif_text.insert(tk.END, f"{row['Variable']}: {row['VIF Factor']}\n")
+                self.vif_text.insert(tk.END, "\n")
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = App(root)
+    root.mainloop()
+
+
