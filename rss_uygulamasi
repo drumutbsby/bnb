@@ -1,0 +1,28 @@
+import feedparser
+from kivy.app import App
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.label import Label
+
+class RSSReader(BoxLayout):
+    def __init__(self, **kwargs):
+        super(RSSReader, self).__init__(**kwargs)
+        self.orientation = 'vertical'
+        self.feeds = [
+            'https://example.com/rss1.xml',
+            'https://example.com/rss2.xml',
+            'https://example.com/rss3.xml'
+        ]
+        self.load_feeds()
+
+    def load_feeds(self):
+        for feed_url in self.feeds:
+            feed = feedparser.parse(feed_url)
+            if 'title' in feed.feed:
+                self.add_widget(Label(text=feed.feed.title))
+
+class MyApp(App):
+    def build(self):
+        return RSSReader()
+
+if __name__ == '__main__':
+    MyApp().run()
