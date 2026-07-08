@@ -30,6 +30,9 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          # Repo public olduğunda Pages'i otomatik etkinleştir (elle ayar gerekmez)
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
