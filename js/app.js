@@ -1,8 +1,10 @@
 // Ben Bildim — çok oyunculu bilgi yarışması (Kahoot tarzı)
+// Gerçek zamanlı katman: kurulum gerektirmeyen MQTT (js/net.js).
+// Model: HOST yetkilidir; oda durumunu yayınlar. Oyuncular yalnızca girdi gönderir.
 import {
-  db, isConfigured, ref, set, update, get, remove,
-  onValue, serverTimestamp,
-} from "./firebase.js";
+  isConfigured, whenConnected, subscribeInput, subscribeState,
+  publishState, clearState, sendInput, onStatus,
+} from "./net.js";
 import { CATEGORIES, QUESTIONS, buildQuestionSet } from "./questions.js";
 
 const APP = document.getElementById("app");
@@ -15,15 +17,16 @@ const state = {
   code: null,
   playerId: null,
   name: null,
-  room: null,            // en güncel oda anlık görüntüsü (snapshot)
+  room: null,            // yetkili (host) veya son alınan (oyuncu) oda nesnesi
   localQuestions: null,  // sadece host: cevaplarıyla birlikte tam soru seti
   hostLocalStart: 0,
   playerLocalStart: 0,
-  playerQIndex: -1,
   answeredIndex: -1,
+  playerChoice: null,
   revealingIndex: -1,
   autoRevealTimer: null,
-  roomUnsub: null,
+  stateUnsub: null,
+  inputUnsub: null,
   currentView: null,
   lastRenderKey: null,
 };
@@ -39,7 +42,7 @@ const OPTION_STYLES = [
 // Yardımcılar
 // ---------------------------------------------------------------------------
 function genCode() {
-  const chars = "ABCDEFGHJKLMNPRSTUVYZ23456789"; // karışması kolay harfler çıkarıldı
+  const chars = "ABCDEFGHJKLMNPRSTUVYZ23456789";
   let s = "";
   for (let i = 0; i < 4; i++) s += chars[Math.floor(Math.random() * chars.length)];
   return s;
@@ -52,9 +55,6 @@ function esc(s) {
     { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
   ));
 }
-function roomRef(path = "") {
-  return ref(db, `rooms/${state.code}${path ? "/" + path : ""}`);
-}
 function saveSession() {
   try {
     sessionStorage.setItem("bnb_session", JSON.stringify({
@@ -63,32 +63,30 @@ function saveSession() {
     }));
   } catch (e) {}
 }
-function clearSession() {
-  try { sessionStorage.removeItem("bnb_session"); } catch (e) {}
-}
+function clearSession() { try { sessionStorage.removeItem("bnb_session"); } catch (e) {} }
 function loadSession() {
   try { return JSON.parse(sessionStorage.getItem("bnb_session")); } catch (e) { return null; }
 }
 
-// ---------------------------------------------------------------------------
-// Oda aboneliği
-// ---------------------------------------------------------------------------
-function subscribeRoom() {
-  if (state.roomUnsub) state.roomUnsub();
-  state.roomUnsub = onValue(roomRef(), (snap) => {
-    const data = snap.val();
-    if (!data) {
-      // Oda silinmiş / bulunamıyor
-      if (state.currentView !== "gone") {
-        state.currentView = "gone";
-        state.lastRenderKey = "gone";
-        renderRoomGone();
-      }
-      return;
-    }
-    state.room = data;
-    if (state.role === "host") hostTick();
-    render();
+// Yayınlanan oda durumu (cevaplar hariç — sızıntı/gereksiz veri olmasın)
+function hostPublish() {
+  const r = state.room;
+  publishState(state.code, {
+    meta: r.meta,
+    players: r.players || {},
+    publicQuestions: r.publicQuestions || {},
+    reveal: r.reveal || {},
+  });
+}
+
+// Retained oda durumunu tek seferlik oku (yoksa null)
+function getStateOnce(code, timeoutMs = 3500) {
+  return new Promise((resolve) => {
+    let done = false;
+    const unsub = subscribeState(code, (data) => {
+      if (done) return; done = true; unsub(); resolve(data);
+    });
+    setTimeout(() => { if (!done) { done = true; unsub(); resolve(null); } }, timeoutMs);
   });
 }
 
@@ -99,34 +97,62 @@ async function createRoom(categories, count, timeLimit, hostName) {
   state.role = "host";
   state.name = hostName;
   state.playerId = "host";
+  await whenConnected();
 
-  // Benzersiz kod bul
+  // Kod çakışması olmasın diye hızlı bir kontrol
   let code = genCode();
-  for (let tries = 0; tries < 5; tries++) {
-    const exists = await get(ref(db, `rooms/${code}/meta`));
-    if (!exists.exists()) break;
+  for (let t = 0; t < 4; t++) {
+    const existing = await getStateOnce(code, 900);
+    if (!existing) break;
     code = genCode();
   }
   state.code = code;
 
   const qset = buildQuestionSet(categories, count);
   state.localQuestions = qset;
-
-  await set(roomRef(), {
+  state.room = {
     meta: {
-      hostName,
-      status: "lobby",
-      questionIndex: -1,
-      totalQuestions: qset.length,
-      timeLimit,
+      hostName, status: "lobby", questionIndex: -1,
+      totalQuestions: qset.length, timeLimit,
       categories: categories && categories.length ? categories : ["hepsi"],
-      createdAt: serverTimestamp(),
     },
-    players: {},
-  });
+    players: {}, publicQuestions: {}, reveal: {}, answers: {},
+  };
 
+  state.inputUnsub = subscribeInput(code, hostOnInput);
+  hostPublish();
   saveSession();
-  subscribeRoom();
+  render();
+}
+
+function hostOnInput(msg) {
+  if (!msg || !state.room || state.role !== "host") return;
+  const room = state.room;
+  if (msg.type === "join") {
+    if (room.meta.status !== "lobby") return;
+    if (!msg.pid || !msg.name) return;
+    if (!room.players[msg.pid]) {
+      room.players[msg.pid] = {
+        name: String(msg.name).slice(0, 16), score: 0, lastGain: 0, lastCorrect: false,
+      };
+      hostPublish();
+      render();
+    }
+  } else if (msg.type === "answer") {
+    const i = msg.i;
+    if (room.meta.status !== "question" || i !== room.meta.questionIndex) return;
+    if (!room.players[msg.pid]) return;
+    if (!room.answers) room.answers = {};
+    if (!room.answers[i]) room.answers[i] = {};
+    if (room.answers[i][msg.pid]) return;
+    room.answers[i][msg.pid] = {
+      choice: msg.choice, elapsed: Math.max(0, Number(msg.elapsed) || 0),
+    };
+    render();
+    const total = Object.keys(room.players).length;
+    const answered = Object.keys(room.answers[i]).length;
+    if (total > 0 && answered >= total) maybeReveal(i);
+  }
 }
 
 function hostStartGame() {
@@ -143,28 +169,16 @@ function hostShowQuestion(i) {
   state.revealingIndex = -1;
   clearTimeout(state.autoRevealTimer);
 
-  update(roomRef(), {
-    [`publicQuestions/${i}`]: { q: q.q, options: q.options, category: q.category },
-    "meta/questionIndex": i,
-    "meta/status": "question",
-    "meta/startAt": serverTimestamp(),
-  });
+  if (!state.room.answers) state.room.answers = {};
+  state.room.answers[i] = {};
+  state.room.publicQuestions[i] = { q: q.q, options: q.options, category: q.category };
+  state.room.meta.questionIndex = i;
+  state.room.meta.status = "question";
+  hostPublish();
+  render();
 
-  const limit = state.room?.meta?.timeLimit || 20;
-  state.autoRevealTimer = setTimeout(() => maybeReveal(i), limit * 1000 + 500);
-}
-
-function hostTick() {
-  const m = state.room.meta;
-  if (!m) return;
-  if (m.status === "question") {
-    const i = m.questionIndex;
-    const answers = (state.room.answers && state.room.answers[i]) || {};
-    const players = state.room.players || {};
-    const total = Object.keys(players).length;
-    const answered = Object.keys(answers).length;
-    if (total > 0 && answered >= total) maybeReveal(i);
-  }
+  const limit = state.room.meta.timeLimit || 20;
+  state.autoRevealTimer = setTimeout(() => maybeReveal(i), limit * 1000 + 800);
 }
 
 function maybeReveal(i) {
@@ -179,12 +193,10 @@ function hostRevealQuestion(i) {
   const room = state.room;
   const q = state.localQuestions[i];
   const correct = q.answer;
-  const startAt = room.meta.startAt || 0;
   const timeLimit = room.meta.timeLimit || 20;
   const answers = (room.answers && room.answers[i]) || {};
   const players = room.players || {};
   const counts = [0, 0, 0, 0];
-  const updates = {};
 
   for (const pid in players) {
     const a = answers[pid];
@@ -192,19 +204,18 @@ function hostRevealQuestion(i) {
     if (a && typeof a.choice === "number") {
       if (counts[a.choice] !== undefined) counts[a.choice]++;
       if (a.choice === correct) {
-        const elapsed = Math.max(0, (a.answeredAt || startAt) - startAt);
-        const frac = Math.min(1, elapsed / (timeLimit * 1000));
+        const frac = Math.min(1, a.elapsed / (timeLimit * 1000));
         gained = 500 + Math.round(500 * (1 - frac));
       }
     }
-    const cur = players[pid].score || 0;
-    updates[`players/${pid}/score`] = cur + gained;
-    updates[`players/${pid}/lastGain`] = gained;
-    updates[`players/${pid}/lastCorrect`] = a ? (a.choice === correct) : false;
+    players[pid].score = (players[pid].score || 0) + gained;
+    players[pid].lastGain = gained;
+    players[pid].lastCorrect = a ? a.choice === correct : false;
   }
-  updates[`reveal/${i}`] = { correct, counts };
-  updates["meta/status"] = "reveal";
-  update(roomRef(), updates);
+  room.reveal[i] = { correct, counts };
+  room.meta.status = "reveal";
+  hostPublish();
+  render();
 }
 
 function hostNext() {
@@ -212,15 +223,16 @@ function hostNext() {
   if (i + 1 < state.room.meta.totalQuestions) {
     hostShowQuestion(i + 1);
   } else {
-    update(roomRef(), { "meta/status": "ended" });
+    state.room.meta.status = "ended";
+    hostPublish();
+    render();
   }
 }
 
-async function hostCloseRoom() {
+function hostCloseRoom() {
   if (!confirm("Odayı kapatmak istediğine emin misin?")) return;
   clearTimeout(state.autoRevealTimer);
-  if (state.roomUnsub) state.roomUnsub();
-  await remove(roomRef());
+  clearState(state.code);
   clearSession();
   resetToHome();
 }
@@ -230,26 +242,37 @@ async function hostCloseRoom() {
 // ---------------------------------------------------------------------------
 async function joinRoom(code, name) {
   code = code.trim().toUpperCase();
-  const metaSnap = await get(ref(db, `rooms/${code}/meta`));
-  if (!metaSnap.exists()) {
-    return { ok: false, error: "Bu kodla bir oda bulunamadı." };
-  }
-  const meta = metaSnap.val();
-  if (meta.status !== "lobby") {
+  try { await whenConnected(); }
+  catch (e) { return { ok: false, error: e.message }; }
+
+  const data = await getStateOnce(code);
+  if (!data) return { ok: false, error: "Bu kodla bir oda bulunamadı." };
+  if (data.meta && data.meta.status !== "lobby") {
     return { ok: false, error: "Bu oyun çoktan başlamış." };
   }
+
   state.role = "player";
   state.code = code;
   state.name = name.trim();
   state.playerId = uid();
+  state.room = data;
 
-  await set(ref(db, `rooms/${code}/players/${state.playerId}`), {
-    name: state.name, score: 0, lastGain: 0, lastCorrect: false,
-  });
-
+  state.stateUnsub = subscribeState(code, playerOnState);
+  sendInput(code, { type: "join", pid: state.playerId, name: state.name });
   saveSession();
-  subscribeRoom();
+  render();
   return { ok: true };
+}
+
+function playerOnState(data) {
+  if (!data) {
+    if (state.currentView !== "gone") {
+      state.currentView = "gone"; state.lastRenderKey = "gone"; renderRoomGone();
+    }
+    return;
+  }
+  state.room = data;
+  render();
 }
 
 function playerAnswer(choice) {
@@ -257,9 +280,8 @@ function playerAnswer(choice) {
   if (state.answeredIndex === i) return;
   state.answeredIndex = i;
   state.playerChoice = choice;
-  set(ref(db, `rooms/${state.code}/answers/${i}/${state.playerId}`), {
-    choice, answeredAt: serverTimestamp(),
-  });
+  const elapsed = Date.now() - state.playerLocalStart;
+  sendInput(state.code, { type: "answer", pid: state.playerId, i, choice, elapsed });
 }
 
 // ---------------------------------------------------------------------------
@@ -276,15 +298,8 @@ function computeKey() {
 function render() {
   if (!state.room) return;
   const key = computeKey();
-  // Soru ekranında sayaç akışını bozmamak için tam yeniden çizmiyoruz.
-  if (state.currentView === "question" && key === state.lastRenderKey) {
-    patchQuestion();
-    return;
-  }
-  if (state.currentView === "lobby" && key === state.lastRenderKey) {
-    patchLobby();
-    return;
-  }
+  if (state.currentView === "question" && key === state.lastRenderKey) { patchQuestion(); return; }
+  if (state.currentView === "lobby" && key === state.lastRenderKey) { patchLobby(); return; }
   state.lastRenderKey = key;
   fullRender();
 }
@@ -298,7 +313,6 @@ function fullRender() {
   } else if (status === "question") {
     state.currentView = "question";
     if (state.role === "player") {
-      state.playerQIndex = m.questionIndex;
       state.playerLocalStart = Date.now();
       if (state.answeredIndex !== m.questionIndex) state.answeredIndex = -1;
     }
@@ -315,23 +329,6 @@ function fullRender() {
 // ---------------------------------------------------------------------------
 // Ekranlar
 // ---------------------------------------------------------------------------
-function renderConfigWarning() {
-  APP.innerHTML = `
-    <div class="card center">
-      <div class="logo">Ben Bildim <span>🧠</span></div>
-      <h2>Kurulum gerekiyor</h2>
-      <p class="muted">Oyunun çalışması için Firebase ayarlarının doldurulması gerekiyor.
-      Lütfen <code>js/firebase-config.js</code> dosyasını aç ve kendi Firebase bilgilerini
-      gir. Ayrıntılar <code>README.md</code> içinde.</p>
-      <div class="steps">
-        <p>1️⃣ console.firebase.google.com &rarr; ücretsiz proje oluştur</p>
-        <p>2️⃣ Realtime Database oluştur (test modu)</p>
-        <p>3️⃣ Web uygulaması ekle, config'i kopyala</p>
-        <p>4️⃣ <code>js/firebase-config.js</code> içine yapıştır</p>
-      </div>
-    </div>`;
-}
-
 function renderHome() {
   state.currentView = "home";
   APP.innerHTML = `
@@ -342,7 +339,7 @@ function renderHome() {
       <button class="btn btn-secondary btn-big" id="goJoin">🙋 Odaya Katıl</button>
     </div>`;
   document.getElementById("goHost").onclick = renderHostSetup;
-  document.getElementById("goJoin").onclick = renderJoin;
+  document.getElementById("goJoin").onclick = () => renderJoin();
 }
 
 function renderHostSetup() {
@@ -380,7 +377,7 @@ function renderHostSetup() {
     (document.getElementById("qcountLbl").textContent = e.target.value);
   document.getElementById("tl").oninput = (e) =>
     (document.getElementById("tlLbl").textContent = e.target.value);
-  const boxes = () => [...APP.querySelectorAll('.cat-chip input')];
+  const boxes = () => [...APP.querySelectorAll(".cat-chip input")];
   document.getElementById("selAll").onclick = () => boxes().forEach((b) => (b.checked = true));
   document.getElementById("selNone").onclick = () => boxes().forEach((b) => (b.checked = false));
 
@@ -425,7 +422,7 @@ function renderJoin(prefillError) {
     btn.disabled = true; btn.textContent = "Katılınıyor...";
     try {
       const res = await joinRoom(code, name);
-      if (!res.ok) { renderJoin(res.error); }
+      if (!res.ok) renderJoin(res.error);
     } catch (e) {
       renderJoin("Bağlanılamadı: " + e.message);
     }
@@ -448,7 +445,7 @@ function renderHostLobby() {
         </div>
         <button class="mini-btn danger" id="close">Kapat</button>
       </div>
-      <p class="muted">Oyuncular <b>benbildim</b> sayfasından bu kodla katılabilir.</p>
+      <p class="muted">Oyuncular bu siteden <b>Odaya Katıl</b> deyip bu kodu girsin.</p>
       <div class="players-title">Katılanlar (<span id="pcount">${players.length}</span>)</div>
       <div class="players" id="playerList">${renderPlayerChips(players)}</div>
       <button class="btn btn-primary btn-big" id="start" ${players.length ? "" : "disabled"}>
@@ -461,8 +458,7 @@ function renderHostLobby() {
 
 function renderPlayerChips(players) {
   if (!players.length) return `<div class="muted small">Henüz kimse yok...</div>`;
-  return players.map(([id, p]) =>
-    `<div class="player-chip">${esc(p.name)}</div>`).join("");
+  return players.map(([id, p]) => `<div class="player-chip">${esc(p.name)}</div>`).join("");
 }
 
 function patchLobby() {
@@ -472,7 +468,7 @@ function patchLobby() {
   if (list) list.innerHTML = renderPlayerChips(players);
   if (cnt) cnt.textContent = players.length;
   const start = document.getElementById("start");
-  if (start) start.disabled = players.length === 0;
+  if (start && state.role === "host") start.disabled = players.length === 0;
 }
 
 function renderPlayerLobby() {
@@ -531,7 +527,7 @@ function renderPlayerQuestion() {
   const m = state.room.meta;
   const i = m.questionIndex;
   const pq = state.room.publicQuestions[i];
-  if (state.answeredIndex === i) { renderPlayerWaiting(pq); startTicker(); return; }
+  if (state.answeredIndex === i) { renderPlayerWaiting(pq, state.playerChoice); startTicker(); return; }
   const opts = pq.options.map((o, idx) => `
     <button class="opt opt-btn" data-choice="${idx}" style="background:${OPTION_STYLES[idx].color}">
       <span class="opt-shape">${OPTION_STYLES[idx].shape}</span>
@@ -570,7 +566,6 @@ function renderPlayerWaiting(pq, choice) {
 }
 
 function patchQuestion() {
-  // Host: yanıtlayan sayısını güncelle
   if (state.role === "host") {
     const i = state.room.meta.questionIndex;
     const answers = (state.room.answers && state.room.answers[i]) || {};
@@ -599,7 +594,6 @@ function startTicker() {
       fill.style.width = pct + "%";
       fill.style.background = remaining < limit * 0.25 ? "#e21b3c" : "#26890c";
     }
-    // Süre bitince oyuncu butonlarını kilitle
     if (remaining <= 0 && state.role === "player" && state.answeredIndex !== m.questionIndex) {
       APP.querySelectorAll(".opt-btn").forEach((b) => (b.disabled = true));
     }
@@ -696,7 +690,10 @@ function renderEnded() {
   if (state.role === "host") {
     document.getElementById("again").onclick = () => {
       clearTimeout(state.autoRevealTimer);
-      if (state.roomUnsub) state.roomUnsub();
+      if (state.inputUnsub) state.inputUnsub();
+      clearState(state.code);
+      clearSession();
+      state.role = "host";
       renderHostSetup();
     };
     document.getElementById("close").onclick = hostCloseRoom;
@@ -716,12 +713,13 @@ function renderRoomGone() {
 
 function resetToHome() {
   clearTimeout(state.autoRevealTimer);
-  if (state.roomUnsub) state.roomUnsub();
+  if (state.stateUnsub) state.stateUnsub();
+  if (state.inputUnsub) state.inputUnsub();
   clearSession();
   Object.assign(state, {
     role: null, code: null, playerId: null, name: null, room: null,
-    localQuestions: null, roomUnsub: null, currentView: null, lastRenderKey: null,
-    answeredIndex: -1, revealingIndex: -1,
+    localQuestions: null, stateUnsub: null, inputUnsub: null,
+    currentView: null, lastRenderKey: null, answeredIndex: -1, revealingIndex: -1,
   });
   renderHome();
 }
@@ -729,26 +727,35 @@ function resetToHome() {
 // ---------------------------------------------------------------------------
 // Başlangıç
 // ---------------------------------------------------------------------------
-function boot() {
-  if (!isConfigured) { renderConfigWarning(); return; }
-  const saved = loadSession();
-  if (saved && saved.code) {
-    // Oturumu geri yükle
-    state.role = saved.role;
-    state.code = saved.code;
-    state.playerId = saved.playerId;
-    state.name = saved.name;
-    state.localQuestions = saved.localQuestions || null;
-    get(ref(db, `rooms/${saved.code}/meta`)).then((snap) => {
-      if (snap.exists()) {
-        subscribeRoom();
-      } else {
-        clearSession();
-        renderHome();
-      }
-    }).catch(() => renderHome());
-    return;
+async function resumeSession(saved) {
+  state.role = saved.role;
+  state.code = saved.code;
+  state.playerId = saved.playerId;
+  state.name = saved.name;
+  state.localQuestions = saved.localQuestions || null;
+  try { await whenConnected(); } catch (e) { clearSession(); renderHome(); return; }
+
+  const data = await getStateOnce(saved.code);
+  if (!data) { clearSession(); renderHome(); return; }
+  state.room = data;
+
+  if (saved.role === "host") {
+    if (!state.localQuestions) { clearSession(); renderHome(); return; }
+    if (!state.room.answers) state.room.answers = {};
+    state.inputUnsub = subscribeInput(saved.code, hostOnInput);
+    render();
+  } else {
+    state.stateUnsub = subscribeState(saved.code, playerOnState);
+    sendInput(saved.code, { type: "join", pid: state.playerId, name: state.name });
+    render();
   }
+}
+
+function boot() {
+  // Bağlantı arka planda kurulur; kurulum gerektirmez.
+  if (!isConfigured) { renderHome(); return; }
+  const saved = loadSession();
+  if (saved && saved.code) { resumeSession(saved); return; }
   renderHome();
 }
 
