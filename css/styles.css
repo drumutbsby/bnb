@@ -490,6 +490,35 @@ textarea.input { min-height: 90px; resize: vertical; font-family: inherit; }
 .av-opt.locked { opacity: .55; cursor: help; }
 .theme-opt.locked { opacity: .6; }
 
+/* Level rozetleri */
+.pc-lv {
+  min-width: 46px; height: 46px; border-radius: 12px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; line-height: 1;
+  background: linear-gradient(135deg, #7c2fd6, #46178f); color: #fff; font-weight: 900; font-size: 1.3rem;
+}
+.pc-lv small { font-size: .55rem; opacity: .85; letter-spacing: 1px; }
+.ph-lv {
+  min-width: 68px; height: 68px; border-radius: 16px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; line-height: 1;
+  background: linear-gradient(135deg, #7c2fd6, #46178f); color: #fff;
+}
+.ph-lv small { font-size: .6rem; opacity: .85; letter-spacing: 1px; }
+.ph-lv b { font-size: 2rem; }
+
+/* Level atladın kutlaması */
+.levelup-pop {
+  position: fixed; top: 40%; left: 50%; transform: translate(-50%, -50%); z-index: 9999;
+  background: linear-gradient(135deg, #7c2fd6, #46178f); color: #fff; border-radius: 20px;
+  padding: 22px 30px; text-align: center; box-shadow: var(--shadow); animation: lupop .5s ease;
+  pointer-events: none;
+}
+.levelup-pop.out { animation: badgeout .5s ease forwards; }
+@keyframes lupop { from { transform: translate(-50%, -50%) scale(.4); opacity: 0; } 50% { transform: translate(-50%, -50%) scale(1.12); opacity: 1; } to { transform: translate(-50%, -50%) scale(1); } }
+.lu-num { font-size: 3rem; font-weight: 900; line-height: 1; }
+.lu-num small { display: block; font-size: .8rem; letter-spacing: 3px; opacity: .85; }
+.lu-txt { font-weight: 800; margin-top: 6px; }
+.lu-unlock { margin-top: 8px; font-size: .82rem; background: rgba(255,255,255,.2); border-radius: 10px; padding: 6px 10px; }
+
 /* Küçük ekran */
 @media (max-width: 400px) {
   .card { padding: 18px; }

@@ -40,6 +40,18 @@ export function setAvatar(av) {
   saveProfile(p);
 }
 
+// ---- Level (sayısal seviye) ----
+// Bir sonraki seviyeye ulaşmak için gereken toplam XP (kademeli artar).
+export function xpForLevel(L) { return 250 * (L - 1) * (L - 1); }
+export function levelFromXp(xp) { return Math.floor(Math.sqrt((xp || 0) / 250)) + 1; }
+export function levelProgress(xp) {
+  const level = levelFromXp(xp);
+  const cur = xpForLevel(level);
+  const nextAt = xpForLevel(level + 1);
+  const pct = Math.min(100, Math.round(((xp - cur) / (nextAt - cur)) * 100));
+  return { level, cur, nextAt, toNext: Math.max(0, nextAt - xp), pct };
+}
+
 export function rankFor(xp) {
   let r = RANKS[0];
   for (const t of RANKS) if (xp >= t.min) r = t;

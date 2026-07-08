@@ -11,7 +11,7 @@ import { CATEGORIES, CUSTOM_CATEGORY, QUESTIONS, buildQuestionSet } from "./ques
 import { unlock, sfx, isMuted, toggleMute } from "./sound.js";
 import { confetti } from "./confetti.js";
 import qrcode from "./vendor/qrcode.js";
-import { loadProfile, setName, setAvatar, rankFor, rankProgress, recordGame, RANKS } from "./profile.js";
+import { loadProfile, setName, setAvatar, rankFor, rankProgress, recordGame, RANKS, levelFromXp, levelProgress, xpForLevel } from "./profile.js";
 import { CHARACTERS, pickPhrase, CATEGORY_QUIPS } from "./characters.js";
 import { ACHIEVEMENTS } from "./achievements.js";
 
@@ -28,7 +28,7 @@ const DIFFICULTY = {
 };
 const START_JOKERS = { fifty: 1, double: 1 };
 const CUSTOM_KEY = "bnb_custom";
-const AVATARS = ["🙂","🦁","🐯","🐻","🦊","🐼","🐨","🐸","🐵","🦄","🐺","🐱","🐶","🐹","🐰","🦖","🐙","🐬","🦈","🦋","🐝","🐷","🐮","🐔","🐧","🐢","🐉","🦸","🥷","🤖","👽","👑"];
+const AVATARS = ["🙂","🦁","🐯","🐻","🦊","🐼","🐨","🐸","🐵","🦄","🐺","🐱","🐶","🐹","🐰","🦖","🐙","🐬","🦈","🦋","🐝","🐷","🐮","🐔","🐧","🐢","🐲","🐉","🦸","🥷","🦅","🤖","👽","👑"];
 const THEMES = {
   mor:       { name: "Mor", emoji: "🟣", vars: { "--bg1": "#46178f", "--bg2": "#7c2fd6", "--primary": "#46178f", "--primary-d": "#35116e" } },
   okyanus:   { name: "Okyanus", emoji: "🔵", vars: { "--bg1": "#0b3d66", "--bg2": "#1368ce", "--primary": "#0b5cad", "--primary-d": "#083f78" } },
@@ -38,21 +38,30 @@ const THEMES = {
   altin:     { name: "Altın", emoji: "🟡", vars: { "--bg1": "#6b4e00", "--bg2": "#d89e00", "--primary": "#a67c00", "--primary-d": "#6b4e00" } },
   gokkusagi: { name: "Gökkuşağı", emoji: "🌈", vars: { "--bg1": "#8e2de2", "--bg2": "#e2691b", "--primary": "#c8106e", "--primary-d": "#8f0a4e" } },
 };
-// Kilitli avatarlar/temalar (rütbe/rozet/istatistikle açılır)
+// Kilitli avatarlar/temalar — çoğunlukla LEVEL ile, bazıları rozetle açılır
 const AVATAR_LOCKS = {
-  "🐉": { cond: (p) => p.xp >= 15000, hint: "Bilgili rütbesi (15.000 XP)" },
-  "🦸": { cond: (p) => p.wins >= 10, hint: "10 galibiyet" },
-  "🥷": { cond: (p) => p.bestStreak >= 5, hint: "5'li seri (Alev Aldı rozeti)" },
-  "🤖": { cond: (p) => p.badges && p.badges.perfect, hint: "Kusursuz rozeti" },
-  "👽": { cond: (p) => p.badges && p.badges.speed, hint: "Hız Canavarı rozeti" },
-  "👑": { cond: (p) => p.xp >= 150000, hint: "Bilge rütbesi (150.000 XP)" },
+  "🐲": { level: 3 },
+  "🐉": { level: 6 },
+  "🦸": { level: 9 },
+  "🥷": { level: 12 },
+  "🦅": { level: 16 },
+  "👑": { level: 25 },
+  "🤖": { badge: "perfect", hint: "Kusursuz rozeti" },
+  "👽": { badge: "speed", hint: "Hız Canavarı rozeti" },
 };
 const THEME_LOCKS = {
-  altin: { cond: (p) => p.xp >= 75000, hint: "Usta rütbesi (75.000 XP)" },
-  gokkusagi: { cond: (p) => Object.keys(p.badges || {}).length >= 8, hint: "8 rozet" },
+  altin: { level: 15 },
+  gokkusagi: { level: 30 },
 };
-function avatarUnlocked(a, p) { const l = AVATAR_LOCKS[a]; return !l || l.cond(p || loadProfile()); }
-function themeUnlocked(k, p) { const l = THEME_LOCKS[k]; return !l || l.cond(p || loadProfile()); }
+function lockHint(l) { return l.hint || (l.level ? `Level ${l.level}` : ""); }
+function condMet(l, p) {
+  p = p || loadProfile();
+  if (l.level) return levelFromXp(p.xp) >= l.level;
+  if (l.badge) return !!(p.badges && p.badges[l.badge]);
+  return true;
+}
+function avatarUnlocked(a, p) { const l = AVATAR_LOCKS[a]; return !l || condMet(l, p); }
+function themeUnlocked(k, p) { const l = THEME_LOCKS[k]; return !l || condMet(l, p); }
 function weekId() {
   const d = new Date();
   const onejan = new Date(d.getFullYear(), 0, 1);
@@ -417,6 +426,12 @@ function maybeReveal(i) {
   hostRevealQuestion(i);
 }
 
+// Combo çarpanı: seri uzadıkça artar (2→1.25 ... 7+→2.5 tavan)
+function comboMult(streak) {
+  if (streak <= 1) return 1;
+  return Math.min(2.5, 1 + (streak - 1) * 0.25);
+}
+
 function hostRevealQuestion(i) {
   const room = state.room;
   const q = state.localQuestions[i];
@@ -427,35 +442,44 @@ function hostRevealQuestion(i) {
   const doubles = (room.doubles && room.doubles[i]) || {};
   const players = room.players || {};
   const counts = [0, 0, 0, 0];
+  const speedBonus = room.meta.speedBonus !== false;
+  const penalty = room.meta.wrongPenalty || 0;
+  const multi = Object.keys(players).length > 1;
+
+  // İlk doğru cevaplayanı bul (en kısa süre)
+  let firstCorrectPid = null, firstElapsed = Infinity;
+  for (const pid in players) {
+    const a = answers[pid];
+    if (a && a.choice === correct && (a.elapsed || 0) < firstElapsed) { firstElapsed = a.elapsed || 0; firstCorrectPid = pid; }
+  }
 
   for (const pid in players) {
     const a = answers[pid];
     const p = players[pid];
-    let gained = 0, base = 0, streakBonus = 0, doubled = false;
+    let gained = 0, base = 0, combo = 1, firstBonus = 0, milestone = 0, doubled = false;
     const isCorrect = a && a.choice === correct;
-    const speedBonus = room.meta.speedBonus !== false;
-    const penalty = room.meta.wrongPenalty || 0;
     if (a && typeof a.choice === "number" && counts[a.choice] !== undefined) counts[a.choice]++;
     if (isCorrect) {
-      if (speedBonus) {
-        const frac = Math.min(1, a.elapsed / (timeLimit * 1000));
-        base = Math.round((500 + Math.round(500 * (1 - frac))) * factor);
-      } else {
-        base = Math.round(1000 * factor); // hız bonusu kapalı: sabit puan
-      }
+      // Hız eğrisi: erken cevap üstel ödül (anında≈1000, yarı süre≈810, son an≈250)
+      const frac = Math.min(1, (a.elapsed || 0) / (timeLimit * 1000));
+      const speedScore = speedBonus ? Math.round(1000 * (1 - 0.75 * frac * frac)) : 1000;
+      base = Math.round(speedScore * factor);
       p.streak = (p.streak || 0) + 1;
-      streakBonus = p.streak >= 2 ? Math.min(p.streak - 1, 5) * 100 : 0;
-      gained = base + streakBonus;
+      combo = comboMult(p.streak); // 2→1.25, 3→1.5, ... cap 2.5
+      firstBonus = (multi && pid === firstCorrectPid) ? 200 : 0;
+      milestone = p.streak === 5 ? 300 : p.streak === 10 ? 700 : 0;
+      gained = Math.round(base * combo) + firstBonus + milestone;
       if (doubles[pid]) { gained *= 2; doubled = true; }
     } else {
       p.streak = 0;
-      // Yanlış işaretleyene ceza (yalnızca cevap verdiyse; boş bırakan ceza almaz)
-      if (penalty && a) gained = -penalty;
+      if (penalty && a) gained = -penalty; // yanlış işaretleyene ceza (boş = 0)
     }
     p.score = Math.max(0, (p.score || 0) + gained);
     p.lastGain = gained;
     p.lastBase = base;
-    p.lastStreakBonus = streakBonus;
+    p.lastCombo = combo;
+    p.lastFirst = firstBonus;
+    p.lastMilestone = milestone;
     p.lastStreak = p.streak;
     p.lastDoubled = doubled;
     p.lastCorrect = !!isCorrect;
@@ -708,15 +732,16 @@ function runCountdown(onDone) {
 // ---------------------------------------------------------------------------
 function profileChipHtml() {
   const p = loadProfile();
-  const { cur, next, pct } = rankProgress(p.xp);
+  const lp = levelProgress(p.xp);
+  const title = rankFor(p.xp);
   const label = p.name ? esc(p.name) : "Misafir";
   return `
     <button class="profile-chip" id="profileChip">
-      <span class="pc-rank">${cur.emoji}</span>
+      <span class="pc-lv"><small>LV</small>${lp.level}</span>
       <span class="pc-info">
         <span class="pc-name">${label}</span>
-        <span class="pc-rankname">${esc(cur.name)}${next ? "" : " • MAX"}</span>
-        <span class="pc-bar"><span class="pc-fill" style="width:${pct}%"></span></span>
+        <span class="pc-rankname">${title.emoji} ${esc(title.name)}</span>
+        <span class="pc-bar"><span class="pc-fill" style="width:${lp.pct}%"></span></span>
       </span>
       <span class="pc-xp">${p.xp} XP</span>
     </button>`;
@@ -839,7 +864,7 @@ function renderSettings() {
   const prof = loadProfile();
   const themes = Object.entries(THEMES).map(([key, t]) => {
     const locked = !themeUnlocked(key, prof);
-    return `<button type="button" class="theme-opt ${key === cur ? "sel" : ""} ${locked ? "locked" : ""}" data-theme="${key}" ${locked ? `data-locked="1" title="Kilitli: ${esc(THEME_LOCKS[key].hint)}"` : ""}>
+    return `<button type="button" class="theme-opt ${key === cur ? "sel" : ""} ${locked ? "locked" : ""}" data-theme="${key}" ${locked ? `data-locked="1" title="Kilitli: ${esc(lockHint(THEME_LOCKS[key]))}"` : ""}>
       <span class="theme-sw" style="background:linear-gradient(135deg,${t.vars["--bg1"]},${t.vars["--bg2"]})"></span>
       ${t.emoji} ${esc(t.name)}${locked ? " 🔒" : ""}
     </button>`;
@@ -857,7 +882,7 @@ function renderSettings() {
   document.getElementById("back").onclick = renderHome;
   APP.querySelectorAll(".theme-opt").forEach((b) => {
     b.onclick = () => {
-      if (b.dataset.locked) { alert("Bu tema kilitli: " + THEME_LOCKS[b.dataset.theme].hint); return; }
+      if (b.dataset.locked) { alert("Bu tema kilitli: " + lockHint(THEME_LOCKS[b.dataset.theme])); return; }
       applyTheme(b.dataset.theme);
       APP.querySelectorAll(".theme-opt").forEach((x) => x.classList.remove("sel"));
       b.classList.add("sel");
@@ -954,6 +979,7 @@ function renderProfile() {
   state.currentView = "profile";
   const p = loadProfile();
   const { cur, next, pct } = rankProgress(p.xp);
+  const lp = levelProgress(p.xp);
   const acc = p.totalQuestions ? Math.round((p.totalCorrect / p.totalQuestions) * 100) : 0;
   const ladder = RANKS.map((r) => {
     const reached = p.xp >= r.min;
@@ -982,14 +1008,14 @@ function renderProfile() {
     <div class="card">
       <button class="link-back" id="back">‹ Geri</button>
       <div class="profile-head">
-        <div class="ph-rank">${cur.emoji}</div>
+        <div class="ph-lv"><small>LEVEL</small><b>${lp.level}</b></div>
         <div>
           <input class="input name-inline" id="pname" maxlength="16" placeholder="Takma adın" value="${esc(p.name)}">
-          <div class="ph-rankname">${esc(cur.name)}${next ? ` → ${next.emoji} ${esc(next.name)}` : " • En yüksek rütbe"}</div>
+          <div class="ph-rankname">${cur.emoji} ${esc(cur.name)}${next ? ` → ${next.emoji} ${esc(next.name)}` : " • En yüksek ünvan"}</div>
         </div>
       </div>
-      <div class="pc-bar big"><span class="pc-fill" style="width:${pct}%"></span></div>
-      <div class="muted small center">${p.xp} XP${next ? ` — sonraki rütbeye ${next.min - p.xp} XP` : ""}</div>
+      <div class="pc-bar big"><span class="pc-fill" style="width:${lp.pct}%"></span></div>
+      <div class="muted small center">${p.xp} XP — Level ${lp.level + 1} için ${lp.toNext} XP</div>
 
       <div class="stat-grid">
         <div class="stat"><div class="stat-v">${p.games}</div><div class="stat-l">Oyun</div></div>
@@ -1039,7 +1065,7 @@ function avatarPickerHtml() {
   const cur = p.avatar || "🙂";
   return `<div class="avatar-picker" id="avpick">${AVATARS.map((a) => {
     const locked = !avatarUnlocked(a, p);
-    const hint = locked ? AVATAR_LOCKS[a].hint : "";
+    const hint = locked ? lockHint(AVATAR_LOCKS[a]) : "";
     return `<button type="button" class="av-opt ${a === cur ? "sel" : ""} ${locked ? "locked" : ""}" data-av="${a}" ${locked ? `data-locked="1" title="Kilitli: ${esc(hint)}"` : ""}>${locked ? "🔒" : a}</button>`;
   }).join("")}</div>`;
 }
@@ -1048,7 +1074,7 @@ function bindAvatarPicker() {
   if (!wrap) return;
   wrap.querySelectorAll(".av-opt").forEach((b) => {
     b.onclick = () => {
-      if (b.dataset.locked) { showCharacter("mc", "Bu avatar kilitli: " + (AVATAR_LOCKS[b.dataset.av].hint)); return; }
+      if (b.dataset.locked) { showCharacter("mc", "Bu avatar kilitli: " + lockHint(AVATAR_LOCKS[b.dataset.av])); return; }
       setAvatar(b.dataset.av);
       wrap.querySelectorAll(".av-opt").forEach((x) => x.classList.remove("sel"));
       b.classList.add("sel");
@@ -1821,7 +1847,7 @@ function renderPlayerReveal() {
   const players = playersList().sort((a, b) => (b[1].score || 0) - (a[1].score || 0));
   const myRank = players.findIndex(([id]) => id === state.playerId) + 1;
   const breakdown = correct
-    ? `<div class="gain-breakdown">${me.lastBase || 0} puan${me.lastStreakBonus ? ` + ${me.lastStreakBonus} seri` : ""}${me.lastDoubled ? " × 2 (çift puan)" : ""}</div>`
+    ? `<div class="gain-breakdown">${me.lastBase || 0} temel${(me.lastCombo || 1) > 1 ? ` × ${me.lastCombo} combo` : ""}${me.lastFirst ? ` + ${me.lastFirst} ilk` : ""}${me.lastMilestone ? ` + ${me.lastMilestone} seri` : ""}${me.lastDoubled ? " × 2 çift puan" : ""}</div>`
     : "";
   APP.innerHTML = `
     <div class="card center reveal-player ${correct ? "good" : "bad"}">
@@ -1979,6 +2005,7 @@ function recordLocalResult(m, sortedPlayers) {
   const meP = (state.room.players || {})[localPid];
   if (!meP) return "";
   state.recorded = true;
+  const oldXp = loadProfile().xp || 0;
   const myRank = sortedPlayers.findIndex(([id]) => id === localPid) + 1;
   let won;
   if (m.teamMode) {
@@ -2024,6 +2051,22 @@ function recordLocalResult(m, sortedPlayers) {
     publishLeague(wk, pr.deviceId, { name: pr.name || "Misafir", avatar: pr.avatar || "🙂", xp: pr.weekly.xp, ts: Date.now() });
   } catch (e) {}
 
+  // Level atlama kontrolü + yeni açılan ödüller
+  const oldLevel = levelFromXp(oldXp);
+  const newLevel = levelFromXp(pr.xp);
+  if (newLevel > oldLevel) {
+    const unlocked = [];
+    for (const a in AVATAR_LOCKS) {
+      const l = AVATAR_LOCKS[a];
+      if (l.level && l.level > oldLevel && l.level <= newLevel) unlocked.push("Avatar " + a);
+    }
+    for (const k in THEME_LOCKS) {
+      const l = THEME_LOCKS[k];
+      if (l.level && l.level > oldLevel && l.level <= newLevel) unlocked.push("Tema " + (THEMES[k] ? THEMES[k].name : k));
+    }
+    setTimeout(() => showLevelUp(newLevel, unlocked), 1000);
+  }
+
   // Oyun sonu karakteri (yerel katılımcıya özel)
   let cid = null;
   if (won) cid = "crown";
@@ -2032,15 +2075,28 @@ function recordLocalResult(m, sortedPlayers) {
   else if (gs.questions && gs.correct / gs.questions >= 0.8) cid = "owl";
   if (cid) setTimeout(() => showCharacter(cid), 900);
 
-  const { cur, next, pct } = rankProgress(pr.xp);
+  const lp = levelProgress(pr.xp);
+  const title = rankFor(pr.xp);
   return `
     <div class="xp-summary">
       <div class="xp-gain">+${res.gainedXp}${questXp ? ` (+${questXp} görev)` : ""} XP</div>
-      ${res.leveledUp ? `<div class="levelup">🎉 Rütbe atladın: ${res.newRank.emoji} ${esc(res.newRank.name)}!</div>` : ""}
-      <div class="xp-rank">${cur.emoji} ${esc(cur.name)}</div>
-      <div class="pc-bar"><span class="pc-fill" style="width:${pct}%"></span></div>
-      <div class="muted small">${pr.xp} XP${next ? ` — sonraki: ${next.emoji} ${esc(next.name)} (${next.min - pr.xp} XP)` : " • En yüksek rütbe"}</div>
+      ${newLevel > oldLevel ? `<div class="levelup">🎉 Level ${newLevel}!</div>` : ""}
+      <div class="xp-rank">LV ${lp.level} · ${title.emoji} ${esc(title.name)}</div>
+      <div class="pc-bar"><span class="pc-fill" style="width:${lp.pct}%"></span></div>
+      <div class="muted small">${pr.xp} XP — Level ${lp.level + 1} için ${lp.toNext} XP</div>
     </div>`;
+}
+
+// Level atladın kutlaması
+function showLevelUp(level, unlocked) {
+  const el = document.createElement("div");
+  el.className = "levelup-pop";
+  el.innerHTML = `<div class="lu-num"><small>LEVEL</small>${level}</div>
+    <div class="lu-txt">Seviye atladın!</div>
+    ${unlocked && unlocked.length ? `<div class="lu-unlock">🔓 Açıldı: ${unlocked.map(esc).join(", ")}</div>` : ""}`;
+  document.body.appendChild(el);
+  sfx.fanfare();
+  setTimeout(() => { el.classList.add("out"); setTimeout(() => el.remove(), 500); }, 3400);
 }
 
 function renderRoomGone() {
