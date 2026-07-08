@@ -1,4 +1,5 @@
 // Kişisel profil, rekorlar ve rütbe (rank) sistemi — cihazda (localStorage) kalıcı.
+import { evaluateBadges } from "./achievements.js";
 const KEY = "bnb_profile";
 
 export const RANKS = [
@@ -15,7 +16,7 @@ const DEFAULT = {
   name: "", avatar: "🙂", deviceId: "", xp: 0, games: 0, wins: 0,
   bestScore: 0, bestStreak: 0,
   totalCorrect: 0, totalQuestions: 0,
-  history: [],
+  history: [], badges: {},
 };
 
 export function loadProfile() {
@@ -72,11 +73,18 @@ export function recordGame(result) {
   });
   if (p.history.length > 20) p.history.length = 20;
   const newRank = rankFor(p.xp);
+  // Rozetleri değerlendir (bu oyunun bağlamıyla)
+  const newBadges = evaluateBadges(p, {
+    won: !!result.won, team: !!result.team,
+    correct: result.correct || 0, questions: result.questions || 0,
+    perfect: !!result.perfect, fastMs: result.fastMs || 0, time: result.time || 1,
+  });
   saveProfile(p);
   return {
     gainedXp: score,
     leveledUp: newRank !== oldRank,
     oldRank, newRank,
+    newBadges,
     profile: p,
   };
 }

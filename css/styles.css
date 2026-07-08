@@ -414,7 +414,7 @@ textarea.input { min-height: 90px; resize: vertical; font-family: inherit; }
 /* Karakter pop (konuşma balonu) */
 .char-pop {
   position: fixed; left: 12px; bottom: 16px; z-index: 9998; display: flex; align-items: flex-end; gap: 8px;
-  animation: charin .4s ease;
+  animation: charin .4s ease; pointer-events: none;
 }
 .char-pop.out { animation: charout .4s ease forwards; }
 @keyframes charin { from { transform: translateY(40px); opacity: 0; } to { transform: none; opacity: 1; } }
@@ -428,6 +428,38 @@ textarea.input { min-height: 90px; resize: vertical; font-family: inherit; }
   content: ""; position: absolute; right: -8px; bottom: 14px; border: 8px solid transparent;
   border-left-color: #fff; border-right: 0;
 }
+
+/* Rozetler */
+.badge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.badge-item { background: var(--secondary); border-radius: 12px; padding: 10px; text-align: center; }
+.badge-item.locked { opacity: .5; filter: grayscale(1); }
+.badge-item.got { box-shadow: 0 0 0 2px #e0b000 inset; background: #fff8e1; }
+.badge-ico { font-size: 1.8rem; }
+.badge-nm { font-weight: 800; font-size: .85rem; }
+.badge-dc { font-size: .7rem; color: var(--muted); }
+
+/* Rozet kazanıldı bildirimi */
+.badge-pop {
+  position: fixed; top: 60px; left: 50%; transform: translateX(-50%); z-index: 9998;
+  background: #fff; color: var(--ink); border-radius: 16px; padding: 12px 18px; display: flex;
+  align-items: center; gap: 12px; box-shadow: var(--shadow); animation: badgein .4s ease;
+  border: 2px solid #e0b000; pointer-events: none;
+}
+.badge-pop.out { animation: badgeout .4s ease forwards; }
+@keyframes badgein { from { transform: translate(-50%, -30px); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }
+@keyframes badgeout { to { transform: translate(-50%, -30px); opacity: 0; } }
+.badge-emoji { font-size: 2.4rem; }
+.badge-t { font-weight: 700; font-size: .78rem; color: var(--muted); }
+.badge-n { font-weight: 900; }
+
+/* Tema seçici */
+.theme-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.theme-opt {
+  display: flex; align-items: center; gap: 8px; background: var(--secondary); border: 2px solid transparent;
+  border-radius: 12px; padding: 10px; font-weight: 700; cursor: pointer;
+}
+.theme-opt.sel { border-color: var(--primary); }
+.theme-sw { width: 26px; height: 26px; border-radius: 50%; display: inline-block; box-shadow: 0 1px 3px rgba(0,0,0,.2); }
 
 /* Küçük ekran */
 @media (max-width: 400px) {

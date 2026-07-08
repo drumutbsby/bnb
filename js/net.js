@@ -107,6 +107,15 @@ export function sendInput(code, msg) {
 }
 export function subscribeState(code, cb) { return sub(stateTopic(code), cb); }
 
+// Hızlı eşleşme: açık odaları keşfet (tüm state konularını dinle)
+export function subscribeRooms(cb) {
+  return sub(`${PREFIX}/+/state`, (data, raw, topic) => {
+    const parts = (topic || "").split("/");
+    const code = parts[parts.length - 2];
+    cb(code, data);
+  });
+}
+
 // --- Global "Şöhret Salonu" (Hall of Fame) — en iyi çaba, retained ---
 const hofTopic = (id) => `${PREFIX}/hof/${id}`;
 export function publishHof(id, entry) {

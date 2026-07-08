@@ -3,14 +3,15 @@
 // Model: HOST yetkilidir; oda durumunu yayınlar. Oyuncular yalnızca girdi gönderir.
 import {
   isConfigured, whenConnected, subscribeInput, subscribeState,
-  publishState, clearState, sendInput, publishHof, subscribeHof,
+  publishState, clearState, sendInput, publishHof, subscribeHof, subscribeRooms,
 } from "./net.js";
 import { CATEGORIES, CUSTOM_CATEGORY, QUESTIONS, buildQuestionSet } from "./questions.js";
 import { unlock, sfx, isMuted, toggleMute } from "./sound.js";
 import { confetti } from "./confetti.js";
 import qrcode from "./vendor/qrcode.js";
 import { loadProfile, setName, setAvatar, rankFor, rankProgress, recordGame, RANKS } from "./profile.js";
-import { CHARACTERS, pickPhrase } from "./characters.js";
+import { CHARACTERS, pickPhrase, CATEGORY_QUIPS } from "./characters.js";
+import { ACHIEVEMENTS } from "./achievements.js";
 
 const APP = document.getElementById("app");
 
@@ -26,6 +27,23 @@ const DIFFICULTY = {
 const START_JOKERS = { fifty: 1, double: 1 };
 const CUSTOM_KEY = "bnb_custom";
 const AVATARS = ["🦁","🐯","🐻","🦊","🐼","🐨","🐸","🐵","🦄","🐲","🦉","🐺","🐱","🐶","🐹","🐰","🦖","🐙","🐬","🦈","🦋","🐝","🦅","🐷","🐮","🐔","🐧","🐢"];
+const THEMES = {
+  mor:       { name: "Mor", emoji: "🟣", vars: { "--bg1": "#46178f", "--bg2": "#7c2fd6", "--primary": "#46178f", "--primary-d": "#35116e" } },
+  okyanus:   { name: "Okyanus", emoji: "🔵", vars: { "--bg1": "#0b3d66", "--bg2": "#1368ce", "--primary": "#0b5cad", "--primary-d": "#083f78" } },
+  orman:     { name: "Orman", emoji: "🟢", vars: { "--bg1": "#12572b", "--bg2": "#26890c", "--primary": "#1a7a2e", "--primary-d": "#0f5220" } },
+  gunbatimi: { name: "Gün Batımı", emoji: "🟠", vars: { "--bg1": "#7a1f4b", "--bg2": "#e2691b", "--primary": "#c8106e", "--primary-d": "#8f0a4e" } },
+  gece:      { name: "Gece", emoji: "⚫", vars: { "--bg1": "#0f1220", "--bg2": "#232946", "--primary": "#5a5fd6", "--primary-d": "#3b3f9e" } },
+};
+function currentTheme() { try { return localStorage.getItem("bnb_theme") || "mor"; } catch (e) { return "mor"; } }
+function applyTheme(key) {
+  const t = THEMES[key] || THEMES.mor;
+  const root = document.documentElement;
+  for (const k in t.vars) root.style.setProperty(k, t.vars[k]);
+  try { localStorage.setItem("bnb_theme", key); } catch (e) {}
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute("content", t.vars["--bg1"]);
+}
+function tickEnabled() { try { return localStorage.getItem("bnb_tick") !== "0"; } catch (e) { return true; } }
 
 
 // ---------------------------------------------------------------------------
@@ -606,10 +624,11 @@ function fullRender() {
     state.role === "host" ? renderHostLobby() : renderPlayerLobby();
   } else if (status === "question") {
     state.currentView = "question";
+    state.lastTickSec = 99;
     if (state.answeredIndex !== m.questionIndex) state.answeredIndex = -1;
     // İlk soruda oyun-içi istatistikleri sıfırla
     if (m.questionIndex === 0 && !state.statsInit) {
-      state.gameStats = { correct: 0, questions: 0, maxStreak: 0, wrongStreak: 0 };
+      state.gameStats = { correct: 0, questions: 0, maxStreak: 0, wrongStreak: 0, fastMs: 0 };
       state.statsInit = true; state.recorded = false;
     }
     state.role === "host" ? renderHostQuestion() : renderPlayerQuestion();
@@ -686,16 +705,93 @@ function renderHome() {
       ${profileChipHtml()}
       <button class="btn btn-primary btn-big" id="goHost">🎮 Oda Kur</button>
       <button class="btn btn-secondary btn-big" id="goJoin">🙋 Odaya Katıl</button>
+      <button class="btn btn-secondary btn-big" id="quick">⚡ Hızlı Eşleş</button>
       <div class="home-links">
         <button class="btn-link" id="records">🏆 Rekorlarım</button>
-        <button class="btn-link" id="global">🌍 Global Sıralama</button>
+        <button class="btn-link" id="global">🌍 Global</button>
+        <button class="btn-link" id="settings">⚙️ Ayarlar</button>
       </div>
     </div>`;
   document.getElementById("goHost").onclick = () => { sfx.click(); renderHostSetup(); };
   document.getElementById("goJoin").onclick = () => { sfx.click(); renderJoin(); };
+  document.getElementById("quick").onclick = () => { sfx.click(); renderQuickMatch(); };
   document.getElementById("records").onclick = () => { sfx.click(); renderProfile(); };
   document.getElementById("global").onclick = () => { sfx.click(); renderGlobal(); };
+  document.getElementById("settings").onclick = () => { sfx.click(); renderSettings(); };
   document.getElementById("profileChip").onclick = () => { sfx.click(); renderProfile(); };
+}
+
+function renderSettings() {
+  state.currentView = "settings";
+  const cur = currentTheme();
+  const themes = Object.entries(THEMES).map(([key, t]) =>
+    `<button type="button" class="theme-opt ${key === cur ? "sel" : ""}" data-theme="${key}">
+      <span class="theme-sw" style="background:linear-gradient(135deg,${t.vars["--bg1"]},${t.vars["--bg2"]})"></span>
+      ${t.emoji} ${esc(t.name)}
+    </button>`).join("");
+  APP.innerHTML = `
+    <div class="card">
+      <button class="link-back" id="back">‹ Geri</button>
+      <h2>⚙️ Ayarlar</h2>
+      <label class="field-label">Tema</label>
+      <div class="theme-grid">${themes}</div>
+      <label class="field-label">Ses</label>
+      <label class="toggle-chip"><input type="checkbox" id="setSound" ${isMuted() ? "" : "checked"}> <span>🔊 Ses efektleri</span></label>
+      <label class="toggle-chip"><input type="checkbox" id="setTick" ${tickEnabled() ? "checked" : ""}> <span>⏱️ Son saniyelerde gerilim tıkırtısı</span></label>
+    </div>`;
+  document.getElementById("back").onclick = renderHome;
+  APP.querySelectorAll(".theme-opt").forEach((b) => {
+    b.onclick = () => {
+      applyTheme(b.dataset.theme);
+      APP.querySelectorAll(".theme-opt").forEach((x) => x.classList.remove("sel"));
+      b.classList.add("sel");
+      sfx.click();
+    };
+  });
+  document.getElementById("setSound").onchange = (e) => { if (isMuted() === e.target.checked) toggleMute(); const mb = document.getElementById("muteBtn"); if (mb) mb.textContent = isMuted() ? "🔇" : "🔊"; };
+  document.getElementById("setTick").onchange = (e) => { try { localStorage.setItem("bnb_tick", e.target.checked ? "1" : "0"); } catch (x) {} };
+}
+
+function renderQuickMatch() {
+  let name = loadProfile().name;
+  if (!name) { name = (prompt("Takma adın:") || "").trim(); if (!name) { renderHome(); return; } setName(name); }
+  state.currentView = "quick";
+  APP.innerHTML = `
+    <div class="card center">
+      <div class="logo small">⚡ Hızlı Eşleş</div>
+      <div class="spinner"></div>
+      <p class="muted" id="qmNote">Açık oda aranıyor...</p>
+    </div>`;
+  const rooms = new Map();
+  let unsub = null, decided = false;
+  const cleanup = () => { if (unsub) unsub(); };
+  whenConnected().then(() => {
+    unsub = subscribeRooms((code, data) => {
+      if (!data || !data.meta) { rooms.delete(code); return; }
+      const m = data.meta;
+      const open = m.status === "lobby" && !m.redirectTo && !m.teamMode;
+      if (open) rooms.set(code, data); else rooms.delete(code);
+    });
+    setTimeout(() => {
+      if (decided) return; decided = true; cleanup();
+      const codes = [...rooms.keys()];
+      if (!codes.length) {
+        const n = document.getElementById("qmNote");
+        APP.querySelector(".spinner")?.remove();
+        if (n) n.innerHTML = "Şu an açık oda yok 😕<br>Sen bir oda kurabilirsin!";
+        const b = document.createElement("button"); b.className = "btn btn-primary btn-big"; b.textContent = "Oda Kur";
+        b.onclick = renderHostSetup; APP.querySelector(".card").appendChild(b);
+        const h = document.createElement("button"); h.className = "btn-link"; h.textContent = "Ana Sayfa"; h.onclick = renderHome;
+        APP.querySelector(".card").appendChild(h);
+        return;
+      }
+      const code = codes[Math.floor(Math.random() * codes.length)];
+      const note = document.getElementById("qmNote"); if (note) note.textContent = `Odaya katılıyorsun: ${code}`;
+      joinRoom(code, name).then((res) => { if (!res.ok) { renderJoin(res.error, code); } });
+    }, 2200);
+  }).catch(() => {
+    const n = document.getElementById("qmNote"); if (n) n.textContent = "Sunucuya bağlanılamadı.";
+  });
 }
 
 function renderGlobal() {
@@ -755,6 +851,16 @@ function renderProfile() {
       <span class="lb-name">${h.won ? "🏆 " : ""}${h.team ? "Takım" : "Bireysel"} · ${h.rank}${h.players ? "/" + h.players : ""}</span>
       <span class="lb-score">${h.score}</span>
     </div>`).join("") || `<div class="muted small">Henüz oyun yok.</div>`;
+  const badges = p.badges || {};
+  const badgeCount = Object.keys(badges).length;
+  const badgeGrid = ACHIEVEMENTS.map((a) => {
+    const got = !!badges[a.id];
+    return `<div class="badge-item ${got ? "got" : "locked"}" title="${esc(a.desc)}">
+      <div class="badge-ico">${got ? a.emoji : "🔒"}</div>
+      <div class="badge-nm">${esc(a.name)}</div>
+      <div class="badge-dc">${esc(a.desc)}</div>
+    </div>`;
+  }).join("");
 
   APP.innerHTML = `
     <div class="card">
@@ -778,6 +884,8 @@ function renderProfile() {
         <div class="stat"><div class="stat-v">${p.totalCorrect}</div><div class="stat-l">Doğru cevap</div></div>
       </div>
 
+      <div class="players-title">Rozetler (${badgeCount}/${ACHIEVEMENTS.length})</div>
+      <div class="badge-grid">${badgeGrid}</div>
       <div class="players-title">Rütbeler</div>
       <div class="rank-ladder">${ladder}</div>
       <div class="players-title">Son Oyunlar</div>
@@ -1509,6 +1617,12 @@ function startTicker() {
     const num = document.getElementById("timerNum");
     const fill = document.getElementById("timerFill");
     if (num) num.textContent = Math.ceil(remaining);
+    // Son 5 saniyede gerilim tıkırtısı
+    const secLeft = Math.ceil(remaining);
+    if (tickEnabled() && secLeft <= 5 && secLeft >= 1 && secLeft !== state.lastTickSec &&
+        state.answeredIndex !== m.questionIndex) {
+      state.lastTickSec = secLeft; sfx.tick();
+    }
     if (fill) {
       const pct = Math.max(0, Math.min(100, (remaining / limit) * 100));
       fill.style.width = pct + "%";
@@ -1610,8 +1724,11 @@ function tallyGameStat(correct, streak) {
   if (!state.gameStats) state.gameStats = { correct: 0, questions: 0, maxStreak: 0, wrongStreak: 0 };
   const gs = state.gameStats;
   gs.questions += 1;
-  if (correct) { gs.correct += 1; gs.wrongStreak = 0; }
-  else gs.wrongStreak += 1;
+  if (correct) {
+    gs.correct += 1; gs.wrongStreak = 0;
+    const el = state.lastElapsed || 0;
+    if (el > 0 && (gs.fastMs === 0 || el < gs.fastMs)) gs.fastMs = el;
+  } else gs.wrongStreak += 1;
   if ((streak || 0) > gs.maxStreak) gs.maxStreak = streak;
   maybeShowCharacter(correct, streak || 0);
 }
@@ -1635,15 +1752,45 @@ function showCharacter(id, phraseOverride) {
 }
 
 function maybeShowCharacter(correct, streak) {
+  const m = state.room.meta;
   const gs = state.gameStats || {};
-  const limit = (state.room.meta.timeLimit || 20) * 1000;
+  const limit = (m.timeLimit || 20) * 1000;
   const el = state.lastElapsed || 0;
-  let id = null;
+  let id = null, phrase = null;
   if (correct && streak >= 3) id = "fire";
   else if (!correct && gs.wrongStreak >= 3) id = "nervous";
   else if (correct && el > 0 && el < 2500) id = "rocket";
   else if (correct && el >= limit * 0.85) id = "turtle";
-  if (id) showCharacter(id);
+
+  // Performans karakteri yoksa: ara sıra takım atışması / kategori esprisi
+  if (!id && Math.random() < 0.45) {
+    if (m.teamMode) {
+      const t = teamTotals();
+      const localPid = state.role === "host" ? "host" : state.playerId;
+      const meP = (state.room.players || {})[localPid];
+      const myTeam = meP && meP.team === "B" ? "B" : "A";
+      const other = myTeam === "A" ? "B" : "A";
+      if (t[myTeam] > t[other]) id = "taunt";
+      else if (t[myTeam] < t[other]) id = "cheer";
+    }
+    if (!id) {
+      const i = m.questionIndex;
+      const cat = state.room.publicQuestions[i] && state.room.publicQuestions[i].category;
+      const quips = CATEGORY_QUIPS[cat];
+      if (quips && quips.length) { id = "mc"; phrase = quips[Math.floor(Math.random() * quips.length)]; }
+    }
+  }
+  if (id) showCharacter(id, phrase);
+}
+
+// Rozet kazanıldı bildirimi
+function showBadge(a) {
+  const el = document.createElement("div");
+  el.className = "badge-pop";
+  el.innerHTML = `<div class="badge-emoji">${a.emoji}</div><div class="badge-txt"><div class="badge-t">🎖️ Rozet kazandın!</div><div class="badge-n">${esc(a.name)}</div></div>`;
+  document.body.appendChild(el);
+  sfx.streak();
+  setTimeout(() => { el.classList.add("out"); setTimeout(() => el.remove(), 400); }, 3200);
 }
 
 function renderEnded() {
@@ -1720,12 +1867,16 @@ function recordLocalResult(m, sortedPlayers) {
   } else {
     won = myRank === 1;
   }
-  const gs = state.gameStats || { correct: 0, questions: 0, maxStreak: 0 };
+  const gs = state.gameStats || { correct: 0, questions: 0, maxStreak: 0, fastMs: 0 };
+  const perfect = gs.questions > 0 && gs.correct === gs.questions;
   const res = recordGame({
     score: meP.score || 0, won,
     streak: gs.maxStreak || 0, correct: gs.correct || 0, questions: gs.questions || 0,
+    perfect, fastMs: gs.fastMs || 0,
     rank: myRank, players: sortedPlayers.length, team: !!m.teamMode, time: Date.now(),
   });
+  // Yeni açılan rozetleri sırayla göster
+  (res.newBadges || []).forEach((a, i) => setTimeout(() => showBadge(a), 1600 + i * 1400));
   state.statsInit = false; // sonraki oyun için sıfırla
 
   // Global şöhret salonuna kendi en iyisini yayınla (en iyi çaba)
@@ -1814,12 +1965,13 @@ async function resumeSession(saved) {
     render();
   } else {
     state.stateUnsub = subscribeState(saved.code, playerOnState);
-    sendInput(saved.code, { type: "join", pid: state.playerId, name: state.name });
+    sendInput(saved.code, { type: "join", pid: state.playerId, name: state.name, avatar: loadProfile().avatar || "🙂" });
     render();
   }
 }
 
 function boot() {
+  applyTheme(currentTheme());
   setupAudioUI();
   if (!isConfigured) { renderHome(); return; }
 
