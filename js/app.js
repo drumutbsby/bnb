@@ -199,6 +199,7 @@ async function createRoom(categories, count, difficultyKey, hostName, settings) 
       teamName, teamAName: teamName, teamBName: null,
       requireApproval: !!settings.requireApproval,
       teamAvg: !!settings.teamAvg,
+      autoNext: !!settings.autoNext,
       teamMode: false,
     },
     players: {}, requests: {}, publicQuestions: {}, reveal: {}, answers: {}, fifty: {}, doubles: {},
@@ -491,6 +492,7 @@ function hostRevealQuestion(i) {
 }
 
 function hostNext() {
+  clearTimeout(state.autoNextTimer);
   const i = state.room.meta.questionIndex;
   if (i + 1 < state.room.meta.totalQuestions) {
     hostShowQuestion(i + 1);
@@ -643,6 +645,19 @@ function myFiftyHidden(i) {
 function myDoubleActive(i) {
   const d = state.room.doubles && state.room.doubles[i];
   return !!(d && d[state.playerId]);
+}
+// Yerel oyuncunun mevcut serisi (combo göstergesi için)
+function localPidNow() { return state.role === "host" ? "host" : state.playerId; }
+function myStreakNow() { const p = (state.room.players || {})[localPidNow()]; return (p && p.streak) || 0; }
+function comboPillHtml() {
+  const s = myStreakNow();
+  return s >= 2 ? `<span class="combo-pill">🔥 ${s} · ×${comboMult(s + 1)}</span>` : "";
+}
+function flashScreen(kind) {
+  const el = document.createElement("div");
+  el.className = "flash " + kind;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 600);
 }
 
 // ---------------------------------------------------------------------------
@@ -1124,6 +1139,7 @@ function renderHostSetup() {
       <label class="toggle-chip"><input type="checkbox" id="setWrongPenalty"> <span>➖ Yanlışta ceza (−250 puan)</span></label>
       <label class="toggle-chip"><input type="checkbox" id="setApproval"> <span>🛡️ Katılım onayı (lider onaylasın)</span></label>
       <label class="toggle-chip"><input type="checkbox" id="setTeamAvg"> <span>⚖️ Takım puanı ortalamayla (eşit olmayan takımlar için adil)</span></label>
+      <label class="toggle-chip"><input type="checkbox" id="setAutoNext"> <span>⏭️ Otomatik ilerle (sorular arası elle geçme yok)</span></label>
 
       <div class="team-hint">💡 İki oda kurup liderler birbirine <b>meydan okursa</b> takımlar yarışır. Meydan okuma butonu lobide.</div>
       <button class="btn btn-primary btn-big" id="create">Odayı Oluştur</button>
@@ -1161,6 +1177,7 @@ function renderHostSetup() {
       wrongPenalty: document.getElementById("setWrongPenalty").checked,
       requireApproval: document.getElementById("setApproval").checked,
       teamAvg: document.getElementById("setTeamAvg").checked,
+      autoNext: document.getElementById("setAutoNext").checked,
       teamName: document.getElementById("teamName").value.trim(),
     };
     setName(name);
@@ -1573,6 +1590,7 @@ function renderHostQuestion() {
       <div class="q-top">
         <span class="q-progress">Soru ${i + 1}/${m.totalQuestions}</span>
         ${catBadge(pq.category)}
+        ${comboPillHtml()}
       </div>
       ${timerBarHTML()}
       ${visualHTML(pq)}
@@ -1673,6 +1691,7 @@ function renderPlayerQuestion() {
       <div class="q-top">
         <span class="q-progress">Soru ${i + 1}/${m.totalQuestions}</span>
         ${catBadge(pq.category)}
+        ${comboPillHtml()}
       </div>
       ${timerBarHTML()}
       ${visualHTML(pq)}
@@ -1837,6 +1856,13 @@ function renderHostReveal() {
   document.getElementById("next").onclick = () => { sfx.click(); hostNext(); };
   sfx.whoosh();
   if (meHost) tallyGameStat(meHost.lastCorrect, meHost.lastStreak || 0);
+  // Otomatik ilerleme
+  clearTimeout(state.autoNextTimer);
+  if (m.autoNext) {
+    const btn = document.getElementById("next");
+    if (btn) btn.textContent += "  (oto)";
+    state.autoNextTimer = setTimeout(() => { if (state.room && state.room.meta.status === "reveal") hostNext(); }, 5000);
+  }
 }
 
 function renderPlayerReveal() {
@@ -1854,13 +1880,14 @@ function renderPlayerReveal() {
       <div class="reveal-icon">${correct ? "✓" : "✗"}</div>
       <div class="reveal-title">${correct ? "Doğru!" : "Yanlış"}</div>
       ${correct ? `<div class="gain">+${gain} puan</div>${breakdown}` : (gain < 0 ? `<div class="gain" style="color:#e21b3c">${gain} puan</div>` : `<div class="gain muted">+0 puan</div>`)}
-      ${correct && streak >= 2 ? `<div class="streak-fire">🔥 ${streak} seri!</div>` : ""}
+      ${correct && (me.lastCombo || 1) > 1 ? `<div class="combo-badge">COMBO ×${me.lastCombo} 🔥</div>` : (correct && streak >= 2 ? `<div class="streak-fire">🔥 ${streak} seri!</div>` : "")}
       ${state.room.meta.teamMode ? teamScoreHtml() : `<div class="rank-box">
         <div>Sıralaman</div>
         <div class="rank-num">${myRank}. / ${players.length}</div>
         <div class="muted small">Toplam: ${me.score || 0} puan</div>
       </div>`}
     </div>`;
+  flashScreen(correct ? "good" : "bad");
   if (correct) { sfx.correct(); if (streak >= 2) setTimeout(() => sfx.streak(), 350); }
   else sfx.wrong();
   tallyGameStat(correct, streak);
@@ -1979,15 +2006,17 @@ function renderEnded() {
       <div class="players-title">Tam Sıralama</div>
       ${leaderboardHTML()}
       ${state.role === "host"
-        ? `<button class="btn btn-primary btn-big" id="again">Yeni Oyun</button>
+        ? `<button class="btn btn-primary btn-big" id="rematch">🔁 Aynı Kadroyla Tekrar</button>
+           <button class="btn btn-secondary" id="again">Yeni Oyun (ayarlar)</button>
            <button class="mini-btn danger" id="close">Odayı Kapat</button>`
-        : `<p class="muted">Tekrar oynamak için sunucu yeni oyun başlatabilir.</p>`}
+        : `<p class="muted">Sunucu "tekrar" derse otomatik yeni tura geçersin.</p>`}
     </div>`;
   confetti(3000);
   sfx.fanfare();
   if (state.role === "host") {
+    document.getElementById("rematch").onclick = () => { sfx.click(); hostRematch(); };
     document.getElementById("again").onclick = () => {
-      clearTimeout(state.autoRevealTimer);
+      clearTimeout(state.autoRevealTimer); clearTimeout(state.autoNextTimer);
       if (state.inputUnsub) state.inputUnsub();
       clearState(state.code);
       clearSession();
@@ -1996,6 +2025,28 @@ function renderEnded() {
     };
     document.getElementById("close").onclick = hostCloseRoom;
   }
+}
+
+// Aynı oyuncularla yeni tur: skorları sıfırla, yeni soru seti üret
+function hostRematch() {
+  const room = state.room, m = room.meta;
+  const cats = (m.categories || []).filter((c) => c !== "hepsi");
+  const custom = cats.includes("ozel") ? loadCustom() : null;
+  const qset = buildQuestionSet(cats, m.totalQuestions, custom);
+  if (!qset.length) { alert("Yeni tur için soru bulunamadı."); return; }
+  state.localQuestions = qset;
+  for (const pid in room.players) {
+    const p = room.players[pid];
+    p.score = 0; p.streak = 0; p.lastGain = 0; p.lastCorrect = false; p.lastStreak = 0;
+    p.jokers = { ...START_JOKERS };
+    delete p.lastCombo; delete p.lastFirst; delete p.lastMilestone; delete p.lastDoubled; delete p.lastBase;
+  }
+  room.answers = {}; room.reveal = {}; room.fifty = {}; room.doubles = {};
+  m.status = "lobby"; m.questionIndex = -1; m.totalQuestions = qset.length;
+  state.recorded = false; state.statsInit = false; state.answeredIndex = -1;
+  clearTimeout(state.autoNextTimer); clearTimeout(state.autoRevealTimer);
+  state.lastRenderKey = null; // lobiye tam çizim
+  hostPublish(); render();
 }
 
 // Oyun sonunda yerel oyuncunun rekorunu işler, XP/rütbe özeti HTML'i döndürür
@@ -2112,6 +2163,7 @@ function renderRoomGone() {
 
 function resetToHome() {
   clearTimeout(state.autoRevealTimer);
+  clearTimeout(state.autoNextTimer);
   if (state.stateUnsub) state.stateUnsub();
   if (state.inputUnsub) state.inputUnsub();
   clearSession();

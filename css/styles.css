@@ -519,6 +519,29 @@ textarea.input { min-height: 90px; resize: vertical; font-family: inherit; }
 .lu-txt { font-weight: 800; margin-top: 6px; }
 .lu-unlock { margin-top: 8px; font-size: .82rem; background: rgba(255,255,255,.2); border-radius: 10px; padding: 6px 10px; }
 
+/* Canlı combo pili (soru ekranı) */
+.combo-pill {
+  background: linear-gradient(135deg, #e2691b, #e21b3c); color: #fff; font-weight: 800;
+  padding: 4px 10px; border-radius: 14px; font-size: .78rem; animation: cppulse 1s ease infinite;
+}
+@keyframes cppulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+
+/* Reveal combo rozeti */
+.combo-badge {
+  display: inline-block; background: linear-gradient(135deg, #e2691b, #e21b3c); color: #fff;
+  font-weight: 900; font-size: 1.3rem; padding: 8px 18px; border-radius: 16px; margin: 8px 0;
+  animation: cbpop .5s ease;
+}
+@keyframes cbpop { from { transform: scale(.4) rotate(-8deg); opacity: 0; } 60% { transform: scale(1.15) rotate(3deg); } to { transform: scale(1) rotate(0); opacity: 1; } }
+
+/* Doğru/Yanlış ekran flaşı */
+.flash {
+  position: fixed; inset: 0; z-index: 9997; pointer-events: none; animation: flashfade .6s ease forwards;
+}
+.flash.good { background: radial-gradient(circle, rgba(38,137,12,.35), transparent 70%); }
+.flash.bad { background: radial-gradient(circle, rgba(226,27,60,.35), transparent 70%); }
+@keyframes flashfade { from { opacity: 1; } to { opacity: 0; } }
+
 /* Küçük ekran */
 @media (max-width: 400px) {
   .card { padding: 18px; }
