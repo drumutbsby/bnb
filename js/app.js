@@ -3,13 +3,14 @@
 // Model: HOST yetkilidir; oda durumunu yayınlar. Oyuncular yalnızca girdi gönderir.
 import {
   isConfigured, whenConnected, subscribeInput, subscribeState,
-  publishState, clearState, sendInput,
+  publishState, clearState, sendInput, publishHof, subscribeHof,
 } from "./net.js";
 import { CATEGORIES, CUSTOM_CATEGORY, QUESTIONS, buildQuestionSet } from "./questions.js";
 import { unlock, sfx, isMuted, toggleMute } from "./sound.js";
 import { confetti } from "./confetti.js";
 import qrcode from "./vendor/qrcode.js";
-import { loadProfile, setName, rankFor, rankProgress, recordGame, RANKS } from "./profile.js";
+import { loadProfile, setName, setAvatar, rankFor, rankProgress, recordGame, RANKS } from "./profile.js";
+import { CHARACTERS, pickPhrase } from "./characters.js";
 
 const APP = document.getElementById("app");
 
@@ -24,6 +25,8 @@ const DIFFICULTY = {
 };
 const START_JOKERS = { fifty: 1, double: 1 };
 const CUSTOM_KEY = "bnb_custom";
+const AVATARS = ["🦁","🐯","🐻","🦊","🐼","🐨","🐸","🐵","🦄","🐲","🦉","🐺","🐱","🐶","🐹","🐰","🦖","🐙","🐬","🦈","🦋","🐝","🦅","🐷","🐮","🐔","🐧","🐢"];
+
 
 // ---------------------------------------------------------------------------
 // Durum (state)
@@ -90,6 +93,7 @@ function hostPublish() {
     players: r.players || {},
     requests: r.requests || {},
     rejected: r.rejected || {},
+    kicked: r.kicked || {},
     publicQuestions: r.publicQuestions || {},
     reveal: r.reveal || {},
     fifty: r.fifty || {},
@@ -142,6 +146,7 @@ async function createRoom(categories, count, difficultyKey, hostName, settings) 
       wrongPenalty: settings.wrongPenalty ? 250 : 0,
       teamName, teamAName: teamName, teamBName: null,
       requireApproval: !!settings.requireApproval,
+      teamAvg: !!settings.teamAvg,
       teamMode: false,
     },
     players: {}, requests: {}, publicQuestions: {}, reveal: {}, answers: {}, fifty: {}, doubles: {},
@@ -150,6 +155,7 @@ async function createRoom(categories, count, difficultyKey, hostName, settings) 
   if (hostPlays) {
     state.room.players["host"] = {
       name: hostName, score: 0, streak: 0, team: "A",
+      avatar: (settings.avatar || loadProfile().avatar || "🙂"),
       lastGain: 0, lastCorrect: false, lastStreak: 0,
       jokers: { ...START_JOKERS },
     };
@@ -161,9 +167,10 @@ async function createRoom(categories, count, difficultyKey, hostName, settings) 
   render();
 }
 
-function addPlayer(pid, name, team) {
+function addPlayer(pid, name, team, avatar) {
   state.room.players[pid] = {
     name: String(name).slice(0, 16), score: 0, streak: 0, team: team || "A",
+    avatar: avatar || "🙂",
     lastGain: 0, lastCorrect: false, lastStreak: 0,
     jokers: { ...START_JOKERS },
   };
@@ -175,18 +182,19 @@ function hostOnInput(msg) {
   if (msg.type === "join") {
     if (room.meta.status !== "lobby") return;
     if (!msg.pid || !msg.name) return;
+    if (room.kicked && room.kicked[msg.pid]) return; // atılan geri giremez
     // Rakip takım (challenge kabulü sonrası taşınan) doğrudan eklenir
     const team = msg.team === "B" ? "B" : "A";
     // Onay gerekiyorsa ve ev sahibi takımsa: talep olarak al
     if (room.meta.requireApproval && team === "A") {
       if (!room.players[msg.pid] && !room.requests[msg.pid]) {
-        room.requests[msg.pid] = { name: String(msg.name).slice(0, 16) };
+        room.requests[msg.pid] = { name: String(msg.name).slice(0, 16), avatar: msg.avatar || "🙂" };
         hostPublish(); render();
       }
       return;
     }
     if (!room.players[msg.pid]) {
-      addPlayer(msg.pid, msg.name, team);
+      addPlayer(msg.pid, msg.name, team, msg.avatar);
       sfx.join();
       hostPublish();
       render();
@@ -194,8 +202,9 @@ function hostOnInput(msg) {
   } else if (msg.type === "joinRequest") {
     if (room.meta.status !== "lobby") return;
     if (!msg.pid || !msg.name) return;
+    if (room.kicked && room.kicked[msg.pid]) return;
     if (!room.players[msg.pid] && !room.requests[msg.pid]) {
-      room.requests[msg.pid] = { name: String(msg.name).slice(0, 16) };
+      room.requests[msg.pid] = { name: String(msg.name).slice(0, 16), avatar: msg.avatar || "🙂" };
       sfx.join();
       hostPublish(); render();
     }
@@ -333,7 +342,7 @@ function migrateToArena(arenaCode, myTeamName) {
 
   renderMigrating();
   state.stateUnsub = subscribeState(arenaCode, playerOnState);
-  sendInput(arenaCode, { type: "join", pid: state.playerId, name: state.name, team: "B" });
+  sendInput(arenaCode, { type: "join", pid: state.playerId, name: state.name, team: "B", avatar: loadProfile().avatar || "🙂" });
   saveSession();
   state.migrating = false;
 }
@@ -438,7 +447,7 @@ function approveRequest(pid) {
   const room = state.room;
   const req = room.requests && room.requests[pid];
   if (!req) return;
-  addPlayer(pid, req.name, "A");
+  addPlayer(pid, req.name, "A", req.avatar);
   delete room.requests[pid];
   sfx.join();
   hostPublish(); render();
@@ -449,6 +458,18 @@ function rejectRequest(pid) {
   delete room.requests[pid];
   if (!room.rejected) room.rejected = {};
   room.rejected[pid] = true;
+  hostPublish(); render();
+}
+
+// Lider: oyuncuyu odadan at
+function hostKick(pid) {
+  const room = state.room;
+  if (!room.players[pid] || pid === "host") return;
+  const nm = room.players[pid].name;
+  if (!confirm(`${nm} oyuncusunu at?`)) return;
+  delete room.players[pid];
+  if (!room.kicked) room.kicked = {};
+  room.kicked[pid] = true;
   hostPublish(); render();
 }
 
@@ -472,12 +493,13 @@ async function joinRoom(code, name) {
   state.playerId = uid();
   state.room = data;
 
+  const av = loadProfile().avatar || "🙂";
   const needApproval = !!(data.meta && data.meta.requireApproval);
   state.pendingApproval = needApproval;
   state.stateUnsub = subscribeState(code, playerOnState);
   sendInput(code, needApproval
-    ? { type: "joinRequest", pid: state.playerId, name: state.name }
-    : { type: "join", pid: state.playerId, name: state.name });
+    ? { type: "joinRequest", pid: state.playerId, name: state.name, avatar: av }
+    : { type: "join", pid: state.playerId, name: state.name, avatar: av });
   sfx.join();
   saveSession();
   if (needApproval) renderPendingApproval();
@@ -499,6 +521,13 @@ function playerOnState(data) {
     return;
   }
   state.awaitingArena = false;
+  // Odadan atıldıysa
+  if (data.kicked && data.kicked[state.playerId]) {
+    if (state.stateUnsub) state.stateUnsub();
+    state.currentView = "kicked"; state.lastRenderKey = "kicked";
+    renderKicked();
+    return;
+  }
   state.room = data;
   // Onay bekleyen oyuncu
   if (state.pendingApproval) {
@@ -524,6 +553,7 @@ function playerAnswer(choice) {
   state.answeredIndex = i;
   state.playerChoice = choice;
   const elapsed = Date.now() - state.playerLocalStart;
+  state.lastElapsed = elapsed;
   sendInput(state.code, { type: "answer", pid: state.playerId, i, choice, elapsed });
   sfx.click();
 }
@@ -579,7 +609,7 @@ function fullRender() {
     if (state.answeredIndex !== m.questionIndex) state.answeredIndex = -1;
     // İlk soruda oyun-içi istatistikleri sıfırla
     if (m.questionIndex === 0 && !state.statsInit) {
-      state.gameStats = { correct: 0, questions: 0, maxStreak: 0 };
+      state.gameStats = { correct: 0, questions: 0, maxStreak: 0, wrongStreak: 0 };
       state.statsInit = true; state.recorded = false;
     }
     state.role === "host" ? renderHostQuestion() : renderPlayerQuestion();
@@ -656,12 +686,56 @@ function renderHome() {
       ${profileChipHtml()}
       <button class="btn btn-primary btn-big" id="goHost">🎮 Oda Kur</button>
       <button class="btn btn-secondary btn-big" id="goJoin">🙋 Odaya Katıl</button>
-      <button class="btn-link" id="records">🏆 Rekorlarım & Rütbe</button>
+      <div class="home-links">
+        <button class="btn-link" id="records">🏆 Rekorlarım</button>
+        <button class="btn-link" id="global">🌍 Global Sıralama</button>
+      </div>
     </div>`;
   document.getElementById("goHost").onclick = () => { sfx.click(); renderHostSetup(); };
   document.getElementById("goJoin").onclick = () => { sfx.click(); renderJoin(); };
   document.getElementById("records").onclick = () => { sfx.click(); renderProfile(); };
+  document.getElementById("global").onclick = () => { sfx.click(); renderGlobal(); };
   document.getElementById("profileChip").onclick = () => { sfx.click(); renderProfile(); };
+}
+
+function renderGlobal() {
+  state.currentView = "global";
+  APP.innerHTML = `
+    <div class="card">
+      <button class="link-back" id="back">‹ Geri</button>
+      <h2>🌍 Global Sıralama</h2>
+      <p class="muted small" id="globalNote">Tüm zamanların en iyileri (topluluk · en iyi çaba). Bağlanılıyor...</p>
+      <div id="globalList"><div class="spinner"></div></div>
+    </div>`;
+  const entries = new Map();
+  let unsub = null, rt = null;
+  const done = () => { if (unsub) unsub(); clearTimeout(rt); };
+  document.getElementById("back").onclick = () => { done(); renderHome(); };
+
+  const paint = () => {
+    const mine = loadProfile();
+    const list = [...entries.values()].filter((e) => e && typeof e.xp === "number").sort((a, b) => b.xp - a.xp).slice(0, 50);
+    const rows = list.map((e, i) => `
+      <div class="lb-row ${e.name && e.name === mine.name ? "me" : ""}">
+        <span class="lb-rank">${i + 1}</span>
+        <span class="lb-name"><span class="lb-av">${esc(e.avatar || "🙂")}</span>${esc(e.name || "—")} <span class="muted small">${esc(e.rank || "")}</span></span>
+        <span class="lb-score">${e.xp} XP</span>
+      </div>`).join("") || `<div class="muted small">Henüz kayıt yok. İlk oyununu oyna, listeye gir!</div>`;
+    const gl = document.getElementById("globalList"); if (gl) gl.innerHTML = rows;
+    const note = document.getElementById("globalNote");
+    if (note) note.textContent = `Tüm zamanların en iyileri (topluluk · en iyi çaba) — ${list.length} oyuncu`;
+  };
+  const schedule = () => { clearTimeout(rt); rt = setTimeout(paint, 400); };
+
+  whenConnected().then(() => {
+    const pr = loadProfile();
+    try { publishHof(pr.deviceId, { name: pr.name || "Misafir", avatar: pr.avatar || "🙂", xp: pr.xp, best: pr.bestScore, rank: rankFor(pr.xp).name, games: pr.games, ts: Date.now() }); } catch (e) {}
+    unsub = subscribeHof((entry, id) => { entries.set(id, entry); schedule(); });
+    setTimeout(() => { if (state.currentView === "global") paint(); }, 1500);
+  }).catch(() => {
+    const gl = document.getElementById("globalList");
+    if (gl) gl.innerHTML = `<div class="muted small">Sunucuya bağlanılamadı.</div>`;
+  });
 }
 
 function renderProfile() {
@@ -736,6 +810,24 @@ function categoryChips() {
   return items.join("");
 }
 
+function avatarPickerHtml() {
+  const cur = loadProfile().avatar || "🙂";
+  return `<div class="avatar-picker" id="avpick">${AVATARS.map((a) =>
+    `<button type="button" class="av-opt ${a === cur ? "sel" : ""}" data-av="${a}">${a}</button>`).join("")}</div>`;
+}
+function bindAvatarPicker() {
+  const wrap = document.getElementById("avpick");
+  if (!wrap) return;
+  wrap.querySelectorAll(".av-opt").forEach((b) => {
+    b.onclick = () => {
+      setAvatar(b.dataset.av);
+      wrap.querySelectorAll(".av-opt").forEach((x) => x.classList.remove("sel"));
+      b.classList.add("sel");
+      sfx.click();
+    };
+  });
+}
+
 function renderHostSetup() {
   const prof = loadProfile();
   const diffs = Object.entries(DIFFICULTY).map(([key, d]) => `
@@ -750,6 +842,9 @@ function renderHostSetup() {
       <h2>Oda Kur</h2>
       <label class="field-label">Adın</label>
       <input class="input" id="hostName" placeholder="Sunucu adı" maxlength="16" value="${esc(prof.name || "Sunucu")}">
+
+      <label class="field-label">Avatarın</label>
+      ${avatarPickerHtml()}
 
       <label class="field-label">Takım adı</label>
       <input class="input" id="teamName" placeholder="Takımının adı" maxlength="20" value="Takımım">
@@ -773,12 +868,14 @@ function renderHostSetup() {
       <label class="toggle-chip"><input type="checkbox" id="setSpeedBonus" checked> <span>⚡ Hız bonusu (erken cevap = çok puan)</span></label>
       <label class="toggle-chip"><input type="checkbox" id="setWrongPenalty"> <span>➖ Yanlışta ceza (−250 puan)</span></label>
       <label class="toggle-chip"><input type="checkbox" id="setApproval"> <span>🛡️ Katılım onayı (lider onaylasın)</span></label>
+      <label class="toggle-chip"><input type="checkbox" id="setTeamAvg"> <span>⚖️ Takım puanı ortalamayla (eşit olmayan takımlar için adil)</span></label>
 
       <div class="team-hint">💡 İki oda kurup liderler birbirine <b>meydan okursa</b> takımlar yarışır. Meydan okuma butonu lobide.</div>
       <button class="btn btn-primary btn-big" id="create">Odayı Oluştur</button>
     </div>`;
 
   document.getElementById("back").onclick = renderHome;
+  bindAvatarPicker();
   document.getElementById("qcount").oninput = (e) =>
     (document.getElementById("qcountLbl").textContent = e.target.value);
   const boxes = () => [...APP.querySelectorAll(".cat-chip input")];
@@ -808,6 +905,7 @@ function renderHostSetup() {
       speedBonus: document.getElementById("setSpeedBonus").checked,
       wrongPenalty: document.getElementById("setWrongPenalty").checked,
       requireApproval: document.getElementById("setApproval").checked,
+      teamAvg: document.getElementById("setTeamAvg").checked,
       teamName: document.getElementById("teamName").value.trim(),
     };
     setName(name);
@@ -896,10 +994,13 @@ function renderJoin(prefillError, prefillCode) {
       <input class="input code-input" id="code" placeholder="ABCD" maxlength="4" autocapitalize="characters" value="${esc(prefillCode || "")}">
       <label class="field-label">Adın</label>
       <input class="input" id="name" placeholder="Takma adın" maxlength="16" value="${esc(loadProfile().name || "")}">
+      <label class="field-label">Avatarın</label>
+      ${avatarPickerHtml()}
       ${prefillError ? `<p class="error">${esc(prefillError)}</p>` : ""}
       <button class="btn btn-primary btn-big" id="join">Katıl</button>
     </div>`;
   document.getElementById("back").onclick = renderHome;
+  bindAvatarPicker();
   const codeEl = document.getElementById("code");
   codeEl.oninput = () => (codeEl.value = codeEl.value.toUpperCase());
   const nameEl = document.getElementById("name");
@@ -999,7 +1100,7 @@ function renderHostLobby() {
       ${requestsHtml}
       ${challengeHtml}
       <div class="players-title">Katılanlar (<span id="pcount">${players.length}</span>)</div>
-      ${teamListHtml(players, m)}
+      ${teamListHtml(players, m, true)}
       <button class="btn btn-primary btn-big" id="start" ${players.length ? "" : "disabled"}>
         ${m.teamMode ? "Düelloyu Başlat" : "Başlat"} (${m.totalQuestions} soru)
       </button>
@@ -1008,6 +1109,7 @@ function renderHostLobby() {
   document.getElementById("close").onclick = hostCloseRoom;
   APP.querySelectorAll("[data-approve]").forEach((b) => b.onclick = () => approveRequest(b.dataset.approve));
   APP.querySelectorAll("[data-reject]").forEach((b) => b.onclick = () => rejectRequest(b.dataset.reject));
+  APP.querySelectorAll("[data-kick]").forEach((b) => b.onclick = () => hostKick(b.dataset.kick));
   const chBtn = document.getElementById("challengeBtn");
   if (chBtn) chBtn.onclick = hostSendChallenge;
   const accBtn = document.getElementById("accept");
@@ -1024,9 +1126,12 @@ function renderHostLobby() {
   };
 }
 
-function renderPlayerChips(players) {
+function renderPlayerChips(players, kickable) {
   if (!players.length) return `<div class="muted small">Henüz kimse yok...</div>`;
-  return players.map(([id, p]) => `<div class="player-chip">${esc(p.name)}</div>`).join("");
+  return players.map(([id, p]) => `<div class="player-chip">
+      <span class="pchip-av">${esc(p.avatar || "🙂")}</span>${esc(p.name)}
+      ${kickable && id !== "host" ? `<button class="kick-btn" data-kick="${id}" title="At">×</button>` : ""}
+    </div>`).join("");
 }
 
 function patchLobby() {
@@ -1082,6 +1187,17 @@ function renderRejected() {
   document.getElementById("home").onclick = resetToHome;
 }
 
+function renderKicked() {
+  APP.innerHTML = `
+    <div class="card center">
+      <div class="logo small">Ben Bildim 🧠</div>
+      <h2>Odadan çıkarıldın</h2>
+      <p class="muted">Takım lideri seni odadan çıkardı.</p>
+      <button class="btn btn-primary btn-big" id="home">Ana Sayfa</button>
+    </div>`;
+  document.getElementById("home").onclick = resetToHome;
+}
+
 function renderMigrating() {
   state.currentView = "migrating";
   APP.innerHTML = `
@@ -1093,32 +1209,39 @@ function renderMigrating() {
 }
 
 // Oyuncuları takımlara göre listele (lobi)
-function teamListHtml(players, m) {
+function teamListHtml(players, m, kickable) {
   if (!m.teamMode) {
-    return `<div class="players" id="playerList">${renderPlayerChips(players)}</div>`;
+    return `<div class="players" id="playerList">${renderPlayerChips(players, kickable)}</div>`;
   }
   const A = players.filter(([, p]) => (p.team || "A") === "A");
   const B = players.filter(([, p]) => p.team === "B");
   return `<div class="team-cols">
     <div class="team-col">
       <div class="team-h teamA">${esc(m.teamAName || "Takım A")} (${A.length})</div>
-      ${renderPlayerChips(A)}
+      ${renderPlayerChips(A, kickable)}
     </div>
     <div class="team-col">
       <div class="team-h teamB">${esc(m.teamBName || "Takım B")} (${B.length})</div>
-      ${renderPlayerChips(B)}
+      ${renderPlayerChips(B, kickable)}
     </div>
   </div>`;
 }
 
-// Takım toplam puanları
+// Takım toplam (veya ortalama) puanları
 function teamTotals() {
-  const t = { A: 0, B: 0 };
+  const sums = { A: 0, B: 0 }, counts = { A: 0, B: 0 };
   for (const [, p] of playersList()) {
     const team = p.team === "B" ? "B" : "A";
-    t[team] += p.score || 0;
+    sums[team] += p.score || 0;
+    counts[team] += 1;
   }
-  return t;
+  if (state.room.meta && state.room.meta.teamAvg) {
+    return {
+      A: counts.A ? Math.round(sums.A / counts.A) : 0,
+      B: counts.B ? Math.round(sums.B / counts.B) : 0,
+    };
+  }
+  return sums;
 }
 
 function teamScoreHtml() {
@@ -1233,6 +1356,7 @@ function hostAnswer(choice) {
   const i = m.questionIndex;
   if (state.answeredIndex === i || state.inCountdown) return;
   const elapsed = Date.now() - state.hostLocalStart;
+  state.lastElapsed = elapsed;
   state.answeredIndex = i;
   state.playerChoice = choice;
   // UI: seçili şıkkı işaretle, diğerlerini kilitle, jokerleri kaldır
@@ -1407,7 +1531,7 @@ function leaderboardHTML(limit) {
     const dot = teamMode ? `<span class="team-dot team${p.team === "B" ? "B" : "A"}"></span>` : "";
     return `<div class="lb-row ${isMe ? "me" : ""}">
       <span class="lb-rank">${idx + 1}</span>
-      <span class="lb-name">${dot}${esc(p.name)}${isMe ? " (sen)" : ""}${fire}</span>
+      <span class="lb-name">${dot}<span class="lb-av">${esc(p.avatar || "🙂")}</span>${esc(p.name)}${isMe ? " (sen)" : ""}${fire}</span>
       <span class="lb-score">${p.score || 0}</span>
     </div>`;
   }).join("");
@@ -1481,12 +1605,45 @@ function renderPlayerReveal() {
   tallyGameStat(correct, streak);
 }
 
-// Yerel oyuncunun oyun-içi istatistiğini biriktir (rekorlar için)
+// Yerel oyuncunun oyun-içi istatistiğini biriktir (rekorlar + karakterler için)
 function tallyGameStat(correct, streak) {
-  if (!state.gameStats) state.gameStats = { correct: 0, questions: 0, maxStreak: 0 };
-  state.gameStats.questions += 1;
-  if (correct) state.gameStats.correct += 1;
-  if ((streak || 0) > state.gameStats.maxStreak) state.gameStats.maxStreak = streak;
+  if (!state.gameStats) state.gameStats = { correct: 0, questions: 0, maxStreak: 0, wrongStreak: 0 };
+  const gs = state.gameStats;
+  gs.questions += 1;
+  if (correct) { gs.correct += 1; gs.wrongStreak = 0; }
+  else gs.wrongStreak += 1;
+  if ((streak || 0) > gs.maxStreak) gs.maxStreak = streak;
+  maybeShowCharacter(correct, streak || 0);
+}
+
+// Oyun aşamasına göre karakter göster (konuşma balonu)
+let charTimer = null;
+function showCharacter(id, phraseOverride) {
+  const c = CHARACTERS[id];
+  if (!c) return;
+  const existing = document.getElementById("charPop");
+  if (existing) existing.remove();
+  clearTimeout(charTimer);
+  const phrase = phraseOverride || pickPhrase(id, Math.floor(Math.random() * 999));
+  const el = document.createElement("div");
+  el.id = "charPop";
+  el.className = "char-pop";
+  el.innerHTML = `<div class="char-bubble">${esc(phrase)}</div><div class="char-emoji">${c.emoji}</div>`;
+  document.body.appendChild(el);
+  sfx.joker();
+  charTimer = setTimeout(() => { el.classList.add("out"); setTimeout(() => el.remove(), 400); }, 3200);
+}
+
+function maybeShowCharacter(correct, streak) {
+  const gs = state.gameStats || {};
+  const limit = (state.room.meta.timeLimit || 20) * 1000;
+  const el = state.lastElapsed || 0;
+  let id = null;
+  if (correct && streak >= 3) id = "fire";
+  else if (!correct && gs.wrongStreak >= 3) id = "nervous";
+  else if (correct && el > 0 && el < 2500) id = "rocket";
+  else if (correct && el >= limit * 0.85) id = "turtle";
+  if (id) showCharacter(id);
 }
 
 function renderEnded() {
@@ -1570,6 +1727,24 @@ function recordLocalResult(m, sortedPlayers) {
     rank: myRank, players: sortedPlayers.length, team: !!m.teamMode, time: Date.now(),
   });
   state.statsInit = false; // sonraki oyun için sıfırla
+
+  // Global şöhret salonuna kendi en iyisini yayınla (en iyi çaba)
+  try {
+    const pr = res.profile;
+    publishHof(pr.deviceId, {
+      name: pr.name || "Misafir", avatar: pr.avatar || "🙂",
+      xp: pr.xp, best: pr.bestScore, rank: rankFor(pr.xp).name, games: pr.games, ts: Date.now(),
+    });
+  } catch (e) {}
+
+  // Oyun sonu karakteri (yerel katılımcıya özel)
+  let cid = null;
+  if (won) cid = "crown";
+  else if (gs.questions && gs.correct === gs.questions) cid = "prof";
+  else if (gs.questions && gs.correct === 0) cid = "clown";
+  else if (gs.questions && gs.correct / gs.questions >= 0.8) cid = "owl";
+  if (cid) setTimeout(() => showCharacter(cid), 900);
+
   const { cur, next, pct } = rankProgress(res.profile.xp);
   return `
     <div class="xp-summary">

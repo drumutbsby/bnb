@@ -12,15 +12,18 @@ export const RANKS = [
 ];
 
 const DEFAULT = {
-  name: "", xp: 0, games: 0, wins: 0,
+  name: "", avatar: "🙂", deviceId: "", xp: 0, games: 0, wins: 0,
   bestScore: 0, bestStreak: 0,
   totalCorrect: 0, totalQuestions: 0,
   history: [],
 };
 
 export function loadProfile() {
-  try { return Object.assign({}, DEFAULT, JSON.parse(localStorage.getItem(KEY)) || {}); }
-  catch (e) { return { ...DEFAULT }; }
+  let p;
+  try { p = Object.assign({}, DEFAULT, JSON.parse(localStorage.getItem(KEY)) || {}); }
+  catch (e) { p = { ...DEFAULT }; }
+  if (!p.deviceId) { p.deviceId = "d_" + Math.random().toString(36).slice(2, 12) + Date.now().toString(36); saveProfile(p); }
+  return p;
 }
 export function saveProfile(p) {
   try { localStorage.setItem(KEY, JSON.stringify(p)); } catch (e) {}
@@ -28,6 +31,11 @@ export function saveProfile(p) {
 export function setName(name) {
   const p = loadProfile();
   p.name = String(name || "").slice(0, 16);
+  saveProfile(p);
+}
+export function setAvatar(av) {
+  const p = loadProfile();
+  p.avatar = av || "🙂";
   saveProfile(p);
 }
 

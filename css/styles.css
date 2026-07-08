@@ -391,6 +391,44 @@ textarea.input { min-height: 90px; resize: vertical; font-family: inherit; }
 .levelup { font-weight: 800; color: var(--primary); margin: 4px 0; }
 .xp-rank { font-weight: 800; margin-top: 4px; }
 
+/* Avatar seçici */
+.avatar-picker { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+.av-opt {
+  font-size: 1.5rem; background: var(--secondary); border: 2px solid transparent;
+  border-radius: 10px; padding: 6px 0; cursor: pointer; line-height: 1;
+}
+.av-opt.sel { border-color: var(--primary); background: #f2eefb; }
+.pchip-av { margin-right: 4px; }
+.lb-av { margin-right: 6px; }
+
+/* Oyuncu chip + at butonu */
+.player-chip { display: inline-flex; align-items: center; gap: 4px; position: relative; }
+.kick-btn {
+  background: rgba(255,255,255,.25); color: #fff; border: none; border-radius: 50%;
+  width: 20px; height: 20px; font-weight: 900; cursor: pointer; margin-left: 4px; line-height: 1;
+}
+.kick-btn:hover { background: #e21b3c; }
+.home-links { display: flex; gap: 8px; margin-top: 14px; }
+.home-links .btn-link { margin-top: 0; }
+
+/* Karakter pop (konuşma balonu) */
+.char-pop {
+  position: fixed; left: 12px; bottom: 16px; z-index: 9998; display: flex; align-items: flex-end; gap: 8px;
+  animation: charin .4s ease;
+}
+.char-pop.out { animation: charout .4s ease forwards; }
+@keyframes charin { from { transform: translateY(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes charout { to { transform: translateY(40px); opacity: 0; } }
+.char-emoji { font-size: 3.4rem; filter: drop-shadow(0 4px 6px rgba(0,0,0,.3)); }
+.char-bubble {
+  background: #fff; color: var(--ink); border-radius: 16px; padding: 10px 14px; font-weight: 700;
+  max-width: 200px; box-shadow: var(--shadow); position: relative; font-size: .92rem;
+}
+.char-bubble::after {
+  content: ""; position: absolute; right: -8px; bottom: 14px; border: 8px solid transparent;
+  border-left-color: #fff; border-right: 0;
+}
+
 /* Küçük ekran */
 @media (max-width: 400px) {
   .card { padding: 18px; }

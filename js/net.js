@@ -30,10 +30,25 @@ export function connect() {
     const raw = payload ? payload.toString() : "";
     let data = null;
     if (raw !== "") { try { data = JSON.parse(raw); } catch { data = null; } }
-    const set = handlers[topic];
-    if (set) for (const h of [...set]) h(data, raw);
+    for (const filter in handlers) {
+      if (filter === topic || topicMatch(filter, topic)) {
+        for (const h of [...handlers[filter]]) h(data, raw, topic);
+      }
+    }
   });
   return client;
+}
+
+// MQTT joker karakter eşleşmesi (+ tek seviye, # kalan tümü)
+function topicMatch(filter, topic) {
+  if (filter.indexOf("+") < 0 && filter.indexOf("#") < 0) return false;
+  const f = filter.split("/"), t = topic.split("/");
+  for (let i = 0; i < f.length; i++) {
+    if (f[i] === "#") return true;
+    if (f[i] === "+") { if (t[i] === undefined) return false; continue; }
+    if (f[i] !== t[i]) return false;
+  }
+  return f.length === t.length;
 }
 
 export function whenConnected(timeoutMs = 10000) {
@@ -91,3 +106,16 @@ export function sendInput(code, msg) {
   connect().publish(inputTopic(code), JSON.stringify(msg), { qos: 0 });
 }
 export function subscribeState(code, cb) { return sub(stateTopic(code), cb); }
+
+// --- Global "Şöhret Salonu" (Hall of Fame) — en iyi çaba, retained ---
+const hofTopic = (id) => `${PREFIX}/hof/${id}`;
+export function publishHof(id, entry) {
+  connect().publish(hofTopic(id), JSON.stringify(entry), { retain: true, qos: 0 });
+}
+// hof/# altındaki tüm retained girdileri toplar; her mesaj için cb(entry, id)
+export function subscribeHof(cb) {
+  return sub(`${PREFIX}/hof/#`, (data, raw, topic) => {
+    const id = (topic || "").split("/").pop();
+    if (data) cb(data, id);
+  });
+}
