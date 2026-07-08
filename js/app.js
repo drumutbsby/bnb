@@ -97,7 +97,7 @@ const state = {
 const OPTION_STYLES = [
   { color: "#e21b3c", shape: "▲" },
   { color: "#1368ce", shape: "◆" },
-  { color: "#d89e00", shape: "●" },
+  { color: "#9c6600", shape: "●" }, // koyulaştırılmış amber: beyaz metinle WCAG AA (~4.9:1)
   { color: "#26890c", shape: "■" },
 ];
 
@@ -180,7 +180,9 @@ async function createRoom(categories, count, difficultyKey, hostName, settings) 
 
   let code = genCode();
   for (let t = 0; t < 4; t++) {
-    const existing = await getStateOnce(code, 900);
+    // Kısa sonda: 29^4 kod uzayında çakışma çok nadir olduğundan boş kodu
+    // hızlı doğrulayıp "Oluşturuluyor..." gecikmesini azalt.
+    const existing = await getStateOnce(code, 500);
     if (!existing) break;
     code = genCode();
   }
@@ -598,6 +600,9 @@ function playerOnState(data) {
   if (!data) {
     if (state.awaitingArena) { renderMigrating(); return; }
     if (state.currentView !== "gone") {
+      // Oda kapandı (retained state temizlendi): aboneliği bırak ki aynı kod
+      // yeniden kullanılırsa yabancı bir odanın trafiği bu ekrana sızmasın.
+      if (state.stateUnsub) { state.stateUnsub(); state.stateUnsub = null; }
       state.currentView = "gone"; state.lastRenderKey = "gone"; renderRoomGone();
     }
     return;
@@ -2119,7 +2124,9 @@ function recordLocalResult(m, sortedPlayers) {
     won = myRank === 1;
   }
   const gs = state.gameStats || { correct: 0, questions: 0, maxStreak: 0, fastMs: 0 };
-  const perfect = gs.questions > 0 && gs.correct === gs.questions;
+  // "Kusursuz" yalnızca TÜM sorular oynandıysa ve hepsi doğruysa; oyun ortasında
+  // katılıp/yenileyip kısmi istatistikle sahte kusursuz kazanmayı engeller.
+  const perfect = gs.questions > 0 && gs.questions >= (m.totalQuestions || Infinity) && gs.correct === gs.questions;
   const res = recordGame({
     score: meP.score || 0, won,
     streak: gs.maxStreak || 0, correct: gs.correct || 0, questions: gs.questions || 0,
