@@ -301,6 +301,54 @@ textarea.input { min-height: 90px; resize: vertical; font-family: inherit; }
 .host-result.good { background: #e6f4ea; color: #1a7a1a; }
 .host-result.bad { background: #fde8e8; color: #b3261e; }
 
+/* Katılım talepleri */
+.requests { display: flex; flex-direction: column; gap: 6px; margin-bottom: 8px; }
+.req-row {
+  display: flex; align-items: center; justify-content: space-between;
+  background: #fff8e1; border: 1px solid #f0d060; border-radius: 10px; padding: 8px 12px;
+}
+.req-name { font-weight: 700; }
+.req-actions { display: flex; gap: 6px; }
+.mini-btn.ok { background: #d7f0d7; color: #1a7a1a; }
+
+/* Meydan okuma kutusu */
+.challenge-box {
+  border-radius: 12px; padding: 14px; margin: 10px 0; text-align: center; font-weight: 700;
+}
+.challenge-box.incoming { background: #fff3cd; border: 2px solid #e0b000; }
+.challenge-box.pending { background: var(--secondary); color: var(--muted); }
+.challenge-box.declined { background: #fde8e8; color: #b3261e; }
+.challenge-box .btn { margin-top: 8px; }
+.team-hint {
+  background: var(--secondary); border-radius: 10px; padding: 10px 12px;
+  font-size: .82rem; color: var(--muted); margin: 12px 0;
+}
+
+/* Takım listeleri (lobi) */
+.team-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.team-col { background: var(--secondary); border-radius: 12px; padding: 10px; }
+.team-h { font-weight: 800; text-align: center; padding: 6px; border-radius: 8px; margin-bottom: 8px; color: #fff; font-size: .9rem; }
+.team-h.teamA { background: #1368ce; }
+.team-h.teamB { background: #e21b3c; }
+.team-badge { display: inline-block; padding: 6px 16px; border-radius: 16px; color: #fff; font-weight: 800; margin: 6px 0; }
+.team-badge.teamA { background: #1368ce; }
+.team-badge.teamB { background: #e21b3c; }
+.team-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+.team-dot.teamA { background: #1368ce; }
+.team-dot.teamB { background: #e21b3c; }
+
+/* Takım skor tablosu (VS) */
+.team-score {
+  display: flex; align-items: stretch; gap: 8px; margin: 14px 0; text-align: center;
+}
+.ts-side { flex: 1; background: var(--secondary); border-radius: 12px; padding: 12px 6px; border: 2px solid transparent; }
+.ts-side.lead { border-color: #26890c; background: #eaf6ea; }
+.ts-name { font-weight: 800; font-size: .9rem; }
+.ts-name.teamA { color: #1368ce; }
+.ts-name.teamB { color: #e21b3c; }
+.ts-val { font-size: 1.8rem; font-weight: 900; }
+.ts-vs { align-self: center; font-weight: 900; color: var(--muted); }
+
 /* Küçük ekran */
 @media (max-width: 400px) {
   .card { padding: 18px; }

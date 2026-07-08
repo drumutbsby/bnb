@@ -87,6 +87,8 @@ function hostPublish() {
   publishState(state.code, {
     meta: r.meta,
     players: r.players || {},
+    requests: r.requests || {},
+    rejected: r.rejected || {},
     publicQuestions: r.publicQuestions || {},
     reveal: r.reveal || {},
     fifty: r.fifty || {},
@@ -127,6 +129,7 @@ async function createRoom(categories, count, difficultyKey, hostName, settings) 
   const qset = buildQuestionSet(categories, count, custom);
   state.localQuestions = qset;
   const hostPlays = settings.hostPlays !== false;
+  const teamName = (settings.teamName || hostName || "Takım").slice(0, 20);
   state.room = {
     meta: {
       hostName, status: "lobby", questionIndex: -1,
@@ -136,13 +139,16 @@ async function createRoom(categories, count, difficultyKey, hostName, settings) 
       hostPlays,
       speedBonus: settings.speedBonus !== false,
       wrongPenalty: settings.wrongPenalty ? 250 : 0,
+      teamName, teamAName: teamName, teamBName: null,
+      requireApproval: !!settings.requireApproval,
+      teamMode: false,
     },
-    players: {}, publicQuestions: {}, reveal: {}, answers: {}, fifty: {}, doubles: {},
+    players: {}, requests: {}, publicQuestions: {}, reveal: {}, answers: {}, fifty: {}, doubles: {},
   };
-  // Oda kuran da oynayacaksa oyuncu listesine ekle
+  // Oda kuran da oynayacaksa oyuncu listesine ekle (ev sahibi takım = A)
   if (hostPlays) {
     state.room.players["host"] = {
-      name: hostName, score: 0, streak: 0,
+      name: hostName, score: 0, streak: 0, team: "A",
       lastGain: 0, lastCorrect: false, lastStreak: 0,
       jokers: { ...START_JOKERS },
     };
@@ -154,21 +160,43 @@ async function createRoom(categories, count, difficultyKey, hostName, settings) 
   render();
 }
 
+function addPlayer(pid, name, team) {
+  state.room.players[pid] = {
+    name: String(name).slice(0, 16), score: 0, streak: 0, team: team || "A",
+    lastGain: 0, lastCorrect: false, lastStreak: 0,
+    jokers: { ...START_JOKERS },
+  };
+}
+
 function hostOnInput(msg) {
   if (!msg || !state.room || state.role !== "host") return;
   const room = state.room;
   if (msg.type === "join") {
     if (room.meta.status !== "lobby") return;
     if (!msg.pid || !msg.name) return;
+    // Rakip takım (challenge kabulü sonrası taşınan) doğrudan eklenir
+    const team = msg.team === "B" ? "B" : "A";
+    // Onay gerekiyorsa ve ev sahibi takımsa: talep olarak al
+    if (room.meta.requireApproval && team === "A") {
+      if (!room.players[msg.pid] && !room.requests[msg.pid]) {
+        room.requests[msg.pid] = { name: String(msg.name).slice(0, 16) };
+        hostPublish(); render();
+      }
+      return;
+    }
     if (!room.players[msg.pid]) {
-      room.players[msg.pid] = {
-        name: String(msg.name).slice(0, 16), score: 0, streak: 0,
-        lastGain: 0, lastCorrect: false, lastStreak: 0,
-        jokers: { ...START_JOKERS },
-      };
+      addPlayer(msg.pid, msg.name, team);
       sfx.join();
       hostPublish();
       render();
+    }
+  } else if (msg.type === "joinRequest") {
+    if (room.meta.status !== "lobby") return;
+    if (!msg.pid || !msg.name) return;
+    if (!room.players[msg.pid] && !room.requests[msg.pid]) {
+      room.requests[msg.pid] = { name: String(msg.name).slice(0, 16) };
+      sfx.join();
+      hostPublish(); render();
     }
   } else if (msg.type === "answer") {
     const i = msg.i;
@@ -208,15 +236,105 @@ function hostOnInput(msg) {
       room.fifty[i][msg.pid] = hide;
       hostPublish();
     }
+  } else if (msg.type === "challenge") {
+    // Meydan okuma geldi (bu oda = meydan okunan taraf)
+    if (room.meta.status !== "lobby" || room.meta.teamMode) return;
+    room.meta.challengeFrom = { code: msg.code, teamName: msg.teamName || "Rakip" };
+    sfx.join();
+    hostPublish(); render();
+  } else if (msg.type === "challengeAccept") {
+    // Karşı taraf kabul etti (bu oda = meydan okuyan arena)
+    if (room.meta.status !== "lobby") return;
+    room.meta.teamMode = true;
+    room.meta.teamAName = room.meta.teamName;
+    room.meta.teamBName = msg.teamName || "Rakip Takım";
+    room.meta.challengeStatus = null;
+    delete room.meta.challengeTo;
+    sfx.correct();
+    hostPublish(); render();
+  } else if (msg.type === "challengeDecline") {
+    room.meta.challengeStatus = "declined";
+    delete room.meta.challengeTo;
+    hostPublish(); render();
   }
 }
 
 function hostStartGame() {
-  if (!state.room || Object.keys(state.room.players || {}).length === 0) {
+  const players = state.room.players || {};
+  if (Object.keys(players).length === 0) {
     alert("En az bir oyuncunun katılması gerekiyor.");
     return;
   }
+  if (state.room.meta.teamMode) {
+    const teams = new Set(Object.values(players).map((p) => p.team || "A"));
+    if (!teams.has("A") || !teams.has("B")) {
+      alert("Düello için her iki takımda da oyuncu olmalı.");
+      return;
+    }
+  }
   hostShowQuestion(0);
+}
+
+// ---- Meydan okuma / takım düellosu (lider aksiyonları) ----
+async function hostSendChallenge() {
+  const target = (prompt("Meydan okumak istediğin odanın kodu:") || "").trim().toUpperCase();
+  if (!target) return;
+  if (target === state.code) { alert("Kendine meydan okuyamazsın."); return; }
+  const data = await getStateOnce(target, 2500);
+  if (!data) { alert("O kodla bir oda bulunamadı."); return; }
+  if (data.meta && (data.meta.status !== "lobby" || data.meta.teamMode)) { alert("O oda şu an müsait değil."); return; }
+  sendInput(target, { type: "challenge", code: state.code, teamName: state.room.meta.teamName });
+  state.room.meta.challengeStatus = "sent";
+  state.room.meta.challengeTo = target;
+  hostPublish(); render();
+}
+
+function hostAcceptChallenge() {
+  const from = state.room.meta.challengeFrom;
+  if (!from) return;
+  const arena = from.code;
+  const myTeam = state.room.meta.teamName;
+  // Meydan okuyan arenaya kabul bildir
+  sendInput(arena, { type: "challengeAccept", code: state.code, teamName: myTeam });
+  // Üyeleri arenaya yönlendir
+  state.room.meta.redirectTo = arena;
+  state.room.meta.teamBName = myTeam;
+  hostPublish();
+  // Lider de arenaya (takım B) oyuncu olarak geçer
+  migrateToArena(arena, myTeam);
+}
+
+function hostDeclineChallenge() {
+  const from = state.room.meta.challengeFrom;
+  if (from) sendInput(from.code, { type: "challengeDecline", code: state.code });
+  delete state.room.meta.challengeFrom;
+  hostPublish(); render();
+}
+
+// Rakip takımı (lider + üyeler) arenaya taşır
+function migrateToArena(arenaCode, myTeamName) {
+  if (state.migrating) return;
+  state.migrating = true;
+  if (state.stateUnsub) { state.stateUnsub(); state.stateUnsub = null; }
+  if (state.inputUnsub) { state.inputUnsub(); state.inputUnsub = null; }
+  clearTimeout(state.autoRevealTimer);
+
+  state.role = "player";
+  state.name = state.name || myTeamName || "Oyuncu";
+  if (state.playerId === "host") state.playerId = uid(); // arena host'u ile çakışmasın
+  state.code = arenaCode;
+  state.localQuestions = null;
+  state.room = null;
+  state.currentView = null; state.lastRenderKey = null;
+  state.answeredIndex = -1; state.revealingIndex = -1;
+  state.pendingApproval = false;
+  state.awaitingArena = true;
+
+  renderMigrating();
+  state.stateUnsub = subscribeState(arenaCode, playerOnState);
+  sendInput(arenaCode, { type: "join", pid: state.playerId, name: state.name, team: "B" });
+  saveSession();
+  state.migrating = false;
 }
 
 function hostShowQuestion(i) {
@@ -314,6 +432,25 @@ function hostCloseRoom() {
   resetToHome();
 }
 
+// Lider: katılım talebini onayla / reddet
+function approveRequest(pid) {
+  const room = state.room;
+  const req = room.requests && room.requests[pid];
+  if (!req) return;
+  addPlayer(pid, req.name, "A");
+  delete room.requests[pid];
+  sfx.join();
+  hostPublish(); render();
+}
+function rejectRequest(pid) {
+  const room = state.room;
+  if (!room.requests || !room.requests[pid]) return;
+  delete room.requests[pid];
+  if (!room.rejected) room.rejected = {};
+  room.rejected[pid] = true;
+  hostPublish(); render();
+}
+
 // ---------------------------------------------------------------------------
 // PLAYER mantığı
 // ---------------------------------------------------------------------------
@@ -334,22 +471,49 @@ async function joinRoom(code, name) {
   state.playerId = uid();
   state.room = data;
 
+  const needApproval = !!(data.meta && data.meta.requireApproval);
+  state.pendingApproval = needApproval;
   state.stateUnsub = subscribeState(code, playerOnState);
-  sendInput(code, { type: "join", pid: state.playerId, name: state.name });
+  sendInput(code, needApproval
+    ? { type: "joinRequest", pid: state.playerId, name: state.name }
+    : { type: "join", pid: state.playerId, name: state.name });
   sfx.join();
   saveSession();
-  render();
+  if (needApproval) renderPendingApproval();
+  else render();
   return { ok: true };
 }
 
 function playerOnState(data) {
   if (!data) {
+    if (state.awaitingArena) { renderMigrating(); return; }
     if (state.currentView !== "gone") {
       state.currentView = "gone"; state.lastRenderKey = "gone"; renderRoomGone();
     }
     return;
   }
+  // Challenge kabulü sonrası rakip takım arenaya taşınıyor
+  if (data.meta && data.meta.redirectTo && !state.migrating && !state.awaitingArena) {
+    migrateToArena(data.meta.redirectTo, data.meta.teamBName);
+    return;
+  }
+  state.awaitingArena = false;
   state.room = data;
+  // Onay bekleyen oyuncu
+  if (state.pendingApproval) {
+    if (data.rejected && data.rejected[state.playerId]) {
+      state.pendingApproval = false;
+      if (state.stateUnsub) state.stateUnsub();
+      renderRejected();
+      return;
+    }
+    if (data.players && data.players[state.playerId]) {
+      state.pendingApproval = false; // onaylandı
+    } else {
+      renderPendingApproval();
+      return;
+    }
+  }
   render();
 }
 
@@ -398,7 +562,7 @@ function render() {
   if (!state.room) return;
   const key = computeKey();
   if (state.currentView === "question" && key === state.lastRenderKey) { patchQuestion(); return; }
-  if (state.currentView === "lobby" && key === state.lastRenderKey) { patchLobby(); return; }
+  // Lobide talep/meydan okuma değişimleri için her seferinde tam çiz
   state.lastRenderKey = key;
   fullRender();
 }
@@ -505,6 +669,9 @@ function renderHostSetup() {
       <label class="field-label">Adın</label>
       <input class="input" id="hostName" placeholder="Sunucu adı" maxlength="16" value="Sunucu">
 
+      <label class="field-label">Takım adı</label>
+      <input class="input" id="teamName" placeholder="Takımının adı" maxlength="20" value="Takımım">
+
       <label class="field-label">Kategoriler</label>
       <div class="cat-grid">${categoryChips()}</div>
       <div class="cat-actions">
@@ -523,7 +690,9 @@ function renderHostSetup() {
       <label class="toggle-chip"><input type="checkbox" id="setHostPlays" checked> <span>🙋 Ben de oynayacağım (oda kuran da cevaplasın)</span></label>
       <label class="toggle-chip"><input type="checkbox" id="setSpeedBonus" checked> <span>⚡ Hız bonusu (erken cevap = çok puan)</span></label>
       <label class="toggle-chip"><input type="checkbox" id="setWrongPenalty"> <span>➖ Yanlışta ceza (−250 puan)</span></label>
+      <label class="toggle-chip"><input type="checkbox" id="setApproval"> <span>🛡️ Katılım onayı (lider onaylasın)</span></label>
 
+      <div class="team-hint">💡 İki oda kurup liderler birbirine <b>meydan okursa</b> takımlar yarışır. Meydan okuma butonu lobide.</div>
       <button class="btn btn-primary btn-big" id="create">Odayı Oluştur</button>
     </div>`;
 
@@ -556,6 +725,8 @@ function renderHostSetup() {
       hostPlays: document.getElementById("setHostPlays").checked,
       speedBonus: document.getElementById("setSpeedBonus").checked,
       wrongPenalty: document.getElementById("setWrongPenalty").checked,
+      requireApproval: document.getElementById("setApproval").checked,
+      teamName: document.getElementById("teamName").value.trim(),
     };
     const btn = document.getElementById("create");
     btn.disabled = true; btn.textContent = "Oluşturuluyor...";
@@ -685,11 +856,50 @@ function renderHostLobby() {
     qrSvg = qr.createSvgTag({ cellSize: 4, margin: 1, scalable: true });
   } catch (e) { qrSvg = ""; }
 
+  const m = state.room.meta;
+  const requests = Object.entries(state.room.requests || {});
+  const requestsHtml = (m.requireApproval && requests.length) ? `
+    <div class="players-title">Katılım talepleri (${requests.length})</div>
+    <div class="requests">
+      ${requests.map(([pid, r]) => `
+        <div class="req-row">
+          <span class="req-name">${esc(r.name)}</span>
+          <span class="req-actions">
+            <button class="mini-btn ok" data-approve="${pid}">✓ Onayla</button>
+            <button class="mini-btn danger" data-reject="${pid}">✗</button>
+          </span>
+        </div>`).join("")}
+    </div>` : "";
+
+  // Meydan okuma durumu
+  const incoming = m.challengeFrom;
+  let challengeHtml = "";
+  if (m.teamMode) {
+    challengeHtml = `<div class="challenge-box pending">⚔️ Düello kuruldu: <b>${esc(m.teamAName)}</b> vs <b>${esc(m.teamBName)}</b></div>`;
+  } else if (incoming) {
+    challengeHtml = `
+      <div class="challenge-box incoming">
+        <div><b>${esc(incoming.teamName)}</b> takımı meydan okuyor! ⚔️</div>
+        <div class="share-actions">
+          <button class="btn btn-primary" id="accept">Kabul Et</button>
+          <button class="btn btn-secondary" id="decline">Reddet</button>
+        </div>
+      </div>`;
+  } else if (m.challengeStatus === "sent") {
+    challengeHtml = `<div class="challenge-box pending">⏳ Meydan okuma gönderildi, yanıt bekleniyor...</div>`;
+  } else if (m.challengeStatus === "declined") {
+    challengeHtml = `
+      <div class="challenge-box declined">Meydan okuma reddedildi.</div>
+      <button class="btn btn-secondary" id="challengeBtn">⚔️ Tekrar Meydan Oku</button>`;
+  } else {
+    challengeHtml = `<button class="btn btn-secondary" id="challengeBtn">⚔️ Başka Takıma Meydan Oku</button>`;
+  }
+
   APP.innerHTML = `
     <div class="card">
       <div class="lobby-head">
         <div>
-          <div class="muted small">Oda Kodu</div>
+          <div class="muted small">Oda Kodu · ${esc(m.teamName)}</div>
           <div class="room-code">${esc(state.code)}</div>
         </div>
         <button class="mini-btn danger" id="close">Kapat</button>
@@ -702,14 +912,24 @@ function renderHostLobby() {
           <button class="btn btn-secondary" id="shareLink">📤 Paylaş</button>
         </div>
       </div>
+      ${requestsHtml}
+      ${challengeHtml}
       <div class="players-title">Katılanlar (<span id="pcount">${players.length}</span>)</div>
-      <div class="players" id="playerList">${renderPlayerChips(players)}</div>
+      ${teamListHtml(players, m)}
       <button class="btn btn-primary btn-big" id="start" ${players.length ? "" : "disabled"}>
-        Başlat (${state.room.meta.totalQuestions} soru)
+        ${m.teamMode ? "Düelloyu Başlat" : "Başlat"} (${m.totalQuestions} soru)
       </button>
     </div>`;
   document.getElementById("start").onclick = () => { sfx.click(); hostStartGame(); };
   document.getElementById("close").onclick = hostCloseRoom;
+  APP.querySelectorAll("[data-approve]").forEach((b) => b.onclick = () => approveRequest(b.dataset.approve));
+  APP.querySelectorAll("[data-reject]").forEach((b) => b.onclick = () => rejectRequest(b.dataset.reject));
+  const chBtn = document.getElementById("challengeBtn");
+  if (chBtn) chBtn.onclick = hostSendChallenge;
+  const accBtn = document.getElementById("accept");
+  if (accBtn) accBtn.onclick = hostAcceptChallenge;
+  const decBtn = document.getElementById("decline");
+  if (decBtn) decBtn.onclick = hostDeclineChallenge;
   document.getElementById("copyLink").onclick = async () => {
     try { await navigator.clipboard.writeText(url); document.getElementById("copyLink").textContent = "✓ Kopyalandı"; }
     catch (e) { prompt("Linki kopyala:", url); }
@@ -736,15 +956,102 @@ function patchLobby() {
 }
 
 function renderPlayerLobby() {
+  const m = state.room.meta || {};
+  const me = (state.room.players || {})[state.playerId] || {};
+  const teamName = m.teamMode ? (me.team === "B" ? m.teamBName : m.teamAName) : m.teamName;
   APP.innerHTML = `
     <div class="card center">
       <div class="logo small">Ben Bildim 🧠</div>
       <div class="join-badge">✓ Katıldın</div>
       <p class="big-name">${esc(state.name)}</p>
+      ${teamName ? `<div class="team-badge team${me.team === "B" ? "B" : "A"}">Takım: ${esc(teamName)}</div>` : ""}
       <div class="spinner"></div>
-      <p class="muted">Sunucunun oyunu başlatması bekleniyor...</p>
+      <p class="muted">${m.teamMode ? "Düellonun başlaması bekleniyor..." : "Sunucunun oyunu başlatması bekleniyor..."}</p>
       <div class="muted small">Oda: ${esc(state.code)}</div>
     </div>`;
+}
+
+function renderPendingApproval() {
+  state.currentView = "pending";
+  APP.innerHTML = `
+    <div class="card center">
+      <div class="logo small">Ben Bildim 🧠</div>
+      <p class="big-name">${esc(state.name)}</p>
+      <div class="spinner"></div>
+      <p class="muted">Katılım talebin gönderildi.<br>Takım liderinin onayı bekleniyor...</p>
+      <div class="muted small">Oda: ${esc(state.code)}</div>
+      <button class="mini-btn" id="cancel">Vazgeç</button>
+    </div>`;
+  const c = document.getElementById("cancel");
+  if (c) c.onclick = resetToHome;
+}
+
+function renderRejected() {
+  state.currentView = "rejected";
+  APP.innerHTML = `
+    <div class="card center">
+      <div class="logo small">Ben Bildim 🧠</div>
+      <h2>Katılım reddedildi</h2>
+      <p class="muted">Takım lideri katılımını onaylamadı.</p>
+      <button class="btn btn-primary btn-big" id="home">Ana Sayfa</button>
+    </div>`;
+  document.getElementById("home").onclick = resetToHome;
+}
+
+function renderMigrating() {
+  state.currentView = "migrating";
+  APP.innerHTML = `
+    <div class="card center">
+      <div class="logo small">⚔️ Düello!</div>
+      <div class="spinner"></div>
+      <p class="muted">Takımın arenaya geçiyor...</p>
+    </div>`;
+}
+
+// Oyuncuları takımlara göre listele (lobi)
+function teamListHtml(players, m) {
+  if (!m.teamMode) {
+    return `<div class="players" id="playerList">${renderPlayerChips(players)}</div>`;
+  }
+  const A = players.filter(([, p]) => (p.team || "A") === "A");
+  const B = players.filter(([, p]) => p.team === "B");
+  return `<div class="team-cols">
+    <div class="team-col">
+      <div class="team-h teamA">${esc(m.teamAName || "Takım A")} (${A.length})</div>
+      ${renderPlayerChips(A)}
+    </div>
+    <div class="team-col">
+      <div class="team-h teamB">${esc(m.teamBName || "Takım B")} (${B.length})</div>
+      ${renderPlayerChips(B)}
+    </div>
+  </div>`;
+}
+
+// Takım toplam puanları
+function teamTotals() {
+  const t = { A: 0, B: 0 };
+  for (const [, p] of playersList()) {
+    const team = p.team === "B" ? "B" : "A";
+    t[team] += p.score || 0;
+  }
+  return t;
+}
+
+function teamScoreHtml() {
+  const m = state.room.meta;
+  const t = teamTotals();
+  const aLead = t.A >= t.B;
+  return `<div class="team-score">
+    <div class="ts-side ${aLead ? "lead" : ""}">
+      <div class="ts-name teamA">${esc(m.teamAName || "Takım A")}</div>
+      <div class="ts-val">${t.A}</div>
+    </div>
+    <div class="ts-vs">VS</div>
+    <div class="ts-side ${!aLead ? "lead" : ""}">
+      <div class="ts-name teamB">${esc(m.teamBName || "Takım B")}</div>
+      <div class="ts-val">${t.B}</div>
+    </div>
+  </div>`;
 }
 
 function catBadge(catKey) {
@@ -1008,13 +1315,15 @@ function startTicker() {
 }
 
 function leaderboardHTML(limit) {
+  const teamMode = state.room.meta && state.room.meta.teamMode;
   const players = playersList().sort((a, b) => (b[1].score || 0) - (a[1].score || 0));
   const rows = players.slice(0, limit || players.length).map(([id, p], idx) => {
     const isMe = id === state.playerId;
     const fire = (p.streak || 0) >= 2 ? ` 🔥${p.streak}` : "";
+    const dot = teamMode ? `<span class="team-dot team${p.team === "B" ? "B" : "A"}"></span>` : "";
     return `<div class="lb-row ${isMe ? "me" : ""}">
       <span class="lb-rank">${idx + 1}</span>
-      <span class="lb-name">${esc(p.name)}${isMe ? " (sen)" : ""}${fire}</span>
+      <span class="lb-name">${dot}${esc(p.name)}${isMe ? " (sen)" : ""}${fire}</span>
       <span class="lb-score">${p.score || 0}</span>
     </div>`;
   }).join("");
@@ -1051,6 +1360,7 @@ function renderHostReveal() {
       <div class="q-text small">${esc(q.q)}</div>
       <div class="options reveal">${opts}</div>
       ${hostBanner}
+      ${m.teamMode ? teamScoreHtml() : ""}
       <div class="players-title">Skor Tablosu</div>
       ${leaderboardHTML(5)}
       <button class="btn btn-primary btn-big" id="next">${isLast ? "Sonuçları Göster 🏆" : "Sıradaki Soru ›"}</button>
@@ -1075,17 +1385,18 @@ function renderPlayerReveal() {
       <div class="reveal-title">${correct ? "Doğru!" : "Yanlış"}</div>
       ${correct ? `<div class="gain">+${gain} puan</div>${breakdown}` : (gain < 0 ? `<div class="gain" style="color:#e21b3c">${gain} puan</div>` : `<div class="gain muted">+0 puan</div>`)}
       ${correct && streak >= 2 ? `<div class="streak-fire">🔥 ${streak} seri!</div>` : ""}
-      <div class="rank-box">
+      ${state.room.meta.teamMode ? teamScoreHtml() : `<div class="rank-box">
         <div>Sıralaman</div>
         <div class="rank-num">${myRank}. / ${players.length}</div>
         <div class="muted small">Toplam: ${me.score || 0} puan</div>
-      </div>
+      </div>`}
     </div>`;
   if (correct) { sfx.correct(); if (streak >= 2) setTimeout(() => sfx.streak(), 350); }
   else sfx.wrong();
 }
 
 function renderEnded() {
+  const m = state.room.meta;
   const players = playersList().sort((a, b) => (b[1].score || 0) - (a[1].score || 0));
   const podium = players.slice(0, 3);
   const medals = ["🥇", "🥈", "🥉"];
@@ -1096,12 +1407,26 @@ function renderEnded() {
       <div class="podium-score">${p.score || 0}</div>
     </div>`).join("");
 
-  const winner = players[0];
-  APP.innerHTML = `
-    <div class="card center">
+  let headerHtml;
+  if (m.teamMode) {
+    const t = teamTotals();
+    const draw = t.A === t.B;
+    const winTeam = t.A > t.B ? (m.teamAName || "Takım A") : (m.teamBName || "Takım B");
+    headerHtml = `
+      <div class="logo small">🏆 Düello Bitti!</div>
+      <p class="winner-line">${draw ? "Berabere! 🤝" : `Kazanan takım: <b>${esc(winTeam)}</b> 🎉`}</p>
+      ${teamScoreHtml()}`;
+  } else {
+    const winner = players[0];
+    headerHtml = `
       <div class="logo small">🏆 Oyun Bitti!</div>
       ${winner ? `<p class="winner-line">Kazanan: <b>${esc(winner[1].name)}</b></p>` : ""}
-      <div class="podium">${podiumHTML}</div>
+      <div class="podium">${podiumHTML}</div>`;
+  }
+
+  APP.innerHTML = `
+    <div class="card center">
+      ${headerHtml}
       <div class="players-title">Tam Sıralama</div>
       ${leaderboardHTML()}
       ${state.role === "host"
@@ -1144,7 +1469,7 @@ function resetToHome() {
     role: null, code: null, playerId: null, name: null, room: null,
     localQuestions: null, stateUnsub: null, inputUnsub: null,
     currentView: null, lastRenderKey: null, answeredIndex: -1, revealingIndex: -1,
-    inCountdown: false,
+    inCountdown: false, pendingApproval: false, migrating: false, awaitingArena: false,
   });
   renderHome();
 }
