@@ -4,7 +4,7 @@
 import {
   isConfigured, whenConnected, subscribeInput, subscribeState,
   publishState, clearState, sendInput, publishHof, subscribeHof, subscribeRooms,
-  publishLeague, subscribeLeague,
+  publishLeague, subscribeLeague, onStatus,
 } from "./net.js";
 import { ensureDaily, updateDailyAfterGame, loginStreak } from "./daily.js";
 import { CATEGORIES, CUSTOM_CATEGORY, QUESTIONS, buildQuestionSet } from "./questions.js";
@@ -137,19 +137,24 @@ function saveCustom(list) {
   try { localStorage.setItem(CUSTOM_KEY, JSON.stringify(list)); } catch (e) {}
 }
 
-// Yayınlanan oda durumu (cevaplar hariç)
+// Yayınlanan oda durumu (cevaplar hariç). Mesaj boyutunu sabit tutmak için
+// yalnızca GEÇERLİ sorunun public/reveal/fifty/doubles verisi yayınlanır
+// (oyuncular yalnızca güncel soruyu render eder). Böylece soru sayısıyla
+// mesaj büyümez.
 function hostPublish() {
   const r = state.room;
+  const i = r.meta.questionIndex;
+  const pick = (obj) => (obj && i >= 0 && obj[i] !== undefined ? { [i]: obj[i] } : {});
   publishState(state.code, {
     meta: r.meta,
     players: r.players || {},
     requests: r.requests || {},
     rejected: r.rejected || {},
     kicked: r.kicked || {},
-    publicQuestions: r.publicQuestions || {},
-    reveal: r.reveal || {},
-    fifty: r.fifty || {},
-    doubles: r.doubles || {},
+    publicQuestions: pick(r.publicQuestions),
+    reveal: pick(r.reveal),
+    fifty: pick(r.fifty),
+    doubles: pick(r.doubles),
   });
 }
 
@@ -236,8 +241,9 @@ function hostOnInput(msg) {
     if (room.meta.status !== "lobby") return;
     if (!msg.pid || !msg.name) return;
     if (room.kicked && room.kicked[msg.pid]) return; // atılan geri giremez
-    // Rakip takım (challenge kabulü sonrası taşınan) doğrudan eklenir
-    const team = msg.team === "B" ? "B" : "A";
+    // 'B' takımı yalnızca bir düello kabulünden sonra (teamMode) geçerlidir;
+    // aksi halde 'A' kabul edilir — böylece team:'B' ile onay atlatılamaz.
+    const team = (msg.team === "B" && room.meta.teamMode) ? "B" : "A";
     // Onay gerekiyorsa ve ev sahibi takımsa: talep olarak al
     if (room.meta.requireApproval && team === "A") {
       if (!room.players[msg.pid] && !room.requests[msg.pid]) {
@@ -268,7 +274,10 @@ function hostOnInput(msg) {
     if (!room.answers) room.answers = {};
     if (!room.answers[i]) room.answers[i] = {};
     if (room.answers[i][msg.pid]) return;
-    room.answers[i][msg.pid] = { choice: msg.choice, elapsed: Math.max(0, Number(msg.elapsed) || 0) };
+    // elapsed'i [0, süre limiti] aralığına sıkıştır: bozuk/hileli istemci saçma değer gönderemesin.
+    const capMs = (Number(room.meta.timeLimit) || 20) * 1000;
+    const elapsedMs = Math.max(0, Math.min(capMs, Number(msg.elapsed) || 0));
+    room.answers[i][msg.pid] = { choice: msg.choice, elapsed: elapsedMs };
     render();
     const total = Object.keys(room.players).length;
     const answered = Object.keys(room.answers[i]).length;
@@ -302,12 +311,16 @@ function hostOnInput(msg) {
   } else if (msg.type === "challenge") {
     // Meydan okuma geldi (bu oda = meydan okunan taraf)
     if (room.meta.status !== "lobby" || room.meta.teamMode) return;
+    if (room.meta.challengeFrom || room.meta.challengeStatus === "sent") return; // zaten bir teklif işleniyor
+    if (!msg.code) return;
     room.meta.challengeFrom = { code: msg.code, teamName: msg.teamName || "Rakip" };
     sfx.join();
     hostPublish(); render();
   } else if (msg.type === "challengeAccept") {
-    // Karşı taraf kabul etti (bu oda = meydan okuyan arena)
-    if (room.meta.status !== "lobby") return;
+    // Karşı taraf kabul etti (bu oda = meydan okuyan arena) — YALNIZCA biz meydan
+    // okuduysak ve doğru odadan geliyorsa kabul et (istenmemiş kilitlemeyi önle)
+    if (room.meta.status !== "lobby" || room.meta.teamMode) return;
+    if (room.meta.challengeStatus !== "sent" || msg.code !== room.meta.challengeTo) return;
     room.meta.teamMode = true;
     room.meta.teamAName = room.meta.teamName;
     room.meta.teamBName = msg.teamName || "Rakip Takım";
@@ -316,6 +329,7 @@ function hostOnInput(msg) {
     sfx.correct();
     hostPublish(); render();
   } else if (msg.type === "challengeDecline") {
+    if (room.meta.challengeStatus !== "sent" || msg.code !== room.meta.challengeTo) return;
     room.meta.challengeStatus = "declined";
     delete room.meta.challengeTo;
     hostPublish(); render();
@@ -335,6 +349,10 @@ function hostStartGame() {
       return;
     }
   }
+  // Bu oyuna benzersiz kimlik: rekorların yalnızca bir kez işlenmesini sağlar
+  // (oyun sonu ekranında sayfa yenileyerek XP/rozet farm'ını engeller).
+  state.room.meta.gameId = uid() + Date.now().toString(36);
+  requestWake();
   hostShowQuestion(0);
 }
 
@@ -693,7 +711,7 @@ function fullRender() {
     // İlk soruda oyun-içi istatistikleri sıfırla
     if (m.questionIndex === 0 && !state.statsInit) {
       state.gameStats = { correct: 0, questions: 0, maxStreak: 0, wrongStreak: 0, fastMs: 0 };
-      state.statsInit = true; state.recorded = false;
+      state.statsInit = true; state.recorded = false; state.lastRevealIndex = -1;
     }
     state.role === "host" ? renderHostQuestion() : renderPlayerQuestion();
   } else if (status === "reveal") {
@@ -847,8 +865,8 @@ function renderLeague() {
       <div id="leagueList"><div class="spinner"></div></div>
     </div>`;
   const entries = new Map();
-  let unsub = null, rt = null;
-  const done = () => { if (unsub) unsub(); clearTimeout(rt); };
+  let unsub = null, rt = null, cancelled = false;
+  const done = () => { cancelled = true; if (unsub) unsub(); clearTimeout(rt); };
   document.getElementById("back").onclick = () => { done(); renderHome(); };
   const paint = () => {
     const mine = loadProfile();
@@ -865,12 +883,13 @@ function renderLeague() {
   };
   const schedule = () => { clearTimeout(rt); rt = setTimeout(paint, 400); };
   whenConnected().then(() => {
+    if (cancelled) return;
     const pr = loadProfile();
     const myWeekXp = pr.weekly && pr.weekly.week === wk ? pr.weekly.xp : 0;
     try { publishLeague(wk, pr.deviceId, { name: pr.name || "Misafir", avatar: pr.avatar || "🙂", xp: myWeekXp, ts: Date.now() }); } catch (e) {}
     unsub = subscribeLeague(wk, (entry, id) => { entries.set(id, entry); schedule(); });
-    setTimeout(() => { if (state.currentView === "league") paint(); }, 1500);
-  }).catch(() => { const el = document.getElementById("leagueList"); if (el) el.innerHTML = `<div class="muted small">Sunucuya bağlanılamadı.</div>`; });
+    setTimeout(() => { if (!cancelled && state.currentView === "league") paint(); }, 1500);
+  }).catch(() => { if (cancelled) return; const el = document.getElementById("leagueList"); if (el) el.innerHTML = `<div class="muted small">Sunucuya bağlanılamadı.</div>`; });
 }
 
 function renderSettings() {
@@ -960,8 +979,8 @@ function renderGlobal() {
       <div id="globalList"><div class="spinner"></div></div>
     </div>`;
   const entries = new Map();
-  let unsub = null, rt = null;
-  const done = () => { if (unsub) unsub(); clearTimeout(rt); };
+  let unsub = null, rt = null, cancelled = false;
+  const done = () => { cancelled = true; if (unsub) unsub(); clearTimeout(rt); };
   document.getElementById("back").onclick = () => { done(); renderHome(); };
 
   const paint = () => {
@@ -980,11 +999,13 @@ function renderGlobal() {
   const schedule = () => { clearTimeout(rt); rt = setTimeout(paint, 400); };
 
   whenConnected().then(() => {
+    if (cancelled) return;
     const pr = loadProfile();
     try { publishHof(pr.deviceId, { name: pr.name || "Misafir", avatar: pr.avatar || "🙂", xp: pr.xp, best: pr.bestScore, rank: rankFor(pr.xp).name, games: pr.games, ts: Date.now() }); } catch (e) {}
     unsub = subscribeHof((entry, id) => { entries.set(id, entry); schedule(); });
-    setTimeout(() => { if (state.currentView === "global") paint(); }, 1500);
+    setTimeout(() => { if (!cancelled && state.currentView === "global") paint(); }, 1500);
   }).catch(() => {
+    if (cancelled) return;
     const gl = document.getElementById("globalList");
     if (gl) gl.innerHTML = `<div class="muted small">Sunucuya bağlanılamadı.</div>`;
   });
@@ -1305,13 +1326,19 @@ function shareUrl() {
 function renderHostLobby() {
   const players = playersList();
   const url = shareUrl();
+  // QR yalnızca oda kodu için bir kez üretilir (her state güncellemesinde değil)
   let qrSvg = "";
-  try {
-    const qr = qrcode(0, "M");
-    qr.addData(url);
-    qr.make();
-    qrSvg = qr.createSvgTag({ cellSize: 4, margin: 1, scalable: true });
-  } catch (e) { qrSvg = ""; }
+  if (state.qrCache && state.qrCache.code === state.code) {
+    qrSvg = state.qrCache.svg;
+  } else {
+    try {
+      const qr = qrcode(0, "M");
+      qr.addData(url);
+      qr.make();
+      qrSvg = qr.createSvgTag({ cellSize: 4, margin: 1, scalable: true });
+    } catch (e) { qrSvg = ""; }
+    state.qrCache = { code: state.code, svg: qrSvg };
+  }
 
   const m = state.room.meta;
   const requests = Object.entries(state.room.requests || {});
@@ -1402,7 +1429,7 @@ function renderPlayerChips(players, kickable) {
   if (!players.length) return `<div class="muted small">Henüz kimse yok...</div>`;
   return players.map(([id, p]) => `<div class="player-chip">
       <span class="pchip-av">${esc(p.avatar || "🙂")}</span>${esc(p.name)}
-      ${kickable && id !== "host" ? `<button class="kick-btn" data-kick="${id}" title="At">×</button>` : ""}
+      ${kickable && id !== "host" ? `<button class="kick-btn" data-kick="${id}" title="At" aria-label="${esc(p.name)} oyuncusunu at">×</button>` : ""}
     </div>`).join("");
 }
 
@@ -1855,7 +1882,7 @@ function renderHostReveal() {
     </div>`;
   document.getElementById("next").onclick = () => { sfx.click(); hostNext(); };
   sfx.whoosh();
-  if (meHost) tallyGameStat(meHost.lastCorrect, meHost.lastStreak || 0);
+  if (meHost && state.lastRevealIndex !== i) { state.lastRevealIndex = i; tallyGameStat(meHost.lastCorrect, meHost.lastStreak || 0); }
   // Otomatik ilerleme
   clearTimeout(state.autoNextTimer);
   if (m.autoNext) {
@@ -1887,10 +1914,15 @@ function renderPlayerReveal() {
         <div class="muted small">Toplam: ${me.score || 0} puan</div>
       </div>`}
     </div>`;
-  flashScreen(correct ? "good" : "bad");
-  if (correct) { sfx.correct(); if (streak >= 2) setTimeout(() => sfx.streak(), 350); }
-  else sfx.wrong();
-  tallyGameStat(correct, streak);
+  // Aynı sorunun reveal'ı tekrar gelirse (yeniden bağlanma) efekt/sayımı bir kez yap
+  const i = state.room.meta.questionIndex;
+  if (state.lastRevealIndex !== i) {
+    state.lastRevealIndex = i;
+    flashScreen(correct ? "good" : "bad");
+    if (correct) { sfx.correct(); if (streak >= 2) setTimeout(() => sfx.streak(), 350); }
+    else sfx.wrong();
+    tallyGameStat(correct, streak);
+  }
 }
 
 // Yerel oyuncunun oyun-içi istatistiğini biriktir (rekorlar + karakterler için)
@@ -2042,11 +2074,25 @@ function hostRematch() {
     delete p.lastCombo; delete p.lastFirst; delete p.lastMilestone; delete p.lastDoubled; delete p.lastBase;
   }
   room.answers = {}; room.reveal = {}; room.fifty = {}; room.doubles = {};
+  delete m.gameId; // yeni turda hostStartGame yeni gameId üretir
   m.status = "lobby"; m.questionIndex = -1; m.totalQuestions = qset.length;
   state.recorded = false; state.statsInit = false; state.answeredIndex = -1;
   clearTimeout(state.autoNextTimer); clearTimeout(state.autoRevealTimer);
   state.lastRenderKey = null; // lobiye tam çizim
   hostPublish(); render();
+}
+
+// Zaten işlenmiş oyun için (yenileme) — XP eklemeden mevcut durum özeti
+function recordedSummaryHtml() {
+  const pr = loadProfile();
+  const lp = levelProgress(pr.xp);
+  const title = rankFor(pr.xp);
+  return `
+    <div class="xp-summary">
+      <div class="xp-rank">LV ${lp.level} · ${title.emoji} ${esc(title.name)}</div>
+      <div class="pc-bar"><span class="pc-fill" style="width:${lp.pct}%"></span></div>
+      <div class="muted small">${pr.xp} XP — Level ${lp.level + 1} için ${lp.toNext} XP</div>
+    </div>`;
 }
 
 // Oyun sonunda yerel oyuncunun rekorunu işler, XP/rütbe özeti HTML'i döndürür
@@ -2055,6 +2101,12 @@ function recordLocalResult(m, sortedPlayers) {
   if (!localPid || state.recorded) return "";
   const meP = (state.room.players || {})[localPid];
   if (!meP) return "";
+  // Aynı oyunu iki kez işleme (oyun sonu ekranında sayfa yenileme farm'ını engelle)
+  const gid = m.gameId || (state.code + ":" + m.questionIndex);
+  let lastGame = "";
+  try { lastGame = localStorage.getItem("bnb_lastGame") || ""; } catch (e) {}
+  if (lastGame === gid) { state.recorded = true; return recordedSummaryHtml(); }
+  try { localStorage.setItem("bnb_lastGame", gid); } catch (e) {}
   state.recorded = true;
   const oldXp = loadProfile().xp || 0;
   const myRank = sortedPlayers.findIndex(([id]) => id === localPid) + 1;
@@ -2162,6 +2214,7 @@ function renderRoomGone() {
 }
 
 function resetToHome() {
+  releaseWake();
   clearTimeout(state.autoRevealTimer);
   clearTimeout(state.autoNextTimer);
   if (state.stateUnsub) state.stateUnsub();
@@ -2172,6 +2225,7 @@ function resetToHome() {
     localQuestions: null, stateUnsub: null, inputUnsub: null,
     currentView: null, lastRenderKey: null, answeredIndex: -1, revealingIndex: -1,
     inCountdown: false, pendingApproval: false, migrating: false, awaitingArena: false,
+    statsInit: false, recorded: false, lastRevealIndex: -1, gameStats: null,
   });
   renderHome();
 }
@@ -2207,6 +2261,16 @@ async function resumeSession(saved) {
     if (!state.room.answers) state.room.answers = {};
     state.inputUnsub = subscribeInput(saved.code, hostOnInput);
     render();
+    // Soru sırasında yenilendiyse: cevaplar kaybolmuş ve zamanlayıcı kurulmamış olur;
+    // oyunun kilitlenmemesi için otomatik reveal'i yeniden kur.
+    if (state.room.meta.status === "question") {
+      const i = state.room.meta.questionIndex;
+      const limit = state.room.meta.timeLimit || 20;
+      state.hostLocalStart = Date.now();
+      state.revealingIndex = -1;
+      clearTimeout(state.autoRevealTimer);
+      state.autoRevealTimer = setTimeout(() => maybeReveal(i), COUNTDOWN_MS + limit * 1000 + 800);
+    }
   } else {
     state.stateUnsub = subscribeState(saved.code, playerOnState);
     sendInput(saved.code, { type: "join", pid: state.playerId, name: state.name, avatar: loadProfile().avatar || "🙂" });
@@ -2214,10 +2278,64 @@ async function resumeSession(saved) {
   }
 }
 
+// Bağlantı durumu bandı: broker koptuğunda kullanıcıya söyle
+function setupConnBanner() {
+  const banner = document.getElementById("connBanner");
+  if (!banner) return;
+  let everConnected = false;
+  onStatus((s) => {
+    if (s === "connected") { everConnected = true; banner.hidden = true; }
+    else if (everConnected && (s === "offline" || s === "error" || s === "connecting")) banner.hidden = false;
+  });
+  window.addEventListener("offline", () => { banner.hidden = false; });
+  window.addEventListener("online", () => { /* mqtt reconnect bandı kapatır */ });
+}
+
+// Ekran uyanık tutma (Wake Lock): özellikle HOST'un telefonu uyuyunca odanın
+// donmaması için. Desteklenmeyen tarayıcıda sessizce yok sayılır.
+let wakeLock = null;
+async function requestWake() {
+  try { if ("wakeLock" in navigator && !wakeLock) { wakeLock = await navigator.wakeLock.request("screen"); wakeLock.addEventListener("release", () => { wakeLock = null; }); } } catch (e) {}
+}
+function releaseWake() { try { if (wakeLock) { wakeLock.release(); wakeLock = null; } } catch (e) {} }
+
+// Global hata yakalama: kullanıcıya nazik bir uyarı + yenileme sun (UI'yi yıkmadan)
+function setupErrorHandling() {
+  let shown = false;
+  const onErr = () => {
+    if (shown) return; shown = true;
+    const el = document.createElement("div");
+    el.className = "err-toast";
+    el.innerHTML = `<span>⚠️ Beklenmeyen bir sorun oluştu.</span> <button type="button" id="errReload">Yenile</button>`;
+    document.body.appendChild(el);
+    const btn = el.querySelector("#errReload");
+    if (btn) btn.onclick = () => location.reload();
+    setTimeout(() => { el.remove(); shown = false; }, 8000);
+  };
+  window.addEventListener("error", onErr);
+  window.addEventListener("unhandledrejection", onErr);
+}
+
+function setupVisibility() {
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState !== "visible") return;
+    unlock(); // sesi tekrar aç
+    const st = state.room && state.room.meta && state.room.meta.status;
+    if (state.role === "host" && st && st !== "ended") requestWake();
+  });
+}
+
 function boot() {
+  setupErrorHandling();
   applyTheme(currentTheme());
   ensureDaily();
   setupAudioUI();
+  setupConnBanner();
+  setupVisibility();
+  // PWA: service worker (yerel file:// hariç)
+  if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+    navigator.serviceWorker.register("sw.js").catch(() => {});
+  }
   if (!isConfigured) { renderHome(); return; }
 
   // ?oda=KOD ile gelen deep-link

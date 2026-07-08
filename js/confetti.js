@@ -1,5 +1,7 @@
 // Basit konfeti — bağımlılıksız canvas animasyonu.
 export function confetti(durationMs = 2500) {
+  // Kullanıcı hareket azaltmayı tercih ettiyse konfeti atlama
+  if (typeof matchMedia === "function" && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const canvas = document.createElement("canvas");
   canvas.style.cssText =
     "position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999";
