@@ -16,7 +16,7 @@ const DEFAULT = {
   name: "", avatar: "🙂", deviceId: "", xp: 0, games: 0, wins: 0,
   bestScore: 0, bestStreak: 0,
   totalCorrect: 0, totalQuestions: 0,
-  history: [], badges: {},
+  history: [], badges: {}, daily: null, weekly: { week: "", xp: 0 },
 };
 
 export function loadProfile() {

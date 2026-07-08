@@ -128,3 +128,14 @@ export function subscribeHof(cb) {
     if (data) cb(data, id);
   });
 }
+
+// --- Haftalık lig (en iyi çaba, retained; hafta anahtarı app tarafından verilir) ---
+export function publishLeague(week, id, entry) {
+  connect().publish(`${PREFIX}/league/${week}/${id}`, JSON.stringify(entry), { retain: true, qos: 0 });
+}
+export function subscribeLeague(week, cb) {
+  return sub(`${PREFIX}/league/${week}/#`, (data, raw, topic) => {
+    const id = (topic || "").split("/").pop();
+    if (data) cb(data, id);
+  });
+}

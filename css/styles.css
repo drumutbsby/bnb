@@ -461,6 +461,35 @@ textarea.input { min-height: 90px; resize: vertical; font-family: inherit; }
 .theme-opt.sel { border-color: var(--primary); }
 .theme-sw { width: 26px; height: 26px; border-radius: 50%; display: inline-block; box-shadow: 0 1px 3px rgba(0,0,0,.2); }
 
+/* Günlük şerit (ana ekran) */
+.daily-strip {
+  display: flex; align-items: center; gap: 10px; width: 100%; cursor: pointer;
+  background: var(--secondary); border: none; border-radius: 12px; padding: 10px 14px; margin-bottom: 12px;
+  font-weight: 700;
+}
+.ds-streak { color: #e2691b; font-weight: 800; }
+.ds-q { flex: 1; text-align: left; font-size: .9rem; }
+.ds-go { color: var(--muted); font-weight: 900; }
+
+/* Günlük ekran */
+.streak-big { text-align: center; font-size: 1.4rem; font-weight: 900; color: #e2691b; margin: 6px 0; }
+.cal-row { display: flex; justify-content: space-between; gap: 4px; margin: 10px 0 4px; }
+.cal-day {
+  flex: 1; text-align: center; background: var(--secondary); border-radius: 8px; padding: 8px 0; font-size: 1.1rem;
+}
+.cal-day.on { background: #fff2e0; }
+.cal-day span { display: block; font-size: .68rem; color: var(--muted); font-weight: 700; }
+.quest { background: var(--secondary); border-radius: 12px; padding: 12px; margin-bottom: 8px; }
+.quest.done { background: #eaf6ea; }
+.quest-top { display: flex; justify-content: space-between; font-weight: 700; }
+.quest-xp { color: var(--primary); font-weight: 800; }
+.quest-bar { height: 8px; background: #e3e0ee; border-radius: 6px; overflow: hidden; margin: 6px 0 4px; }
+.quest-bar span { display: block; height: 100%; background: linear-gradient(90deg, #26890c, #4caf50); }
+
+/* Kilitli avatar/tema */
+.av-opt.locked { opacity: .55; cursor: help; }
+.theme-opt.locked { opacity: .6; }
+
 /* Küçük ekran */
 @media (max-width: 400px) {
   .card { padding: 18px; }

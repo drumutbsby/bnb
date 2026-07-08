@@ -4,7 +4,9 @@
 import {
   isConfigured, whenConnected, subscribeInput, subscribeState,
   publishState, clearState, sendInput, publishHof, subscribeHof, subscribeRooms,
+  publishLeague, subscribeLeague,
 } from "./net.js";
+import { ensureDaily, updateDailyAfterGame, loginStreak } from "./daily.js";
 import { CATEGORIES, CUSTOM_CATEGORY, QUESTIONS, buildQuestionSet } from "./questions.js";
 import { unlock, sfx, isMuted, toggleMute } from "./sound.js";
 import { confetti } from "./confetti.js";
@@ -26,14 +28,37 @@ const DIFFICULTY = {
 };
 const START_JOKERS = { fifty: 1, double: 1 };
 const CUSTOM_KEY = "bnb_custom";
-const AVATARS = ["🦁","🐯","🐻","🦊","🐼","🐨","🐸","🐵","🦄","🐲","🦉","🐺","🐱","🐶","🐹","🐰","🦖","🐙","🐬","🦈","🦋","🐝","🦅","🐷","🐮","🐔","🐧","🐢"];
+const AVATARS = ["🙂","🦁","🐯","🐻","🦊","🐼","🐨","🐸","🐵","🦄","🐺","🐱","🐶","🐹","🐰","🦖","🐙","🐬","🦈","🦋","🐝","🐷","🐮","🐔","🐧","🐢","🐉","🦸","🥷","🤖","👽","👑"];
 const THEMES = {
   mor:       { name: "Mor", emoji: "🟣", vars: { "--bg1": "#46178f", "--bg2": "#7c2fd6", "--primary": "#46178f", "--primary-d": "#35116e" } },
   okyanus:   { name: "Okyanus", emoji: "🔵", vars: { "--bg1": "#0b3d66", "--bg2": "#1368ce", "--primary": "#0b5cad", "--primary-d": "#083f78" } },
   orman:     { name: "Orman", emoji: "🟢", vars: { "--bg1": "#12572b", "--bg2": "#26890c", "--primary": "#1a7a2e", "--primary-d": "#0f5220" } },
   gunbatimi: { name: "Gün Batımı", emoji: "🟠", vars: { "--bg1": "#7a1f4b", "--bg2": "#e2691b", "--primary": "#c8106e", "--primary-d": "#8f0a4e" } },
   gece:      { name: "Gece", emoji: "⚫", vars: { "--bg1": "#0f1220", "--bg2": "#232946", "--primary": "#5a5fd6", "--primary-d": "#3b3f9e" } },
+  altin:     { name: "Altın", emoji: "🟡", vars: { "--bg1": "#6b4e00", "--bg2": "#d89e00", "--primary": "#a67c00", "--primary-d": "#6b4e00" } },
+  gokkusagi: { name: "Gökkuşağı", emoji: "🌈", vars: { "--bg1": "#8e2de2", "--bg2": "#e2691b", "--primary": "#c8106e", "--primary-d": "#8f0a4e" } },
 };
+// Kilitli avatarlar/temalar (rütbe/rozet/istatistikle açılır)
+const AVATAR_LOCKS = {
+  "🐉": { cond: (p) => p.xp >= 15000, hint: "Bilgili rütbesi (15.000 XP)" },
+  "🦸": { cond: (p) => p.wins >= 10, hint: "10 galibiyet" },
+  "🥷": { cond: (p) => p.bestStreak >= 5, hint: "5'li seri (Alev Aldı rozeti)" },
+  "🤖": { cond: (p) => p.badges && p.badges.perfect, hint: "Kusursuz rozeti" },
+  "👽": { cond: (p) => p.badges && p.badges.speed, hint: "Hız Canavarı rozeti" },
+  "👑": { cond: (p) => p.xp >= 150000, hint: "Bilge rütbesi (150.000 XP)" },
+};
+const THEME_LOCKS = {
+  altin: { cond: (p) => p.xp >= 75000, hint: "Usta rütbesi (75.000 XP)" },
+  gokkusagi: { cond: (p) => Object.keys(p.badges || {}).length >= 8, hint: "8 rozet" },
+};
+function avatarUnlocked(a, p) { const l = AVATAR_LOCKS[a]; return !l || l.cond(p || loadProfile()); }
+function themeUnlocked(k, p) { const l = THEME_LOCKS[k]; return !l || l.cond(p || loadProfile()); }
+function weekId() {
+  const d = new Date();
+  const onejan = new Date(d.getFullYear(), 0, 1);
+  const wk = Math.ceil((((d - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+  return d.getFullYear() + "-H" + wk;
+}
 function currentTheme() { try { return localStorage.getItem("bnb_theme") || "mor"; } catch (e) { return "mor"; } }
 function applyTheme(key) {
   const t = THEMES[key] || THEMES.mor;
@@ -697,17 +722,29 @@ function profileChipHtml() {
     </button>`;
 }
 
+function dailyStripHtml() {
+  const d = ensureDaily();
+  const doneCount = d.quests.filter((q) => q.done).length;
+  return `<button class="daily-strip" id="dailyStrip">
+    <span class="ds-streak">🔥 ${d.streak} gün</span>
+    <span class="ds-q">Günlük görevler: <b>${doneCount}/${d.quests.length}</b></span>
+    <span class="ds-go">›</span>
+  </button>`;
+}
+
 function renderHome() {
   state.currentView = "home";
   APP.innerHTML = `
     <div class="card center home">
       <div class="logo">Ben Bildim <span>🧠</span></div>
       ${profileChipHtml()}
+      ${dailyStripHtml()}
       <button class="btn btn-primary btn-big" id="goHost">🎮 Oda Kur</button>
       <button class="btn btn-secondary btn-big" id="goJoin">🙋 Odaya Katıl</button>
       <button class="btn btn-secondary btn-big" id="quick">⚡ Hızlı Eşleş</button>
       <div class="home-links">
         <button class="btn-link" id="records">🏆 Rekorlarım</button>
+        <button class="btn-link" id="league">🏅 Haftalık Lig</button>
         <button class="btn-link" id="global">🌍 Global</button>
         <button class="btn-link" id="settings">⚙️ Ayarlar</button>
       </div>
@@ -716,19 +753,97 @@ function renderHome() {
   document.getElementById("goJoin").onclick = () => { sfx.click(); renderJoin(); };
   document.getElementById("quick").onclick = () => { sfx.click(); renderQuickMatch(); };
   document.getElementById("records").onclick = () => { sfx.click(); renderProfile(); };
+  document.getElementById("league").onclick = () => { sfx.click(); renderLeague(); };
   document.getElementById("global").onclick = () => { sfx.click(); renderGlobal(); };
   document.getElementById("settings").onclick = () => { sfx.click(); renderSettings(); };
   document.getElementById("profileChip").onclick = () => { sfx.click(); renderProfile(); };
+  document.getElementById("dailyStrip").onclick = () => { sfx.click(); renderDaily(); };
+}
+
+function renderDaily() {
+  state.currentView = "daily";
+  const d = ensureDaily();
+  const quests = d.quests.map((q) => {
+    const pct = Math.min(100, Math.round((q.progress / q.goal) * 100));
+    return `<div class="quest ${q.done ? "done" : ""}">
+      <div class="quest-top"><span>${q.done ? "✅ " : ""}${esc(q.text)}</span><span class="quest-xp">+${q.xp} XP</span></div>
+      <div class="quest-bar"><span style="width:${pct}%"></span></div>
+      <div class="muted small">${Math.min(q.progress, q.goal)}/${q.goal}</div>
+    </div>`;
+  }).join("");
+  // Son 7 günün takvimi
+  const today = Math.floor(Date.now() / 86400000);
+  const log = new Set(d.log || []);
+  const days = ["Pt", "Sa", "Ça", "Pe", "Cu", "Ct", "Pz"];
+  let cal = "";
+  for (let i = 6; i >= 0; i--) {
+    const dn = today - i;
+    const active = log.has(dn);
+    const dow = new Date(dn * 86400000).getDay(); // 0=Paz
+    const label = days[(dow + 6) % 7];
+    cal += `<div class="cal-day ${active ? "on" : ""}">${active ? "🔥" : "·"}<span>${label}</span></div>`;
+  }
+  APP.innerHTML = `
+    <div class="card">
+      <button class="link-back" id="back">‹ Geri</button>
+      <h2>📅 Günlük</h2>
+      <div class="streak-big">🔥 ${d.streak} günlük seri</div>
+      <div class="cal-row">${cal}</div>
+      <div class="players-title">Bugünün Görevleri</div>
+      ${quests}
+      <p class="muted small">Görevler tamamlanınca XP otomatik eklenir. Her gün yenilenir; her gün gel, serini büyüt!</p>
+    </div>`;
+  document.getElementById("back").onclick = renderHome;
+}
+
+function renderLeague() {
+  state.currentView = "league";
+  const wk = weekId();
+  APP.innerHTML = `
+    <div class="card">
+      <button class="link-back" id="back">‹ Geri</button>
+      <h2>🏅 Haftalık Lig</h2>
+      <p class="muted small" id="leagueNote">Bu hafta (${esc(wk)}) en çok XP toplayanlar (topluluk · en iyi çaba). Bağlanılıyor...</p>
+      <div id="leagueList"><div class="spinner"></div></div>
+    </div>`;
+  const entries = new Map();
+  let unsub = null, rt = null;
+  const done = () => { if (unsub) unsub(); clearTimeout(rt); };
+  document.getElementById("back").onclick = () => { done(); renderHome(); };
+  const paint = () => {
+    const mine = loadProfile();
+    const list = [...entries.values()].filter((e) => e && typeof e.xp === "number").sort((a, b) => b.xp - a.xp).slice(0, 50);
+    const rows = list.map((e, i) => `
+      <div class="lb-row ${e.name && e.name === mine.name ? "me" : ""}">
+        <span class="lb-rank">${i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : i + 1}</span>
+        <span class="lb-name"><span class="lb-av">${esc(e.avatar || "🙂")}</span>${esc(e.name || "—")}</span>
+        <span class="lb-score">${e.xp} XP</span>
+      </div>`).join("") || `<div class="muted small">Bu hafta henüz kayıt yok. İlk sen ol!</div>`;
+    const el = document.getElementById("leagueList"); if (el) el.innerHTML = rows;
+    const note = document.getElementById("leagueNote");
+    if (note) note.textContent = `Bu haftanın (${wk}) şampiyon adayları — ${list.length} oyuncu`;
+  };
+  const schedule = () => { clearTimeout(rt); rt = setTimeout(paint, 400); };
+  whenConnected().then(() => {
+    const pr = loadProfile();
+    const myWeekXp = pr.weekly && pr.weekly.week === wk ? pr.weekly.xp : 0;
+    try { publishLeague(wk, pr.deviceId, { name: pr.name || "Misafir", avatar: pr.avatar || "🙂", xp: myWeekXp, ts: Date.now() }); } catch (e) {}
+    unsub = subscribeLeague(wk, (entry, id) => { entries.set(id, entry); schedule(); });
+    setTimeout(() => { if (state.currentView === "league") paint(); }, 1500);
+  }).catch(() => { const el = document.getElementById("leagueList"); if (el) el.innerHTML = `<div class="muted small">Sunucuya bağlanılamadı.</div>`; });
 }
 
 function renderSettings() {
   state.currentView = "settings";
   const cur = currentTheme();
-  const themes = Object.entries(THEMES).map(([key, t]) =>
-    `<button type="button" class="theme-opt ${key === cur ? "sel" : ""}" data-theme="${key}">
+  const prof = loadProfile();
+  const themes = Object.entries(THEMES).map(([key, t]) => {
+    const locked = !themeUnlocked(key, prof);
+    return `<button type="button" class="theme-opt ${key === cur ? "sel" : ""} ${locked ? "locked" : ""}" data-theme="${key}" ${locked ? `data-locked="1" title="Kilitli: ${esc(THEME_LOCKS[key].hint)}"` : ""}>
       <span class="theme-sw" style="background:linear-gradient(135deg,${t.vars["--bg1"]},${t.vars["--bg2"]})"></span>
-      ${t.emoji} ${esc(t.name)}
-    </button>`).join("");
+      ${t.emoji} ${esc(t.name)}${locked ? " 🔒" : ""}
+    </button>`;
+  }).join("");
   APP.innerHTML = `
     <div class="card">
       <button class="link-back" id="back">‹ Geri</button>
@@ -742,6 +857,7 @@ function renderSettings() {
   document.getElementById("back").onclick = renderHome;
   APP.querySelectorAll(".theme-opt").forEach((b) => {
     b.onclick = () => {
+      if (b.dataset.locked) { alert("Bu tema kilitli: " + THEME_LOCKS[b.dataset.theme].hint); return; }
       applyTheme(b.dataset.theme);
       APP.querySelectorAll(".theme-opt").forEach((x) => x.classList.remove("sel"));
       b.classList.add("sel");
@@ -919,15 +1035,20 @@ function categoryChips() {
 }
 
 function avatarPickerHtml() {
-  const cur = loadProfile().avatar || "🙂";
-  return `<div class="avatar-picker" id="avpick">${AVATARS.map((a) =>
-    `<button type="button" class="av-opt ${a === cur ? "sel" : ""}" data-av="${a}">${a}</button>`).join("")}</div>`;
+  const p = loadProfile();
+  const cur = p.avatar || "🙂";
+  return `<div class="avatar-picker" id="avpick">${AVATARS.map((a) => {
+    const locked = !avatarUnlocked(a, p);
+    const hint = locked ? AVATAR_LOCKS[a].hint : "";
+    return `<button type="button" class="av-opt ${a === cur ? "sel" : ""} ${locked ? "locked" : ""}" data-av="${a}" ${locked ? `data-locked="1" title="Kilitli: ${esc(hint)}"` : ""}>${locked ? "🔒" : a}</button>`;
+  }).join("")}</div>`;
 }
 function bindAvatarPicker() {
   const wrap = document.getElementById("avpick");
   if (!wrap) return;
   wrap.querySelectorAll(".av-opt").forEach((b) => {
     b.onclick = () => {
+      if (b.dataset.locked) { showCharacter("mc", "Bu avatar kilitli: " + (AVATAR_LOCKS[b.dataset.av].hint)); return; }
       setAvatar(b.dataset.av);
       wrap.querySelectorAll(".av-opt").forEach((x) => x.classList.remove("sel"));
       b.classList.add("sel");
@@ -1875,17 +1996,32 @@ function recordLocalResult(m, sortedPlayers) {
     perfect, fastMs: gs.fastMs || 0,
     rank: myRank, players: sortedPlayers.length, team: !!m.teamMode, time: Date.now(),
   });
-  // Yeni açılan rozetleri sırayla göster
+  // Günlük görevleri güncelle (tamamlananların XP'si eklenir)
+  const dailyDone = updateDailyAfterGame({
+    correct: gs.correct || 0, won, perfect, team: !!m.teamMode, maxStreak: gs.maxStreak || 0,
+  });
+  const questXp = dailyDone.reduce((s, q) => s + q.xp, 0);
+
+  // Haftalık lig: bu haftanın XP toplamına ekle ve yayınla
+  const wk = weekId();
+  const pr = loadProfile();
+  pr.weekly = pr.weekly && pr.weekly.week === wk ? pr.weekly : { week: wk, xp: 0 };
+  pr.weekly.xp += (res.gainedXp || 0) + questXp;
+  // profile.js saveProfile'a doğrudan erişimimiz yok; kalıcılık için localStorage'a yaz
+  try { localStorage.setItem("bnb_profile", JSON.stringify(pr)); } catch (e) {}
+
+  // Bildirimler: rozetler + tamamlanan görevler
   (res.newBadges || []).forEach((a, i) => setTimeout(() => showBadge(a), 1600 + i * 1400));
+  dailyDone.forEach((q, i) => setTimeout(() => showBadge({ emoji: "✅", name: `Görev: ${q.text} (+${q.xp} XP)` }), 1600 + ((res.newBadges || []).length + i) * 1400));
   state.statsInit = false; // sonraki oyun için sıfırla
 
-  // Global şöhret salonuna kendi en iyisini yayınla (en iyi çaba)
+  // Global şöhret salonu + haftalık lig yayını (en iyi çaba)
   try {
-    const pr = res.profile;
     publishHof(pr.deviceId, {
       name: pr.name || "Misafir", avatar: pr.avatar || "🙂",
       xp: pr.xp, best: pr.bestScore, rank: rankFor(pr.xp).name, games: pr.games, ts: Date.now(),
     });
+    publishLeague(wk, pr.deviceId, { name: pr.name || "Misafir", avatar: pr.avatar || "🙂", xp: pr.weekly.xp, ts: Date.now() });
   } catch (e) {}
 
   // Oyun sonu karakteri (yerel katılımcıya özel)
@@ -1896,14 +2032,14 @@ function recordLocalResult(m, sortedPlayers) {
   else if (gs.questions && gs.correct / gs.questions >= 0.8) cid = "owl";
   if (cid) setTimeout(() => showCharacter(cid), 900);
 
-  const { cur, next, pct } = rankProgress(res.profile.xp);
+  const { cur, next, pct } = rankProgress(pr.xp);
   return `
     <div class="xp-summary">
-      <div class="xp-gain">+${res.gainedXp} XP</div>
+      <div class="xp-gain">+${res.gainedXp}${questXp ? ` (+${questXp} görev)` : ""} XP</div>
       ${res.leveledUp ? `<div class="levelup">🎉 Rütbe atladın: ${res.newRank.emoji} ${esc(res.newRank.name)}!</div>` : ""}
       <div class="xp-rank">${cur.emoji} ${esc(cur.name)}</div>
       <div class="pc-bar"><span class="pc-fill" style="width:${pct}%"></span></div>
-      <div class="muted small">${res.profile.xp} XP${next ? ` — sonraki: ${next.emoji} ${esc(next.name)} (${next.min - res.profile.xp} XP)` : " • En yüksek rütbe"}</div>
+      <div class="muted small">${pr.xp} XP${next ? ` — sonraki: ${next.emoji} ${esc(next.name)} (${next.min - pr.xp} XP)` : " • En yüksek rütbe"}</div>
     </div>`;
 }
 
@@ -1972,6 +2108,7 @@ async function resumeSession(saved) {
 
 function boot() {
   applyTheme(currentTheme());
+  ensureDaily();
   setupAudioUI();
   if (!isConfigured) { renderHome(); return; }
 
