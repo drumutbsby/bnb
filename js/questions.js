@@ -12,7 +12,12 @@ export const CATEGORIES = {
   teknoloji: { name: "Teknoloji", emoji: "💻", color: "#5a5a5a" },
   turkiye: { name: "Türkiye", emoji: "🇹🇷", color: "#c8102e" },
   hayvanlar: { name: "Hayvanlar", emoji: "🦁", color: "#2d8f4e" },
+  bayrak: { name: "Bayraklar", emoji: "🚩", color: "#b3261e" },
+  emoji: { name: "Emoji Bilmece", emoji: "🧩", color: "#7c2fd6" },
 };
+
+// Kendi sorularını yazmak isteyenler için özel kategori (soruları localStorage'da tutulur)
+export const CUSTOM_CATEGORY = { key: "ozel", name: "Kendi Sorularım", emoji: "✏️", color: "#e2691b" };
 
 export const QUESTIONS = {
   genel: [
@@ -135,16 +140,47 @@ export const QUESTIONS = {
     { q: "Aşağıdakilerden hangisi bir memeli hayvandır?", options: ["Yunus", "Köpekbalığı", "Timsah", "Kurbağa"], answer: 0 },
     { q: "Boynu en uzun olan kara hayvanı hangisidir?", options: ["Deve", "Zürafa", "At", "Lama"], answer: 1 },
   ],
+  bayrak: [
+    { q: "Bu bayrak hangi ülkeye ait?", visual: "🇫🇷", options: ["İtalya", "Fransa", "Hollanda", "Rusya"], answer: 1 },
+    { q: "Bu bayrak hangi ülkeye ait?", visual: "🇯🇵", options: ["Güney Kore", "Çin", "Japonya", "Bangladeş"], answer: 2 },
+    { q: "Bu bayrak hangi ülkeye ait?", visual: "🇧🇷", options: ["Brezilya", "Arjantin", "Portekiz", "Meksika"], answer: 0 },
+    { q: "Bu bayrak hangi ülkeye ait?", visual: "🇩🇪", options: ["Belçika", "Almanya", "Avusturya", "İspanya"], answer: 1 },
+    { q: "Bu bayrak hangi ülkeye ait?", visual: "🇹🇷", options: ["Tunus", "Türkiye", "Azerbaycan", "Fas"], answer: 1 },
+    { q: "Bu bayrak hangi ülkeye ait?", visual: "🇮🇹", options: ["İrlanda", "Macaristan", "İtalya", "Meksika"], answer: 2 },
+    { q: "Bu bayrak hangi ülkeye ait?", visual: "🇬🇧", options: ["ABD", "Avustralya", "Birleşik Krallık", "Yeni Zelanda"], answer: 2 },
+    { q: "Bu bayrak hangi ülkeye ait?", visual: "🇪🇸", options: ["İspanya", "Portekiz", "İtalya", "Kolombiya"], answer: 0 },
+    { q: "Bu bayrak hangi ülkeye ait?", visual: "🇬🇷", options: ["İsrail", "Yunanistan", "Finlandiya", "Uruguay"], answer: 1 },
+    { q: "Bu bayrak hangi ülkeye ait?", visual: "🇨🇦", options: ["Kanada", "İngiltere", "Danimarka", "İsviçre"], answer: 0 },
+    { q: "Bu bayrak hangi ülkeye ait?", visual: "🇸🇪", options: ["Norveç", "İsveç", "Finlandiya", "Danimarka"], answer: 1 },
+    { q: "Bu bayrak hangi ülkeye ait?", visual: "🇨🇭", options: ["Danimarka", "Avusturya", "İsviçre", "Polonya"], answer: 2 },
+  ],
+  emoji: [
+    { q: "Bu emojiler hangi filmi anlatıyor?", visual: "🦁👑", options: ["Tarzan", "Aslan Kral", "Madagaskar", "Jungle Book"], answer: 1 },
+    { q: "Bu emojiler hangi filmi anlatıyor?", visual: "❄️⛄👸", options: ["Sindirella", "Karlar Ülkesi", "Buz Devri", "Rapunzel"], answer: 1 },
+    { q: "Bu emojiler hangi filmi anlatıyor?", visual: "🚢🧊💔", options: ["Titanic", "Deniz Feneri", "Kutup Ekspresi", "Kaptan Phillips"], answer: 0 },
+    { q: "Bu emojiler hangi süper kahramanı anlatıyor?", visual: "🕷️🧑", options: ["Batman", "Örümcek Adam", "Süpermen", "Kaptan Amerika"], answer: 1 },
+    { q: "Bu emojiler hangi filmi anlatıyor?", visual: "🦖🏞️", options: ["Kong", "Jurassic Park", "Godzilla", "Avatar"], answer: 1 },
+    { q: "Bu emojiler hangi seriyi anlatıyor?", visual: "🧙‍♂️⚡🤓", options: ["Yüzüklerin Efendisi", "Harry Potter", "Narnia", "Percy Jackson"], answer: 1 },
+    { q: "Bu emojiler hangi filmi anlatıyor?", visual: "🐠🔍", options: ["Deniz Filmi", "Kayıp Balık Nemo", "Küçük Deniz Kızı", "Shark Tale"], answer: 1 },
+    { q: "Bu emojiler hangi süper kahramanı anlatıyor?", visual: "🦇🦸", options: ["Batman", "Kara Şahin", "Örümcek Adam", "Kanatlı Adam"], answer: 0 },
+    { q: "Bu emojiler hangi filmi anlatıyor?", visual: "👽📞🏠", options: ["Uzaylılar", "E.T.", "İstila", "Süpernova"], answer: 1 },
+    { q: "Bu emojiler hangi filmi anlatıyor?", visual: "🧞‍♂️🪔", options: ["Sinbad", "Alaaddin", "Herkül", "Pinokyo"], answer: 1 },
+    { q: "Bu emojiler hangi filmi anlatıyor?", visual: "🍫🏭", options: ["Şeker Dünyası", "Charlie'nin Çikolata Fabrikası", "Ratatouille", "Şirinler"], answer: 1 },
+    { q: "Bu emojiler hangi filmi anlatıyor?", visual: "🤖🚮🌍", options: ["Transformers", "WALL-E", "Terminatör", "Big Hero 6"], answer: 1 },
+  ],
 };
 
 // Belirli kategorilerden karışık soru seti üretir.
-export function buildQuestionSet(categoryKeys, count) {
+// customPool: "ozel" kategorisi seçilirse kullanılacak (host'un kendi soruları).
+export function buildQuestionSet(categoryKeys, count, customPool) {
   let pool = [];
   const keys = (!categoryKeys || categoryKeys.length === 0)
     ? Object.keys(QUESTIONS)
     : categoryKeys;
   for (const key of keys) {
-    if (QUESTIONS[key]) {
+    if (key === "ozel" && Array.isArray(customPool)) {
+      for (const item of customPool) pool.push({ ...item, category: "ozel" });
+    } else if (QUESTIONS[key]) {
       for (const item of QUESTIONS[key]) {
         pool.push({ ...item, category: key });
       }

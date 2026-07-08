@@ -213,6 +213,75 @@ code { background: #f0eef7; padding: 2px 6px; border-radius: 6px; font-size: .85
 
 .foot { text-align: center; color: rgba(255,255,255,.6); font-size: .8rem; padding: 12px; }
 
+/* Ses düğmesi */
+.mute-btn {
+  position: fixed; top: 10px; right: 10px; z-index: 50;
+  width: 42px; height: 42px; border-radius: 50%; border: none; cursor: pointer;
+  background: rgba(255,255,255,.2); color: #fff; font-size: 1.2rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.mute-btn:hover { background: rgba(255,255,255,.32); }
+
+/* Zorluk seçimi */
+.difficulty-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.diff-chip {
+  background: var(--secondary); border: 2px solid transparent; border-radius: 12px;
+  padding: 12px 6px; text-align: center; cursor: pointer; font-weight: 700;
+}
+.diff-chip .diff-emoji { font-size: 1.4rem; display: block; }
+.diff-chip .diff-sub { font-size: .72rem; color: var(--muted); font-weight: 600; }
+.diff-chip.active { border-color: var(--primary); background: #f2eefb; }
+
+/* Geri sayım overlay */
+.countdown-overlay {
+  position: absolute; inset: 0; background: rgba(70,23,143,.95); border-radius: var(--radius);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: #fff; z-index: 20;
+}
+.countdown-num { font-size: 6rem; font-weight: 900; animation: cdpop .8s ease; }
+.countdown-label { font-size: 1.1rem; opacity: .85; margin-top: 4px; }
+@keyframes cdpop { from { transform: scale(.4); opacity: 0; } 40% { transform: scale(1.1); opacity: 1; } to { transform: scale(1); } }
+
+/* Görsel soru bloğu */
+.visual-block {
+  font-size: 4.5rem; text-align: center; margin: 6px 0 4px; line-height: 1.1;
+  letter-spacing: 4px;
+}
+
+/* Jokerler */
+.jokers { display: flex; gap: 8px; margin-top: 12px; }
+.joker-btn {
+  flex: 1; background: #fff3cd; border: 2px solid #e0b000; color: #7a5a00;
+  border-radius: 12px; padding: 10px; font-weight: 800; cursor: pointer; font-size: .9rem;
+}
+.joker-btn:disabled { opacity: .4; cursor: not-allowed; }
+.joker-btn.active { background: #26890c; border-color: #0a5c02; color: #fff; }
+.opt-hidden { opacity: .18 !important; pointer-events: none; }
+.double-badge {
+  display: inline-block; background: #26890c; color: #fff; font-weight: 800;
+  padding: 4px 12px; border-radius: 14px; margin: 6px 0;
+}
+
+/* Seri (streak) */
+.streak-fire { font-size: 1.3rem; font-weight: 900; color: #e2691b; margin: 6px 0; }
+.gain-breakdown { font-size: .82rem; color: var(--muted); margin-top: 2px; }
+
+/* QR & paylaşım */
+.share-box { margin: 14px 0; text-align: center; }
+.qr-wrap { display: inline-block; background: #fff; padding: 10px; border-radius: 12px; box-shadow: var(--shadow); }
+.qr-wrap svg { display: block; width: 160px; height: 160px; }
+.share-actions { display: flex; gap: 8px; margin-top: 10px; }
+.share-actions .btn { margin-top: 0; }
+
+/* Kendi sorularım editörü */
+.editor-q { background: var(--secondary); border-radius: 10px; padding: 10px 12px; margin-bottom: 8px; }
+.editor-q .eq-text { font-weight: 700; }
+.editor-q .eq-meta { font-size: .8rem; color: var(--muted); display: flex; justify-content: space-between; margin-top: 4px; }
+.opt-row { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+.opt-row input[type="radio"] { accent-color: var(--primary); }
+.opt-row .input { flex: 1; }
+textarea.input { min-height: 90px; resize: vertical; font-family: inherit; }
+
 /* Küçük ekran */
 @media (max-width: 400px) {
   .card { padding: 18px; }
