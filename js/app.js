@@ -107,7 +107,8 @@ function getStateOnce(code, timeoutMs = 3500) {
 // ---------------------------------------------------------------------------
 // HOST mantığı
 // ---------------------------------------------------------------------------
-async function createRoom(categories, count, difficultyKey, hostName) {
+async function createRoom(categories, count, difficultyKey, hostName, settings) {
+  settings = settings || {};
   state.role = "host";
   state.name = hostName;
   state.playerId = "host";
@@ -125,15 +126,27 @@ async function createRoom(categories, count, difficultyKey, hostName) {
   const custom = categories.includes("ozel") ? loadCustom() : null;
   const qset = buildQuestionSet(categories, count, custom);
   state.localQuestions = qset;
+  const hostPlays = settings.hostPlays !== false;
   state.room = {
     meta: {
       hostName, status: "lobby", questionIndex: -1,
       totalQuestions: qset.length, timeLimit: diff.time,
       pointFactor: diff.factor, difficulty: difficultyKey,
       categories: categories && categories.length ? categories : ["hepsi"],
+      hostPlays,
+      speedBonus: settings.speedBonus !== false,
+      wrongPenalty: settings.wrongPenalty ? 250 : 0,
     },
     players: {}, publicQuestions: {}, reveal: {}, answers: {}, fifty: {}, doubles: {},
   };
+  // Oda kuran da oynayacaksa oyuncu listesine ekle
+  if (hostPlays) {
+    state.room.players["host"] = {
+      name: hostName, score: 0, streak: 0,
+      lastGain: 0, lastCorrect: false, lastStreak: 0,
+      jokers: { ...START_JOKERS },
+    };
+  }
 
   state.inputUnsub = subscribeInput(code, hostOnInput);
   hostPublish();
@@ -249,18 +262,26 @@ function hostRevealQuestion(i) {
     const p = players[pid];
     let gained = 0, base = 0, streakBonus = 0, doubled = false;
     const isCorrect = a && a.choice === correct;
+    const speedBonus = room.meta.speedBonus !== false;
+    const penalty = room.meta.wrongPenalty || 0;
     if (a && typeof a.choice === "number" && counts[a.choice] !== undefined) counts[a.choice]++;
     if (isCorrect) {
-      const frac = Math.min(1, a.elapsed / (timeLimit * 1000));
-      base = Math.round((500 + Math.round(500 * (1 - frac))) * factor);
+      if (speedBonus) {
+        const frac = Math.min(1, a.elapsed / (timeLimit * 1000));
+        base = Math.round((500 + Math.round(500 * (1 - frac))) * factor);
+      } else {
+        base = Math.round(1000 * factor); // hız bonusu kapalı: sabit puan
+      }
       p.streak = (p.streak || 0) + 1;
       streakBonus = p.streak >= 2 ? Math.min(p.streak - 1, 5) * 100 : 0;
       gained = base + streakBonus;
       if (doubles[pid]) { gained *= 2; doubled = true; }
     } else {
       p.streak = 0;
+      // Yanlış işaretleyene ceza (yalnızca cevap verdiyse; boş bırakan ceza almaz)
+      if (penalty && a) gained = -penalty;
     }
-    p.score = (p.score || 0) + gained;
+    p.score = Math.max(0, (p.score || 0) + gained);
     p.lastGain = gained;
     p.lastBase = base;
     p.lastStreakBonus = streakBonus;
@@ -390,7 +411,7 @@ function fullRender() {
     state.role === "host" ? renderHostLobby() : renderPlayerLobby();
   } else if (status === "question") {
     state.currentView = "question";
-    if (state.role === "player" && state.answeredIndex !== m.questionIndex) state.answeredIndex = -1;
+    if (state.answeredIndex !== m.questionIndex) state.answeredIndex = -1;
     state.role === "host" ? renderHostQuestion() : renderPlayerQuestion();
   } else if (status === "reveal") {
     state.currentView = "reveal";
@@ -498,6 +519,11 @@ function renderHostSetup() {
       <label class="field-label">Soru sayısı: <b id="qcountLbl">10</b></label>
       <input type="range" id="qcount" min="5" max="20" value="10" step="1" class="range">
 
+      <label class="field-label">Oyun Ayarları</label>
+      <label class="toggle-chip"><input type="checkbox" id="setHostPlays" checked> <span>🙋 Ben de oynayacağım (oda kuran da cevaplasın)</span></label>
+      <label class="toggle-chip"><input type="checkbox" id="setSpeedBonus" checked> <span>⚡ Hız bonusu (erken cevap = çok puan)</span></label>
+      <label class="toggle-chip"><input type="checkbox" id="setWrongPenalty"> <span>➖ Yanlışta ceza (−250 puan)</span></label>
+
       <button class="btn btn-primary btn-big" id="create">Odayı Oluştur</button>
     </div>`;
 
@@ -526,10 +552,15 @@ function renderHostSetup() {
       return;
     }
     const count = parseInt(document.getElementById("qcount").value, 10);
+    const settings = {
+      hostPlays: document.getElementById("setHostPlays").checked,
+      speedBonus: document.getElementById("setSpeedBonus").checked,
+      wrongPenalty: document.getElementById("setWrongPenalty").checked,
+    };
     const btn = document.getElementById("create");
     btn.disabled = true; btn.textContent = "Oluşturuluyor...";
     try {
-      await createRoom(selected, count, state.setupDifficulty, name);
+      await createRoom(selected, count, state.setupDifficulty, name, settings);
     } catch (e) {
       alert("Oda oluşturulamadı: " + e.message);
       btn.disabled = false; btn.textContent = "Odayı Oluştur";
@@ -739,11 +770,35 @@ function renderHostQuestion() {
   const i = m.questionIndex;
   const pq = state.room.publicQuestions[i];
   const players = playersList();
-  const opts = pq.options.map((o, idx) => `
-    <div class="opt opt-host" style="background:${OPTION_STYLES[idx].color}">
+  const hostPlays = m.hostPlays;
+  const answered = hostPlays && state.answeredIndex === i;
+  const hidden = hostPlays ? (myFiftyHidden(i) || []) : [];
+  const jok = hostPlays ? myJokers() : { fifty: 0, double: 0 };
+  const doubleOn = hostPlays ? myDoubleActive(i) : false;
+  const alreadyAnswered = state.room.answers && state.room.answers[i]
+    ? Object.keys(state.room.answers[i]).length : 0;
+
+  const opts = pq.options.map((o, idx) => {
+    if (hostPlays) {
+      const chosen = answered && state.playerChoice === idx ? "opt-chosen" : "";
+      return `<button class="opt opt-btn ${hidden.includes(idx) ? "opt-hidden" : ""} ${chosen}" data-choice="${idx}" style="background:${OPTION_STYLES[idx].color}" ${answered ? "disabled" : ""}>
+        <span class="opt-shape">${OPTION_STYLES[idx].shape}</span>
+        <span class="opt-text">${esc(o)}</span>
+      </button>`;
+    }
+    return `<div class="opt opt-host" style="background:${OPTION_STYLES[idx].color}">
       <span class="opt-shape">${OPTION_STYLES[idx].shape}</span>
       <span class="opt-text">${esc(o)}</span>
-    </div>`).join("");
+    </div>`;
+  }).join("");
+
+  const jokersHtml = (hostPlays && !answered) ? `
+    <div class="jokers" id="jokers">
+      <button class="joker-btn" id="jFifty" ${jok.fifty > 0 && !hidden.length ? "" : "disabled"}>➗ 50:50 (${jok.fifty})</button>
+      <button class="joker-btn ${doubleOn ? "active" : ""}" id="jDouble" ${jok.double > 0 && !doubleOn ? "" : "disabled"}>✖️ Çift Puan (${doubleOn ? "aktif" : jok.double})</button>
+    </div>` : "";
+  const answeredNote = (hostPlays && answered) ? `<div class="host-answered-note">✓ Cevabın alındı — diğerleri bekleniyor</div>` : "";
+
   APP.innerHTML = `
     <div class="card question-card">
       <div class="q-top">
@@ -753,16 +808,79 @@ function renderHostQuestion() {
       ${timerBarHTML()}
       ${visualHTML(pq)}
       <div class="q-text">${esc(pq.q)}</div>
-      <div class="answered-count"><span id="answeredCount">0</span>/${players.length} yanıtladı</div>
+      <div class="answered-count"><span id="answeredCount">${alreadyAnswered}</span>/${players.length} yanıtladı</div>
       <div class="options">${opts}</div>
+      ${jokersHtml}
+      ${answeredNote}
       <button class="btn btn-secondary" id="skip">Herkes yanıtladı, göster ›</button>
     </div>`;
+
+  if (hostPlays && !answered) {
+    APP.querySelectorAll(".opt-btn").forEach((b) => {
+      b.onclick = () => {
+        if (b.classList.contains("opt-hidden")) return;
+        hostAnswer(parseInt(b.dataset.choice, 10));
+      };
+    });
+    const jf = document.getElementById("jFifty");
+    const jd = document.getElementById("jDouble");
+    if (jf) jf.onclick = () => hostSelfJoker("fifty");
+    if (jd) jd.onclick = () => hostSelfJoker("double");
+  }
   document.getElementById("skip").onclick = () => maybeReveal(i);
   runCountdown(() => {
     state.hostLocalStart = Date.now();
     sfx.whoosh();
     startTicker();
   });
+}
+
+// Oda kuran da oynadığında: kendi cevabını doğrudan (yetkili) işler
+function hostAnswer(choice) {
+  const m = state.room.meta;
+  if (!m.hostPlays) return;
+  const i = m.questionIndex;
+  if (state.answeredIndex === i || state.inCountdown) return;
+  const elapsed = Date.now() - state.hostLocalStart;
+  state.answeredIndex = i;
+  state.playerChoice = choice;
+  // UI: seçili şıkkı işaretle, diğerlerini kilitle, jokerleri kaldır
+  APP.querySelectorAll(".opt-btn").forEach((b) => {
+    b.disabled = true;
+    if (parseInt(b.dataset.choice, 10) === choice) b.classList.add("opt-chosen");
+  });
+  const jk = document.getElementById("jokers");
+  if (jk) jk.remove();
+  const card = APP.querySelector(".card");
+  if (card && !card.querySelector(".host-answered-note")) {
+    const note = document.createElement("div");
+    note.className = "host-answered-note";
+    note.textContent = "✓ Cevabın alındı — diğerleri bekleniyor";
+    card.appendChild(note);
+  }
+  // Yetkili kayıt + herkes-yanıtladı kontrolü
+  hostOnInput({ type: "answer", pid: "host", i, choice, elapsed });
+}
+
+function hostSelfJoker(kind) {
+  const m = state.room.meta;
+  if (!m.hostPlays) return;
+  const i = m.questionIndex;
+  if (state.answeredIndex === i || state.inCountdown) return;
+  hostOnInput({ type: "joker", pid: "host", kind, i });
+  sfx.joker();
+  // Host kendi joker UI'sini güncelle
+  const hidden = myFiftyHidden(i) || [];
+  hidden.forEach((idx) => {
+    const b = APP.querySelector(`.opt-btn[data-choice="${idx}"]`);
+    if (b) b.classList.add("opt-hidden");
+  });
+  const jok = myJokers();
+  const on = myDoubleActive(i);
+  const jf = document.getElementById("jFifty");
+  const jd = document.getElementById("jDouble");
+  if (jf) jf.disabled = !(jok.fifty > 0 && !hidden.length);
+  if (jd) { jd.classList.toggle("active", on); jd.textContent = `✖️ Çift Puan (${on ? "aktif" : jok.double})`; jd.disabled = !(jok.double > 0 && !on); }
 }
 
 function renderPlayerQuestion() {
@@ -920,12 +1038,19 @@ function renderHostReveal() {
     </div>`;
   }).join("");
   const isLast = i + 1 >= m.totalQuestions;
+  const meHost = m.hostPlays ? state.room.players["host"] : null;
+  let hostBanner = "";
+  if (meHost) {
+    if (meHost.lastCorrect) hostBanner = `<div class="host-result good">Senin cevabın: ✓ Doğru +${meHost.lastGain || 0}${(meHost.lastStreak || 0) >= 2 ? ` 🔥${meHost.lastStreak}` : ""}</div>`;
+    else hostBanner = `<div class="host-result bad">Senin cevabın: ✗ Yanlış${(meHost.lastGain || 0) < 0 ? ` ${meHost.lastGain}` : ""}</div>`;
+  }
   APP.innerHTML = `
     <div class="card">
       <div class="q-top"><span class="q-progress">Soru ${i + 1}/${m.totalQuestions}</span></div>
       ${visualHTML(state.room.publicQuestions[i])}
       <div class="q-text small">${esc(q.q)}</div>
       <div class="options reveal">${opts}</div>
+      ${hostBanner}
       <div class="players-title">Skor Tablosu</div>
       ${leaderboardHTML(5)}
       <button class="btn btn-primary btn-big" id="next">${isLast ? "Sonuçları Göster 🏆" : "Sıradaki Soru ›"}</button>
@@ -948,7 +1073,7 @@ function renderPlayerReveal() {
     <div class="card center reveal-player ${correct ? "good" : "bad"}">
       <div class="reveal-icon">${correct ? "✓" : "✗"}</div>
       <div class="reveal-title">${correct ? "Doğru!" : "Yanlış"}</div>
-      ${correct ? `<div class="gain">+${gain} puan</div>${breakdown}` : `<div class="gain muted">+0 puan</div>`}
+      ${correct ? `<div class="gain">+${gain} puan</div>${breakdown}` : (gain < 0 ? `<div class="gain" style="color:#e21b3c">${gain} puan</div>` : `<div class="gain muted">+0 puan</div>`)}
       ${correct && streak >= 2 ? `<div class="streak-fire">🔥 ${streak} seri!</div>` : ""}
       <div class="rank-box">
         <div>Sıralaman</div>
