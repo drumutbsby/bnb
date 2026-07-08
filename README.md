@@ -5,11 +5,15 @@ kendi telefonundan **oda koduyla katılır**, sorular herkese aynı anda gelir, 
 ve doğru cevap veren çok puan alır, sonunda **skor tablosu** ve **podyum** gösterilir.
 
 - ✅ **Kurulum yok** — hiçbir hesap, anahtar veya yapılandırma gerekmez
-- 10 kategori, 100+ Türkçe soru (Genel Kültür, Tarih, Coğrafya, Bilim, Spor,
-  Sanat, Sinema & Müzik, Teknoloji, Türkiye, Hayvanlar)
+- 12 kategori, 120+ Türkçe soru — **görsel sorular** dahil (Bayraklar, Emoji Bilmece)
+- **Kendi Sorularım**: kendi soru setini yaz, JSON ile içe/dışa aktar
 - Gerçek zamanlı çok oyunculu (herkese açık MQTT-over-WebSocket üzerinden)
-- Derleme/bağımlılık yok — saf statik site, doğrudan GitHub Pages'te çalışır
-- Mobil öncelikli arayüz
+- **Oda kuran da oynayabilir**; hız bazlı puanlama, **seri bonusu**, **jokerler**
+  (50:50, Çift Puan), **zorluk** seviyeleri, yanlışta ceza seçeneği
+- **Takım düellosu**: iki oda birbirine meydan okur, takımlar yarışır; **katılım onayı**
+- **Rütbe & rekorlar**: cihazda kalıcı profil, XP ile rütbe atlama, en iyi puan/seri
+- **Atmosfer**: ses efektleri, 3-2-1 geri sayımı, konfeti; **QR kod** ile kolay katılım
+- Derleme/bağımlılık yok — saf statik site, doğrudan GitHub Pages'te çalışır; mobil öncelikli
 
 ---
 

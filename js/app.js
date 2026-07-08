@@ -9,6 +9,7 @@ import { CATEGORIES, CUSTOM_CATEGORY, QUESTIONS, buildQuestionSet } from "./ques
 import { unlock, sfx, isMuted, toggleMute } from "./sound.js";
 import { confetti } from "./confetti.js";
 import qrcode from "./vendor/qrcode.js";
+import { loadProfile, setName, rankFor, rankProgress, recordGame, RANKS } from "./profile.js";
 
 const APP = document.getElementById("app");
 
@@ -576,6 +577,11 @@ function fullRender() {
   } else if (status === "question") {
     state.currentView = "question";
     if (state.answeredIndex !== m.questionIndex) state.answeredIndex = -1;
+    // İlk soruda oyun-içi istatistikleri sıfırla
+    if (m.questionIndex === 0 && !state.statsInit) {
+      state.gameStats = { correct: 0, questions: 0, maxStreak: 0 };
+      state.statsInit = true; state.recorded = false;
+    }
     state.role === "host" ? renderHostQuestion() : renderPlayerQuestion();
   } else if (status === "reveal") {
     state.currentView = "reveal";
@@ -626,17 +632,92 @@ function runCountdown(onDone) {
 // ---------------------------------------------------------------------------
 // Ekranlar
 // ---------------------------------------------------------------------------
+function profileChipHtml() {
+  const p = loadProfile();
+  const { cur, next, pct } = rankProgress(p.xp);
+  const label = p.name ? esc(p.name) : "Misafir";
+  return `
+    <button class="profile-chip" id="profileChip">
+      <span class="pc-rank">${cur.emoji}</span>
+      <span class="pc-info">
+        <span class="pc-name">${label}</span>
+        <span class="pc-rankname">${esc(cur.name)}${next ? "" : " • MAX"}</span>
+        <span class="pc-bar"><span class="pc-fill" style="width:${pct}%"></span></span>
+      </span>
+      <span class="pc-xp">${p.xp} XP</span>
+    </button>`;
+}
+
 function renderHome() {
   state.currentView = "home";
   APP.innerHTML = `
     <div class="card center home">
       <div class="logo">Ben Bildim <span>🧠</span></div>
-      <p class="tagline">Arkadaşlarınla bilgi yarışması! Oda kur, herkes telefonundan katılsın.</p>
+      ${profileChipHtml()}
       <button class="btn btn-primary btn-big" id="goHost">🎮 Oda Kur</button>
       <button class="btn btn-secondary btn-big" id="goJoin">🙋 Odaya Katıl</button>
+      <button class="btn-link" id="records">🏆 Rekorlarım & Rütbe</button>
     </div>`;
   document.getElementById("goHost").onclick = () => { sfx.click(); renderHostSetup(); };
   document.getElementById("goJoin").onclick = () => { sfx.click(); renderJoin(); };
+  document.getElementById("records").onclick = () => { sfx.click(); renderProfile(); };
+  document.getElementById("profileChip").onclick = () => { sfx.click(); renderProfile(); };
+}
+
+function renderProfile() {
+  state.currentView = "profile";
+  const p = loadProfile();
+  const { cur, next, pct } = rankProgress(p.xp);
+  const acc = p.totalQuestions ? Math.round((p.totalCorrect / p.totalQuestions) * 100) : 0;
+  const ladder = RANKS.map((r) => {
+    const reached = p.xp >= r.min;
+    const isCur = r === cur;
+    return `<div class="rank-item ${isCur ? "cur" : ""} ${reached ? "reached" : ""}">
+      <span>${r.emoji} ${esc(r.name)}</span><span class="muted small">${r.min} XP</span>
+    </div>`;
+  }).join("");
+  const hist = (p.history || []).slice(0, 8).map((h) => `
+    <div class="lb-row">
+      <span class="lb-name">${h.won ? "🏆 " : ""}${h.team ? "Takım" : "Bireysel"} · ${h.rank}${h.players ? "/" + h.players : ""}</span>
+      <span class="lb-score">${h.score}</span>
+    </div>`).join("") || `<div class="muted small">Henüz oyun yok.</div>`;
+
+  APP.innerHTML = `
+    <div class="card">
+      <button class="link-back" id="back">‹ Geri</button>
+      <div class="profile-head">
+        <div class="ph-rank">${cur.emoji}</div>
+        <div>
+          <input class="input name-inline" id="pname" maxlength="16" placeholder="Takma adın" value="${esc(p.name)}">
+          <div class="ph-rankname">${esc(cur.name)}${next ? ` → ${next.emoji} ${esc(next.name)}` : " • En yüksek rütbe"}</div>
+        </div>
+      </div>
+      <div class="pc-bar big"><span class="pc-fill" style="width:${pct}%"></span></div>
+      <div class="muted small center">${p.xp} XP${next ? ` — sonraki rütbeye ${next.min - p.xp} XP` : ""}</div>
+
+      <div class="stat-grid">
+        <div class="stat"><div class="stat-v">${p.games}</div><div class="stat-l">Oyun</div></div>
+        <div class="stat"><div class="stat-v">${p.wins}</div><div class="stat-l">Kazanma</div></div>
+        <div class="stat"><div class="stat-v">${p.bestScore}</div><div class="stat-l">En yüksek</div></div>
+        <div class="stat"><div class="stat-v">🔥${p.bestStreak}</div><div class="stat-l">En iyi seri</div></div>
+        <div class="stat"><div class="stat-v">%${acc}</div><div class="stat-l">Doğru oranı</div></div>
+        <div class="stat"><div class="stat-v">${p.totalCorrect}</div><div class="stat-l">Doğru cevap</div></div>
+      </div>
+
+      <div class="players-title">Rütbeler</div>
+      <div class="rank-ladder">${ladder}</div>
+      <div class="players-title">Son Oyunlar</div>
+      <div class="leaderboard">${hist}</div>
+      <button class="mini-btn danger" id="resetProf">Rekorları sıfırla</button>
+    </div>`;
+  document.getElementById("back").onclick = renderHome;
+  document.getElementById("pname").onchange = (e) => setName(e.target.value.trim());
+  document.getElementById("resetProf").onclick = () => {
+    if (confirm("Tüm rekorların ve rütben sıfırlansın mı?")) {
+      try { localStorage.removeItem("bnb_profile"); } catch (e) {}
+      renderProfile();
+    }
+  };
 }
 
 function categoryChips() {
@@ -656,6 +737,7 @@ function categoryChips() {
 }
 
 function renderHostSetup() {
+  const prof = loadProfile();
   const diffs = Object.entries(DIFFICULTY).map(([key, d]) => `
     <div class="diff-chip ${state.setupDifficulty === key ? "active" : ""}" data-diff="${key}">
       <span class="diff-emoji">${d.emoji}</span>${esc(d.name)}
@@ -667,7 +749,7 @@ function renderHostSetup() {
       <button class="link-back" id="back">‹ Geri</button>
       <h2>Oda Kur</h2>
       <label class="field-label">Adın</label>
-      <input class="input" id="hostName" placeholder="Sunucu adı" maxlength="16" value="Sunucu">
+      <input class="input" id="hostName" placeholder="Sunucu adı" maxlength="16" value="${esc(prof.name || "Sunucu")}">
 
       <label class="field-label">Takım adı</label>
       <input class="input" id="teamName" placeholder="Takımının adı" maxlength="20" value="Takımım">
@@ -728,6 +810,7 @@ function renderHostSetup() {
       requireApproval: document.getElementById("setApproval").checked,
       teamName: document.getElementById("teamName").value.trim(),
     };
+    setName(name);
     const btn = document.getElementById("create");
     btn.disabled = true; btn.textContent = "Oluşturuluyor...";
     try {
@@ -812,7 +895,7 @@ function renderJoin(prefillError, prefillCode) {
       <label class="field-label">Oda Kodu</label>
       <input class="input code-input" id="code" placeholder="ABCD" maxlength="4" autocapitalize="characters" value="${esc(prefillCode || "")}">
       <label class="field-label">Adın</label>
-      <input class="input" id="name" placeholder="Takma adın" maxlength="16">
+      <input class="input" id="name" placeholder="Takma adın" maxlength="16" value="${esc(loadProfile().name || "")}">
       ${prefillError ? `<p class="error">${esc(prefillError)}</p>` : ""}
       <button class="btn btn-primary btn-big" id="join">Katıl</button>
     </div>`;
@@ -826,6 +909,7 @@ function renderJoin(prefillError, prefillCode) {
     const name = nameEl.value.trim();
     if (code.length < 4) { alert("Oda kodunu gir."); return; }
     if (!name) { alert("Bir ad gir."); return; }
+    setName(name);
     const btn = document.getElementById("join");
     btn.disabled = true; btn.textContent = "Katılınıyor...";
     try {
@@ -1367,6 +1451,7 @@ function renderHostReveal() {
     </div>`;
   document.getElementById("next").onclick = () => { sfx.click(); hostNext(); };
   sfx.whoosh();
+  if (meHost) tallyGameStat(meHost.lastCorrect, meHost.lastStreak || 0);
 }
 
 function renderPlayerReveal() {
@@ -1393,6 +1478,15 @@ function renderPlayerReveal() {
     </div>`;
   if (correct) { sfx.correct(); if (streak >= 2) setTimeout(() => sfx.streak(), 350); }
   else sfx.wrong();
+  tallyGameStat(correct, streak);
+}
+
+// Yerel oyuncunun oyun-içi istatistiğini biriktir (rekorlar için)
+function tallyGameStat(correct, streak) {
+  if (!state.gameStats) state.gameStats = { correct: 0, questions: 0, maxStreak: 0 };
+  state.gameStats.questions += 1;
+  if (correct) state.gameStats.correct += 1;
+  if ((streak || 0) > state.gameStats.maxStreak) state.gameStats.maxStreak = streak;
 }
 
 function renderEnded() {
@@ -1424,9 +1518,13 @@ function renderEnded() {
       <div class="podium">${podiumHTML}</div>`;
   }
 
+  // Yerel katılımcının rekorlarını güncelle + XP/rütbe özeti
+  const xpSummary = recordLocalResult(m, players);
+
   APP.innerHTML = `
     <div class="card center">
       ${headerHtml}
+      ${xpSummary}
       <div class="players-title">Tam Sıralama</div>
       ${leaderboardHTML()}
       ${state.role === "host"
@@ -1447,6 +1545,40 @@ function renderEnded() {
     };
     document.getElementById("close").onclick = hostCloseRoom;
   }
+}
+
+// Oyun sonunda yerel oyuncunun rekorunu işler, XP/rütbe özeti HTML'i döndürür
+function recordLocalResult(m, sortedPlayers) {
+  const localPid = state.role === "host" ? (m.hostPlays ? "host" : null) : state.playerId;
+  if (!localPid || state.recorded) return "";
+  const meP = (state.room.players || {})[localPid];
+  if (!meP) return "";
+  state.recorded = true;
+  const myRank = sortedPlayers.findIndex(([id]) => id === localPid) + 1;
+  let won;
+  if (m.teamMode) {
+    const t = teamTotals();
+    const myTeam = meP.team === "B" ? "B" : "A";
+    won = t[myTeam] > t[myTeam === "A" ? "B" : "A"];
+  } else {
+    won = myRank === 1;
+  }
+  const gs = state.gameStats || { correct: 0, questions: 0, maxStreak: 0 };
+  const res = recordGame({
+    score: meP.score || 0, won,
+    streak: gs.maxStreak || 0, correct: gs.correct || 0, questions: gs.questions || 0,
+    rank: myRank, players: sortedPlayers.length, team: !!m.teamMode, time: Date.now(),
+  });
+  state.statsInit = false; // sonraki oyun için sıfırla
+  const { cur, next, pct } = rankProgress(res.profile.xp);
+  return `
+    <div class="xp-summary">
+      <div class="xp-gain">+${res.gainedXp} XP</div>
+      ${res.leveledUp ? `<div class="levelup">🎉 Rütbe atladın: ${res.newRank.emoji} ${esc(res.newRank.name)}!</div>` : ""}
+      <div class="xp-rank">${cur.emoji} ${esc(cur.name)}</div>
+      <div class="pc-bar"><span class="pc-fill" style="width:${pct}%"></span></div>
+      <div class="muted small">${res.profile.xp} XP${next ? ` — sonraki: ${next.emoji} ${esc(next.name)} (${next.min - res.profile.xp} XP)` : " • En yüksek rütbe"}</div>
+    </div>`;
 }
 
 function renderRoomGone() {

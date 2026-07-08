@@ -349,6 +349,48 @@ textarea.input { min-height: 90px; resize: vertical; font-family: inherit; }
 .ts-val { font-size: 1.8rem; font-weight: 900; }
 .ts-vs { align-self: center; font-weight: 900; color: var(--muted); }
 
+/* Profil çipi (ana ekran) */
+.btn-link {
+  background: none; border: none; color: var(--primary); font-weight: 700;
+  cursor: pointer; margin-top: 14px; font-size: .95rem; width: 100%; padding: 8px;
+}
+.profile-chip {
+  display: flex; align-items: center; gap: 10px; width: 100%; cursor: pointer;
+  background: var(--secondary); border: none; border-radius: 14px; padding: 12px 14px; margin: 6px 0 18px;
+  text-align: left;
+}
+.pc-rank { font-size: 1.8rem; }
+.pc-info { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.pc-name { font-weight: 800; }
+.pc-rankname { font-size: .78rem; color: var(--muted); font-weight: 700; }
+.pc-xp { font-weight: 800; color: var(--primary); font-size: .85rem; }
+.pc-bar { height: 8px; background: #e3e0ee; border-radius: 6px; overflow: hidden; margin-top: 3px; }
+.pc-bar.big { height: 12px; margin: 12px 0 4px; }
+.pc-fill { display: block; height: 100%; background: linear-gradient(90deg, #7c2fd6, #46178f); }
+
+/* Profil / rekorlar ekranı */
+.profile-head { display: flex; align-items: center; gap: 14px; margin: 8px 0; }
+.ph-rank { font-size: 3rem; }
+.ph-rankname { font-size: .85rem; color: var(--muted); font-weight: 700; margin-top: 4px; }
+.name-inline { padding: 8px 10px; font-size: 1.1rem; font-weight: 800; }
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 16px 0; }
+.stat { background: var(--secondary); border-radius: 12px; padding: 12px 6px; text-align: center; }
+.stat-v { font-size: 1.3rem; font-weight: 900; color: var(--primary); }
+.stat-l { font-size: .72rem; color: var(--muted); font-weight: 600; }
+.rank-ladder { display: flex; flex-direction: column; gap: 4px; }
+.rank-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 12px; border-radius: 8px; background: var(--secondary); opacity: .5; font-weight: 600;
+}
+.rank-item.reached { opacity: 1; }
+.rank-item.cur { box-shadow: 0 0 0 2px var(--primary) inset; background: #f2eefb; }
+
+/* XP özeti (oyun sonu) */
+.xp-summary { background: var(--secondary); border-radius: 14px; padding: 14px; margin: 12px 0; }
+.xp-gain { font-size: 1.6rem; font-weight: 900; color: #26890c; }
+.levelup { font-weight: 800; color: var(--primary); margin: 4px 0; }
+.xp-rank { font-weight: 800; margin-top: 4px; }
+
 /* Küçük ekran */
 @media (max-width: 400px) {
   .card { padding: 18px; }
