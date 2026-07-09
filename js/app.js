@@ -1173,7 +1173,7 @@ function renderHostSetup() {
       <div class="difficulty-grid">${diffs}</div>
 
       <label class="field-label">Soru sayısı: <b id="qcountLbl">10</b></label>
-      <input type="range" id="qcount" min="5" max="20" value="10" step="1" class="range">
+      <input type="range" id="qcount" min="5" max="100" value="10" step="1" class="range">
 
       <label class="field-label">Oyun Ayarları</label>
       <label class="toggle-chip"><input type="checkbox" id="setHostPlays" checked> <span>🙋 Ben de oynayacağım (oda kuran da cevaplasın)</span></label>
@@ -1260,7 +1260,7 @@ function renderSoloSetup() {
       <div class="difficulty-grid">${diffs}</div>
 
       <label class="field-label">Soru sayısı: <b id="qcountLbl">10</b></label>
-      <input type="range" id="qcount" min="5" max="20" value="10" step="1" class="range">
+      <input type="range" id="qcount" min="5" max="100" value="10" step="1" class="range">
 
       <label class="field-label">Ayarlar</label>
       <label class="toggle-chip"><input type="checkbox" id="setSpeedBonus" checked> <span>⚡ Hız bonusu (erken cevap = çok puan)</span></label>
