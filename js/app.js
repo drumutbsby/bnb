@@ -14,6 +14,7 @@ import qrcode from "./vendor/qrcode.js";
 import { loadProfile, setName, setAvatar, rankFor, rankProgress, recordGame, RANKS, levelFromXp, levelProgress, xpForLevel } from "./profile.js";
 import { CHARACTERS, pickPhrase, CATEGORY_QUIPS } from "./characters.js";
 import { ACHIEVEMENTS } from "./achievements.js";
+import { CAMPAIGN, SCENES, loadCampaignProgress, saveCampaignProgress, starsFor } from "./campaign.js";
 
 const APP = document.getElementById("app");
 
@@ -93,6 +94,7 @@ const state = {
   inCountdown: false, cdToken: 0,
   setupDifficulty: "normal",
   solo: false, soloParams: null,
+  campaign: null, // { stageIndex } — macera bölümü aktifken
 };
 
 const OPTION_STYLES = [
@@ -176,6 +178,7 @@ function getStateOnce(code, timeoutMs = 3500) {
 async function createRoom(categories, count, difficultyKey, hostName, settings) {
   settings = settings || {};
   state.solo = false;
+  state.campaign = null;
   state.role = "host";
   state.name = hostName;
   state.playerId = "host";
@@ -430,7 +433,7 @@ function hostShowQuestion(i) {
 
   if (!state.room.answers) state.room.answers = {};
   state.room.answers[i] = {};
-  state.room.publicQuestions[i] = { q: q.q, options: q.options, category: q.category, visual: q.visual || null };
+  state.room.publicQuestions[i] = { q: q.q, options: q.options, category: q.category, visual: q.visual || null, image: q.image || null };
   state.room.meta.questionIndex = i;
   state.room.meta.status = "question";
   hostPublish();
@@ -571,6 +574,7 @@ function hostKick(pid) {
 async function joinRoom(code, name) {
   code = code.trim().toUpperCase();
   state.solo = false;
+  state.campaign = null;
   try { await whenConnected(); }
   catch (e) { return { ok: false, error: e.message }; }
 
@@ -809,6 +813,7 @@ function renderHome() {
       <button class="btn btn-primary btn-big" id="goHost">🎮 Oda Kur</button>
       <button class="btn btn-secondary btn-big" id="goJoin">🙋 Odaya Katıl</button>
       <button class="btn btn-secondary btn-big" id="solo">🎯 Tek Başına</button>
+      <button class="btn btn-story btn-big" id="campaign">🗺️ Macera</button>
       <button class="btn btn-secondary btn-big" id="quick">⚡ Hızlı Eşleş</button>
       <div class="home-links">
         <button class="btn-link" id="records">🏆 Rekorlarım</button>
@@ -820,6 +825,7 @@ function renderHome() {
   document.getElementById("goHost").onclick = () => { sfx.click(); renderHostSetup(); };
   document.getElementById("goJoin").onclick = () => { sfx.click(); renderJoin(); };
   document.getElementById("solo").onclick = () => { sfx.click(); renderSoloSetup(); };
+  document.getElementById("campaign").onclick = () => { sfx.click(); renderCampaignMap(); };
   document.getElementById("quick").onclick = () => { sfx.click(); renderQuickMatch(); };
   document.getElementById("records").onclick = () => { sfx.click(); renderProfile(); };
   document.getElementById("league").onclick = () => { sfx.click(); renderLeague(); };
@@ -1302,6 +1308,7 @@ function startSolo(categories, count, difficultyKey, settings) {
   clearTimeout(state.autoRevealTimer);
   clearTimeout(state.autoNextTimer);
   state.solo = true;
+  state.campaign = null;
   state.role = "host";
   state.playerId = "host";
   state.name = prof.name || "Sen";
@@ -1338,6 +1345,184 @@ function startSolo(categories, count, difficultyKey, settings) {
   };
   requestWake();
   hostShowQuestion(0);
+}
+
+// ---------------------------------------------------------------------------
+// Macera (kampanya) modu — patika/harita, hikâye, resimli sorular.
+// Bölümler solo motorunun üzerinde çalışır (state.solo=true + state.campaign).
+// ---------------------------------------------------------------------------
+function renderCampaignMap() {
+  state.currentView = "campaignMap";
+  state.campaign = null; state.solo = false;
+  const prog = loadCampaignProgress();
+  const total = CAMPAIGN.stages.length;
+  const clearedN = Math.min(prog.cleared + 1, total);
+  const nodes = CAMPAIGN.stages.map((s, i) => {
+    const done = i <= prog.cleared;
+    const current = i === prog.cleared + 1;
+    const locked = i > prog.cleared + 1;
+    const stars = prog.stars[s.key] || 0;
+    const cls = done ? "done" : current ? "current" : "locked";
+    return `<button class="map-node ${cls}" data-stage="${i}" ${locked ? "disabled" : ""}>
+      <span class="node-emoji">${locked ? "🔒" : s.emoji}</span>
+      <span class="node-info"><b>${esc(s.name)}</b>${done && stars ? `<span class="node-stars">${"⭐".repeat(stars)}</span>` : `<span class="node-sub muted small">${locked ? "Kilitli" : current ? "Sıradaki durak" : ""}</span>`}</span>
+      <span class="node-badge">${done ? "✓" : current ? "▶" : ""}</span>
+    </button>`;
+  }).join(`<div class="map-link" aria-hidden="true"></div>`);
+  APP.innerHTML = `
+    <div class="card campaign-map">
+      <button class="link-back" id="back">‹ Geri</button>
+      <div class="logo small">🗺️ ${esc(CAMPAIGN.title)}</div>
+      <p class="muted small">${esc(CAMPAIGN.subtitle)}</p>
+      <div class="map-progress">İlerleme: ${clearedN}/${total} bölüm</div>
+      <div class="map-path">${nodes}</div>
+    </div>`;
+  document.getElementById("back").onclick = renderHome;
+  APP.querySelectorAll(".map-node:not([disabled])").forEach((b) => {
+    b.onclick = () => { sfx.click(); renderStageIntro(parseInt(b.dataset.stage, 10)); };
+  });
+}
+
+function renderStageIntro(stageIndex) {
+  const stage = CAMPAIGN.stages[stageIndex];
+  if (!stage) { renderCampaignMap(); return; }
+  const prog = loadCampaignProgress();
+  if (stageIndex > prog.cleared + 1) { renderCampaignMap(); return; } // kilitli
+  state.currentView = "stageIntro";
+  APP.innerHTML = `
+    <div class="card campaign-intro">
+      <button class="link-back" id="back">‹ Harita</button>
+      <div class="scene">${stage.scene}</div>
+      <h2>${stage.emoji} ${esc(stage.name)}</h2>
+      <p class="story-text">${esc(stage.intro)}</p>
+      <div class="muted small">${stage.qCount} soru · geçmek için %${Math.round((stage.passRatio || 0.5) * 100)} · 🎫 jokerlerin hazır</div>
+      <button class="btn btn-primary btn-big" id="startStage">Bölüme Başla</button>
+    </div>`;
+  document.getElementById("back").onclick = renderCampaignMap;
+  document.getElementById("startStage").onclick = () => { sfx.click(); startCampaignStage(stageIndex); };
+}
+
+// Bölümün soru setini kur: kategori bankasından metin + authored resimli sorular
+function buildStageQuestions(stage) {
+  const cats = stage.category === "hepsi" ? Object.keys(CATEGORIES) : [stage.category];
+  const imgs = (stage.images || []).slice();
+  const textCount = Math.max(0, (stage.qCount || 4) - imgs.length);
+  const text = buildQuestionSet(cats, textCount);
+  const all = [...imgs, ...text];
+  for (let i = all.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [all[i], all[j]] = [all[j], all[i]];
+  }
+  return all.slice(0, stage.qCount || all.length);
+}
+
+function startCampaignStage(stageIndex) {
+  const stage = CAMPAIGN.stages[stageIndex];
+  if (!stage) { renderCampaignMap(); return; }
+  const prof = loadProfile();
+  const diff = DIFFICULTY.normal;
+  const qset = buildStageQuestions(stage);
+  clearTimeout(state.autoRevealTimer);
+  clearTimeout(state.autoNextTimer);
+  state.solo = true; // motor solo hattını kullanır (ağ yok, temiz UI)
+  state.campaign = { stageIndex };
+  state.role = "host";
+  state.playerId = "host";
+  state.name = prof.name || "Gezgin";
+  state.code = "MACERA";
+  state.localQuestions = qset;
+  state.answeredIndex = -1;
+  state.revealingIndex = -1;
+  state.statsInit = false; state.recorded = false; state.gameStats = null; state.lastRevealIndex = -1;
+  state.room = {
+    meta: {
+      hostName: state.name, status: "lobby", questionIndex: -1,
+      totalQuestions: qset.length, timeLimit: diff.time,
+      pointFactor: diff.factor, difficulty: "normal",
+      categories: [stage.category], hostPlays: true,
+      speedBonus: true, wrongPenalty: 0,
+      teamName: null, teamAName: null, teamBName: null,
+      requireApproval: false, teamAvg: false, autoNext: false, teamMode: false,
+      solo: true, campaign: true, stageIndex,
+      gameId: "campaign-" + stageIndex + "-" + uid() + Date.now().toString(36),
+    },
+    players: {
+      host: {
+        name: state.name, score: 0, streak: 0, team: "A",
+        avatar: prof.avatar || "🙂",
+        lastGain: 0, lastCorrect: false, lastStreak: 0,
+        jokers: { ...START_JOKERS },
+      },
+    },
+    requests: {}, publicQuestions: {}, reveal: {}, answers: {}, fifty: {}, doubles: {},
+  };
+  requestWake();
+  hostShowQuestion(0);
+}
+
+function exitCampaignToMap() {
+  clearTimeout(state.autoRevealTimer);
+  clearTimeout(state.autoNextTimer);
+  releaseWake();
+  state.campaign = null; state.solo = false; state.room = null; state.role = null;
+  state.currentView = null; state.lastRenderKey = null;
+  renderCampaignMap();
+}
+
+function renderCampaignStageResult(m) {
+  const stageIndex = (state.campaign && state.campaign.stageIndex != null) ? state.campaign.stageIndex : (m.stageIndex || 0);
+  const stage = CAMPAIGN.stages[stageIndex];
+  const gs = state.gameStats || { correct: 0, questions: 0, maxStreak: 0 };
+  const ratio = gs.questions ? gs.correct / gs.questions : 0;
+  const passed = ratio >= (stage.passRatio || 0.5);
+  const pct = Math.round(ratio * 100);
+  const xpSummary = recordLocalResult(m, playersList());
+  const statsHtml = `<div class="solo-stats">
+      <div><b>${gs.correct}/${gs.questions}</b><span>doğru</span></div>
+      <div><b>%${pct}</b><span>isabet</span></div>
+      <div><b>🔥 ${gs.maxStreak || 0}</b><span>seri</span></div>
+    </div>`;
+
+  if (passed) {
+    const prog = loadCampaignProgress();
+    const stars = starsFor(ratio);
+    prog.stars[stage.key] = Math.max(prog.stars[stage.key] || 0, stars);
+    if (stageIndex > prog.cleared) prog.cleared = stageIndex;
+    saveCampaignProgress(prog);
+    const isFinal = !!stage.final || stageIndex >= CAMPAIGN.stages.length - 1;
+    const nextStage = CAMPAIGN.stages[stageIndex + 1];
+    const starStr = "⭐".repeat(stars) + "☆".repeat(3 - stars);
+    APP.innerHTML = `
+      <div class="card center campaign-result">
+        <div class="scene">${isFinal ? SCENES.zafer : stage.scene}</div>
+        <div class="logo small">${isFinal ? "🏆 Yolculuk Tamamlandı!" : stage.emoji + " Bölüm Geçildi!"}</div>
+        <div class="stage-stars">${starStr}</div>
+        <p class="story-text">${esc(stage.outro)}</p>
+        ${statsHtml}
+        ${xpSummary}
+        ${isFinal
+          ? `<button class="btn btn-primary btn-big" id="cMap">🗺️ Haritaya Dön</button>`
+          : `<button class="btn btn-primary btn-big" id="cNext">Sonraki: ${nextStage ? esc(nextStage.name) : ""} ›</button>
+             <button class="btn btn-secondary" id="cMap">🗺️ Haritaya Dön</button>`}
+      </div>`;
+    confetti(3000); sfx.fanfare();
+    const nextBtn = document.getElementById("cNext");
+    if (nextBtn) nextBtn.onclick = () => { sfx.click(); state.campaign = null; state.solo = false; renderStageIntro(stageIndex + 1); };
+    document.getElementById("cMap").onclick = () => { sfx.click(); exitCampaignToMap(); };
+  } else {
+    APP.innerHTML = `
+      <div class="card center campaign-result">
+        <div class="logo small">${stage.emoji} Bölümü Geçemedin</div>
+        <p class="story-text">Geçmek için soruların en az %${Math.round((stage.passRatio || 0.5) * 100)}'ini doğru bilmelisin. Az kaldı — tekrar dene!</p>
+        ${statsHtml}
+        ${xpSummary}
+        <button class="btn btn-primary btn-big" id="cRetry">🔁 Tekrar Dene</button>
+        <button class="btn btn-secondary" id="cMap">🗺️ Haritaya Dön</button>
+      </div>`;
+    sfx.whoosh();
+    document.getElementById("cRetry").onclick = () => { sfx.click(); startCampaignStage(stageIndex); };
+    document.getElementById("cMap").onclick = () => { sfx.click(); exitCampaignToMap(); };
+  }
 }
 
 // ---- Kendi Sorularım editörü ----
@@ -1702,7 +1887,10 @@ function timerBarHTML() {
 }
 
 function visualHTML(pq) {
-  return pq && pq.visual ? `<div class="visual-block">${esc(pq.visual)}</div>` : "";
+  if (!pq) return "";
+  // Gömülü SVG resimli soru (güvenilir, dahili içerik) — çerçeveli göster
+  if (pq.image) return `<div class="q-image">${pq.image}</div>`;
+  return pq.visual ? `<div class="visual-block">${esc(pq.visual)}</div>` : "";
 }
 
 function renderHostQuestion() {
@@ -2180,6 +2368,7 @@ function renderSoloEnded(m, players) {
 function renderEnded() {
   const m = state.room.meta;
   const players = playersList().sort((a, b) => (b[1].score || 0) - (a[1].score || 0));
+  if (state.campaign || m.campaign) { renderCampaignStageResult(m); return; }
   if (state.solo || m.solo) { renderSoloEnded(m, players); return; }
   const podium = players.slice(0, 3);
   const medals = ["🥇", "🥈", "🥉"];
@@ -2410,7 +2599,7 @@ function resetToHome() {
     currentView: null, lastRenderKey: null, answeredIndex: -1, revealingIndex: -1,
     inCountdown: false, pendingApproval: false, migrating: false, awaitingArena: false,
     statsInit: false, recorded: false, lastRevealIndex: -1, gameStats: null,
-    solo: false, soloParams: null,
+    solo: false, soloParams: null, campaign: null,
   });
   renderHome();
 }

@@ -78,6 +78,56 @@ button, .opt, .cat-chip, .diff-chip, .theme-opt, .av-opt, .toggle-chip { touch-a
 .solo-stats b { font-size: 1.35rem; }
 .solo-stats span { font-size: .72rem; color: var(--muted); }
 
+/* ---- Macera (kampanya) modu ---- */
+.btn-story {
+  background: linear-gradient(135deg, #7c2fd6, #e2691b); color: #fff;
+  border: none; font-weight: 800;
+}
+.btn-story:hover { filter: brightness(1.06); }
+
+/* Gömülü SVG resimli soru */
+.q-image {
+  margin: 6px 0 12px; border-radius: 14px; overflow: hidden;
+  border: 2px solid rgba(0,0,0,.08); background: #fff; line-height: 0;
+}
+.q-image svg { width: 100%; height: auto; display: block; max-height: 220px; }
+
+/* Sahne (bölüm giriş / ara sahne görseli) */
+.scene {
+  border-radius: 14px; overflow: hidden; margin-bottom: 12px; line-height: 0;
+  box-shadow: 0 4px 14px rgba(0,0,0,.18);
+}
+.scene svg { width: 100%; height: auto; display: block; }
+.story-text { font-size: 1.02rem; line-height: 1.5; margin: 10px 0 16px; }
+
+/* Harita / patika */
+.campaign-map .map-progress {
+  text-align: center; font-weight: 800; color: var(--primary);
+  background: var(--secondary); border-radius: 10px; padding: 8px; margin: 10px 0 14px;
+}
+.map-path { display: flex; flex-direction: column; align-items: stretch; }
+.map-link { width: 4px; height: 16px; background: repeating-linear-gradient(#c9c2de 0 5px, transparent 5px 10px); margin: 0 auto; }
+.map-node {
+  display: flex; align-items: center; gap: 12px; text-align: left;
+  border: 2px solid transparent; border-radius: 14px; padding: 12px 14px; cursor: pointer;
+  background: var(--secondary); color: var(--ink); width: 100%; min-height: 60px;
+}
+.map-node .node-emoji { font-size: 1.8rem; width: 38px; text-align: center; flex-shrink: 0; }
+.map-node .node-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.map-node .node-info b { overflow-wrap: anywhere; }
+.map-node .node-stars { font-size: .8rem; }
+.map-node .node-badge { font-weight: 900; font-size: 1.2rem; flex-shrink: 0; }
+.map-node.done { background: #e7f6e7; border-color: #7bc86c; }
+.map-node.done .node-badge { color: #1a7a2e; }
+.map-node.current { background: #fff6d8; border-color: #f0a500; box-shadow: 0 3px 10px rgba(240,165,0,.3); }
+.map-node.current .node-badge { color: #b87c00; }
+.map-node.locked { opacity: .55; cursor: not-allowed; }
+.map-node:not([disabled]):active { transform: scale(.98); }
+
+/* Bölüm sonucu */
+.campaign-result .stage-stars { font-size: 1.8rem; letter-spacing: 4px; margin: 4px 0 8px; }
+.campaign-intro h2 { text-align: center; }
+
 /* Hareket azaltma tercihi: ağır animasyonları kapat */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
