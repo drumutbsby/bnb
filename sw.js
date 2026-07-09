@@ -39,8 +39,12 @@ self.addEventListener("fetch", (e) => {
   e.respondWith(
     fetch(e.request)
       .then((res) => {
-        const copy = res.clone();
-        caches.open(VERSION).then((c) => c.put(e.request, copy)).catch(() => {});
+        // Yalnızca başarılı, aynı-köken (basic) yanıtları önbelleğe al —
+        // 404/500 gibi hatalı yanıtlar çevrimdışı için saklanmasın.
+        if (res && res.ok && res.type === "basic") {
+          const copy = res.clone();
+          caches.open(VERSION).then((c) => c.put(e.request, copy)).catch(() => {});
+        }
         return res;
       })
       .catch(() =>

@@ -52,6 +52,21 @@ yeşil.
 - **Dayanıklılık:** global hata yakalama + kullanıcıya nazik "Yenile" bildirimi,
   bağlantı kopukluğu bandı, **Wake Lock** (host ekranı uyumasın).
 
+### İkinci doğrulama turunda eklenenler
+- **Öğretici reveal:** Oyuncu artık cevap sonrası **doğru cevabı** (yeşil ✓) ve
+  yanlışsa **kendi seçtiğini** (kırmızı ✗) görüyor — Kahoot/Quizizz'in öğrenme
+  kapanışı. (En yüksek etkili UX boşluğuydu.)
+- **Erişilebilirlik derinliği:** görünmez `<h1>` + belge başlık yapısı, ekran
+  okuyucuya "Doğru/Yanlış + doğru cevap" duyurusu (`aria-live` bölgesi),
+  kategori rozeti kontrastı (#d89e00→#9c6600), reveal "sönük" şık kontrastı
+  (#9aa0a6→#6b7075) → tümü WCAG AA.
+- **Service worker:** yalnızca başarılı (2xx, aynı köken) yanıtlar önbelleğe
+  alınır; 404/500 çevrimdışı için saklanmaz.
+
+> İki bağımsız denetim turu (toplam 90 ajan) yapıldı. İkinci tur, güncel koda
+> karşı **32 doğrulanmış bulgu** üretti; **31'i "düşük", 1'i "orta"** önemde —
+> yani tüm kritik/yüksek bulgular kapatılmış durumda. Kalan maddeler aşağıda.
+
 ---
 
 ## 2. Öneriler (önceliklendirilmiş)
@@ -103,6 +118,13 @@ Backend, otoriteyi sunucuya taşıyarak A1–A5'in tamamını kökten çözer.
   JSON.parse fırtınası). **Çözüm:** ayrı hafif `lobby/<code>` ilan konusu
   (`{status, playerCount, ts}`); oyun başlayınca temizlenir. Bu aynı zamanda A5
   DoS'unu da azaltır.
+- **B5 — Hayalet odalar (tek "orta" bulgu) 🟠:** Host lobide çöker/sekmeyi
+  kapatırsa retained `state` "lobby" olarak *sonsuza dek* kalır (MQTT LWT yok);
+  Hızlı Eşleş oyuncuyu bu ölü odaya kilitler, düello göçünde de meydan okunan oda
+  hiç temizlenmez. **Çözüm:** host retained state'e periyodik `heartbeatAt`
+  timestamp'i koysun (lobide ~15s'de bir); Hızlı Eşleş ve `joinRoom`, `heartbeatAt`
+  30s'den eskiyse odayı ölü sayıp elesin. (Kalıcı çözüm yine LWT/backend.) Bu
+  bulgu B1/B4 ile aynı kök nedeni paylaşır.
 
 ### C. UX / cila 🟡
 
@@ -119,6 +141,19 @@ Backend, otoriteyi sunucuya taşıyarak A1–A5'in tamamını kökten çözer.
   bankasını genişlet (şu an 124 soru), zorluk etiketlerini dengele, görsel/emoji
   soru oranını artır; kullanıcıların soru setlerini **içe/dışa aktarması** (JSON)
   büyük katma değer.
+- **C4 — Derin erişilebilirlik:** görünüm değişiminde odak yönetimi (yeni kartın
+  başlığına odak taşı), form etiketlerini `for`/`id` ile bağla, geri sayım
+  kaplamasını ekran okuyucudan gizle/duyur. Temel a11y katmanı kuruldu; bu adım
+  gerçek VoiceOver/TalkBack turuyla tamamlanmalı.
+- **C5 — Onboarding & tempo:** ilk kullanımda kısa "nasıl oynanır"; oda kurulum
+  ekranını kademeli göster (varsayılanlarla "Hızlı Başlat"); cevap-sonrası
+  bekleme ekranına canlı "kaç kişi cevapladı" göstergesi; oyuncuya "odadan ayrıl"
+  yolu.
+- **C6 — Temizlik/perf (düşük):** `patchLobby()` ölü kodu (her state'te tam
+  yeniden çizim yerine yama); retained `kicked/rejected/requests` haritalarını
+  sınırla (sınırsız büyüme); SW sürümünü dağıtımda otomatik değiştir (aksi halde
+  yeni SW kurulmaz — ağ öncelikli olduğu için çevrimiçi etki yok); manifest'e
+  `id`/`categories`/`screenshots` ekle.
 
 ### D. Büyüme / ürünleştirme (opsiyonel, uzun vade) ⚪
 

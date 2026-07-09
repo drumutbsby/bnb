@@ -1859,7 +1859,7 @@ function renderHostReveal() {
   const opts = q.options.map((o, idx) => {
     const isCorrect = idx === rev.correct;
     const pct = Math.round((rev.counts[idx] / total) * 100);
-    return `<div class="opt reveal-opt ${isCorrect ? "correct" : "dim"}" style="background:${isCorrect ? "#26890c" : "#9aa0a6"}">
+    return `<div class="opt reveal-opt ${isCorrect ? "correct" : "dim"}" style="background:${isCorrect ? "#26890c" : "#6b7075"}">
       <span class="opt-shape">${OPTION_STYLES[idx].shape}</span>
       <span class="opt-text">${esc(o)} ${isCorrect ? "✓" : ""}</span>
       <span class="opt-count">${rev.counts[idx]}</span>
@@ -1907,18 +1907,37 @@ function renderPlayerReveal() {
   const breakdown = correct
     ? `<div class="gain-breakdown">${me.lastBase || 0} temel${(me.lastCombo || 1) > 1 ? ` × ${me.lastCombo} combo` : ""}${me.lastFirst ? ` + ${me.lastFirst} ilk` : ""}${me.lastMilestone ? ` + ${me.lastMilestone} seri` : ""}${me.lastDoubled ? " × 2 çift puan" : ""}</div>`
     : "";
+  // Doğru cevabı (ve yanlışsa kendi seçtiğini) göster — öğretici kapanış (Kahoot/Quizizz gibi)
+  const qi = state.room.meta.questionIndex;
+  const pq = (state.room.publicQuestions && state.room.publicQuestions[qi]) || {};
+  const rev = (state.room.reveal && state.room.reveal[qi]) || {};
+  const opts = pq.options || [];
+  const correctIdx = typeof rev.correct === "number" ? rev.correct : -1;
+  const myChoice = state.answeredIndex === qi ? state.playerChoice : null;
+  let answerHtml = "";
+  if (correctIdx >= 0 && opts[correctIdx] != null) {
+    answerHtml = `<div class="reveal-answer">
+      <div class="ra-opt ra-correct"><span class="opt-shape">${OPTION_STYLES[correctIdx].shape}</span><span class="opt-text">${esc(opts[correctIdx])}</span><span class="ra-tag">✓ Doğru</span></div>`;
+    if (!correct && myChoice != null && myChoice !== correctIdx && opts[myChoice] != null) {
+      answerHtml += `<div class="ra-opt ra-wrong"><span class="opt-shape">${OPTION_STYLES[myChoice].shape}</span><span class="opt-text">${esc(opts[myChoice])}</span><span class="ra-tag">✗ Senin</span></div>`;
+    }
+    answerHtml += `</div>`;
+  }
   APP.innerHTML = `
     <div class="card center reveal-player ${correct ? "good" : "bad"}">
       <div class="reveal-icon">${correct ? "✓" : "✗"}</div>
       <div class="reveal-title">${correct ? "Doğru!" : "Yanlış"}</div>
       ${correct ? `<div class="gain">+${gain} puan</div>${breakdown}` : (gain < 0 ? `<div class="gain" style="color:#e21b3c">${gain} puan</div>` : `<div class="gain muted">+0 puan</div>`)}
       ${correct && (me.lastCombo || 1) > 1 ? `<div class="combo-badge">COMBO ×${me.lastCombo} 🔥</div>` : (correct && streak >= 2 ? `<div class="streak-fire">🔥 ${streak} seri!</div>` : "")}
+      ${answerHtml}
       ${state.room.meta.teamMode ? teamScoreHtml() : `<div class="rank-box">
         <div>Sıralaman</div>
         <div class="rank-num">${myRank}. / ${players.length}</div>
         <div class="muted small">Toplam: ${me.score || 0} puan</div>
       </div>`}
     </div>`;
+  // Ekran okuyucuya sonucu duyur
+  announce(`${correct ? "Doğru" : "Yanlış"}.${correctIdx >= 0 && opts[correctIdx] != null ? " Doğru cevap: " + opts[correctIdx] + "." : ""} ${correct ? "+" + gain + " puan." : ""}`.trim());
   // Aynı sorunun reveal'ı tekrar gelirse (yeniden bağlanma) efekt/sayımı bir kez yap
   const i = state.room.meta.questionIndex;
   if (state.lastRevealIndex !== i) {
@@ -2321,6 +2340,12 @@ function setupErrorHandling() {
   };
   window.addEventListener("error", onErr);
   window.addEventListener("unhandledrejection", onErr);
+}
+
+// Ekran okuyucuya kısa durum duyurusu (görsel değişiklik yok)
+function announce(msg) {
+  const el = document.getElementById("srLive");
+  if (el) { el.textContent = ""; el.textContent = msg; }
 }
 
 function setupVisibility() {

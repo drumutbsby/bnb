@@ -53,6 +53,23 @@ button, .opt, .cat-chip, .diff-chip, .theme-opt, .av-opt, .toggle-chip { touch-a
 :focus-visible { outline: 3px solid #ffd21e; outline-offset: 2px; border-radius: 4px; }
 .opt-btn:focus-visible { outline-offset: -3px; }
 
+/* Yalnızca ekran okuyucu için (görsel olarak gizli) */
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* Reveal: oyuncuya doğru cevabı (ve yanlışsa kendi cevabını) göster */
+.reveal-answer { margin: 16px 0 4px; display: flex; flex-direction: column; gap: 8px; text-align: left; }
+.ra-opt {
+  display: flex; align-items: center; gap: 10px; color: #fff; border-radius: 12px;
+  padding: 12px 14px; font-weight: 700; text-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+.ra-opt .opt-text { flex: 1; overflow-wrap: anywhere; }
+.ra-tag { font-size: .78rem; font-weight: 800; white-space: nowrap; opacity: .95; }
+.ra-correct { background: #1a7a2e; }
+.ra-wrong { background: #c02032; }
+
 /* Hareket azaltma tercihi: ağır animasyonları kapat */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }

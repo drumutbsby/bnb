@@ -5,7 +5,7 @@ export const CATEGORIES = {
   genel: { name: "Genel Kültür", emoji: "🧠", color: "#e21b3c" },
   tarih: { name: "Tarih", emoji: "🏛️", color: "#1368ce" },
   cografya: { name: "Coğrafya", emoji: "🌍", color: "#26890c" },
-  bilim: { name: "Bilim & Doğa", emoji: "🔬", color: "#d89e00" },
+  bilim: { name: "Bilim & Doğa", emoji: "🔬", color: "#9c6600" },
   spor: { name: "Spor", emoji: "⚽", color: "#864cbf" },
   sanat: { name: "Sanat & Edebiyat", emoji: "🎨", color: "#0aa3a3" },
   sinema: { name: "Sinema & Müzik", emoji: "🎬", color: "#e2691b" },
