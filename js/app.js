@@ -7,7 +7,7 @@ import {
   publishLeague, subscribeLeague, onStatus,
 } from "./net.js";
 import { ensureDaily, updateDailyAfterGame, loginStreak } from "./daily.js";
-import { CATEGORIES, CUSTOM_CATEGORY, QUESTIONS, buildQuestionSet } from "./questions.js";
+import { CATEGORIES, CUSTOM_CATEGORY, buildQuestionSet } from "./questions.js";
 import { unlock, sfx, isMuted, toggleMute } from "./sound.js";
 import { confetti } from "./confetti.js";
 import qrcode from "./vendor/qrcode.js";
@@ -196,7 +196,7 @@ async function createRoom(categories, count, difficultyKey, hostName, settings) 
 
   const diff = DIFFICULTY[difficultyKey] || DIFFICULTY.normal;
   const custom = categories.includes("ozel") ? loadCustom() : null;
-  const qset = buildQuestionSet(categories, count, custom);
+  const qset = await buildQuestionSet(categories, count, custom);
   state.localQuestions = qset;
   const hostPlays = settings.hostPlays !== false;
   const teamName = (settings.teamName || hostName || "Takım").slice(0, 20);
@@ -803,6 +803,10 @@ function dailyStripHtml() {
   </button>`;
 }
 
+function renderLoadingCard(msg) {
+  APP.innerHTML = `<div class="card center"><div class="spinner"></div><p class="muted">${esc(msg || "Yükleniyor...")}</p></div>`;
+}
+
 function renderHome() {
   state.currentView = "home";
   APP.innerHTML = `
@@ -1298,12 +1302,13 @@ function renderSoloSetup() {
 }
 
 // Tek kişilik oyunu başlat — bellekte "host" olarak, ağ olmadan.
-function startSolo(categories, count, difficultyKey, settings) {
+async function startSolo(categories, count, difficultyKey, settings) {
   settings = settings || {};
   const prof = loadProfile();
   const diff = DIFFICULTY[difficultyKey] || DIFFICULTY.normal;
   const custom = categories.includes("ozel") ? loadCustom() : null;
-  const qset = buildQuestionSet(categories, count, custom);
+  renderLoadingCard("Sorular hazırlanıyor...");
+  const qset = await buildQuestionSet(categories, count, custom);
 
   clearTimeout(state.autoRevealTimer);
   clearTimeout(state.autoNextTimer);
@@ -1403,11 +1408,11 @@ function renderStageIntro(stageIndex) {
 }
 
 // Bölümün soru setini kur: kategori bankasından metin + authored resimli sorular
-function buildStageQuestions(stage) {
+async function buildStageQuestions(stage) {
   const cats = stage.category === "hepsi" ? Object.keys(CATEGORIES) : [stage.category];
   const imgs = (stage.images || []).slice();
   const textCount = Math.max(0, (stage.qCount || 4) - imgs.length);
-  const text = buildQuestionSet(cats, textCount);
+  const text = await buildQuestionSet(cats, textCount);
   const all = [...imgs, ...text];
   for (let i = all.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -1416,12 +1421,13 @@ function buildStageQuestions(stage) {
   return all.slice(0, stage.qCount || all.length);
 }
 
-function startCampaignStage(stageIndex) {
+async function startCampaignStage(stageIndex) {
   const stage = CAMPAIGN.stages[stageIndex];
   if (!stage) { renderCampaignMap(); return; }
   const prof = loadProfile();
   const diff = DIFFICULTY.normal;
-  const qset = buildStageQuestions(stage);
+  renderLoadingCard("Bölüm hazırlanıyor...");
+  const qset = await buildStageQuestions(stage);
   clearTimeout(state.autoRevealTimer);
   clearTimeout(state.autoNextTimer);
   state.solo = true; // motor solo hattını kullanır (ağ yok, temiz UI)
@@ -2428,11 +2434,11 @@ function renderEnded() {
 }
 
 // Aynı oyuncularla yeni tur: skorları sıfırla, yeni soru seti üret
-function hostRematch() {
+async function hostRematch() {
   const room = state.room, m = room.meta;
   const cats = (m.categories || []).filter((c) => c !== "hepsi");
   const custom = cats.includes("ozel") ? loadCustom() : null;
-  const qset = buildQuestionSet(cats, m.totalQuestions, custom);
+  const qset = await buildQuestionSet(cats, m.totalQuestions, custom);
   if (!qset.length) { alert("Yeni tur için soru bulunamadı."); return; }
   state.localQuestions = qset;
   for (const pid in room.players) {
