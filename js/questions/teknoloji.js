@@ -1699,5 +1699,1915 @@ export default [
       "SVM"
     ],
     "answer": 0
+  },
+  {
+    "q": "C++ programlama dilini geliştiren kişi kimdir?",
+    "options": [
+      "Ken Thompson",
+      "Bjarne Stroustrup",
+      "Brian Kernighan",
+      "Anders Hejlsberg"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Git sürüm kontrol sistemini ilk olarak kim geliştirmiştir?",
+    "options": [
+      "Richard Stallman",
+      "Linus Torvalds",
+      "Guido van Rossum",
+      "Rob Pike"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Bir bilgisayarda 1 byte kaç bit içerir?",
+    "options": [
+      "4",
+      "8",
+      "16",
+      "32"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "HTTP protokolünde 'Not Found' hatasına karşılık gelen durum kodu hangisidir?",
+    "options": [
+      "200",
+      "301",
+      "404",
+      "500"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "HTTP durum kodu 500 neyi ifade eder?",
+    "options": [
+      "Sunucu iç hatası",
+      "Yetkisiz erişim",
+      "Kalıcı yönlendirme",
+      "Başarılı istek"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "SQL dilinde bir tablodaki kayıtları silmek için kullanılan komut hangisidir?",
+    "options": [
+      "REMOVE",
+      "DELETE",
+      "DROP",
+      "ERASE"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "İkilik (binary) sayı sisteminde 1011 sayısının ondalık karşılığı kaçtır?",
+    "options": [
+      "9",
+      "11",
+      "13",
+      "15"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Java programlama dili hangi şirket tarafından geliştirilmiştir?",
+    "options": [
+      "Microsoft",
+      "Sun Microsystems",
+      "IBM",
+      "Oracle"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Linux çekirdeği ilk olarak hangi yıl yayımlanmıştır?",
+    "options": [
+      "1985",
+      "1991",
+      "1995",
+      "2001"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "OSI referans modeli kaç katmandan oluşur?",
+    "options": [
+      "4",
+      "5",
+      "7",
+      "9"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "Aşağıdaki veri yapılarından hangisi LIFO (Son Giren İlk Çıkar) prensibiyle çalışır?",
+    "options": [
+      "Kuyruk (Queue)",
+      "Yığın (Stack)",
+      "Bağlı Liste",
+      "Ağaç"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Bir kuyruk (queue) veri yapısı hangi prensibe göre çalışır?",
+    "options": [
+      "LIFO",
+      "FIFO",
+      "Rastgele erişim",
+      "Öncelik sırası"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "JavaScript dilinde bir değişkenin tipini öğrenmek için kullanılan operatör hangisidir?",
+    "options": [
+      "typeof",
+      "instanceof",
+      "typeName",
+      "gettype"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "HTML kısaltmasının açılımı nedir?",
+    "options": [
+      "Hyper Text Markup Language",
+      "High Tech Modern Language",
+      "Home Tool Markup Language",
+      "Hyperlink Text Management Logic"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "IPv4 adresleri kaç bit uzunluğundadır?",
+    "options": [
+      "16",
+      "32",
+      "64",
+      "128"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "IPv6 adresleri kaç bit uzunluğundadır?",
+    "options": [
+      "32",
+      "64",
+      "128",
+      "256"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "Aşağıdaki dillerden hangisi Google tarafından geliştirilen açık kaynak programlama dilidir?",
+    "options": [
+      "Rust",
+      "Go (Golang)",
+      "Swift",
+      "Kotlin"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Apple'ın iOS uygulama geliştirme için tanıttığı programlama dili hangisidir?",
+    "options": [
+      "Kotlin",
+      "Swift",
+      "Objective-J",
+      "Dart"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Android uygulama geliştirmede Google'ın resmi olarak önerdiği modern dil hangisidir?",
+    "options": [
+      "Kotlin",
+      "Swift",
+      "Ruby",
+      "Scala"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Bir onaltılık (hexadecimal) sayı sisteminde 'FF' değeri ondalık olarak kaça eşittir?",
+    "options": [
+      "200",
+      "255",
+      "256",
+      "128"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "TCP/IP modelinde e-posta göndermek için kullanılan protokol hangisidir?",
+    "options": [
+      "FTP",
+      "SMTP",
+      "SNMP",
+      "POP3"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Web'de güvenli veri aktarımı sağlayan, HTTP'nin şifreli sürümü hangisidir?",
+    "options": [
+      "HTTPS",
+      "SFTP",
+      "SSH",
+      "HTTP2"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Unix işletim sistemi ilk olarak hangi laboratuvarda geliştirilmiştir?",
+    "options": [
+      "Xerox PARC",
+      "Bell Labs",
+      "MIT AI Lab",
+      "IBM Research"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "C programlama dili hangi işletim sisteminin geliştirilmesiyle yakından ilişkilidir?",
+    "options": [
+      "Windows",
+      "Unix",
+      "MS-DOS",
+      "macOS"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Nesne yönelimli programlamada, bir sınıfın başka bir sınıfın özelliklerini devralmasına ne ad verilir?",
+    "options": [
+      "Kapsülleme",
+      "Kalıtım (Inheritance)",
+      "Çok biçimlilik",
+      "Soyutlama"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Nesne yönelimli programlamada bir nesnenin iç detaylarının gizlenmesi ilkesine ne denir?",
+    "options": [
+      "Kalıtım",
+      "Kapsülleme (Encapsulation)",
+      "Bağlama",
+      "Aşırı yükleme"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Aşağıdaki veritabanı sistemlerinden hangisi ilişkisel (SQL) değil, NoSQL türündedir?",
+    "options": [
+      "PostgreSQL",
+      "MongoDB",
+      "MySQL",
+      "Oracle Database"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Docker teknolojisi temelde hangi kavram üzerine kuruludur?",
+    "options": [
+      "Sanal makineler",
+      "Konteynerler",
+      "Bloklar zinciri",
+      "Mikroişlemciler"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "RAM belleğin en belirgin özelliği aşağıdakilerden hangisidir?",
+    "options": [
+      "Kalıcı depolama sağlar",
+      "Elektrik kesilince veriyi kaybeder",
+      "Sadece okunabilir",
+      "Manyetik disk kullanır"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Derleyici (compiler) ile yorumlayıcı (interpreter) arasındaki temel fark nedir?",
+    "options": [
+      "Derleyici kodu bir kerede makine diline çevirir, yorumlayıcı satır satır çalıştırır",
+      "İkisi de aynıdır",
+      "Yorumlayıcı sadece C dilinde kullanılır",
+      "Derleyici sadece web için kullanılır"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Windows işletim sisteminde dosya yollarında dizinleri ayırmak için geleneksel olarak kullanılan karakter hangisidir?",
+    "options": [
+      "/ (eğik çizgi)",
+      "\\ (ters eğik çizgi)",
+      ": (iki nokta)",
+      "| (dikey çizgi)"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "GNU projesi ve Özgür Yazılım Vakfı'nın (FSF) kurucusu kimdir?",
+    "options": [
+      "Linus Torvalds",
+      "Richard Stallman",
+      "Eric Raymond",
+      "Ken Thompson"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Bir programda beklenmedik durumları yönetmek için çoğu modern dilde kullanılan yapı hangisidir?",
+    "options": [
+      "try-catch (istisna yönetimi)",
+      "goto",
+      "switch-case",
+      "for döngüsü"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "JSON kısaltmasının açılımı nedir?",
+    "options": [
+      "Java Standard Object Notation",
+      "JavaScript Object Notation",
+      "Joined System Object Network",
+      "Java Serialized Object Name"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Aşağıdaki port numaralarından hangisi standart HTTPS trafiği için kullanılır?",
+    "options": [
+      "21",
+      "80",
+      "443",
+      "3306"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "Standart SSH bağlantısı hangi TCP portunu kullanır?",
+    "options": [
+      "22",
+      "23",
+      "25",
+      "110"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "ARPANET üzerinde ilk mesaj 1969'da hangi iki üniversite arasında gönderilmiştir?",
+    "options": [
+      "UCLA ile Stanford Araştırma Enstitüsü (SRI)",
+      "MIT ile Harvard",
+      "Berkeley ile UCLA",
+      "Stanford ile MIT"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "ARPANET'te gönderilmeye çalışılan ilk mesajda sistem çökmeden önce iletilen harfler hangileriydi?",
+    "options": [
+      "HE (HELLO'dan)",
+      "LO (LOGIN'den)",
+      "AB",
+      "OK"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "TCP/IP protokol paketinin temellerini oluşturan ünlü makaleyi 1974'te yazan iki mühendis kimlerdir?",
+    "options": [
+      "Tim Berners-Lee ve Robert Cailliau",
+      "Vint Cerf ve Bob Kahn",
+      "Paul Baran ve Donald Davies",
+      "Ray Tomlinson ve Jon Postel"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "E-posta adreslerinde kullanıcı adı ile alan adını ayıran '@' işaretini 1971'de ilk kullanan kişi kimdir?",
+    "options": [
+      "Ray Tomlinson",
+      "Vint Cerf",
+      "Jon Postel",
+      "Leonard Kleinrock"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "World Wide Web'i icat eden Tim Berners-Lee hangi kurumda çalışırken bu fikri geliştirmiştir?",
+    "options": [
+      "NASA",
+      "CERN",
+      "MIT",
+      "Bell Labs"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Dünyanın ilk web sitesinin adresi hangisiydi?",
+    "options": [
+      "info.cern.ch",
+      "www.w3.org",
+      "home.mcom.com",
+      "ncsa.uiuc.edu"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "HTTP protokolünde '404' durum kodu neyi ifade eder?",
+    "options": [
+      "Sunucu iç hatası",
+      "Kaynak bulunamadı",
+      "Yetkisiz erişim",
+      "Yönlendirme"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "HTTP durum kodlarında '301' kodu ne anlama gelir?",
+    "options": [
+      "Geçici yönlendirme",
+      "Kalıcı yönlendirme",
+      "İçerik değişmedi",
+      "İstek kabul edildi"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "HTTPS bağlantılarında varsayılan olarak hangi TCP portu kullanılır?",
+    "options": [
+      "80",
+      "8080",
+      "443",
+      "21"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "Şifrelenmemiş standart HTTP trafiği varsayılan olarak hangi portu kullanır?",
+    "options": [
+      "443",
+      "25",
+      "80",
+      "110"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "DNS (Domain Name System) sistemini 1983'te tasarlayan kişi kimdir?",
+    "options": [
+      "Paul Mockapetris",
+      "Vint Cerf",
+      "Jon Postel",
+      "Tim Berners-Lee"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "DNS sorguları genellikle hangi port üzerinden yapılır?",
+    "options": [
+      "53",
+      "80",
+      "443",
+      "25"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Bir DNS kaydında bir alan adını başka bir alan adına eşleyen kayıt türü hangisidir?",
+    "options": [
+      "A kaydı",
+      "MX kaydı",
+      "CNAME kaydı",
+      "TXT kaydı"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "E-posta sunucularının bir alan için hangi posta sunucusundan sorumlu olduğunu belirten DNS kaydı türü hangisidir?",
+    "options": [
+      "A",
+      "MX",
+      "NS",
+      "AAAA"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "IPv4 adres uzunluğu kaç bittir?",
+    "options": [
+      "16 bit",
+      "32 bit",
+      "64 bit",
+      "128 bit"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Özel (private) ağlarda kullanılan '192.168.x.x' bloğu hangi RFC ile tanımlanmıştır?",
+    "options": [
+      "RFC 1918",
+      "RFC 791",
+      "RFC 2616",
+      "RFC 1035"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Dosya transferi için kullanılan FTP protokolü kontrol bağlantısı için hangi portu kullanır?",
+    "options": [
+      "20",
+      "21",
+      "22",
+      "23"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "SSH (Secure Shell) protokolü varsayılan olarak hangi portu kullanır?",
+    "options": [
+      "22",
+      "23",
+      "25",
+      "443"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Şifrelenmemiş uzak terminal erişimi sağlayan ve güvensizliği nedeniyle SSH ile değiştirilen protokol hangisidir?",
+    "options": [
+      "Telnet",
+      "Rlogin",
+      "SMTP",
+      "SNMP"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "E-posta göndermek için kullanılan SMTP protokolü klasik olarak hangi portu kullanır?",
+    "options": [
+      "110",
+      "143",
+      "25",
+      "443"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "E-postaları sunucuda tutup birden fazla cihazdan senkronize erişim sağlayan protokol hangisidir?",
+    "options": [
+      "POP3",
+      "IMAP",
+      "SMTP",
+      "NNTP"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "POP3 protokolü varsayılan olarak hangi portu kullanır?",
+    "options": [
+      "110",
+      "143",
+      "25",
+      "993"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "İlk grafik arayüzlü popüler web tarayıcısı olan ve 1993'te yayınlanan tarayıcı hangisidir?",
+    "options": [
+      "Netscape Navigator",
+      "Mosaic",
+      "Internet Explorer",
+      "Opera"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Mosaic tarayıcısının geliştirilmesine öncülük eden ve sonradan Netscape'i kuran kişi kimdir?",
+    "options": [
+      "Marc Andreessen",
+      "Bill Gates",
+      "Linus Torvalds",
+      "Jerry Yang"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "OSI modelinde IP protokolü hangi katmanda çalışır?",
+    "options": [
+      "Fiziksel katman",
+      "Veri bağı katmanı",
+      "Ağ katmanı",
+      "Taşıma katmanı"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "TCP ve UDP protokolleri OSI modelinin hangi katmanında yer alır?",
+    "options": [
+      "Ağ katmanı",
+      "Taşıma katmanı",
+      "Oturum katmanı",
+      "Uygulama katmanı"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "UDP protokolünün TCP'den temel farkı nedir?",
+    "options": [
+      "Bağlantı kurar ve teslimatı garanti eder",
+      "Bağlantısızdır ve teslimat garantisi yoktur",
+      "Sadece kablosuz ağlarda çalışır",
+      "Şifreleme sağlar"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "TCP bağlantısı kurulurken kullanılan üç aşamalı el sıkışmanın (three-way handshake) sırası hangisidir?",
+    "options": [
+      "SYN, SYN-ACK, ACK",
+      "ACK, SYN, FIN",
+      "SYN, ACK, RST",
+      "FIN, ACK, SYN"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Paket anahtarlama (packet switching) kavramını 1960'larda bağımsız olarak geliştiren İngiliz bilim insanı kimdir?",
+    "options": [
+      "Donald Davies",
+      "Alan Turing",
+      "Tim Berners-Lee",
+      "Charles Babbage"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "İnternet standartlarının yayınlandığı belge serisinin adı nedir?",
+    "options": [
+      "ISO",
+      "RFC",
+      "IEEE",
+      "ANSI"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Web standartlarını (HTML, CSS gibi) geliştiren ve Tim Berners-Lee tarafından kurulan konsorsiyum hangisidir?",
+    "options": [
+      "IETF",
+      "W3C",
+      "ICANN",
+      "IEEE"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Alan adı sistemini ve IP adresi tahsisini koordine eden kâr amacı gütmeyen kuruluş hangisidir?",
+    "options": [
+      "ICANN",
+      "W3C",
+      "ISOC",
+      "IANA"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "HTTP/2 protokolü hangi Google projesini temel alarak geliştirilmiştir?",
+    "options": [
+      "QUIC",
+      "SPDY",
+      "gRPC",
+      "Protobuf"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "HTTP/3 protokolü hangi taşıma protokolü üzerine inşa edilmiştir?",
+    "options": [
+      "TCP",
+      "UDP tabanlı QUIC",
+      "SCTP",
+      "ICMP"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Bir cihaza otomatik olarak IP adresi atayan protokol hangisidir?",
+    "options": [
+      "DNS",
+      "DHCP",
+      "ARP",
+      "NAT"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Bir IP adresini yerel ağdaki fiziksel MAC adresine çözümleyen protokol hangisidir?",
+    "options": [
+      "ARP",
+      "RARP",
+      "ICMP",
+      "DHCP"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "'ping' komutunun kullandığı ve ağ ulaşılabilirliğini test eden protokol hangisidir?",
+    "options": [
+      "TCP",
+      "UDP",
+      "ICMP",
+      "IGMP"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "Türkiye'nin internete ilk kez bağlandığı yıl hangisidir?",
+    "options": [
+      "1987",
+      "1993",
+      "1996",
+      "1999"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "HTTP protokolünde durum bilgisini istemci tarafında saklamak için kullanılan mekanizmayı 1994'te Netscape'te geliştiren kişi kimdir?",
+    "options": [
+      "Lou Montulli",
+      "Brendan Eich",
+      "Marc Andreessen",
+      "Jon Postel"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Intel'i 1968 yılında Gordon Moore ile birlikte kuran, daha önce Fairchild Semiconductor'ın da kurucularından olan mühendis kimdir?",
+    "options": [
+      "Robert Noyce",
+      "Jack Kilby",
+      "Andy Grove",
+      "Jerry Sanders"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "NVIDIA şirketi hangi yılda kurulmuştur?",
+    "options": [
+      "1985",
+      "1993",
+      "1998",
+      "2001"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Oracle Corporation'ın kurucu ortağı ve uzun yıllar CEO'su olan kişi kimdir?",
+    "options": [
+      "Larry Ellison",
+      "Marc Benioff",
+      "Thomas Kurtz",
+      "Scott McNealy"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Steve Jobs, Steve Wozniak ve Ronald Wayne tarafından kurulan Apple'ın üçüncü ortağı Wayne, hisselerini yaklaşık kaç gün sonra satmıştır?",
+    "options": [
+      "3 gün",
+      "12 gün",
+      "45 gün",
+      "6 ay"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Airbnb'nin kurucularından biri olmayan kişi kimdir?",
+    "options": [
+      "Brian Chesky",
+      "Joe Gebbia",
+      "Nathan Blecharczyk",
+      "Travis Kalanick"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "Uber'in kurucu ortağı ve ilk CEO'su olup 2017'de istifa eden kişi kimdir?",
+    "options": [
+      "Travis Kalanick",
+      "Dara Khosrowshahi",
+      "Garrett Camp",
+      "Logan Green"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "TSMC (Taiwan Semiconductor Manufacturing Company) şirketinin kurucusu kimdir?",
+    "options": [
+      "Morris Chang",
+      "Terry Gou",
+      "Jensen Huang",
+      "Lisa Su"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Netflix'i 1997'de Reed Hastings ile birlikte kuran kişi kimdir?",
+    "options": [
+      "Marc Randolph",
+      "Ted Sarandos",
+      "Mitch Lowe",
+      "Barry McCarthy"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "SAP yazılım şirketi hangi ülkede kurulmuştur?",
+    "options": [
+      "Almanya",
+      "Fransa",
+      "Hollanda",
+      "İsviçre"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Spotify'ı 2006 yılında Martin Lorentzon ile kuran İsveçli girişimci kimdir?",
+    "options": [
+      "Daniel Ek",
+      "Niklas Zennström",
+      "Markus Persson",
+      "Sebastian Siemiatkowski"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Adobe Systems'ı 1982'de John Warnock ile kuran kişi kimdir?",
+    "options": [
+      "Charles Geschke",
+      "Bill Atkinson",
+      "Alan Kay",
+      "Douglas Engelbart"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "WhatsApp'ı kuran ve daha önce Yahoo'da çalışmış olan iki isim kimlerdir?",
+    "options": [
+      "Jan Koum ve Brian Acton",
+      "Kevin Systrom ve Mike Krieger",
+      "Evan Spiegel ve Bobby Murphy",
+      "Ben Silbermann ve Paul Sciarra"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Instagram'ın kurucularından Kevin Systrom'un ortağı kimdir?",
+    "options": [
+      "Mike Krieger",
+      "Bobby Murphy",
+      "Jack Dorsey",
+      "Biz Stone"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "AMD (Advanced Micro Devices) şirketinin kurucusu ve ilk CEO'su kimdir?",
+    "options": [
+      "Jerry Sanders",
+      "Lisa Su",
+      "Hector Ruiz",
+      "Gordon Moore"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Salesforce şirketini 1999'da kuran, daha önce Oracle'da çalışan girişimci kimdir?",
+    "options": [
+      "Marc Benioff",
+      "Larry Ellison",
+      "Parker Harris",
+      "Aneel Bhusri"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Sun Microsystems'ın adındaki 'SUN' kısaltması aslen neyin baş harflerinden gelir?",
+    "options": [
+      "Stanford University Network",
+      "System Unix Node",
+      "Silicon Universal Network",
+      "Standard Unix Nexus"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "PayPal'ın öncülü olan Confinity şirketini Max Levchin ile kuran kişi kimdir?",
+    "options": [
+      "Peter Thiel",
+      "Elon Musk",
+      "Reid Hoffman",
+      "David Sacks"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Yahoo!'yu 1994'te Jerry Yang ile birlikte kuran kişi kimdir?",
+    "options": [
+      "David Filo",
+      "Marissa Mayer",
+      "Tim Koogle",
+      "Terry Semel"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Alibaba Group'un kurucusu ve eski İngilizce öğretmeni olan kişi kimdir?",
+    "options": [
+      "Jack Ma",
+      "Pony Ma",
+      "Robin Li",
+      "Richard Liu"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Tencent'in kurucusu ve CEO'su kimdir?",
+    "options": [
+      "Pony Ma (Ma Huateng)",
+      "Jack Ma",
+      "Lei Jun",
+      "Robin Li"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Xiaomi şirketinin kurucusu ve CEO'su kimdir?",
+    "options": [
+      "Lei Jun",
+      "Ren Zhengfei",
+      "William Ding",
+      "Colin Huang"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Huawei şirketinin kurucusu kimdir?",
+    "options": [
+      "Ren Zhengfei",
+      "Lei Jun",
+      "Pony Ma",
+      "Jack Ma"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "IBM'in 1911'de kurulan eski adı olan şirketin kısaltması nedir?",
+    "options": [
+      "CTR (Computing-Tabulating-Recording Company)",
+      "GE (General Electric)",
+      "NCR (National Cash Register)",
+      "ITT (International Telephone)"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Hewlett-Packard'ın kurulduğu efsanevi garaj hangi şehirdedir?",
+    "options": [
+      "Palo Alto",
+      "Seattle",
+      "Portland",
+      "Reno"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Microsoft, Bill Gates ve Paul Allen tarafından ilk olarak hangi şehirde kurulmuştur?",
+    "options": [
+      "Albuquerque, New Mexico",
+      "Seattle, Washington",
+      "Redmond, Washington",
+      "Palo Alto, California"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Google'ın kurucuları Larry Page ve Sergey Brin hangi üniversitede tanışmıştır?",
+    "options": [
+      "Stanford Üniversitesi",
+      "MIT",
+      "Harvard",
+      "Berkeley"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Amazon'un ilk kuruluş aşamasında Jeff Bezos'un kullandığı ilk isim neydi?",
+    "options": [
+      "Cadabra",
+      "Relentless",
+      "Bookstore",
+      "MakeItSo"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Dell şirketini üniversite yurt odasında kuran kişi kimdir?",
+    "options": [
+      "Michael Dell",
+      "Rod Canion",
+      "Ken Olsen",
+      "Compaq Wozniak"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Cisco Systems'ı 1984'te kuran evli çift kimlerdir?",
+    "options": [
+      "Leonard Bosack ve Sandy Lerner",
+      "John Chambers ve eşi",
+      "Andy Bechtolsheim ve eşi",
+      "Vint Cerf ve eşi"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "SpaceX şirketi hangi yılda kurulmuştur?",
+    "options": [
+      "2002",
+      "1999",
+      "2006",
+      "2010"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "LinkedIn'in kurucusu ve 'The Start-up of You' kitabının yazarı kimdir?",
+    "options": [
+      "Reid Hoffman",
+      "Jeff Weiner",
+      "Ryan Roslansky",
+      "Allen Blue"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Twitter'ın (X) ilk kurucularından ve Square'i de kuran kişi kimdir?",
+    "options": [
+      "Jack Dorsey",
+      "Evan Williams",
+      "Biz Stone",
+      "Noah Glass"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Snapchat'i (Snap Inc.) kuran Evan Spiegel'in Stanford'daki oda arkadaşı ve ortağı kimdir?",
+    "options": [
+      "Bobby Murphy",
+      "Reggie Brown",
+      "Frank Reginald",
+      "Kevin Systrom"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Zoom Video Communications'ın kurucusu ve daha önce Cisco WebEx'te çalışan kişi kimdir?",
+    "options": [
+      "Eric Yuan",
+      "Min-Liang Tan",
+      "Tony Xu",
+      "Stewart Butterfield"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Slack'in kurucusu ve daha önce Flickr'ı da kuran kişi kimdir?",
+    "options": [
+      "Stewart Butterfield",
+      "Jared Spool",
+      "Cal Henderson",
+      "Drew Houston"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Dropbox'ı MIT'de okurken kuran kişi kimdir?",
+    "options": [
+      "Drew Houston",
+      "Aaron Levie",
+      "Arash Ferdowsi",
+      "Bret Taylor"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Samsung Group'un 1938'de kurucusu kimdir?",
+    "options": [
+      "Lee Byung-chul",
+      "Lee Kun-hee",
+      "Chung Ju-yung",
+      "Koo In-hwoi"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Sony'yi 1946'da Masaru Ibuka ile birlikte kuran kişi kimdir?",
+    "options": [
+      "Akio Morita",
+      "Kazuo Hirai",
+      "Nobuyuki Idei",
+      "Konosuke Matsushita"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Nokia şirketi başlangıçta hangi sektörde faaliyet gösteren bir şirket olarak kurulmuştur?",
+    "options": [
+      "Kağıt hamuru / kağıt üretimi",
+      "Otomobil",
+      "Tekstil",
+      "Cam üretimi"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "OpenAI hangi yılda kar amacı gütmeyen bir araştırma laboratuvarı olarak kurulmuştur?",
+    "options": [
+      "2015",
+      "2012",
+      "2018",
+      "2020"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "eBay'i 1995'te kuran Fransız asıllı İranlı-Amerikalı girişimci kimdir?",
+    "options": [
+      "Pierre Omidyar",
+      "Meg Whitman",
+      "Jeff Skoll",
+      "Elon Musk"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Voyager 1 sondasının Güneş Sistemi'nin uzak bölgelerinde bilimsel verileri Dünya'ya iletmeye devam etmesini sağlayan güç kaynağı türü nedir?",
+    "options": [
+      "Güneş panelleri",
+      "Radyoizotop termoelektrik jeneratör (RTG)",
+      "Lityum-iyon batarya",
+      "Yakıt hücresi"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "1997'de Mars yüzeyinde dolaşan ilk gezgin (rover) olan aracın adı nedir?",
+    "options": [
+      "Sojourner",
+      "Opportunity",
+      "Spirit",
+      "Curiosity"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "'Robot' kelimesini ilk kez 1920'de yayımladığı 'R.U.R.' adlı oyununda kullanan Çek yazar kimdir?",
+    "options": [
+      "Franz Kafka",
+      "Karel Čapek",
+      "Isaac Asimov",
+      "Stanisław Lem"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Isaac Asimov'un Robotik Yasaları'na sonradan eklenen, diğer üçünün önüne geçen yasa hangisidir?",
+    "options": [
+      "Sıfırıncı Yasa",
+      "Dördüncü Yasa",
+      "Temel Yasa",
+      "Öncelik Yasası"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "2015'te sıvı su akıntısı olabileceği düşünülen mevsimsel koyu çizgiler (RSL) hangi gezegende gözlemlenmiştir?",
+    "options": [
+      "Venüs",
+      "Mars",
+      "Merkür",
+      "Jüpiter"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Satranç dünya şampiyonu Garry Kasparov'u 1997'de yenen IBM bilgisayarının adı nedir?",
+    "options": [
+      "Watson",
+      "Deep Blue",
+      "Deep Thought",
+      "AlphaZero"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "2016'da Go oyununda dünyanın en iyi oyuncularından Lee Sedol'u yenen yapay zeka programı hangisidir?",
+    "options": [
+      "AlphaGo",
+      "Watson",
+      "Libratus",
+      "Pluribus"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "İnsansı bir makinenin insan olup olmadığını ayırt edememe testini öneren bilim insanı kimdir?",
+    "options": [
+      "John McCarthy",
+      "Alan Turing",
+      "Marvin Minsky",
+      "Claude Shannon"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "'Yapay zeka' (artificial intelligence) terimi ilk kez hangi yıl düzenlenen Dartmouth Konferansı'nda ortaya atılmıştır?",
+    "options": [
+      "1943",
+      "1956",
+      "1969",
+      "1975"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Bir uzay aracının bir gök cismini kütle çekimini kullanarak hızlanması ya da yön değiştirmesine ne ad verilir?",
+    "options": [
+      "Yörünge sönümlemesi",
+      "Kütle çekimsel sapan (gravity assist)",
+      "Aerobreaking",
+      "Hohmann transferi"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "2014'te bir kuyruklu yıldıza (67P) iniş yapan ilk uzay aracı olan modülün adı nedir?",
+    "options": [
+      "Philae",
+      "Huygens",
+      "Beagle 2",
+      "Hayabusa"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Derin öğrenmede görüntü tanımada yaygın kullanılan sinir ağı mimarisi hangisidir?",
+    "options": [
+      "Konvolüsyonel sinir ağı (CNN)",
+      "Karar ağacı",
+      "Destek vektör makinesi",
+      "K-ortalamalar"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "2017'de Google araştırmacılarının 'Attention Is All You Need' makalesiyle tanıttığı, modern büyük dil modellerinin temelini oluşturan mimari hangisidir?",
+    "options": [
+      "LSTM",
+      "Transformer",
+      "GAN",
+      "ResNet"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Satürn'ün uydusu Titan'a 2005'te iniş yapan sonda hangisidir?",
+    "options": [
+      "Cassini",
+      "Huygens",
+      "Galileo",
+      "Juno"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "James Webb Uzay Teleskobu ağırlıklı olarak elektromanyetik spektrumun hangi bölgesinde gözlem yapar?",
+    "options": [
+      "Görünür ışık",
+      "Kızılötesi",
+      "Morötesi",
+      "X-ışını"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "James Webb Uzay Teleskobu'nun konumlandığı, Güneş-Dünya sisteminin kararlı denge noktası hangisidir?",
+    "options": [
+      "L1",
+      "L2",
+      "L4",
+      "L5"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Birbirine karşıt iki sinir ağının (üretici ve ayırt edici) yarıştığı, 2014'te Ian Goodfellow tarafından önerilen model hangisidir?",
+    "options": [
+      "Otokodlayıcı",
+      "Üretici çekişmeli ağ (GAN)",
+      "Difüzyon modeli",
+      "Boltzmann makinesi"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Bir asteroide (Ryugu) inip örnek alarak Dünya'ya getiren Japon uzay aracının adı nedir?",
+    "options": [
+      "Hayabusa2",
+      "OSIRIS-REx",
+      "Chang'e 5",
+      "Rosetta"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "NASA'nın 2021'de Mars'ta uçuş yapan ilk motorlu helikopterinin adı nedir?",
+    "options": [
+      "Ingenuity",
+      "Perseverance",
+      "Zhurong",
+      "Dragonfly"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Denetimli öğrenmede modelin eğitim verisine aşırı uyum sağlayıp yeni veride başarısız olması durumuna ne denir?",
+    "options": [
+      "Underfitting",
+      "Overfitting (aşırı uyum)",
+      "Regularization",
+      "Normalizasyon"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Ay'a insan indiren Apollo 11 görevinin ay modülünün adı nedir?",
+    "options": [
+      "Columbia",
+      "Eagle",
+      "Aquarius",
+      "Challenger"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Bir robotun eklemli kolunun uzayda ulaşabildiği tüm noktalar kümesine ne ad verilir?",
+    "options": [
+      "Çalışma uzayı (workspace)",
+      "Konfigürasyon",
+      "Yörünge",
+      "Serbestlik derecesi"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Bir robot manipülatörün bağımsız hareket edebildiği eksen sayısını ifade eden terim nedir?",
+    "options": [
+      "Tork",
+      "Serbestlik derecesi",
+      "Enkoder çözünürlüğü",
+      "Atalet momenti"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Güneş'e en yakın geçiş yaparak koronayı inceleyen, 2018'de fırlatılan NASA sondası hangisidir?",
+    "options": [
+      "Solar Orbiter",
+      "Parker Solar Probe",
+      "SOHO",
+      "Ulysses"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Plüton'un yakın görüntülerini 2015'te ileten uzay aracının adı nedir?",
+    "options": [
+      "New Horizons",
+      "Dawn",
+      "Voyager 2",
+      "Pioneer 10"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Büyük dil modellerinin eğitiminde kullanılan, kelimeleri sayısal vektörlere dönüştüren temsil biçimine ne ad verilir?",
+    "options": [
+      "Tokenizasyon",
+      "Gömme (embedding)",
+      "Kuantizasyon",
+      "Damıtma"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "IBM'in 2011'de Jeopardy! yarışmasında insan şampiyonları yenen yapay zeka sistemi hangisidir?",
+    "options": [
+      "Deep Blue",
+      "Watson",
+      "Ramanujan",
+      "Sydney"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Uluslararası Uzay İstasyonu'nun (ISS) yörüngesindeki ortalama yüksekliği yaklaşık kaç kilometredir?",
+    "options": [
+      "120 km",
+      "400 km",
+      "1.000 km",
+      "35.786 km"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Jeostatik (yer-durağan) yörüngedeki bir uydunun Dünya yüzeyinden yüksekliği yaklaşık kaç kilometredir?",
+    "options": [
+      "2.000 km",
+      "10.000 km",
+      "35.786 km",
+      "100.000 km"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "Pekişmeli öğrenmede (reinforcement learning) bir ajanın davranışını yönlendiren geri bildirim sinyaline ne ad verilir?",
+    "options": [
+      "Kayıp",
+      "Ödül (reward)",
+      "Gradyan",
+      "Etiket"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Boston Dynamics'in dört ayaklı, ticari olarak satılan robot köpeğinin adı nedir?",
+    "options": [
+      "Atlas",
+      "Spot",
+      "Handle",
+      "Stretch"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Venüs yüzeyine iniş yapıp veri gönderen ilk uzay aracı serisi hangi ülkeye aittir?",
+    "options": [
+      "ABD",
+      "Sovyetler Birliği",
+      "Japonya",
+      "Avrupa Birliği"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Jüpiter'in dört büyük uydusunu 1610'da keşfeden bilim insanı kimdir?",
+    "options": [
+      "Galileo Galilei",
+      "Johannes Kepler",
+      "Christiaan Huygens",
+      "Giovanni Cassini"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Bir uzay aracının atmosfere sürtünerek yörüngesini kademeli olarak düşürmek için kullandığı yakıt tasarruflu tekniğe ne denir?",
+    "options": [
+      "Aerobreaking",
+      "Gravity assist",
+      "Retrograd yakma",
+      "Bi-eliptik transfer"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Bir dil modelinin gerçekte olmayan bilgileri güvenle üretmesine yaygın olarak ne ad verilir?",
+    "options": [
+      "Overfitting",
+      "Halüsinasyon",
+      "Bias",
+      "Dropout"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Fırlatma sonrası ilk kez dikey iniş yaparak yeniden kullanılabilirliği kanıtlayan SpaceX'in yörünge sınıfı roketi hangisidir?",
+    "options": [
+      "Falcon 1",
+      "Falcon 9",
+      "Starship",
+      "Falcon Heavy"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Sinir ağı eğitiminde aşırı uyumu azaltmak için eğitim sırasında rastgele nöronları devre dışı bırakan tekniğe ne ad verilir?",
+    "options": [
+      "Dropout",
+      "Batch norm",
+      "Momentum",
+      "Pooling"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Karadelik gölgesinin ilk görüntüsünü 2019'da yayımlayan gözlem projesi hangisidir?",
+    "options": [
+      "LIGO",
+      "Event Horizon Telescope",
+      "Hubble",
+      "Chandra"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Yerçekimi dalgalarını 2015'te ilk kez doğrudan gözlemleyen dedektör hangisidir?",
+    "options": [
+      "LIGO",
+      "LISA",
+      "Virgo",
+      "IceCube"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Endüstriyel robotların hareketini programlamada, uç işlevcinin konum ve yönelimini eklem açılarından hesaplamaya ne ad verilir?",
+    "options": [
+      "Ters kinematik",
+      "İleri kinematik",
+      "Dinamik denge",
+      "Trajektori planlama"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Bir cismin bir gök cisminin çekiminden tamamen kurtulması için gereken minimum hıza ne ad verilir?",
+    "options": [
+      "Yörünge hızı",
+      "Kaçış hızı",
+      "Terminal hız",
+      "Açısal hız"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Python programlama dilini oluşturan Guido van Rossum, dile hangi mizah grubundan esinlenerek isim vermiştir?",
+    "options": [
+      "Monty Python",
+      "The Goodies",
+      "Saturday Night Live",
+      "Mr. Bean"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "C programlama dili hangi işletim sistemini yeniden yazmak için geliştirilmiştir?",
+    "options": [
+      "Unix",
+      "Multics",
+      "MS-DOS",
+      "VMS"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Bir bilgisayarda '0' ve '1' dışındaki değerleri de temsil edebilen, aynı anda birden fazla durumda bulunabilen hesaplama birimine ne ad verilir?",
+    "options": [
+      "Kübit (qubit)",
+      "Bit",
+      "Bayt",
+      "Nibble"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Java programlama dili başlangıçta hangi isimle geliştirilmiştir?",
+    "options": [
+      "Oak",
+      "Green",
+      "Espresso",
+      "Mocha"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "'RSA' şifreleme algoritmasındaki harfler neyi temsil eder?",
+    "options": [
+      "Geliştiricilerinin soyadları (Rivest, Shamir, Adleman)",
+      "Random Secure Algorithm",
+      "Rapid Symmetric Access",
+      "Recursive Standard Authentication"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Linux çekirdeğinin maskotu olan penguenin adı nedir?",
+    "options": [
+      "Tux",
+      "Beastie",
+      "Gnu",
+      "Wilber"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "JavaScript dili ilk sürümünde kaç günde tasarlanmıştır (Brendan Eich tarafından)?",
+    "options": [
+      "10 gün",
+      "3 ay",
+      "1 yıl",
+      "6 hafta"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "SQL'de bir tablodaki tüm satırları silen ancak yapıyı koruyan, işlem günlüğüne satır satır kayıt yapmayan komut hangisidir?",
+    "options": [
+      "TRUNCATE",
+      "DELETE",
+      "DROP",
+      "REMOVE"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "IPv4 adresleri kaç bit uzunluğundadır?",
+    "options": [
+      "32 bit",
+      "64 bit",
+      "16 bit",
+      "128 bit"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "'GNU' kısaltması neyin açılımıdır?",
+    "options": [
+      "GNU's Not Unix",
+      "General Network Unit",
+      "Global Numeric Utility",
+      "Grand Nested Unix"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Aşağıdaki sıralama algoritmalarından hangisinin en kötü durum zaman karmaşıklığı O(n²)'dir?",
+    "options": [
+      "Kabarcık sıralaması (Bubble sort)",
+      "Birleştirme sıralaması (Merge sort)",
+      "Yığın sıralaması (Heap sort)",
+      "Radix sort"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Bir baytta kaç bit vardır?",
+    "options": [
+      "8",
+      "4",
+      "16",
+      "2"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "World Wide Web'i (WWW) icat eden bilgisayar bilimcisi kimdir?",
+    "options": [
+      "Tim Berners-Lee",
+      "Vint Cerf",
+      "Marc Andreessen",
+      "Robert Kahn"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Nesne yönelimli programlamada bir alt sınıfın üst sınıfın özelliklerini devralmasına ne ad verilir?",
+    "options": [
+      "Kalıtım (Inheritance)",
+      "Kapsülleme (Encapsulation)",
+      "Çok biçimlilik (Polymorphism)",
+      "Soyutlama (Abstraction)"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "TCP/IP modelinde 'HTTPS' varsayılan olarak hangi portu kullanır?",
+    "options": [
+      "443",
+      "80",
+      "8080",
+      "22"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Programlamada 'bug' (hata) teriminin popülerleşmesine katkı sağladığı söylenen, bilgisayarda gerçek bir güve bulan bilim insanı kimdir?",
+    "options": [
+      "Grace Hopper",
+      "Ada Lovelace",
+      "Margaret Hamilton",
+      "Katherine Johnson"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Haskell hangi programlama paradigmasının öne çıkan bir örneğidir?",
+    "options": [
+      "Fonksiyonel programlama",
+      "Nesne yönelimli programlama",
+      "Mantıksal programlama",
+      "Yordamsal programlama"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Docker konteynerlerinin çalışması için temel aldığı Linux çekirdek özelliklerinden biri olan, kaynakları izole eden mekanizma hangisidir?",
+    "options": [
+      "Namespaces (ad alanları)",
+      "Sistem çağrıları",
+      "Sanal bellek",
+      "Kesmeler"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Git'te uzak depodaki değişiklikleri yerel depoya indirip mevcut dalla birleştiren komut hangisidir?",
+    "options": [
+      "git pull",
+      "git push",
+      "git commit",
+      "git stash"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Bir hexadecimal (onaltılık) 'FF' değeri ondalık sistemde kaça karşılık gelir?",
+    "options": [
+      "255",
+      "256",
+      "128",
+      "240"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "'Kernel panic' terimi hangi tür işletim sistemlerinde kritik hatayı ifade eder?",
+    "options": [
+      "Unix/Linux tabanlı sistemler",
+      "Windows sistemleri",
+      "MS-DOS",
+      "OS/2"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Windows işletim sistemlerinde kritik sistem hatasında görülen mavi ekranın yaygın kısaltması nedir?",
+    "options": [
+      "BSOD",
+      "BSED",
+      "KDOS",
+      "RSOD"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Aşağıdaki dillerden hangisi 'derlenen' değil 'yorumlanan' (interpreted) bir dil olarak sınıflandırılır?",
+    "options": [
+      "Python",
+      "C",
+      "Rust",
+      "Fortran"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "RAID yapılandırmalarından hangisi verileri iki disk arasında birebir yansılama (mirroring) yapar?",
+    "options": [
+      "RAID 1",
+      "RAID 0",
+      "RAID 5",
+      "RAID 6"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "'ACID' özellikleri veritabanı işlemleri bağlamında neyi ifade eder; buradaki 'I' harfi neyin karşılığıdır?",
+    "options": [
+      "Isolation (İzolasyon)",
+      "Integrity (Bütünlük)",
+      "Indexing (İndeksleme)",
+      "Increment (Artış)"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Rust programlama dilini geliştiren şirket hangisidir?",
+    "options": [
+      "Mozilla",
+      "Google",
+      "Microsoft",
+      "Apple"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Bir programda aynı anda çalışan iki iş parçacığının, birbirinin serbest bırakmasını beklerken sonsuza dek kilitlenmesine ne ad verilir?",
+    "options": [
+      "Kilitlenme (Deadlock)",
+      "Yarış durumu (Race condition)",
+      "Yığın taşması",
+      "Bellek sızıntısı"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "HTML'de köprü (bağlantı) oluşturmak için kullanılan etiket hangisidir?",
+    "options": [
+      "<a>",
+      "<link>",
+      "<href>",
+      "<url>"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Aşağıdakilerden hangisi bir NoSQL veritabanıdır?",
+    "options": [
+      "MongoDB",
+      "PostgreSQL",
+      "MySQL",
+      "Oracle"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "C dilinin standartlaştırılmış ilk sürümü olan ve 1989/1990'da yayımlanan standart yaygın olarak nasıl anılır?",
+    "options": [
+      "ANSI C (C89/C90)",
+      "K&R C",
+      "C99",
+      "C11"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Bir Unix/Linux sisteminde 'chmod 777' bir dosyaya hangi izinleri verir?",
+    "options": [
+      "Herkese okuma, yazma ve çalıştırma",
+      "Yalnızca sahibe tam izin",
+      "Yalnızca okuma",
+      "Yazma yok, okuma ve çalıştırma"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "MS-DOS işletim sistemi başlangıçta hangi şirket tarafından geliştirilip Microsoft'a satılmıştır (QDOS/86-DOS olarak)?",
+    "options": [
+      "Seattle Computer Products",
+      "IBM",
+      "Digital Research",
+      "Intel"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "'Moore Yasası' yaklaşık olarak neyin belirli aralıklarla iki katına çıktığını öngörür?",
+    "options": [
+      "Bir çipteki transistör sayısı",
+      "İşlemci saat hızı",
+      "Bellek fiyatı",
+      "Disk okuma hızı"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Fonksiyonel programlamada bir fonksiyonun kendi tanımı içinde kendini çağırmasına ne ad verilir?",
+    "options": [
+      "Özyineleme (Recursion)",
+      "İterasyon",
+      "Delegasyon",
+      "Enkapsülasyon"
+    ],
+    "answer": 0
   }
 ];
