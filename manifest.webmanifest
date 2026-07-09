@@ -1,12 +1,14 @@
 {
+  "id": "/bnb/",
   "name": "Ben Bildim — Bilgi Yarışması",
   "short_name": "Ben Bildim",
-  "description": "Arkadaşlarınla gerçek zamanlı bilgi yarışması: oda kur, herkes telefonundan katılsın!",
+  "description": "Arkadaşlarınla gerçek zamanlı bilgi yarışması: oda kur, herkes telefonundan katılsın! Tek başına ve macera modlarıyla çevrimdışı da oynanır.",
   "lang": "tr",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
+  "categories": ["games", "education", "entertainment"],
   "background_color": "#46178f",
   "theme_color": "#46178f",
   "icons": [

@@ -611,7 +611,7 @@ function playerOnState(data) {
       // Oda kapandı (retained state temizlendi): aboneliği bırak ki aynı kod
       // yeniden kullanılırsa yabancı bir odanın trafiği bu ekrana sızmasın.
       if (state.stateUnsub) { state.stateUnsub(); state.stateUnsub = null; }
-      state.currentView = "gone"; state.lastRenderKey = "gone"; renderRoomGone();
+      state.currentView = "gone"; armBackGuard(); state.lastRenderKey = "gone"; renderRoomGone();
     }
     return;
   }
@@ -624,7 +624,7 @@ function playerOnState(data) {
   // Odadan atıldıysa
   if (data.kicked && data.kicked[state.playerId]) {
     if (state.stateUnsub) state.stateUnsub();
-    state.currentView = "kicked"; state.lastRenderKey = "kicked";
+    state.currentView = "kicked"; armBackGuard(); state.lastRenderKey = "kicked";
     renderKicked();
     return;
   }
@@ -715,10 +715,10 @@ function fullRender() {
   const m = state.room.meta;
   const status = m.status;
   if (status === "lobby") {
-    state.currentView = "lobby";
+    state.currentView = "lobby"; armBackGuard();
     state.role === "host" ? renderHostLobby() : renderPlayerLobby();
   } else if (status === "question") {
-    state.currentView = "question";
+    state.currentView = "question"; armBackGuard();
     state.lastTickSec = 99;
     if (state.answeredIndex !== m.questionIndex) state.answeredIndex = -1;
     // İlk soruda oyun-içi istatistikleri sıfırla
@@ -728,10 +728,10 @@ function fullRender() {
     }
     state.role === "host" ? renderHostQuestion() : renderPlayerQuestion();
   } else if (status === "reveal") {
-    state.currentView = "reveal";
+    state.currentView = "reveal"; armBackGuard();
     state.role === "host" ? renderHostReveal() : renderPlayerReveal();
   } else if (status === "ended") {
-    state.currentView = "ended";
+    state.currentView = "ended"; armBackGuard();
     renderEnded();
   }
 }
@@ -840,7 +840,7 @@ function renderHome() {
 }
 
 function renderDaily() {
-  state.currentView = "daily";
+  state.currentView = "daily"; armBackGuard();
   const d = ensureDaily();
   const quests = d.quests.map((q) => {
     const pct = Math.min(100, Math.round((q.progress / q.goal) * 100));
@@ -876,7 +876,7 @@ function renderDaily() {
 }
 
 function renderLeague() {
-  state.currentView = "league";
+  state.currentView = "league"; armBackGuard();
   const wk = weekId();
   APP.innerHTML = `
     <div class="card">
@@ -914,7 +914,7 @@ function renderLeague() {
 }
 
 function renderSettings() {
-  state.currentView = "settings";
+  state.currentView = "settings"; armBackGuard();
   const cur = currentTheme();
   const prof = loadProfile();
   const themes = Object.entries(THEMES).map(([key, t]) => {
@@ -951,7 +951,7 @@ function renderSettings() {
 function renderQuickMatch() {
   let name = loadProfile().name;
   if (!name) { name = (prompt("Takma adın:") || "").trim(); if (!name) { renderHome(); return; } setName(name); }
-  state.currentView = "quick";
+  state.currentView = "quick"; armBackGuard();
   APP.innerHTML = `
     <div class="card center">
       <div class="logo small">⚡ Hızlı Eşleş</div>
@@ -991,7 +991,7 @@ function renderQuickMatch() {
 }
 
 function renderGlobal() {
-  state.currentView = "global";
+  state.currentView = "global"; armBackGuard();
   APP.innerHTML = `
     <div class="card">
       <button class="link-back" id="back">‹ Geri</button>
@@ -1033,7 +1033,7 @@ function renderGlobal() {
 }
 
 function renderProfile() {
-  state.currentView = "profile";
+  state.currentView = "profile"; armBackGuard();
   const p = loadProfile();
   const { cur, next, pct } = rankProgress(p.xp);
   const lp = levelProgress(p.xp);
@@ -1141,6 +1141,7 @@ function bindAvatarPicker() {
 }
 
 function renderHostSetup() {
+  state.currentView = "hostSetup"; armBackGuard();
   const prof = loadProfile();
   const diffs = Object.entries(DIFFICULTY).map(([key, d]) => `
     <div class="diff-chip ${state.setupDifficulty === key ? "active" : ""}" data-diff="${key}">
@@ -1236,7 +1237,7 @@ function renderHostSetup() {
 
 // ---- Tek kişilik (solo) mod ----
 function renderSoloSetup() {
-  state.currentView = "soloSetup";
+  state.currentView = "soloSetup"; armBackGuard();
   const diffs = Object.entries(DIFFICULTY).map(([key, d]) => `
     <div class="diff-chip ${state.setupDifficulty === key ? "active" : ""}" data-diff="${key}">
       <span class="diff-emoji">${d.emoji}</span>${esc(d.name)}
@@ -1357,7 +1358,7 @@ async function startSolo(categories, count, difficultyKey, settings) {
 // Bölümler solo motorunun üzerinde çalışır (state.solo=true + state.campaign).
 // ---------------------------------------------------------------------------
 function renderCampaignMap() {
-  state.currentView = "campaignMap";
+  state.currentView = "campaignMap"; armBackGuard();
   state.campaign = null; state.solo = false;
   const prog = loadCampaignProgress();
   const total = CAMPAIGN.stages.length;
@@ -1393,7 +1394,7 @@ function renderStageIntro(stageIndex) {
   if (!stage) { renderCampaignMap(); return; }
   const prog = loadCampaignProgress();
   if (stageIndex > prog.cleared + 1) { renderCampaignMap(); return; } // kilitli
-  state.currentView = "stageIntro";
+  state.currentView = "stageIntro"; armBackGuard();
   APP.innerHTML = `
     <div class="card campaign-intro">
       <button class="link-back" id="back">‹ Harita</button>
@@ -1533,6 +1534,7 @@ function renderCampaignStageResult(m) {
 
 // ---- Kendi Sorularım editörü ----
 function renderCustomEditor() {
+  state.currentView = "customEditor"; armBackGuard();
   const list = loadCustom();
   const rows = list.map((q, idx) => `
     <div class="editor-q">
@@ -1597,6 +1599,7 @@ function renderCustomEditor() {
 }
 
 function renderJoin(prefillError, prefillCode) {
+  state.currentView = "join"; armBackGuard();
   APP.innerHTML = `
     <div class="card">
       <button class="link-back" id="back">‹ Geri</button>
@@ -1778,7 +1781,7 @@ function renderPlayerLobby() {
 }
 
 function renderPendingApproval() {
-  state.currentView = "pending";
+  state.currentView = "pending"; armBackGuard();
   APP.innerHTML = `
     <div class="card center">
       <div class="logo small">Ben Bildim 🧠</div>
@@ -1793,7 +1796,7 @@ function renderPendingApproval() {
 }
 
 function renderRejected() {
-  state.currentView = "rejected";
+  state.currentView = "rejected"; armBackGuard();
   APP.innerHTML = `
     <div class="card center">
       <div class="logo small">Ben Bildim 🧠</div>
@@ -1816,7 +1819,7 @@ function renderKicked() {
 }
 
 function renderMigrating() {
-  state.currentView = "migrating";
+  state.currentView = "migrating"; armBackGuard();
   APP.innerHTML = `
     <div class="card center">
       <div class="logo small">⚔️ Düello!</div>
@@ -2702,6 +2705,44 @@ function announce(msg) {
   if (el) { el.textContent = ""; el.textContent = msg; }
 }
 
+// ---------------------------------------------------------------------------
+// Geri tuşu (Android/tarayıcı): tek sentinel girdisiyle koruma.
+// Ana sayfa dışındayken geçmişe bir kayıt eklenir; geri tuşu ekranı bir üst
+// seviyeye taşır (oyun içindeyse onay sorar), ana sayfada ikinci geri çıkışa
+// izin verir. TWA/PWA paketlerinde geri tuşunun uygulamayı anında
+// kapatmaması için gereklidir.
+// ---------------------------------------------------------------------------
+let backArmed = false;
+function armBackGuard() {
+  if (backArmed) return;
+  try { history.pushState({ bnb: 1 }, ""); backArmed = true; } catch (e) {}
+}
+function setupBackGuard() {
+  window.addEventListener("popstate", () => {
+    backArmed = false;
+    const st = state.room && state.room.meta && state.room.meta.status;
+    const inGame = st && st !== "ended" && st !== "lobby";
+    if (inGame) {
+      const msg = (state.solo || state.campaign)
+        ? "Oyundan çıkılsın mı? İlerleme kaydedilmez."
+        : "Odadan ayrılıp ana sayfaya dönülsün mü?";
+      if (confirm(msg)) {
+        if (state.campaign) exitCampaignToMap();
+        else resetToHome();
+      }
+      armBackGuard(); // her iki durumda da korumayı yeniden kur
+      return;
+    }
+    if (state.currentView === "stageIntro") { renderCampaignMap(); armBackGuard(); return; }
+    if (state.currentView && state.currentView !== "home") {
+      if (state.room) resetToHome(); else renderHome();
+      armBackGuard();
+      return;
+    }
+    // Ana sayfada: sentinel tüketildi — bir sonraki geri uygulamadan çıkar.
+  });
+}
+
 function setupVisibility() {
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState !== "visible") return;
@@ -2713,6 +2754,7 @@ function setupVisibility() {
 
 function boot() {
   setupErrorHandling();
+  setupBackGuard();
   applyTheme(currentTheme());
   ensureDaily();
   setupAudioUI();

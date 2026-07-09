@@ -1,6 +1,6 @@
 // Service worker — uygulama kabuğunu önbelleğe alır (hızlı açılış + çevrimdışı kabuk).
 // Oyun gerçek zamanlı olduğu için ağ önceliklidir; önbellek yalnızca yedek olarak kullanılır.
-const VERSION = "bnb-v1";
+const VERSION = "bnb-v2";
 const SHELL = [
   "./",
   "./index.html",
@@ -14,6 +14,20 @@ const SHELL = [
   "./js/characters.js",
   "./js/sound.js",
   "./js/confetti.js",
+  "./js/campaign.js",
+  // Soru shard'ları: çevrimdışı solo/macera için tümü önden önbelleğe alınır (~1 MB)
+  "./js/questions/genel.js",
+  "./js/questions/tarih.js",
+  "./js/questions/cografya.js",
+  "./js/questions/bilim.js",
+  "./js/questions/spor.js",
+  "./js/questions/sanat.js",
+  "./js/questions/sinema.js",
+  "./js/questions/teknoloji.js",
+  "./js/questions/turkiye.js",
+  "./js/questions/hayvanlar.js",
+  "./js/questions/bayrak.js",
+  "./js/questions/emoji.js",
   "./js/vendor/mqtt.esm.js",
   "./js/vendor/qrcode.js",
   "./manifest.webmanifest",
