@@ -92,6 +92,7 @@ const state = {
   currentView: null, lastRenderKey: null,
   inCountdown: false, cdToken: 0,
   setupDifficulty: "normal",
+  solo: false, soloParams: null,
 };
 
 const OPTION_STYLES = [
@@ -142,6 +143,7 @@ function saveCustom(list) {
 // (oyuncular yalnızca güncel soruyu render eder). Böylece soru sayısıyla
 // mesaj büyümez.
 function hostPublish() {
+  if (state.solo) return; // tek kişilik modda ağ yok
   const r = state.room;
   const i = r.meta.questionIndex;
   const pick = (obj) => (obj && i >= 0 && obj[i] !== undefined ? { [i]: obj[i] } : {});
@@ -173,6 +175,7 @@ function getStateOnce(code, timeoutMs = 3500) {
 // ---------------------------------------------------------------------------
 async function createRoom(categories, count, difficultyKey, hostName, settings) {
   settings = settings || {};
+  state.solo = false;
   state.role = "host";
   state.name = hostName;
   state.playerId = "host";
@@ -567,6 +570,7 @@ function hostKick(pid) {
 // ---------------------------------------------------------------------------
 async function joinRoom(code, name) {
   code = code.trim().toUpperCase();
+  state.solo = false;
   try { await whenConnected(); }
   catch (e) { return { ok: false, error: e.message }; }
 
@@ -804,6 +808,7 @@ function renderHome() {
       ${dailyStripHtml()}
       <button class="btn btn-primary btn-big" id="goHost">🎮 Oda Kur</button>
       <button class="btn btn-secondary btn-big" id="goJoin">🙋 Odaya Katıl</button>
+      <button class="btn btn-secondary btn-big" id="solo">🎯 Tek Başına</button>
       <button class="btn btn-secondary btn-big" id="quick">⚡ Hızlı Eşleş</button>
       <div class="home-links">
         <button class="btn-link" id="records">🏆 Rekorlarım</button>
@@ -814,6 +819,7 @@ function renderHome() {
     </div>`;
   document.getElementById("goHost").onclick = () => { sfx.click(); renderHostSetup(); };
   document.getElementById("goJoin").onclick = () => { sfx.click(); renderJoin(); };
+  document.getElementById("solo").onclick = () => { sfx.click(); renderSoloSetup(); };
   document.getElementById("quick").onclick = () => { sfx.click(); renderQuickMatch(); };
   document.getElementById("records").onclick = () => { sfx.click(); renderProfile(); };
   document.getElementById("league").onclick = () => { sfx.click(); renderLeague(); };
@@ -1216,6 +1222,122 @@ function renderHostSetup() {
       btn.disabled = false; btn.textContent = "Odayı Oluştur";
     }
   };
+}
+
+// ---- Tek kişilik (solo) mod ----
+function renderSoloSetup() {
+  state.currentView = "soloSetup";
+  const diffs = Object.entries(DIFFICULTY).map(([key, d]) => `
+    <div class="diff-chip ${state.setupDifficulty === key ? "active" : ""}" data-diff="${key}">
+      <span class="diff-emoji">${d.emoji}</span>${esc(d.name)}
+      <span class="diff-sub">${esc(d.sub)}</span>
+    </div>`).join("");
+  APP.innerHTML = `
+    <div class="card">
+      <button class="link-back" id="back">‹ Geri</button>
+      <h2>🎯 Tek Başına</h2>
+      <p class="muted small">Kendine karşı oyna: soruları çöz, seri yakala, XP ve rozet kazan. İnternet gerekmez.</p>
+
+      <label class="field-label">Kategoriler</label>
+      <div class="cat-grid">${categoryChips()}</div>
+      <div class="cat-actions">
+        <button class="mini-btn" id="selAll">Tümü</button>
+        <button class="mini-btn" id="selNone">Hiçbiri</button>
+        <button class="mini-btn" id="editCustom">✏️ Kendi Sorularım</button>
+      </div>
+
+      <label class="field-label">Zorluk</label>
+      <div class="difficulty-grid">${diffs}</div>
+
+      <label class="field-label">Soru sayısı: <b id="qcountLbl">10</b></label>
+      <input type="range" id="qcount" min="5" max="20" value="10" step="1" class="range">
+
+      <label class="field-label">Ayarlar</label>
+      <label class="toggle-chip"><input type="checkbox" id="setSpeedBonus" checked> <span>⚡ Hız bonusu (erken cevap = çok puan)</span></label>
+      <label class="toggle-chip"><input type="checkbox" id="setAutoNext"> <span>⏭️ Otomatik ilerle (soruları elle geçme)</span></label>
+
+      <button class="btn btn-primary btn-big" id="startSolo">Başla</button>
+    </div>`;
+
+  document.getElementById("back").onclick = renderHome;
+  document.getElementById("qcount").oninput = (e) =>
+    (document.getElementById("qcountLbl").textContent = e.target.value);
+  const boxes = () => [...APP.querySelectorAll(".cat-chip input")];
+  document.getElementById("selAll").onclick = () => boxes().forEach((b) => (b.checked = b.value !== "ozel" ? true : b.checked));
+  document.getElementById("selNone").onclick = () => boxes().forEach((b) => (b.checked = false));
+  document.getElementById("editCustom").onclick = () => renderCustomEditor();
+  APP.querySelectorAll(".diff-chip").forEach((el) => {
+    el.onclick = () => {
+      state.setupDifficulty = el.dataset.diff;
+      APP.querySelectorAll(".diff-chip").forEach((x) => x.classList.remove("active"));
+      el.classList.add("active");
+      sfx.click();
+    };
+  });
+  document.getElementById("startSolo").onclick = () => {
+    const selected = boxes().filter((b) => b.checked).map((b) => b.value);
+    if (selected.length === 0) { alert("En az bir kategori seç."); return; }
+    if (selected.includes("ozel") && loadCustom().length === 0) {
+      alert("Kendi Sorularım boş. Önce soru ekle ya da bu kategorinin seçimini kaldır.");
+      return;
+    }
+    const count = parseInt(document.getElementById("qcount").value, 10);
+    const settings = {
+      speedBonus: document.getElementById("setSpeedBonus").checked,
+      autoNext: document.getElementById("setAutoNext").checked,
+    };
+    sfx.click();
+    startSolo(selected, count, state.setupDifficulty, settings);
+  };
+}
+
+// Tek kişilik oyunu başlat — bellekte "host" olarak, ağ olmadan.
+function startSolo(categories, count, difficultyKey, settings) {
+  settings = settings || {};
+  const prof = loadProfile();
+  const diff = DIFFICULTY[difficultyKey] || DIFFICULTY.normal;
+  const custom = categories.includes("ozel") ? loadCustom() : null;
+  const qset = buildQuestionSet(categories, count, custom);
+
+  clearTimeout(state.autoRevealTimer);
+  clearTimeout(state.autoNextTimer);
+  state.solo = true;
+  state.role = "host";
+  state.playerId = "host";
+  state.name = prof.name || "Sen";
+  state.code = "SOLO";
+  state.localQuestions = qset;
+  state.answeredIndex = -1;
+  state.revealingIndex = -1;
+  state.statsInit = false; state.recorded = false; state.gameStats = null; state.lastRevealIndex = -1;
+  state.soloParams = { categories, count, difficultyKey, settings };
+  state.room = {
+    meta: {
+      hostName: state.name, status: "lobby", questionIndex: -1,
+      totalQuestions: qset.length, timeLimit: diff.time,
+      pointFactor: diff.factor, difficulty: difficultyKey,
+      categories: categories && categories.length ? categories : ["hepsi"],
+      hostPlays: true,
+      speedBonus: settings.speedBonus !== false,
+      wrongPenalty: 0,
+      teamName: null, teamAName: null, teamBName: null,
+      requireApproval: false, teamAvg: false,
+      autoNext: !!settings.autoNext, teamMode: false,
+      solo: true,
+      gameId: "solo-" + uid() + Date.now().toString(36),
+    },
+    players: {
+      host: {
+        name: state.name, score: 0, streak: 0, team: "A",
+        avatar: prof.avatar || "🙂",
+        lastGain: 0, lastCorrect: false, lastStreak: 0,
+        jokers: { ...START_JOKERS },
+      },
+    },
+    requests: {}, publicQuestions: {}, reveal: {}, answers: {}, fifty: {}, doubles: {},
+  };
+  requestWake();
+  hostShowQuestion(0);
 }
 
 // ---- Kendi Sorularım editörü ----
@@ -1627,11 +1749,11 @@ function renderHostQuestion() {
       ${timerBarHTML()}
       ${visualHTML(pq)}
       <div class="q-text">${esc(pq.q)}</div>
-      <div class="answered-count"><span id="answeredCount">${alreadyAnswered}</span>/${players.length} yanıtladı</div>
+      ${state.solo ? "" : `<div class="answered-count"><span id="answeredCount">${alreadyAnswered}</span>/${players.length} yanıtladı</div>`}
       <div class="options">${opts}</div>
       ${jokersHtml}
       ${answeredNote}
-      <button class="btn btn-secondary" id="skip">Herkes yanıtladı, göster ›</button>
+      ${state.solo ? "" : `<button class="btn btn-secondary" id="skip">Herkes yanıtladı, göster ›</button>`}
     </div>`;
 
   if (hostPlays && !answered) {
@@ -1646,7 +1768,8 @@ function renderHostQuestion() {
     if (jf) jf.onclick = () => hostSelfJoker("fifty");
     if (jd) jd.onclick = () => hostSelfJoker("double");
   }
-  document.getElementById("skip").onclick = () => maybeReveal(i);
+  const skipBtn = document.getElementById("skip");
+  if (skipBtn) skipBtn.onclick = () => maybeReveal(i);
   runCountdown(() => {
     state.hostLocalStart = Date.now();
     sfx.whoosh();
@@ -1881,8 +2004,7 @@ function renderHostReveal() {
       <div class="options reveal">${opts}</div>
       ${hostBanner}
       ${m.teamMode ? teamScoreHtml() : ""}
-      <div class="players-title">Skor Tablosu</div>
-      ${leaderboardHTML(5)}
+      ${state.solo ? "" : `<div class="players-title">Skor Tablosu</div>${leaderboardHTML(5)}`}
       <button class="btn btn-primary btn-big" id="next">${isLast ? "Sonuçları Göster 🏆" : "Sıradaki Soru ›"}</button>
     </div>`;
   document.getElementById("next").onclick = () => { sfx.click(); hostNext(); };
@@ -2023,9 +2145,42 @@ function showBadge(a) {
   setTimeout(() => { el.classList.add("out"); setTimeout(() => el.remove(), 400); }, 3200);
 }
 
+function renderSoloEnded(m, players) {
+  const meP = (state.room.players && state.room.players.host) || {};
+  const gs = state.gameStats || { correct: 0, questions: 0, maxStreak: 0 };
+  const acc = gs.questions ? Math.round((gs.correct / gs.questions) * 100) : 0;
+  const grade = acc >= 90 ? "Efsane! 🏆" : acc >= 70 ? "Harika! 🎉" : acc >= 50 ? "Fena değil 👍" : "Biraz daha çalış 💪";
+  // Rekorları/ XP'yi işle (host = yerel oyuncu)
+  const xpSummary = recordLocalResult(m, players);
+  APP.innerHTML = `
+    <div class="card center">
+      <div class="logo small">🎯 Tek Başına Bitti!</div>
+      <p class="winner-line">${grade}</p>
+      <div class="solo-score">${meP.score || 0} <span>puan</span></div>
+      <div class="solo-stats">
+        <div><b>${gs.correct}/${gs.questions}</b><span>doğru</span></div>
+        <div><b>%${acc}</b><span>isabet</span></div>
+        <div><b>🔥 ${gs.maxStreak || 0}</b><span>en uzun seri</span></div>
+      </div>
+      ${xpSummary}
+      <button class="btn btn-primary btn-big" id="soloAgain">🔁 Tekrar Oyna</button>
+      <button class="btn btn-secondary" id="soloHome">🏠 Ana Sayfa</button>
+    </div>`;
+  if (acc >= 50) confetti(3000);
+  sfx.fanfare();
+  document.getElementById("soloAgain").onclick = () => {
+    sfx.click();
+    const p = state.soloParams;
+    if (p) startSolo(p.categories, p.count, p.difficultyKey, p.settings);
+    else renderSoloSetup();
+  };
+  document.getElementById("soloHome").onclick = () => { sfx.click(); state.solo = false; resetToHome(); };
+}
+
 function renderEnded() {
   const m = state.room.meta;
   const players = playersList().sort((a, b) => (b[1].score || 0) - (a[1].score || 0));
+  if (state.solo || m.solo) { renderSoloEnded(m, players); return; }
   const podium = players.slice(0, 3);
   const medals = ["🥇", "🥈", "🥉"];
   const podiumHTML = podium.map(([id, p], idx) =>
@@ -2134,15 +2289,18 @@ function recordLocalResult(m, sortedPlayers) {
   state.recorded = true;
   const oldXp = loadProfile().xp || 0;
   const myRank = sortedPlayers.findIndex(([id]) => id === localPid) + 1;
+  const gs = state.gameStats || { correct: 0, questions: 0, maxStreak: 0, fastMs: 0 };
   let won;
-  if (m.teamMode) {
+  if (m.solo) {
+    // Solo'da otomatik "galibiyet" yok; başarı = soruların en az yarısı doğru.
+    won = gs.questions > 0 && gs.correct * 2 >= gs.questions;
+  } else if (m.teamMode) {
     const t = teamTotals();
     const myTeam = meP.team === "B" ? "B" : "A";
     won = t[myTeam] > t[myTeam === "A" ? "B" : "A"];
   } else {
     won = myRank === 1;
   }
-  const gs = state.gameStats || { correct: 0, questions: 0, maxStreak: 0, fastMs: 0 };
   // "Kusursuz" yalnızca TÜM sorular oynandıysa ve hepsi doğruysa; oyun ortasında
   // katılıp/yenileyip kısmi istatistikle sahte kusursuz kazanmayı engeller.
   const perfect = gs.questions > 0 && gs.questions >= (m.totalQuestions || Infinity) && gs.correct === gs.questions;
@@ -2252,6 +2410,7 @@ function resetToHome() {
     currentView: null, lastRenderKey: null, answeredIndex: -1, revealingIndex: -1,
     inCountdown: false, pendingApproval: false, migrating: false, awaitingArena: false,
     statsInit: false, recorded: false, lastRevealIndex: -1, gameStats: null,
+    solo: false, soloParams: null,
   });
   renderHome();
 }
