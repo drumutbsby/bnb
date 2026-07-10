@@ -48,10 +48,10 @@ export async function loadCategory(key) {
   try {
     const mod = await loader();
     _cache[key] = Array.isArray(mod.default) ? mod.default : [];
+    return _cache[key];
   } catch (e) {
-    _cache[key] = [];
+    return []; // Hatayı ÖNBELLEĞE ALMA: geçici ağ hatasından sonra tekrar denenebilsin.
   }
-  return _cache[key];
 }
 
 export function categoryKeys() { return Object.keys(SHARDS); }

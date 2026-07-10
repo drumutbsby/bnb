@@ -197,6 +197,7 @@ async function createRoom(categories, count, difficultyKey, hostName, settings) 
   const diff = DIFFICULTY[difficultyKey] || DIFFICULTY.normal;
   const custom = categories.includes("ozel") ? loadCustom() : null;
   const qset = await buildQuestionSet(categories, count, custom);
+  if (!qset.length) throw new Error("Sorular yüklenemedi — internet bağlantını kontrol et");
   state.localQuestions = qset;
   const hostPlays = settings.hostPlays !== false;
   const teamName = (settings.teamName || hostName || "Takım").slice(0, 20);
@@ -1310,6 +1311,7 @@ async function startSolo(categories, count, difficultyKey, settings) {
   const custom = categories.includes("ozel") ? loadCustom() : null;
   renderLoadingCard("Sorular hazırlanıyor...");
   const qset = await buildQuestionSet(categories, count, custom);
+  if (!qset.length) { alert("Sorular yüklenemedi — internet bağlantını kontrol edip tekrar dene."); renderSoloSetup(); return; }
 
   clearTimeout(state.autoRevealTimer);
   clearTimeout(state.autoNextTimer);
