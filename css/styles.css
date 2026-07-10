@@ -320,6 +320,21 @@ code { background: #f0eef7; padding: 2px 6px; border-radius: 6px; font-size: .85
 .survival-best { margin: 6px 0 12px; font-weight: 700; color: var(--muted); }
 .survival-record { margin: 8px auto; display: inline-block; padding: 6px 16px; border-radius: 999px;
   background: linear-gradient(90deg, #ff9d00, #ff5e3a); color: #fff; font-weight: 800; letter-spacing: .3px; }
+/* Günün Sorusu + davet kartları */
+.dq-card { display: block; width: 100%; text-align: left; margin: 12px 0; padding: 14px 16px; border-radius: 14px; border: none;
+  background: linear-gradient(120deg, #7c2fd6, #4618a0); color: #fff; cursor: pointer; }
+.dq-card.done { background: rgba(124, 92, 255, 0.14); color: var(--ink); cursor: default; }
+.dq-card .dq-title { font-weight: 800; font-size: 1.1rem; }
+.dq-card .dq-status { margin-top: 2px; font-weight: 600; }
+.dq-card.open:hover { filter: brightness(1.05); }
+.dq-head { font-weight: 800; font-size: 1.15rem; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.dq-streak { margin: 12px 0 4px; font-weight: 800; color: #ff7a1a; }
+.invite-card { margin: 12px 0; padding: 14px 16px; border-radius: 14px; background: var(--secondary); }
+.invite-card .btn { margin-top: 10px; width: 100%; }
+.toast { position: fixed; left: 50%; bottom: 26px; transform: translate(-50%, 20px); z-index: 9999;
+  background: #1a1a2e; color: #fff; padding: 12px 20px; border-radius: 999px; font-weight: 700; box-shadow: var(--shadow);
+  opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; max-width: 90vw; text-align: center; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
 .opt {
   position: relative; display: flex; align-items: center; gap: 10px; color: #fff;
   border: none; border-radius: 12px; padding: 18px 14px; font-size: 1.05rem;

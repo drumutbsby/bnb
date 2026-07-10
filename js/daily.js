@@ -70,3 +70,66 @@ export function updateDailyAfterGame(game) {
 }
 
 export function loginStreak() { return (loadProfile().daily || {}).streak || 0; }
+
+// ---------------------------------------------------------------------------
+// Günün Sorusu — herkese aynı, günde tek hak. Doğru cevap = bonus XP + gün serisi.
+// ---------------------------------------------------------------------------
+export function dailyQuestionStatus() {
+  const dq = loadProfile().dq || {};
+  return {
+    answeredToday: dq.date === todayStr(),
+    correct: !!dq.correct,
+    streak: dq.streak || 0,
+    best: dq.best || 0,
+  };
+}
+
+// Bugünkü cevabı kaydeder; XP verir; {already, xp, streak, best, correct} döndürür.
+export function recordDailyQuestion(correct) {
+  const p = loadProfile();
+  const today = todayStr(); const dn = dayNumber();
+  p.dq = p.dq || { date: "", correct: false, streak: 0, best: 0, lastDay: 0 };
+  if (p.dq.date === today) {
+    return { already: true, xp: 0, streak: p.dq.streak || 0, best: p.dq.best || 0, correct: !!p.dq.correct };
+  }
+  if (correct) {
+    // Dün de doğru bildiysen seri büyür; değilse 1'den başlar.
+    if (p.dq.lastDay && dn - p.dq.lastDay === 1 && p.dq.correct) p.dq.streak = (p.dq.streak || 0) + 1;
+    else p.dq.streak = 1;
+  } else {
+    p.dq.streak = 0;
+  }
+  p.dq.date = today; p.dq.lastDay = dn; p.dq.correct = !!correct;
+  if ((p.dq.streak || 0) > (p.dq.best || 0)) p.dq.best = p.dq.streak;
+  // Katılım 60 XP; doğruya 400 + seri başına 100 (tavan 600 bonus).
+  const xp = correct ? (400 + Math.min(600, (p.dq.streak - 1) * 100)) : 60;
+  p.xp = (p.xp || 0) + xp;
+  saveProfile(p);
+  return { already: false, xp, streak: p.dq.streak || 0, best: p.dq.best || 0, correct: !!correct };
+}
+
+// ---------------------------------------------------------------------------
+// Davet ödülü (en iyi çaba, yerel) — davet paylaşımı günde bir kez XP kazandırır.
+// Sunucu olmadığı için gerçek "kim katıldı" takibi yapılmaz; paylaşım teşvik edilir.
+// ---------------------------------------------------------------------------
+export function inviteStatus() {
+  const iv = loadProfile().invite || {};
+  return { sharedToday: (iv.days || []).includes(dayNumber()), count: iv.count || 0 };
+}
+
+export function recordInviteShare() {
+  const p = loadProfile();
+  const dn = dayNumber();
+  p.invite = p.invite || { days: [], count: 0 };
+  if ((p.invite.days || []).includes(dn)) {
+    return { already: true, xp: 0, count: p.invite.count || 0 };
+  }
+  p.invite.days = p.invite.days || [];
+  p.invite.days.push(dn);
+  if (p.invite.days.length > 90) p.invite.days = p.invite.days.slice(-90);
+  p.invite.count = (p.invite.count || 0) + 1;
+  const xp = 150;
+  p.xp = (p.xp || 0) + xp;
+  saveProfile(p);
+  return { already: false, xp, count: p.invite.count };
+}

@@ -6,8 +6,8 @@ import {
   publishState, clearState, sendInput, publishHof, subscribeHof, subscribeRooms,
   publishLeague, subscribeLeague, onStatus,
 } from "./net.js";
-import { ensureDaily, updateDailyAfterGame, loginStreak } from "./daily.js";
-import { CATEGORIES, CUSTOM_CATEGORY, buildQuestionSet } from "./questions.js";
+import { ensureDaily, updateDailyAfterGame, loginStreak, dailyQuestionStatus, recordDailyQuestion, inviteStatus, recordInviteShare } from "./daily.js";
+import { CATEGORIES, CUSTOM_CATEGORY, buildQuestionSet, loadCategory } from "./questions.js";
 import { unlock, sfx, isMuted, toggleMute } from "./sound.js";
 import { confetti } from "./confetti.js";
 import qrcode from "./vendor/qrcode.js";
@@ -982,17 +982,143 @@ function renderDaily() {
     const label = days[(dow + 6) % 7];
     cal += `<div class="cal-day ${active ? "on" : ""}">${active ? "🔥" : "·"}<span>${label}</span></div>`;
   }
+  // Günün Sorusu durumu
+  const dq = dailyQuestionStatus();
+  const dqCard = dq.answeredToday
+    ? `<div class="dq-card done">
+        <div class="dq-title">🧩 Günün Sorusu</div>
+        <div class="dq-status">${dq.correct ? "✅ Bugün doğru bildin!" : "❌ Bugün bilemedin"} ${dq.streak > 0 ? `· 🔥 ${dq.streak} gün seri` : ""}</div>
+        <div class="muted small">Yarın yeni soru seni bekliyor.</div>
+      </div>`
+    : `<button class="dq-card open" id="dqOpen">
+        <div class="dq-title">🧩 Günün Sorusu</div>
+        <div class="dq-status">Bugünün sorusunu çöz, bonus XP kazan!</div>
+        ${dq.best > 0 ? `<div class="muted small">En uzun serin: ${dq.best} gün</div>` : ""}
+      </button>`;
+  // Davet ödülü durumu
+  const iv = inviteStatus();
+  const inviteCard = `<div class="invite-card">
+      <div class="dq-title">🎉 Arkadaşını Davet Et</div>
+      <div class="muted small">Davet bağlantısını paylaş, günde bir kez +150 XP kazan. ${iv.count > 0 ? `(${iv.count} kez davet ettin)` : ""}</div>
+      <button class="btn ${iv.sharedToday ? "btn-secondary" : "btn-primary"}" id="inviteShare">${iv.sharedToday ? "✅ Bugün paylaştın — yine paylaş" : "📤 Davet Et (+150 XP)"}</button>
+    </div>`;
   APP.innerHTML = `
     <div class="card">
       <button class="link-back" id="back">‹ Geri</button>
       <h2>📅 Günlük</h2>
       <div class="streak-big">🔥 ${d.streak} günlük seri</div>
       <div class="cal-row">${cal}</div>
+      ${dqCard}
+      ${inviteCard}
       <div class="players-title">Bugünün Görevleri</div>
       ${quests}
       <p class="muted small">Görevler tamamlanınca XP otomatik eklenir. Her gün yenilenir; her gün gel, serini büyüt!</p>
     </div>`;
   document.getElementById("back").onclick = renderHome;
+  const dqBtn = document.getElementById("dqOpen");
+  if (dqBtn) dqBtn.onclick = () => { sfx.click(); renderDailyQuestion(); };
+  document.getElementById("inviteShare").onclick = () => shareInvite();
+}
+
+// Günün Sorusu — güne göre deterministik (herkese aynı), günde tek hak.
+async function pickDailyQuestion() {
+  const dn = Math.floor(Date.now() / 86400000);
+  const cats = ["genel", "tarih", "cografya", "bilim", "spor", "sanat", "sinema", "teknoloji", "turkiye", "hayvanlar"];
+  const cat = cats[dn % cats.length];
+  let list = await loadCategory(cat);
+  if (!list || !list.length) { list = await loadCategory("genel"); }
+  if (!list || !list.length) return null;
+  // Güne göre sabit indeks (LCG karıştırma)
+  let seed = (dn * 9301 + 49297) % 233280;
+  seed = (seed * 9301 + 49297) % 233280;
+  const idx = seed % list.length;
+  return { q: { ...list[idx], category: cat }, cat };
+}
+
+function renderDailyQuestion() {
+  state.currentView = "dailyQuestion"; armBackGuard();
+  const status = dailyQuestionStatus();
+  if (status.answeredToday) { renderDaily(); return; }
+  renderLoadingCard("Günün sorusu yükleniyor...");
+  pickDailyQuestion().then((picked) => {
+    if (!picked) { alert("Soru yüklenemedi — internet bağlantını kontrol et."); renderDaily(); return; }
+    const q = picked.q;
+    const isText = q.type === "text";
+    const isTf = q.type === "tf";
+    const bodyHtml = isText
+      ? `<form class="text-answer" id="dqForm" autocomplete="off">
+          <input class="input" id="dqInput" placeholder="Cevabını yaz..." maxlength="40" autocomplete="off" autocapitalize="off">
+          <button type="submit" class="btn btn-primary" id="dqTextSubmit">Gönder ›</button>
+        </form>`
+      : `<div class="options ${isTf ? "tf" : ""}">${(q.options || []).map((o, idx) => `
+          <button class="opt opt-btn" data-choice="${idx}" style="background:${optColor(q, idx)}">
+            <span class="opt-shape">${optShape(q, idx)}</span>
+            <span class="opt-text">${esc(o)}</span>
+          </button>`).join("")}</div>`;
+    APP.innerHTML = `
+      <div class="card">
+        <button class="link-back" id="back">‹ Geri</button>
+        <div class="dq-head">🧩 Günün Sorusu ${catBadge(picked.cat)}</div>
+        <p class="muted small">Herkese aynı soru — tek hakkın var. Doğru bil, bonus XP + gün serisi kazan.</p>
+        ${visualHTML(q)}
+        <div class="q-text">${esc(q.q)}</div>
+        ${bodyHtml}
+      </div>`;
+    document.getElementById("back").onclick = renderDaily;
+    const submit = (choice) => finishDailyQuestion(q, choice);
+    if (isText) {
+      const form = document.getElementById("dqForm");
+      if (form) form.onsubmit = (e) => { e.preventDefault(); const inp = document.getElementById("dqInput"); const v = inp ? inp.value.trim() : ""; if (v) submit(v); };
+      const inp = document.getElementById("dqInput"); if (inp) inp.focus();
+    } else {
+      APP.querySelectorAll(".opt-btn").forEach((b) => {
+        b.onclick = () => submit(parseInt(b.dataset.choice, 10));
+      });
+    }
+  });
+}
+
+function finishDailyQuestion(q, choice) {
+  const isText = q.type === "text";
+  const correct = isText ? textAnswerCorrect(choice, q) : (choice === q.answer);
+  const res = recordDailyQuestion(correct);
+  if (correct) { sfx.correct ? sfx.correct() : sfx.fanfare(); confetti(2500); } else { sfx.wrong ? sfx.wrong() : sfx.whoosh(); }
+  const correctText = isText ? (q.answer || "") : ((q.options || [])[q.answer] || "");
+  const yourText = isText ? String(choice) : ((q.options || [])[choice] || "");
+  APP.innerHTML = `
+    <div class="card center reveal-player ${correct ? "good" : "bad"}">
+      <div class="reveal-icon">${correct ? "✓" : "✗"}</div>
+      <div class="reveal-title">${correct ? "Doğru! 🎉" : "Yanlış"}</div>
+      <div class="gain">+${res.xp} XP</div>
+      <div class="reveal-answer">
+        <div class="ra-opt ra-correct"><span class="opt-shape">✓</span><span class="opt-text">${esc(correctText)}</span><span class="ra-tag">Doğru</span></div>
+        ${!correct ? `<div class="ra-opt ra-wrong"><span class="opt-shape">✗</span><span class="opt-text">${esc(yourText)}</span><span class="ra-tag">Senin</span></div>` : ""}
+      </div>
+      ${explainHTML(q.explain)}
+      <div class="dq-streak">🔥 ${res.streak} gün üst üste doğru</div>
+      <button class="btn btn-primary btn-big" id="dqDone">Tamam</button>
+    </div>`;
+  document.getElementById("dqDone").onclick = () => { sfx.click(); renderDaily(); };
+}
+
+// Davet bağlantısını paylaş — günde bir kez +150 XP (en iyi çaba, yerel takip).
+function shareInvite() {
+  const prof = loadProfile();
+  const url = location.origin + location.pathname;
+  const text = `${prof.name || "Bir arkadaşın"} seni "Ben Bildim" bilgi yarışmasına davet ediyor! 🧠 Hadi kim daha çok biliyor görelim: ${url}`;
+  const res = recordInviteShare();
+  const done = () => {
+    if (!res.already) toast(`🎉 +${res.xp} XP — davet için teşekkürler!`);
+    else toast("Zaten bugün paylaştın — yine de paylaşabilirsin 🙂");
+    if (state.currentView === "daily") renderDaily();
+  };
+  if (navigator.share) {
+    navigator.share({ title: "Ben Bildim", text, url }).then(done).catch(() => done());
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => { done(); }).catch(() => { prompt("Davet bağlantısı:", url); done(); });
+  } else {
+    prompt("Davet bağlantısı:", url); done();
+  }
 }
 
 function renderLeague() {
@@ -3172,6 +3298,17 @@ function setupErrorHandling() {
 function announce(msg) {
   const el = document.getElementById("srLive");
   if (el) { el.textContent = ""; el.textContent = msg; }
+}
+
+// Kısa bilgi balonu (snackbar) — 2.2s sonra kaybolur.
+function toast(msg) {
+  let el = document.getElementById("toast");
+  if (!el) { el = document.createElement("div"); el.id = "toast"; el.className = "toast"; document.body.appendChild(el); }
+  el.textContent = msg;
+  el.classList.add("show");
+  clearTimeout(state._toastTimer);
+  state._toastTimer = setTimeout(() => el.classList.remove("show"), 2200);
+  announce(msg);
 }
 
 // ---- Sonuç kartı paylaşımı ----
