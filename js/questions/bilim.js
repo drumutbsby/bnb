@@ -3,42 +3,42 @@ export default [
   {
     "q": "Suyun kimyasal formülü nedir?",
     "options": [
-      "CO2",
       "H2O",
-      "O2",
-      "NaCl"
+      "NaCl",
+      "CO2",
+      "O2"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Güneş sistemindeki en büyük gezegen hangisidir?",
     "options": [
-      "Dünya",
       "Satürn",
-      "Jüpiter",
-      "Mars"
+      "Mars",
+      "Dünya",
+      "Jüpiter"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Kanı vücuda pompalayan organ hangisidir?",
     "options": [
       "Akciğer",
-      "Kalp",
       "Böbrek",
-      "Karaciğer"
+      "Karaciğer",
+      "Kalp"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Işık yaklaşık olarak saniyede kaç km hızla hareket eder?",
     "options": [
-      "3.000",
-      "30.000",
       "300.000",
-      "3.000.000"
+      "3.000",
+      "3.000.000",
+      "30.000"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "Periyodik cetvelde 'O' harfi hangi elementi temsil eder?",
@@ -53,32 +53,32 @@ export default [
   {
     "q": "Bitkiler besin üretmek için hangi süreci kullanır?",
     "options": [
-      "Solunum",
-      "Fotosentez",
+      "Dolaşım",
       "Sindirim",
-      "Dolaşım"
+      "Solunum",
+      "Fotosentez"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Dünyanın tek doğal uydusu nedir?",
     "options": [
-      "Güneş",
+      "Venüs",
       "Ay",
       "Mars",
-      "Venüs"
+      "Güneş"
     ],
     "answer": 1
   },
   {
     "q": "Yerçekimini formülleştiren bilim insanı kimdir?",
     "options": [
+      "Tesla",
       "Einstein",
       "Newton",
-      "Galileo",
-      "Tesla"
+      "Galileo"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "İnsan vücudunda oksijeni taşıyan hücreler hangileridir?",
@@ -93,82 +93,82 @@ export default [
   {
     "q": "E=mc² denklemi hangi bilim insanına aittir?",
     "options": [
-      "Newton",
       "Einstein",
       "Bohr",
-      "Hawking"
+      "Hawking",
+      "Newton"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Bir cismin ivmesi neye eşittir?",
     "options": [
       "Hızın konuma oranı",
       "Hızın zamana göre değişimi",
-      "Kuvvetin kütleye oranının tersi",
-      "Yolun zamana oranı"
+      "Yolun zamana oranı",
+      "Kuvvetin kütleye oranının tersi"
     ],
     "answer": 1
   },
   {
     "q": "Newton'un ikinci yasasına göre kuvvet aşağıdakilerden hangisine eşittir?",
     "options": [
-      "Kütle çarpı ivme",
-      "Kütle çarpı hız",
       "Kütle bölü ivme",
-      "İvme bölü kütle"
+      "Kütle çarpı hız",
+      "İvme bölü kütle",
+      "Kütle çarpı ivme"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Uluslararası Birim Sistemi'nde (SI) kuvvetin birimi nedir?",
     "options": [
-      "Joule",
       "Watt",
       "Newton",
-      "Pascal"
+      "Pascal",
+      "Joule"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Işığın boşluktaki hızı yaklaşık kaç km/s'dir?",
     "options": [
       "300.000",
-      "150.000",
+      "3.000.000",
       "30.000",
-      "3.000.000"
+      "150.000"
     ],
     "answer": 0
   },
   {
     "q": "Bir elektrik devresinde direncin birimi nedir?",
     "options": [
-      "Amper",
       "Volt",
-      "Ohm",
-      "Coulomb"
+      "Coulomb",
+      "Amper",
+      "Ohm"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Ohm yasasına göre gerilim (V) aşağıdakilerden hangisine eşittir?",
     "options": [
-      "Akım çarpı direnç",
       "Akım bölü direnç",
       "Direnç bölü akım",
-      "Güç çarpı akım"
+      "Güç çarpı akım",
+      "Akım çarpı direnç"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Enerjinin SI birimi nedir?",
     "options": [
+      "Pascal",
       "Newton",
-      "Joule",
       "Watt",
-      "Pascal"
+      "Joule"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Gücün SI birimi nedir?",
@@ -183,159 +183,159 @@ export default [
   {
     "q": "Serbest düşmede yaklaşık yerçekimi ivmesi kaç m/s²'dir?",
     "options": [
-      "9,8",
       "6,7",
       "3,1",
+      "9,8",
       "12,4"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Sesin havadaki yayılma hızı yaklaşık kaç m/s'dir?",
     "options": [
-      "343",
-      "1500",
       "30",
-      "3000"
+      "3000",
+      "343",
+      "1500"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Momentum aşağıdakilerden hangisiyle ifade edilir?",
     "options": [
       "Kütle çarpı hız",
-      "Kütle çarpı ivme",
       "Kuvvet çarpı zaman farkı olmayan büyüklük",
-      "Kütle bölü hız"
+      "Kütle bölü hız",
+      "Kütle çarpı ivme"
     ],
     "answer": 0
   },
   {
     "q": "Basıncın SI birimi nedir?",
     "options": [
-      "Newton",
-      "Pascal",
       "Bar",
-      "Joule"
+      "Newton",
+      "Joule",
+      "Pascal"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Suyun normal atmosfer basıncında kaynama sıcaklığı kaç santigrat derecedir?",
     "options": [
-      "100",
       "90",
-      "80",
-      "120"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Bir yayın uyguladığı geri çağırıcı kuvveti tanımlayan yasa hangisidir?",
-    "options": [
-      "Pascal yasası",
-      "Hooke yasası",
-      "Boyle yasası",
-      "Coulomb yasası"
+      "100",
+      "120",
+      "80"
     ],
     "answer": 1
   },
   {
+    "q": "Bir yayın uyguladığı geri çağırıcı kuvveti tanımlayan yasa hangisidir?",
+    "options": [
+      "Hooke yasası",
+      "Coulomb yasası",
+      "Boyle yasası",
+      "Pascal yasası"
+    ],
+    "answer": 0
+  },
+  {
     "q": "Elektrik yükünün SI birimi nedir?",
     "options": [
-      "Amper",
-      "Volt",
+      "Ohm",
       "Coulomb",
-      "Ohm"
+      "Volt",
+      "Amper"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Manyetik akı yoğunluğunun SI birimi nedir?",
     "options": [
       "Tesla",
-      "Weber",
       "Henry",
-      "Gauss"
+      "Gauss",
+      "Weber"
     ],
     "answer": 0
   },
   {
     "q": "Termodinamiğin birinci yasası hangi büyüklüğün korunumunu ifade eder?",
     "options": [
+      "Sıcaklık",
       "Momentum",
-      "Enerji",
       "Entropi",
-      "Sıcaklık"
+      "Enerji"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Mutlak sıfır sıcaklığı Celsius ölçeğinde yaklaşık kaç derecedir?",
     "options": [
       "0",
       "-100",
-      "-273",
-      "-459"
+      "-459",
+      "-273"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Foton kavramını ortaya atarak fotoelektrik olayı açıklayan bilim insanı kimdir?",
     "options": [
+      "Max Planck",
       "Isaac Newton",
       "Albert Einstein",
-      "Niels Bohr",
-      "Max Planck"
+      "Niels Bohr"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Kütleçekim yasasını formülleştiren bilim insanı kimdir?",
     "options": [
-      "Galileo Galilei",
       "Isaac Newton",
+      "Galileo Galilei",
       "Johannes Kepler",
       "Blaise Pascal"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Bir dalganın hızı hangi çarpımla bulunur?",
     "options": [
+      "Genlik çarpı frekans",
       "Frekans çarpı dalga boyu",
       "Frekans bölü dalga boyu",
-      "Genlik çarpı frekans",
       "Periyot çarpı genlik"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Frekansın SI birimi nedir?",
-    "options": [
-      "Saniye",
-      "Hertz",
-      "Radyan",
-      "Watt"
     ],
     "answer": 1
   },
   {
+    "q": "Frekansın SI birimi nedir?",
+    "options": [
+      "Radyan",
+      "Watt",
+      "Hertz",
+      "Saniye"
+    ],
+    "answer": 2
+  },
+  {
     "q": "Bir cismin sıvı içinde yukarı doğru itilme kuvvetini açıklayan ilke kimindir?",
     "options": [
-      "Arşimet",
-      "Pascal",
       "Bernoulli",
-      "Torricelli"
+      "Torricelli",
+      "Arşimet",
+      "Pascal"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Işığın bir ortamdan diğerine geçerken doğrultu değiştirmesi olayına ne denir?",
     "options": [
-      "Yansıma",
-      "Kırılma",
       "Kırınım",
+      "Kırılma",
+      "Yansıma",
       "Girişim"
     ],
     "answer": 1
@@ -343,9 +343,9 @@ export default [
   {
     "q": "Radyoaktif bozunmada bir çekirdeğin ilk miktarının yarıya inmesi için geçen süreye ne denir?",
     "options": [
-      "Bozunma sabiti",
-      "Yarı ömür",
       "Aktivite",
+      "Yarı ömür",
+      "Bozunma sabiti",
       "Periyot"
     ],
     "answer": 1
@@ -354,98 +354,98 @@ export default [
     "q": "Özel görelilik kuramına göre hiçbir kütleli cisim hangi hızı aşamaz?",
     "options": [
       "Sesin hızı",
-      "Işığın hızı",
       "Kaçış hızı",
-      "Dünya'nın yörünge hızı"
+      "Dünya'nın yörünge hızı",
+      "Işığın hızı"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Elektrik akımının SI birimi nedir?",
     "options": [
-      "Volt",
       "Amper",
-      "Ohm",
-      "Watt"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Bir kondansatörün depoladığı büyüklük olan kapasitansın birimi nedir?",
-    "options": [
-      "Farad",
-      "Henry",
-      "Tesla",
-      "Weber"
+      "Volt",
+      "Watt",
+      "Ohm"
     ],
     "answer": 0
   },
   {
+    "q": "Bir kondansatörün depoladığı büyüklük olan kapasitansın birimi nedir?",
+    "options": [
+      "Tesla",
+      "Weber",
+      "Henry",
+      "Farad"
+    ],
+    "answer": 3
+  },
+  {
     "q": "Doppler etkisi aşağıdakilerden hangisinde gözlemlenir?",
     "options": [
-      "Yalnızca ses dalgalarında",
       "Yalnızca ışıkta",
+      "Yalnızca su dalgalarında",
       "Hem ses hem ışık dalgalarında",
-      "Yalnızca su dalgalarında"
+      "Yalnızca ses dalgalarında"
     ],
     "answer": 2
   },
   {
     "q": "Bir cismin ağırlığı ile kütlesi arasındaki fark nedir?",
     "options": [
-      "Aynı şeydir",
-      "Ağırlık bir kuvvettir, kütle madde miktarıdır",
+      "Her ikisi de kuvvettir",
       "Kütle bir kuvvettir, ağırlık madde miktarıdır",
-      "Her ikisi de kuvvettir"
+      "Aynı şeydir",
+      "Ağırlık bir kuvvettir, kütle madde miktarıdır"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Elektromanyetik indüksiyon yasasını formülleştiren bilim insanı kimdir?",
     "options": [
+      "Charles Coulomb",
       "André-Marie Ampère",
-      "Michael Faraday",
       "Georg Ohm",
-      "Charles Coulomb"
+      "Michael Faraday"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "İdeal gaz denkleminde sabit sıcaklıkta basınç ile hacim arasındaki ilişkiyi veren yasa hangisidir?",
     "options": [
+      "Avogadro yasası",
       "Charles yasası",
-      "Boyle yasası",
       "Gay-Lussac yasası",
-      "Avogadro yasası"
+      "Boyle yasası"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Bir merceğin odak uzaklığının tersine ne denir?",
     "options": [
+      "Açıklık",
       "Büyütme",
-      "Diyoptri (mercek gücü)",
       "Kırılma indisi",
-      "Açıklık"
+      "Diyoptri (mercek gücü)"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Isının bir maddede taneciklerin doğrudan teması olmadan, akışkan hareketiyle taşınmasına ne denir?",
     "options": [
       "İletim",
-      "Konveksiyon (taşınım)",
+      "Yalıtım",
       "Işıma",
-      "Yalıtım"
+      "Konveksiyon (taşınım)"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Newton'un üçüncü yasası aşağıdakilerden hangisini ifade eder?",
     "options": [
-      "Eylemsizlik ilkesi",
-      "Her etkiye eşit ve zıt bir tepki vardır",
       "Kuvvet kütle çarpı ivmedir",
+      "Her etkiye eşit ve zıt bir tepki vardır",
+      "Eylemsizlik ilkesi",
       "Enerji korunur"
     ],
     "answer": 1
@@ -453,108 +453,108 @@ export default [
   {
     "q": "Bir maddenin katı halden doğrudan gaz haline geçmesine ne denir?",
     "options": [
-      "Buharlaşma",
-      "Süblimleşme",
       "Erime",
-      "Yoğuşma"
+      "Yoğuşma",
+      "Buharlaşma",
+      "Süblimleşme"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Planck sabiti hangi fizik dalıyla en çok ilişkilidir?",
     "options": [
-      "Klasik mekanik",
+      "Optik",
       "Kuantum fiziği",
-      "Termodinamik",
-      "Optik"
+      "Klasik mekanik",
+      "Termodinamik"
     ],
     "answer": 1
   },
   {
     "q": "Bir dirençten geçen elektrik akımının ürettiği ısıyı tanımlayan etki hangisidir?",
     "options": [
-      "Joule ısınması",
-      "Peltier etkisi",
       "Seebeck etkisi",
-      "Hall etkisi"
+      "Joule ısınması",
+      "Hall etkisi",
+      "Peltier etkisi"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Bir cismin denge durumunda üzerine etki eden net kuvvet ne kadardır?",
     "options": [
+      "Sürtünmeye eşit",
       "Sıfır",
-      "Maksimum",
       "Ağırlığına eşit",
-      "Sürtünmeye eşit"
+      "Maksimum"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Periyodik tabloda 'Fe' sembolü hangi elementi temsil eder?",
     "options": [
       "Fosfor",
-      "Demir",
       "Flor",
+      "Demir",
       "Fermiyum"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Suyun kimyasal formülü aşağıdakilerden hangisidir?",
-    "options": [
-      "CO2",
-      "H2O",
-      "O2",
-      "NaCl"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Periyodik tablodaki en hafif element hangisidir?",
-    "options": [
-      "Helyum",
-      "Hidrojen",
-      "Lityum",
-      "Karbon"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "'Au' sembolü hangi değerli metali ifade eder?",
-    "options": [
-      "Gümüş",
-      "Alüminyum",
-      "Altın",
-      "Bakır"
     ],
     "answer": 2
   },
   {
+    "q": "Suyun kimyasal formülü aşağıdakilerden hangisidir?",
+    "options": [
+      "H2O",
+      "CO2",
+      "O2",
+      "NaCl"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Periyodik tablodaki en hafif element hangisidir?",
+    "options": [
+      "Karbon",
+      "Lityum",
+      "Helyum",
+      "Hidrojen"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "'Au' sembolü hangi değerli metali ifade eder?",
+    "options": [
+      "Bakır",
+      "Alüminyum",
+      "Gümüş",
+      "Altın"
+    ],
+    "answer": 3
+  },
+  {
     "q": "Havada en fazla bulunan gaz aşağıdakilerden hangisidir?",
     "options": [
-      "Oksijen",
+      "Argon",
       "Azot",
-      "Karbondioksit",
-      "Argon"
+      "Oksijen",
+      "Karbondioksit"
     ],
     "answer": 1
   },
   {
     "q": "Oda sıcaklığında sıvı halde bulunan tek metal hangisidir?",
     "options": [
-      "Cıva",
       "Sodyum",
+      "Cıva",
       "Galyum",
       "Kurşun"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Bir atomun çekirdeğinde bulunan yüksüz taneciğe ne denir?",
     "options": [
-      "Proton",
       "Elektron",
+      "Proton",
       "Nötron",
       "Foton"
     ],
@@ -563,80 +563,80 @@ export default [
   {
     "q": "Sofra tuzunun kimyasal adı nedir?",
     "options": [
-      "Sodyum klorür",
       "Kalsiyum karbonat",
-      "Sodyum bikarbonat",
-      "Potasyum klorür"
+      "Potasyum klorür",
+      "Sodyum klorür",
+      "Sodyum bikarbonat"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Periyodik tabloda soy gazlar hangi grupta yer alır?",
     "options": [
+      "2. grup",
       "1. grup",
-      "17. grup",
       "18. grup",
-      "2. grup"
+      "17. grup"
     ],
     "answer": 2
   },
   {
     "q": "Elmas ve grafit hangi elementin farklı biçimleridir?",
     "options": [
+      "Fosfor",
       "Silisyum",
       "Karbon",
-      "Kükürt",
-      "Fosfor"
+      "Kükürt"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Atom numarası 1 olan element hangisidir?",
     "options": [
-      "Helyum",
       "Hidrojen",
       "Oksijen",
-      "Karbon"
+      "Karbon",
+      "Helyum"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "pH değeri 7 olan bir çözelti nasıl tanımlanır?",
     "options": [
-      "Asidik",
       "Bazik",
+      "Tuzlu",
       "Nötr",
-      "Tuzlu"
+      "Asidik"
     ],
     "answer": 2
   },
   {
     "q": "'O' sembolü hangi elementi gösterir?",
     "options": [
-      "Altın",
-      "Oksijen",
       "Osmiyum",
-      "Fosfor"
+      "Altın",
+      "Fosfor",
+      "Oksijen"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Bir su molekülünde kaç hidrojen atomu bulunur?",
     "options": [
-      "1",
-      "2",
+      "4",
       "3",
-      "4"
+      "1",
+      "2"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Aşağıdaki elementlerden hangisi bir alkali metaldir?",
     "options": [
-      "Kalsiyum",
-      "Sodyum",
       "Demir",
-      "Klor"
+      "Sodyum",
+      "Klor",
+      "Kalsiyum"
     ],
     "answer": 1
   },
@@ -644,299 +644,299 @@ export default [
     "q": "Karbondioksitin kimyasal formülü nedir?",
     "options": [
       "CO",
-      "CO2",
       "C2O",
-      "CaO"
+      "CaO",
+      "CO2"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Periyodik tabloyu düzenleyen ve babası sayılan bilim insanı kimdir?",
     "options": [
-      "Dmitri Mendeleyev",
       "Antoine Lavoisier",
-      "John Dalton",
-      "Niels Bohr"
+      "Niels Bohr",
+      "Dmitri Mendeleyev",
+      "John Dalton"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "En yüksek erime noktasına sahip element olarak bilinen metal hangisidir?",
     "options": [
-      "Demir",
-      "Tungsten (Volfram)",
       "Platin",
-      "Titanyum"
+      "Demir",
+      "Titanyum",
+      "Tungsten (Volfram)"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Bir atomdaki proton sayısına ne ad verilir?",
     "options": [
-      "Kütle numarası",
+      "Değerlik",
       "Atom numarası",
-      "Nötron sayısı",
-      "Değerlik"
+      "Kütle numarası",
+      "Nötron sayısı"
     ],
     "answer": 1
   },
   {
     "q": "Yıldızlarda hidrojenden sonra en bol bulunan element hangisidir?",
     "options": [
-      "Oksijen",
       "Helyum",
       "Karbon",
+      "Oksijen",
       "Demir"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Aşağıdakilerden hangisi bir asittir?",
     "options": [
-      "Sodyum hidroksit",
-      "Hidroklorik asit",
       "Amonyak",
-      "Sofra tuzu"
+      "Sofra tuzu",
+      "Hidroklorik asit",
+      "Sodyum hidroksit"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "'Na' sembolü hangi elementi temsil eder?",
     "options": [
-      "Azot",
       "Nikel",
-      "Sodyum",
-      "Neon"
+      "Azot",
+      "Neon",
+      "Sodyum"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Periyodik tabloda kaç periyot (yatay satır) bulunur?",
     "options": [
       "5",
       "7",
-      "8",
-      "9"
+      "9",
+      "8"
     ],
     "answer": 1
   },
   {
     "q": "Yeryüzü kabuğunda kütlece en bol bulunan element hangisidir?",
     "options": [
-      "Silisyum",
       "Oksijen",
-      "Alüminyum",
-      "Demir"
+      "Demir",
+      "Silisyum",
+      "Alüminyum"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Ozon molekülü kaç oksijen atomundan oluşur?",
     "options": [
+      "3",
       "1",
       "2",
-      "3",
       "4"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "Radyoaktivite üzerine çalışan ve polonyum ile radyumu keşfeden bilim insanı kimdir?",
     "options": [
-      "Marie Curie",
-      "Lise Meitner",
       "Rosalind Franklin",
-      "Dorothy Hodgkin"
+      "Dorothy Hodgkin",
+      "Marie Curie",
+      "Lise Meitner"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Aşağıdaki elementlerden hangisi oda sıcaklığında gaz halindedir?",
     "options": [
       "Brom",
+      "Sodyum",
       "Klor",
-      "Cıva",
-      "Sodyum"
+      "Cıva"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Metan gazının kimyasal formülü nedir?",
     "options": [
-      "CH4",
       "C2H6",
-      "CO2",
-      "NH3"
+      "NH3",
+      "CH4",
+      "CO2"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "En yüksek elektronegatifliğe sahip element hangisidir?",
     "options": [
+      "Azot",
       "Oksijen",
       "Flor",
-      "Klor",
-      "Azot"
+      "Klor"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Bir elementin kimyasal özelliklerini belirleyen, en dış katmandaki elektronlara ne denir?",
     "options": [
-      "Çekirdek elektronları",
       "Değerlik elektronları",
+      "Çekirdek elektronları",
       "İzotop elektronları",
       "Serbest nötronlar"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Aşağıdakilerden hangisi bir izotop tanımıdır?",
     "options": [
+      "Yüklü atomlar",
       "Aynı proton, farklı nötron sayısına sahip atomlar",
       "Aynı nötron, farklı proton sayısına sahip atomlar",
-      "Farklı element atomları",
-      "Yüklü atomlar"
+      "Farklı element atomları"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "'K' sembolü hangi elementi ifade eder?",
     "options": [
       "Kalsiyum",
-      "Karbon",
+      "Kripton",
       "Potasyum",
-      "Kripton"
+      "Karbon"
     ],
     "answer": 2
   },
   {
     "q": "Amonyağın kimyasal formülü aşağıdakilerden hangisidir?",
     "options": [
-      "NH3",
-      "NO2",
       "N2O",
-      "HNO3"
+      "NO2",
+      "HNO3",
+      "NH3"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Sönmemiş kirecin (kalsiyum oksit) kimyasal formülü nedir?",
     "options": [
-      "CaCO3",
-      "CaO",
       "Ca(OH)2",
-      "CaCl2"
+      "CaCO3",
+      "CaCl2",
+      "CaO"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Aşağıdaki elementlerden hangisi bir yarı iletken olup elektronik çiplerde yaygın kullanılır?",
     "options": [
-      "Bakır",
+      "Kurşun",
       "Silisyum",
-      "Altın",
-      "Kurşun"
+      "Bakır",
+      "Altın"
     ],
     "answer": 1
   },
   {
     "q": "Bir mol maddede bulunan tanecik sayısını veren Avogadro sayısı yaklaşık kaçtır?",
     "options": [
-      "6,02 x 10^23",
-      "3,14 x 10^10",
+      "1,60 x 10^-19",
       "9,81 x 10^9",
-      "1,60 x 10^-19"
+      "3,14 x 10^10",
+      "6,02 x 10^23"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Aşağıdaki elementlerden hangisi bir halojendir?",
     "options": [
-      "Neon",
-      "Klor",
       "Kalsiyum",
-      "Magnezyum"
+      "Klor",
+      "Magnezyum",
+      "Neon"
     ],
     "answer": 1
   },
   {
     "q": "Paslanmaz çeliğe paslanmazlık özelliği kazandıran temel element hangisidir?",
     "options": [
-      "Krom",
-      "Kurşun",
+      "Nikel",
       "Çinko",
-      "Nikel"
+      "Kurşun",
+      "Krom"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Sülfürik asidin kimyasal formülü nedir?",
     "options": [
       "HCl",
-      "H2SO4",
       "HNO3",
+      "H2SO4",
       "H3PO4"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Atom numarası 6 olan ve tüm organik yaşamın temelini oluşturan element hangisidir?",
     "options": [
-      "Oksijen",
-      "Azot",
       "Karbon",
+      "Azot",
+      "Oksijen",
       "Hidrojen"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "İnsan vücudundaki en büyük iç organ hangisidir?",
     "options": [
+      "Pankreas",
       "Karaciğer",
-      "Böbrek",
       "Dalak",
-      "Pankreas"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Alyuvarların (eritrositlerin) oksijen taşımasını sağlayan protein hangisidir?",
-    "options": [
-      "Miyoglobin",
-      "Hemoglobin",
-      "Kollajen",
-      "Albümin"
+      "Böbrek"
     ],
     "answer": 1
   },
   {
+    "q": "Alyuvarların (eritrositlerin) oksijen taşımasını sağlayan protein hangisidir?",
+    "options": [
+      "Kollajen",
+      "Miyoglobin",
+      "Albümin",
+      "Hemoglobin"
+    ],
+    "answer": 3
+  },
+  {
     "q": "Yetişkin bir insanın vücudunda normalde kaç çift kromozom bulunur?",
     "options": [
-      "21 çift",
+      "24 çift",
       "22 çift",
-      "23 çift",
-      "24 çift"
+      "21 çift",
+      "23 çift"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Vücuttaki en küçük kemik olan üzengi kemiği (stapes) nerede bulunur?",
     "options": [
-      "Orta kulakta",
-      "İç kulakta",
       "Burunda",
-      "El bileğinde"
+      "El bileğinde",
+      "Orta kulakta",
+      "İç kulakta"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Kan şekerini düşüren hormon olan insülini salgılayan organ hangisidir?",
     "options": [
-      "Karaciğer",
       "Böbrek üstü bezi",
+      "Tiroit",
       "Pankreas",
-      "Tiroit"
+      "Karaciğer"
     ],
     "answer": 2
   },
@@ -944,19 +944,19 @@ export default [
     "q": "İnsan kalbi kaç odacıktan (boşluktan) oluşur?",
     "options": [
       "2",
-      "3",
       "4",
-      "5"
+      "5",
+      "3"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Hücrenin enerji üretiminden sorumlu, 'enerji santrali' olarak bilinen organeli hangisidir?",
     "options": [
       "Ribozom",
       "Mitokondri",
-      "Golgi cisimciği",
-      "Lizozom"
+      "Lizozom",
+      "Golgi cisimciği"
     ],
     "answer": 1
   },
@@ -965,8 +965,8 @@ export default [
     "options": [
       "Mide",
       "İnce bağırsak",
-      "Kalın bağırsak",
-      "Yemek borusu"
+      "Yemek borusu",
+      "Kalın bağırsak"
     ],
     "answer": 1
   },
@@ -974,18 +974,18 @@ export default [
     "q": "DNA'nın yapısında bulunmayan azotlu baz hangisidir?",
     "options": [
       "Adenin",
+      "Guanin",
       "Timin",
-      "Urasil",
-      "Guanin"
+      "Urasil"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Gözde ışığa duyarlı olan ve görüntünün oluştuğu tabaka hangisidir?",
     "options": [
-      "Kornea",
-      "Retina",
       "İris",
+      "Retina",
+      "Kornea",
       "Sklera"
     ],
     "answer": 1
@@ -993,60 +993,60 @@ export default [
   {
     "q": "Vücutta kanı pıhtılaştırmada rol oynayan kan hücreleri hangileridir?",
     "options": [
-      "Trombositler",
-      "Lökositler",
       "Eritrositler",
-      "Fagositler"
+      "Fagositler",
+      "Trombositler",
+      "Lökositler"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "İnsanda idrar oluşumunun gerçekleştiği ve kanın süzüldüğü organ hangisidir?",
     "options": [
       "Karaciğer",
       "Böbrek",
-      "Mesane",
-      "Dalak"
+      "Dalak",
+      "Mesane"
     ],
     "answer": 1
   },
   {
     "q": "Tiroit bezinin salgıladığı ve metabolizmayı düzenleyen hormonun yapısında bol miktarda bulunan element hangisidir?",
     "options": [
-      "Demir",
-      "İyot",
       "Kalsiyum",
-      "Çinko"
+      "Çinko",
+      "Demir",
+      "İyot"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Kasların kemiklere bağlanmasını sağlayan bağ dokusu yapısı hangisidir?",
     "options": [
       "Ligament",
-      "Tendon",
       "Kıkırdak",
-      "Fasya"
+      "Fasya",
+      "Tendon"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Yetişkin bir insan iskeleti yaklaşık kaç kemikten oluşur?",
     "options": [
+      "246",
       "186",
-      "206",
       "226",
-      "246"
+      "206"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Proteinlerin yapı taşı olan moleküller hangileridir?",
     "options": [
-      "Yağ asitleri",
+      "Monosakkaritler",
       "Amino asitler",
       "Nükleotitler",
-      "Monosakkaritler"
+      "Yağ asitleri"
     ],
     "answer": 1
   },
@@ -1054,31 +1054,31 @@ export default [
     "q": "Solunumda oksijen ile karbondioksitin gaz değişiminin yapıldığı, akciğerlerdeki küçük hava keseciklerine ne ad verilir?",
     "options": [
       "Bronş",
-      "Alveol",
+      "Plevra",
       "Bronşiyol",
-      "Plevra"
+      "Alveol"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Sindirim sisteminde safra salgısını üreten organ hangisidir?",
     "options": [
       "Safra kesesi",
-      "Karaciğer",
+      "Mide",
       "Pankreas",
-      "Mide"
+      "Karaciğer"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "İnsan vücudundaki en uzun kemik hangisidir?",
     "options": [
-      "Kaval kemiği",
-      "Uyluk kemiği (femur)",
       "Kol kemiği (humerus)",
-      "Omurga"
+      "Kaval kemiği",
+      "Omurga",
+      "Uyluk kemiği (femur)"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Sinir hücresinde uyarıların bir hücreden diğerine geçtiği bağlantı bölgesine ne ad verilir?",
@@ -1093,69 +1093,69 @@ export default [
   {
     "q": "Kırmızı kan hücreleri esas olarak nerede üretilir?",
     "options": [
-      "Karaciğerde",
+      "Lenf düğümlerinde",
       "Kırmızı kemik iliğinde",
-      "Dalakta",
-      "Lenf düğümlerinde"
+      "Karaciğerde",
+      "Dalakta"
     ],
     "answer": 1
   },
   {
     "q": "İnsan derisinin en dış tabakasına ne ad verilir?",
     "options": [
-      "Dermis",
-      "Epidermis",
+      "Subkutan",
       "Hipodermis",
-      "Subkutan"
+      "Dermis",
+      "Epidermis"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Midede besinlerin sindiriminde görev alan ve asidik ortamda çalışan enzim hangisidir?",
     "options": [
+      "Tripsin",
       "Amilaz",
       "Pepsin",
-      "Lipaz",
-      "Tripsin"
+      "Lipaz"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Kandaki oksijen bakımından zengin kanı kalpten vücuda taşıyan en büyük atardamar hangisidir?",
     "options": [
-      "Aort",
       "Pulmoner arter",
-      "Vena kava",
-      "Şah damarı"
+      "Şah damarı",
+      "Aort",
+      "Vena kava"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Hücre bölünmesinde kromozomların eşit olarak dağıtıldığı, vücut hücrelerinde görülen bölünme türü hangisidir?",
     "options": [
+      "Konjugasyon",
       "Mayoz",
       "Mitoz",
-      "Amitoz",
-      "Konjugasyon"
+      "Amitoz"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "İnsan vücudunda D vitamininin sentezlenmesini başlatan etken hangisidir?",
     "options": [
-      "Güneş (UV) ışığı",
       "Su tüketimi",
       "Egzersiz",
-      "Uyku"
+      "Uyku",
+      "Güneş (UV) ışığı"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Vücut sıcaklığını, açlık ve susuzluğu düzenleyen, hipofizi kontrol eden beyin yapısı hangisidir?",
     "options": [
       "Hipotalamus",
-      "Beyincik",
       "Amigdala",
+      "Beyincik",
       "Korpus kallozum"
     ],
     "answer": 0
@@ -1163,89 +1163,89 @@ export default [
   {
     "q": "Kanda savunmadan (bağışıklıktan) sorumlu olan hücreler hangileridir?",
     "options": [
+      "Plazma hücreleri",
       "Eritrositler",
-      "Lökositler",
       "Trombositler",
-      "Plazma hücreleri"
+      "Lökositler"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "İnsanda dişlerin dış yüzeyini kaplayan ve vücudun en sert dokusu olan yapı hangisidir?",
     "options": [
-      "Dentin",
-      "Mine (enamel)",
       "Sement",
-      "Pulpa"
+      "Pulpa",
+      "Mine (enamel)",
+      "Dentin"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "C vitamini eksikliğinde görülen ve diş etlerinde kanamayla seyreden hastalık hangisidir?",
     "options": [
       "Raşitizm",
-      "Skorbüt",
       "Beriberi",
+      "Skorbüt",
       "Pellagra"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "İç kulakta denge organı olarak görev yapan yapı hangisidir?",
     "options": [
-      "Salyangoz (koklea)",
-      "Yarım daire kanalları",
+      "Kulak zarı",
       "Östaki borusu",
-      "Kulak zarı"
+      "Yarım daire kanalları",
+      "Salyangoz (koklea)"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Kanın pH değeri sağlıklı bir insanda yaklaşık olarak kaçtır?",
     "options": [
       "5,4",
       "6,4",
-      "7,4",
-      "8,4"
+      "8,4",
+      "7,4"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Vücutta 0 (sıfır) kan grubuna sahip bir kişi hangi özelliğiyle bilinir?",
     "options": [
-      "Genel alıcıdır",
+      "Sadece AB grubundan alır",
       "Genel vericidir",
       "Kan veremez",
-      "Sadece AB grubundan alır"
+      "Genel alıcıdır"
     ],
     "answer": 1
   },
   {
     "q": "Yeni doğan bebeklerde bulunan ve zamanla kapanan, kafatasındaki yumuşak bölgelere ne ad verilir?",
     "options": [
-      "Bıngıldak (fontanel)",
       "Sütür",
+      "Bıngıldak (fontanel)",
       "Diploe",
       "Foramen"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Kaslarda oksijensiz solunum sonucu birikerek yorgunluk ve ağrıya yol açan madde hangisidir?",
-    "options": [
-      "Etil alkol",
-      "Laktik asit",
-      "Ürik asit",
-      "Sitrik asit"
     ],
     "answer": 1
   },
   {
+    "q": "Kaslarda oksijensiz solunum sonucu birikerek yorgunluk ve ağrıya yol açan madde hangisidir?",
+    "options": [
+      "Sitrik asit",
+      "Etil alkol",
+      "Laktik asit",
+      "Ürik asit"
+    ],
+    "answer": 2
+  },
+  {
     "q": "Bağışıklık sisteminde antikor üreten kan hücreleri hangileridir?",
     "options": [
-      "Nötrofiller",
-      "B lenfositleri",
       "Trombositler",
+      "B lenfositleri",
+      "Nötrofiller",
       "Eritrositler"
     ],
     "answer": 1
@@ -1253,19 +1253,19 @@ export default [
   {
     "q": "İnsan gözünde göz bebeğinin büyüklüğünü ayarlayarak göze giren ışık miktarını düzenleyen renkli yapı hangisidir?",
     "options": [
-      "Kornea",
       "İris",
       "Retina",
-      "Lens"
+      "Lens",
+      "Kornea"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Böbreklerde kanın süzüldüğü ve idrar oluşumunun gerçekleştiği yapısal ve işlevsel birime ne ad verilir?",
     "options": [
       "Nefron",
-      "Alveol",
       "Villus",
+      "Alveol",
       "Glomerül dışı tübül"
     ],
     "answer": 0
@@ -1273,30 +1273,30 @@ export default [
   {
     "q": "Yetişkin bir insanın normal dinlenme halindeki kalp atış hızı dakikada yaklaşık kaç atıştır?",
     "options": [
-      "30-40",
       "60-100",
-      "120-140",
-      "160-180"
+      "30-40",
+      "160-180",
+      "120-140"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Bir yıldızın ömrünün sonunda çok büyük kütleliyse oluşturabileceği, ışığın bile kaçamadığı gök cismi nedir?",
     "options": [
-      "Beyaz cüce",
-      "Kara delik",
+      "Kahverengi cüce",
       "Nötron yıldızı",
-      "Kahverengi cüce"
+      "Kara delik",
+      "Beyaz cüce"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Işık boşlukta yaklaşık saniyede kaç kilometre yol alır?",
     "options": [
       "300.000 km",
       "150.000 km",
-      "1.080.000 km",
-      "30.000 km"
+      "30.000 km",
+      "1.080.000 km"
     ],
     "answer": 0
   },
@@ -1305,18 +1305,18 @@ export default [
     "options": [
       "Zaman",
       "Uzaklık",
-      "Kütle",
-      "Sıcaklık"
+      "Sıcaklık",
+      "Kütle"
     ],
     "answer": 1
   },
   {
     "q": "Pi sayısının ondalık gösteriminde ilk üç basamağı hangisidir?",
     "options": [
-      "3,41",
+      "3,16",
       "3,14",
-      "3,12",
-      "3,16"
+      "3,41",
+      "3,12"
     ],
     "answer": 1
   },
@@ -1324,161 +1324,161 @@ export default [
     "q": "Güneş sistemindeki en sıcak yüzey sıcaklığına sahip gezegen hangisidir?",
     "options": [
       "Merkür",
-      "Venüs",
       "Mars",
+      "Venüs",
       "Jüpiter"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Bir üçgenin iç açılarının toplamı Öklid geometrisinde kaç derecedir?",
     "options": [
       "90",
-      "180",
       "270",
+      "180",
       "360"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Dünya'ya en yakın yıldız (Güneş hariç) hangisidir?",
     "options": [
-      "Sirius",
       "Proxima Centauri",
-      "Alpha Centauri A",
-      "Barnard Yıldızı"
+      "Barnard Yıldızı",
+      "Sirius",
+      "Alpha Centauri A"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Galaksimizin adı nedir?",
     "options": [
-      "Andromeda",
+      "Sombrero",
       "Samanyolu",
       "Üçgen Galaksisi",
-      "Sombrero"
+      "Andromeda"
     ],
     "answer": 1
   },
   {
     "q": "Asal sayı olmayan hangisidir?",
     "options": [
-      "7",
       "11",
-      "9",
-      "13"
+      "7",
+      "13",
+      "9"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Güneş'in enerjisini üreten temel süreç nedir?",
     "options": [
-      "Kimyasal yanma",
-      "Nükleer füzyon",
+      "Radyoaktif bozunma",
       "Nükleer fisyon",
-      "Radyoaktif bozunma"
+      "Kimyasal yanma",
+      "Nükleer füzyon"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Halka sistemi en belirgin olan gezegen hangisidir?",
     "options": [
-      "Jüpiter",
       "Satürn",
       "Uranüs",
-      "Neptün"
+      "Neptün",
+      "Jüpiter"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Bir sayı 3'e bölünebiliyorsa bunun geleneksel testi nedir?",
     "options": [
       "Son basamağı çift olmalı",
-      "Basamak rakamları toplamı 3'e bölünmeli",
       "Son iki basamağı 4'e bölünmeli",
-      "Sayı 0 ile bitmeli"
+      "Sayı 0 ile bitmeli",
+      "Basamak rakamları toplamı 3'e bölünmeli"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Kuyruklu yıldızların kuyruğu genellikle hangi yöne doğru uzanır?",
     "options": [
-      "Güneş'e doğru",
-      "Güneş'ten uzağa doğru",
+      "Hareket yönüne doğru",
       "Dünya'ya doğru",
-      "Hareket yönüne doğru"
+      "Güneş'ten uzağa doğru",
+      "Güneş'e doğru"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Bir dik üçgende hipotenüsün karesi diğer iki kenarın karelerinin toplamına eşittir; bu teorem kime atfedilir?",
     "options": [
       "Öklid",
-      "Pisagor",
+      "Arşimet",
       "Thales",
-      "Arşimet"
+      "Pisagor"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Dünya'nın tek doğal uydusu Ay'ın Dünya çevresindeki dolanımı yaklaşık kaç gün sürer?",
     "options": [
-      "7 gün",
       "27,3 gün",
       "365 gün",
-      "90 gün"
+      "90 gün",
+      "7 gün"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Fibonacci dizisinde 1, 1, 2, 3, 5, 8'den sonraki sayı kaçtır?",
     "options": [
       "11",
+      "15",
       "13",
-      "12",
-      "15"
+      "12"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Astronomik birim (AU) neyi baz alır?",
     "options": [
       "Ay-Dünya arası uzaklık",
-      "Dünya-Güneş arası ortalama uzaklık",
       "Işığın bir yılda aldığı yol",
-      "Güneş'in çapı"
+      "Güneş'in çapı",
+      "Dünya-Güneş arası ortalama uzaklık"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Hangisi bir cüce gezegen olarak sınıflandırılmıştır?",
     "options": [
-      "Plüton",
       "Titan",
       "Ganymede",
-      "Europa"
+      "Europa",
+      "Plüton"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Bir dairede çevrenin çapa oranı hangi sayıya eşittir?",
     "options": [
       "e",
-      "Pi",
       "Altın oran",
+      "Pi",
       "Karekök 2"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "2023 itibarıyla en fazla bilinen uyduya sahip gezegen hangisidir?",
     "options": [
-      "Jüpiter",
-      "Satürn",
+      "Neptün",
       "Uranüs",
-      "Neptün"
+      "Satürn",
+      "Jüpiter"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "0! (sıfır faktöriyel) kaça eşittir?",
@@ -1493,9 +1493,9 @@ export default [
   {
     "q": "Evrenin başlangıcını açıklayan yaygın kabul gören kurama ne ad verilir?",
     "options": [
-      "Durağan Durum Kuramı",
-      "Büyük Patlama",
       "Ekpirotik Kuram",
+      "Büyük Patlama",
+      "Durağan Durum Kuramı",
       "Salınım Kuramı"
     ],
     "answer": 1
@@ -1503,102 +1503,102 @@ export default [
   {
     "q": "Bir gezegenin Güneş etrafındaki yörüngesinin elips olduğunu ve odaklardan birinde Güneş bulunduğunu belirten yasa kime aittir?",
     "options": [
+      "Kopernik",
       "Newton",
       "Kepler",
-      "Galileo",
-      "Kopernik"
+      "Galileo"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Kızıl gezegen olarak bilinen gezegen hangisidir?",
     "options": [
-      "Venüs",
-      "Mars",
       "Jüpiter",
-      "Merkür"
+      "Merkür",
+      "Venüs",
+      "Mars"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "İki basamaklı en büyük asal sayı hangisidir?",
     "options": [
+      "99",
       "91",
       "97",
-      "99",
       "89"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Bir yıldızın rengi öncelikle neyi gösterir?",
     "options": [
+      "Kütlesini kesin olarak",
       "Uzaklığını",
-      "Yüzey sıcaklığını",
       "Yaşını kesin olarak",
-      "Kütlesini kesin olarak"
+      "Yüzey sıcaklığını"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Güneş sistemindeki gezegenlerden hangisi kendi ekseni etrafında ters yönde (retrograd) döner?",
     "options": [
       "Mars",
-      "Venüs",
       "Dünya",
-      "Jüpiter"
+      "Jüpiter",
+      "Venüs"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Bir sayının kendisiyle çarpımına ne denir?",
     "options": [
-      "Küpü",
       "Karesi",
-      "Kökü",
-      "Katı"
+      "Küpü",
+      "Katı",
+      "Kökü"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Bir açının 90 dereceden büyük 180 dereceden küçük olduğu açı türü nedir?",
     "options": [
       "Dar açı",
+      "Doğru açı",
       "Geniş açı",
-      "Dik açı",
-      "Doğru açı"
+      "Dik açı"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Uzayda astronotların ağırlıksız hissetmesinin temel nedeni nedir?",
     "options": [
-      "Yer çekiminin olmaması",
+      "Manyetik alan",
       "Sürekli serbest düşüşte olmaları",
       "Havanın olmaması",
-      "Manyetik alan"
+      "Yer çekiminin olmaması"
     ],
     "answer": 1
   },
   {
     "q": "Güneş'e en yakın gezegen hangisidir?",
     "options": [
-      "Venüs",
-      "Merkür",
       "Mars",
-      "Dünya"
+      "Venüs",
+      "Dünya",
+      "Merkür"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Bir sayı dizisinde her terim bir öncekinin sabit katı ise bu diziye ne denir?",
     "options": [
       "Aritmetik dizi",
+      "Harmonik dizi",
       "Geometrik dizi",
-      "Fibonacci dizisi",
-      "Harmonik dizi"
+      "Fibonacci dizisi"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Güneş tutulması ne zaman gerçekleşir?",
@@ -1613,202 +1613,202 @@ export default [
   {
     "q": "Matematikte 'e' sayısı yaklaşık olarak kaçtır?",
     "options": [
-      "2,72",
-      "3,14",
+      "1,41",
       "1,62",
-      "1,41"
+      "3,14",
+      "2,72"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Bir gezegenin yörüngesini tamamlama süresine ne ad verilir?",
     "options": [
-      "Gün",
       "Yıl",
+      "Gün",
       "Ay",
       "Mevsim"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Nötron yıldızlarının çok hızlı dönen ve düzenli radyo sinyalleri yayan türüne ne ad verilir?",
     "options": [
       "Kuasar",
-      "Pulsar",
       "Magnetar",
+      "Pulsar",
       "Blazar"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Bir sayının 0. kuvveti (sıfır hariç taban için) kaça eşittir?",
     "options": [
+      "Tabanın kendisi",
       "0",
       "1",
-      "Tabanın kendisi",
       "Tanımsız"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Uzayda ilk insanlı uçuşu gerçekleştiren kişi kimdir?",
     "options": [
-      "Neil Armstrong",
-      "Yuri Gagarin",
       "Alan Shepard",
-      "Valentina Tereşkova"
+      "Valentina Tereşkova",
+      "Neil Armstrong",
+      "Yuri Gagarin"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "İki paralel doğrunun asla kesişmediği düzlem geometrisini formüle eden antik matematikçi kimdir?",
     "options": [
-      "Pisagor",
       "Öklid",
-      "Arşimet",
-      "Thales"
+      "Pisagor",
+      "Thales",
+      "Arşimet"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Radyoaktivite terimini bilime kazandıran ve iki farklı bilim dalında (Fizik ve Kimya) Nobel Ödülü kazanan ilk kişi kimdir?",
     "options": [
-      "Lise Meitner",
       "Marie Curie",
-      "Irène Joliot-Curie",
-      "Dorothy Hodgkin"
+      "Lise Meitner",
+      "Dorothy Hodgkin",
+      "Irène Joliot-Curie"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Nükleer fisyonun teorik açıklamasını yapan ancak Nobel Ödülü'nün ortağı Otto Hahn'a verildiği fizikçi kimdir?",
     "options": [
       "Emmy Noether",
       "Lise Meitner",
-      "Chien-Shiung Wu",
-      "Maria Goeppert Mayer"
+      "Maria Goeppert Mayer",
+      "Chien-Shiung Wu"
     ],
     "answer": 1
   },
   {
     "q": "DNA'nın çift sarmal yapısının çözümünde kullanılan 51 numaralı X-ışını kırınım fotoğrafını çeken bilim insanı kimdir?",
     "options": [
-      "Barbara McClintock",
-      "Rosalind Franklin",
       "Gertrude Elion",
-      "Rita Levi-Montalcini"
+      "Rita Levi-Montalcini",
+      "Rosalind Franklin",
+      "Barbara McClintock"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Mısır bitkisinde 'sıçrayan genleri' (transpozon) keşfeden ve 1983'te Nobel Tıp Ödülü kazanan bilim insanı kimdir?",
     "options": [
-      "Barbara McClintock",
       "Nettie Stevens",
+      "Esther Lederberg",
       "Lynn Margulis",
-      "Esther Lederberg"
+      "Barbara McClintock"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Penisilini 1928'de kazara keşfeden İskoç bakteriyolog kimdir?",
     "options": [
-      "Howard Florey",
       "Alexander Fleming",
-      "Ernst Chain",
-      "Selman Waksman"
+      "Selman Waksman",
+      "Howard Florey",
+      "Ernst Chain"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Elektromanyetik indüksiyonu keşfeden ve elektrik motorunun temelini atan, formel matematik eğitimi almamış İngiliz bilim insanı kimdir?",
     "options": [
-      "James Clerk Maxwell",
+      "Joseph Henry",
       "Michael Faraday",
-      "Humphry Davy",
-      "Joseph Henry"
+      "James Clerk Maxwell",
+      "Humphry Davy"
     ],
     "answer": 1
   },
   {
     "q": "Periyodik cetveli oluştururken henüz keşfedilmemiş elementlerin (eka-silisyum gibi) özelliklerini önceden tahmin eden kimyager kimdir?",
     "options": [
-      "Dmitri Mendeleyev",
       "John Newlands",
       "Lothar Meyer",
+      "Dmitri Mendeleyev",
       "Antoine Lavoisier"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Kalıtım yasalarını bezelye bitkileri üzerinde yaptığı deneylerle ortaya koyan Avusturyalı rahip kimdir?",
     "options": [
-      "Gregor Mendel",
       "Hugo de Vries",
-      "Thomas Morgan",
-      "Carl Correns"
+      "Carl Correns",
+      "Gregor Mendel",
+      "Thomas Morgan"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Işık hızının sonlu olduğunu ilk kez Jüpiter'in uydusu Io'nun tutulmalarındaki gecikmeyi gözlemleyerek gösteren astronom kimdir?",
     "options": [
-      "Christiaan Huygens",
       "Ole Rømer",
       "Giovanni Cassini",
-      "Edmond Halley"
+      "Edmond Halley",
+      "Christiaan Huygens"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Aşı (vaccination) kavramını çiçek hastalığına karşı inek çiçeği kullanarak geliştiren İngiliz doktor kimdir?",
     "options": [
       "Louis Pasteur",
+      "Joseph Lister",
       "Edward Jenner",
-      "Robert Koch",
-      "Joseph Lister"
+      "Robert Koch"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Kuduz aşısını geliştiren ve mikroorganizmaların hastalıklara yol açtığını kanıtlayan Fransız kimyager kimdir?",
     "options": [
-      "Louis Pasteur",
-      "Claude Bernard",
       "Paul Ehrlich",
+      "Claude Bernard",
+      "Louis Pasteur",
       "Antoine Béchamp"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Verem ve şarbon hastalıklarının etkeni olan bakterileri izole eden ve mikrobiyolojinin kurucularından sayılan Alman doktor kimdir?",
     "options": [
-      "Rudolf Virchow",
-      "Robert Koch",
       "Emil von Behring",
-      "Paul Ehrlich"
+      "Rudolf Virchow",
+      "Paul Ehrlich",
+      "Robert Koch"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Gökyüzündeki bir cismin yörüngesini hesaplamak için en küçük kareler yöntemini geliştiren ve cüce gezegen Ceres'in yerini yeniden bulduran matematikçi kimdir?",
     "options": [
-      "Pierre-Simon Laplace",
       "Carl Friedrich Gauss",
       "Leonhard Euler",
+      "Pierre-Simon Laplace",
       "Joseph-Louis Lagrange"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Sürekli akımın (DC) yerine alternatif akım (AC) sistemini savunan ve indüksiyon motorunu geliştiren mucit kimdir?",
     "options": [
-      "Thomas Edison",
       "Nikola Tesla",
       "George Westinghouse",
+      "Thomas Edison",
       "Charles Steinmetz"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Bir iletken üzerindeki gerilim, akım ve direnç arasındaki ilişkiyi tanımlayan yasayı bulan Alman fizikçi kimdir?",
@@ -1823,49 +1823,49 @@ export default [
   {
     "q": "Antimadde varlığını ve elektronun 'pozitron' adlı karşı parçacığını denklemleriyle öngören İngiliz teorik fizikçi kimdir?",
     "options": [
-      "Erwin Schrödinger",
-      "Paul Dirac",
       "Werner Heisenberg",
-      "Wolfgang Pauli"
+      "Wolfgang Pauli",
+      "Erwin Schrödinger",
+      "Paul Dirac"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Belirsizlik ilkesini formüle eden ve kuantum mekaniğinin matris formülasyonunu geliştiren Alman fizikçi kimdir?",
     "options": [
       "Max Born",
       "Werner Heisenberg",
-      "Pascual Jordan",
-      "Niels Bohr"
+      "Niels Bohr",
+      "Pascual Jordan"
     ],
     "answer": 1
   },
   {
     "q": "Atom çekirdeğini keşfeden ve altın yaprak deneyiyle atomun büyük ölçüde boş olduğunu gösteren fizikçi kimdir?",
     "options": [
-      "J.J. Thomson",
       "Ernest Rutherford",
-      "Niels Bohr",
-      "James Chadwick"
+      "James Chadwick",
+      "J.J. Thomson",
+      "Niels Bohr"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Nötronu 1932'de keşfeden ve bu buluşuyla 1935 Nobel Fizik Ödülü'nü kazanan İngiliz fizikçi kimdir?",
     "options": [
       "James Chadwick",
-      "Ernest Rutherford",
       "Frederick Soddy",
-      "Patrick Blackett"
+      "Patrick Blackett",
+      "Ernest Rutherford"
     ],
     "answer": 0
   },
   {
     "q": "Hastanelerde el yıkamanın lohusa humması ölümlerini büyük ölçüde azalttığını gösteren ancak dönemin tıp çevrelerince reddedilen Macar doktor kimdir?",
     "options": [
-      "Joseph Lister",
-      "Ignaz Semmelweis",
       "Rudolf Virchow",
+      "Ignaz Semmelweis",
+      "Joseph Lister",
       "John Snow"
     ],
     "answer": 1
@@ -1873,70 +1873,70 @@ export default [
   {
     "q": "1854 Londra kolera salgınında hastalığın su kaynaklı olduğunu Broad Street pompasını haritalayarak kanıtlayan, epidemiyolojinin öncüsü doktor kimdir?",
     "options": [
-      "John Snow",
-      "Robert Koch",
       "Edwin Chadwick",
-      "William Farr"
+      "William Farr",
+      "Robert Koch",
+      "John Snow"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Termodinamiğin ikinci yasasına adını veren entropi kavramını ortaya koyan Alman fizikçi kimdir?",
     "options": [
       "Ludwig Boltzmann",
       "Rudolf Clausius",
-      "William Thomson (Kelvin)",
-      "Sadi Carnot"
+      "Sadi Carnot",
+      "William Thomson (Kelvin)"
     ],
     "answer": 1
   },
   {
     "q": "Sınıflandırmada canlıları ikili adlandırma (binom) sistemiyle isimlendiren İsveçli botanikçi kimdir?",
     "options": [
-      "Georges Cuvier",
-      "Carl Linnaeus",
       "Jean-Baptiste Lamarck",
-      "Comte de Buffon"
+      "Georges Cuvier",
+      "Comte de Buffon",
+      "Carl Linnaeus"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Süperiletkenliği 1911'de cıvayı mutlak sıfıra yakın sıcaklığa soğutarak keşfeden Hollandalı fizikçi kimdir?",
     "options": [
-      "Heike Kamerlingh Onnes",
-      "Pieter Zeeman",
       "Hendrik Lorentz",
-      "Johannes van der Waals"
+      "Heike Kamerlingh Onnes",
+      "Johannes van der Waals",
+      "Pieter Zeeman"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Gazların davranışını tanımlayan van der Waals denklemini geliştiren ve 1910 Nobel Fizik Ödülü'nü kazanan bilim insanı kimdir?",
     "options": [
-      "Johannes van der Waals",
-      "Ludwig Boltzmann",
       "Amedeo Avogadro",
-      "Jacobus van 't Hoff"
+      "Ludwig Boltzmann",
+      "Jacobus van 't Hoff",
+      "Johannes van der Waals"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Sinir hücreleri arasındaki iletişimin kimyasal yolla (asetilkolin) gerçekleştiğini bir rüyadan esinlenerek tasarladığı kurbağa kalbi deneyiyle kanıtlayan bilim insanı kimdir?",
     "options": [
-      "Charles Sherrington",
-      "Otto Loewi",
       "Santiago Ramón y Cajal",
-      "Henry Dale"
+      "Otto Loewi",
+      "Henry Dale",
+      "Charles Sherrington"
     ],
     "answer": 1
   },
   {
     "q": "Sinir sisteminin ayrı ayrı hücrelerden (nöron doktrini) oluştuğunu gösteren ve modern nörobilimin babası sayılan İspanyol bilim insanı kimdir?",
     "options": [
-      "Camillo Golgi",
-      "Santiago Ramón y Cajal",
       "Charles Sherrington",
-      "Alan Hodgkin"
+      "Santiago Ramón y Cajal",
+      "Alan Hodgkin",
+      "Camillo Golgi"
     ],
     "answer": 1
   },
@@ -1944,157 +1944,157 @@ export default [
     "q": "İnsülini 1921'de izole ederek diyabet tedavisinde çığır açan ve en genç Nobel Tıp ödüllülerinden olan Kanadalı bilim insanı kimdir?",
     "options": [
       "Charles Best",
-      "Frederick Banting",
+      "James Collip",
       "John Macleod",
-      "James Collip"
+      "Frederick Banting"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "X-ışınlarını 1895'te keşfeden ve ilk Nobel Fizik Ödülü'nü (1901) kazanan Alman fizikçi kimdir?",
     "options": [
-      "Philipp Lenard",
-      "Wilhelm Röntgen",
+      "Heinrich Hertz",
       "Max von Laue",
-      "Heinrich Hertz"
+      "Philipp Lenard",
+      "Wilhelm Röntgen"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Elektromanyetik dalgaların varlığını deneysel olarak ilk kez kanıtlayan ve frekans birimine adı verilen Alman fizikçi kimdir?",
     "options": [
       "Heinrich Hertz",
       "James Clerk Maxwell",
-      "Guglielmo Marconi",
-      "Oliver Lodge"
+      "Oliver Lodge",
+      "Guglielmo Marconi"
     ],
     "answer": 0
   },
   {
     "q": "Kıtaların bir zamanlar birleşik olduğu (Pangea) kıta kayması teorisini ortaya atan Alman jeofizikçi kimdir?",
     "options": [
-      "Alfred Wegener",
+      "Arthur Holmes",
       "Charles Lyell",
       "Harry Hess",
-      "Arthur Holmes"
+      "Alfred Wegener"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Evrenin genişlediğini galaksilerin uzaklaşma hızını gözlemleyerek kanıtlayan ve galaksiler arası uzaklık-hız ilişkisine adı verilen astronom kimdir?",
     "options": [
-      "Harlow Shapley",
-      "Edwin Hubble",
       "Vesto Slipher",
-      "Georges Lemaître"
+      "Georges Lemaître",
+      "Edwin Hubble",
+      "Harlow Shapley"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Büyük Patlama (Big Bang) teorisinin temelini oluşturan 'ilkel atom' fikrini öneren Belçikalı rahip ve astrofizikçi kimdir?",
     "options": [
-      "Fred Hoyle",
-      "Georges Lemaître",
       "George Gamow",
-      "Arthur Eddington"
+      "Fred Hoyle",
+      "Arthur Eddington",
+      "Georges Lemaître"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Yıldızların bir beyaz cüceye dönüşebilmesi için bir kütle sınırı olduğunu (Chandrasekhar limiti) hesaplayan Hint kökenli astrofizikçi kimdir?",
     "options": [
-      "Subrahmanyan Chandrasekhar",
+      "Satyendra Nath Bose",
       "Meghnad Saha",
       "Homi Bhabha",
-      "Satyendra Nath Bose"
+      "Subrahmanyan Chandrasekhar"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Pulsarları (atarcaları) 1967'de radyo teleskopla ilk gözlemleyen ancak Nobel Ödülü danışmanına verilen astronom kimdir?",
     "options": [
-      "Vera Rubin",
+      "Antony Hewish",
       "Jocelyn Bell Burnell",
       "Margaret Burbidge",
-      "Antony Hewish"
+      "Vera Rubin"
     ],
     "answer": 1
   },
   {
     "q": "Galaksilerin dönme hızlarını inceleyerek karanlık maddenin varlığına dair güçlü kanıtlar sunan Amerikalı astronom kimdir?",
     "options": [
-      "Vera Rubin",
       "Henrietta Leavitt",
+      "Vera Rubin",
       "Annie Jump Cannon",
       "Cecilia Payne"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Yıldızların temel olarak hidrojen ve helyumdan oluştuğunu doktora tezinde ilk kez ortaya koyan astronom kimdir?",
-    "options": [
-      "Annie Jump Cannon",
-      "Cecilia Payne-Gaposchkin",
-      "Henrietta Leavitt",
-      "Williamina Fleming"
     ],
     "answer": 1
   },
   {
+    "q": "Yıldızların temel olarak hidrojen ve helyumdan oluştuğunu doktora tezinde ilk kez ortaya koyan astronom kimdir?",
+    "options": [
+      "Henrietta Leavitt",
+      "Williamina Fleming",
+      "Cecilia Payne-Gaposchkin",
+      "Annie Jump Cannon"
+    ],
+    "answer": 2
+  },
+  {
     "q": "Sefeid değişken yıldızların parlaklık-periyot ilişkisini keşfederek kozmik uzaklık ölçümüne olanak sağlayan astronom kimdir?",
     "options": [
-      "Henrietta Swan Leavitt",
-      "Annie Jump Cannon",
       "Maria Mitchell",
-      "Caroline Herschel"
+      "Annie Jump Cannon",
+      "Caroline Herschel",
+      "Henrietta Swan Leavitt"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Enzimlerin protein yapısında olduğunu kanıtlayan ve üreaz enzimini kristalize eden ilk bilim insanı kimdir?",
     "options": [
       "James Sumner",
-      "Emil Fischer",
       "Eduard Buchner",
-      "Otto Warburg"
+      "Otto Warburg",
+      "Emil Fischer"
     ],
     "answer": 0
   },
   {
     "q": "B vitamini eksikliğinin beriberi hastalığına yol açtığını tavuklar üzerindeki deneylerle gösteren ve vitamin araştırmalarına öncülük eden Hollandalı doktor kimdir?",
     "options": [
+      "Casimir Funk",
       "Frederick Hopkins",
       "Christiaan Eijkman",
-      "Casimir Funk",
       "Elmer McCollum"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "İnsan vücudundaki en küçük kemik olan üzengi kemiği (stapes) hangi bölgede bulunur?",
     "options": [
       "Orta kulak",
+      "El bileği",
       "İç kulak",
-      "Burun boşluğu",
-      "El bileği"
+      "Burun boşluğu"
     ],
     "answer": 0
   },
   {
     "q": "Karaciğerin ürettiği ve safra kesesinde depolanan safranın ana işlevi nedir?",
     "options": [
-      "Proteinleri parçalamak",
       "Yağları emülsifiye etmek",
       "Karbonhidratları sindirmek",
-      "Kanı pıhtılaştırmak"
+      "Kanı pıhtılaştırmak",
+      "Proteinleri parçalamak"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Böbrekte idrar oluşumunun temel fonksiyonel birimine ne ad verilir?",
     "options": [
-      "Alveol",
       "Nöron",
+      "Alveol",
       "Nefron",
       "Villus"
     ],
@@ -2103,50 +2103,50 @@ export default [
   {
     "q": "Kanda oksijen taşınmasını sağlayan hemoglobin molekülünün merkezinde hangi metal iyonu bulunur?",
     "options": [
-      "Magnezyum",
       "Demir",
-      "Bakır",
-      "Çinko"
+      "Magnezyum",
+      "Çinko",
+      "Bakır"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Erişkin bir insanda toplam kaç çift kaburga (kosta) bulunur?",
     "options": [
-      "10 çift",
-      "11 çift",
+      "13 çift",
       "12 çift",
-      "13 çift"
+      "11 çift",
+      "10 çift"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Midede pepsinojeni aktif pepsine dönüştüren ve proteinleri denatüre eden asit hangisidir?",
     "options": [
       "Sülfürik asit",
       "Hidroklorik asit",
-      "Laktik asit",
-      "Sitrik asit"
+      "Sitrik asit",
+      "Laktik asit"
     ],
     "answer": 1
   },
   {
     "q": "Pankreasın Langerhans adacıklarındaki beta hücreleri hangi hormonu salgılar?",
     "options": [
+      "Gastrin",
       "Glukagon",
       "İnsülin",
-      "Somatostatin",
-      "Gastrin"
+      "Somatostatin"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Gözde ışığa en duyarlı olan ve loş ışıkta görmeyi sağlayan fotoreseptör hücreler hangileridir?",
     "options": [
-      "Koni hücreleri",
+      "Bipolar hücreler",
       "Çubuk hücreleri",
-      "Ganglion hücreleri",
-      "Bipolar hücreler"
+      "Koni hücreleri",
+      "Ganglion hücreleri"
     ],
     "answer": 1
   },
@@ -2154,179 +2154,179 @@ export default [
     "q": "İnsan beyninde denge ve hareket koordinasyonundan sorumlu olan yapı hangisidir?",
     "options": [
       "Beyincik (serebellum)",
+      "Pons",
       "Hipotalamus",
-      "Amigdala",
-      "Pons"
+      "Amigdala"
     ],
     "answer": 0
   },
   {
     "q": "Kanın pıhtılaşmasında rol oynayan hücre parçacıklarına ne ad verilir?",
     "options": [
-      "Lökosit",
       "Trombosit",
+      "Lenfosit",
       "Eritrosit",
-      "Lenfosit"
+      "Lökosit"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "İnce bağırsağın ilk bölümü olan ve pankreas ile safra kanallarının açıldığı kısım hangisidir?",
     "options": [
+      "Kolon",
       "Jejunum",
-      "İleum",
       "Duodenum (onikiparmak bağırsağı)",
-      "Kolon"
+      "İleum"
     ],
     "answer": 2
   },
   {
     "q": "Tiroid bezinin salgıladığı ve metabolizma hızını düzenleyen, iyot içeren hormon hangisidir?",
     "options": [
-      "Kalsitonin",
-      "Tiroksin (T4)",
       "Parathormon",
-      "Kortizol"
+      "Kalsitonin",
+      "Kortizol",
+      "Tiroksin (T4)"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "İskelet kasının kasılmasında aktin ve miyozin filamentlerinin kayması hangi iyonun salınımıyla tetiklenir?",
     "options": [
+      "Kalsiyum",
       "Sodyum",
       "Potasyum",
-      "Kalsiyum",
       "Klor"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "Akciğerlerde gaz alışverişinin gerçekleştiği kesecik şeklindeki yapılar nelerdir?",
     "options": [
       "Bronşioller",
-      "Alveoller",
       "Plevralar",
-      "Trakea halkaları"
+      "Trakea halkaları",
+      "Alveoller"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Kalpte sağ atriyum ile sağ ventrikül arasında bulunan kapak hangisidir?",
     "options": [
-      "Mitral (biküspit) kapak",
       "Triküspit kapak",
+      "Mitral (biküspit) kapak",
       "Aort kapağı",
       "Pulmoner kapak"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Vücudun kan şekerini yükseltmek için glikojeni glikoza çeviren ve karaciğerde etkili olan hormon hangisidir?",
     "options": [
-      "İnsülin",
       "Glukagon",
       "Aldosteron",
-      "Melatonin"
+      "Melatonin",
+      "İnsülin"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Uzun kemiklerin uç kısmına verilen anatomik ad hangisidir?",
     "options": [
+      "Medulla",
       "Diafiz",
-      "Epifiz",
       "Periost",
-      "Medulla"
+      "Epifiz"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Nöronlar arasındaki bağlantı noktasında sinyal ileten kimyasal maddelere ne ad verilir?",
     "options": [
       "Hormonlar",
-      "Nörotransmitterler",
       "Enzimler",
-      "Antikorlar"
+      "Antikorlar",
+      "Nörotransmitterler"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "İnsan kulağında sesin sinir sinyaline dönüştürüldüğü, salyangoz şeklindeki iç kulak yapısı hangisidir?",
     "options": [
-      "Koklea",
-      "Östaki borusu",
       "Yarım daire kanalları",
-      "Timpanik zar"
+      "Koklea",
+      "Timpanik zar",
+      "Östaki borusu"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Böbreklerde suyun geri emilimini artırarak idrar hacmini azaltan antidiüretik hormon (ADH) nerede üretilir?",
     "options": [
-      "Böbrek üstü bezi",
+      "Pankreas",
       "Hipotalamus",
-      "Tiroid",
-      "Pankreas"
+      "Böbrek üstü bezi",
+      "Tiroid"
     ],
     "answer": 1
   },
   {
     "q": "Kandaki karbondioksitin büyük kısmı hangi form içinde taşınır?",
     "options": [
-      "Çözünmüş CO2 gazı",
       "Karbaminohemoglobin",
-      "Bikarbonat iyonu",
-      "Karbonik asit kristali"
+      "Çözünmüş CO2 gazı",
+      "Karbonik asit kristali",
+      "Bikarbonat iyonu"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Sindirim sisteminde besinlerin emiliminin çoğunlukla gerçekleştiği organ hangisidir?",
     "options": [
-      "Mide",
       "İnce bağırsak",
-      "Kalın bağırsak",
-      "Yemek borusu"
+      "Yemek borusu",
+      "Mide",
+      "Kalın bağırsak"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "İskelette omurga kaç adet omurdan (vertebra) oluşur (erişkinde birleşenler tek sayılırsa)?",
     "options": [
-      "24 hareketli + sakrum ve koksiks",
-      "30 hareketli omur",
       "20 omur",
-      "28 omur"
+      "28 omur",
+      "30 hareketli omur",
+      "24 hareketli + sakrum ve koksiks"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Böbrek üstü bezinin (adrenal) medulla bölgesinden salgılanan, 'savaş ya da kaç' tepkisini başlatan hormon hangisidir?",
     "options": [
       "Kortizol",
-      "Adrenalin (epinefrin)",
       "Aldosteron",
-      "İnsülin"
+      "İnsülin",
+      "Adrenalin (epinefrin)"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Kaslarda oksijensiz solunum sonucu birikerek yorgunluğa katkıda bulunan madde hangisidir?",
     "options": [
       "Pirüvik asit",
+      "Asetik asit",
       "Laktik asit",
-      "Sitrik asit",
-      "Asetik asit"
+      "Sitrik asit"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "İnsan vücudundaki en uzun kemik hangisidir?",
     "options": [
-      "Tibia",
+      "Fibula",
       "Femur (uyluk kemiği)",
-      "Humerus",
-      "Fibula"
+      "Tibia",
+      "Humerus"
     ],
     "answer": 1
   },
@@ -2343,110 +2343,110 @@ export default [
   {
     "q": "Bağışıklık sisteminde antikor üreten kan hücreleri hangileridir?",
     "options": [
-      "T lenfositler",
       "B lenfositler",
       "Nötrofiller",
+      "T lenfositler",
       "Bazofiller"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Kalbin kendi kasılma ritmini başlatan doğal kalp pili hangisidir?",
     "options": [
       "AV düğüm",
+      "Purkinje lifleri",
       "SA (sinoatriyal) düğüm",
-      "His demeti",
-      "Purkinje lifleri"
+      "His demeti"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "İnce bağırsağın iç yüzeyindeki emilim alanını artıran parmaksı çıkıntılara ne ad verilir?",
     "options": [
-      "Villuslar",
       "Rugalar",
       "Kriptalar",
+      "Villuslar",
       "Papillalar"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Kandaki kırmızı kan hücreleri (eritrositler) çoğunlukla nerede üretilir?",
     "options": [
       "Karaciğer",
-      "Dalak",
+      "Timus",
       "Kırmızı kemik iliği",
-      "Timus"
+      "Dalak"
     ],
     "answer": 2
   },
   {
     "q": "Sinir hücrelerinin aksonunu saran ve sinyal iletim hızını artıran yağlı kılıf hangisidir?",
     "options": [
-      "Miyelin kılıf",
-      "Ranvier boğumu",
       "Nöroglia",
+      "Ranvier boğumu",
+      "Miyelin kılıf",
       "Sinaps"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Vücutta kalsiyum ve fosfat dengesini düzenleyen, kandaki kalsiyum düzeyini yükselten hormon hangisidir?",
     "options": [
-      "Kalsitonin",
-      "Parathormon (PTH)",
       "Tiroksin",
-      "İnsülin"
+      "Kalsitonin",
+      "İnsülin",
+      "Parathormon (PTH)"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Solunum sırasında göğüs boşluğunu genişleten, kubbe şeklindeki kas hangisidir?",
     "options": [
-      "İnterkostal kaslar",
+      "Trapez kası",
       "Diyafram",
       "Pektoral kas",
-      "Trapez kası"
+      "İnterkostal kaslar"
     ],
     "answer": 1
   },
   {
     "q": "Ağızda nişastanın sindirimini başlatan tükürük enzimi hangisidir?",
     "options": [
-      "Pepsin",
       "Amilaz (pityalin)",
       "Lipaz",
-      "Tripsin"
+      "Tripsin",
+      "Pepsin"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Beynin sol ve sağ yarıkürelerini birbirine bağlayan kalın sinir lifi demeti hangisidir?",
     "options": [
-      "Korpus kallozum",
       "Talamus",
-      "Beyin sapı",
-      "Hipofiz sapı"
+      "Hipofiz sapı",
+      "Korpus kallozum",
+      "Beyin sapı"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "İnsan kanında en fazla sayıda bulunan akyuvar (lökosit) türü hangisidir?",
     "options": [
       "Lenfosit",
-      "Monosit",
       "Nötrofil",
-      "Eozinofil"
+      "Eozinofil",
+      "Monosit"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Vücut ısısını, açlık-tokluk ve su dengesini düzenleyen, hipofizi kontrol eden beyin yapısı hangisidir?",
     "options": [
       "Talamus",
       "Hipotalamus",
-      "Serebellum",
-      "Medulla oblongata"
+      "Medulla oblongata",
+      "Serebellum"
     ],
     "answer": 1
   },
@@ -2454,8 +2454,8 @@ export default [
     "q": "Nefronda kanın süzülerek ilk idrarın (filtrat) oluştuğu kılcal damar yumağı hangisidir?",
     "options": [
       "Glomerulus",
-      "Bowman kapsülü",
       "Henle kulpu",
+      "Bowman kapsülü",
       "Toplayıcı kanal"
     ],
     "answer": 0
@@ -2463,8 +2463,8 @@ export default [
   {
     "q": "Erişkin insanda kalıcı diş sayısı kaçtır?",
     "options": [
-      "28",
       "30",
+      "28",
       "32",
       "36"
     ],
@@ -2473,22 +2473,22 @@ export default [
   {
     "q": "Hipofiz bezinin ön lobundan salgılanan ve süt üretimini uyaran hormon hangisidir?",
     "options": [
-      "Oksitosin",
-      "Prolaktin",
+      "Kalsitonin",
       "ADH",
-      "Kalsitonin"
+      "Prolaktin",
+      "Oksitosin"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Periyodik tabloda simgesi 'W' olan element hangisidir?",
     "options": [
-      "Vanadyum",
       "Tungsten (Volfram)",
       "Volframiyum",
+      "Vanadyum",
       "Tulyum"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Aşağıdaki elementlerden hangisi oda sıcaklığında sıvı halde bulunan bir metaldir?",
@@ -2503,32 +2503,32 @@ export default [
   {
     "q": "Oda sıcaklığında sıvı halde bulunan tek ametal element hangisidir?",
     "options": [
-      "Brom",
-      "Klor",
+      "Flor",
       "İyot",
-      "Flor"
+      "Klor",
+      "Brom"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Yanmayı destekleyen ancak kendisi yanmayan, atmosferin yaklaşık %21'ini oluşturan gaz hangisidir?",
     "options": [
       "Azot",
-      "Karbondioksit",
+      "Argon",
       "Oksijen",
-      "Argon"
+      "Karbondioksit"
     ],
     "answer": 2
   },
   {
     "q": "'Kezzap' olarak bilinen kuvvetli asit aşağıdakilerden hangisidir?",
     "options": [
-      "Nitrik asit",
-      "Hidroklorik asit",
+      "Asetik asit",
       "Sülfürik asit",
-      "Asetik asit"
+      "Hidroklorik asit",
+      "Nitrik asit"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Mide öz suyunda bulunan ve sindirime yardımcı olan asit hangisidir?",
@@ -2543,50 +2543,50 @@ export default [
   {
     "q": "Sofra tuzunun (NaCl) kimyasal adı aşağıdakilerden hangisidir?",
     "options": [
-      "Sodyum karbonat",
-      "Sodyum klorür",
       "Potasyum klorür",
-      "Sodyum bikarbonat"
+      "Sodyum klorür",
+      "Sodyum bikarbonat",
+      "Sodyum karbonat"
     ],
     "answer": 1
   },
   {
     "q": "Karbondioksit (CO2) katı halde 'kuru buz' olarak bilinir. Kuru buz normal basınçta ne yapar?",
     "options": [
+      "Kaynar",
       "Erir",
       "Süblimleşir (doğrudan gaza geçer)",
-      "Kaynar",
       "Donar"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Periyodik tabloda en yüksek elektronegatifliğe sahip element hangisidir?",
     "options": [
+      "Azot",
       "Oksijen",
-      "Klor",
       "Flor",
-      "Azot"
+      "Klor"
     ],
     "answer": 2
   },
   {
     "q": "Aşağıdaki elementlerden hangisi bir soy gazdır?",
     "options": [
-      "Neon",
       "Sodyum",
+      "Kalsiyum",
       "Kükürt",
-      "Kalsiyum"
+      "Neon"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "'Güldürücü gaz' olarak bilinen ve diş hekimliğinde kullanılan bileşik hangisidir?",
     "options": [
       "Karbonmonoksit",
       "Diazot monoksit (N2O)",
-      "Azot dioksit",
-      "Kükürt dioksit"
+      "Kükürt dioksit",
+      "Azot dioksit"
     ],
     "answer": 1
   },
@@ -2595,28 +2595,28 @@ export default [
     "options": [
       "İndirgenme",
       "Yükseltgenme (oksitlenme)",
-      "Nötralleşme",
-      "Süblimleşme"
+      "Süblimleşme",
+      "Nötralleşme"
     ],
     "answer": 1
   },
   {
     "q": "Elmas ve grafit hangi elementin farklı allotroplarıdır?",
     "options": [
-      "Silisyum",
-      "Karbon",
       "Kükürt",
-      "Bor"
+      "Karbon",
+      "Bor",
+      "Silisyum"
     ],
     "answer": 1
   },
   {
     "q": "pH değeri 7 olan bir çözelti aşağıdakilerden hangisidir?",
     "options": [
+      "Amfoter",
       "Asidik",
-      "Bazik",
       "Nötr",
-      "Amfoter"
+      "Bazik"
     ],
     "answer": 2
   },
@@ -2625,147 +2625,147 @@ export default [
     "options": [
       "CaCO3",
       "Ca(OH)2",
-      "CaO",
-      "CaCl2"
+      "CaCl2",
+      "CaO"
     ],
     "answer": 0
   },
   {
     "q": "Sönmemiş kirecin (kalsiyum oksit) su ile tepkimesi sonucu oluşan madde hangisidir?",
     "options": [
-      "Kalsiyum karbonat",
       "Sönmüş kireç (kalsiyum hidroksit)",
-      "Kalsiyum klorür",
-      "Alçı"
+      "Kalsiyum karbonat",
+      "Alçı",
+      "Kalsiyum klorür"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Aşağıdaki elementlerden hangisi periyodik tablonun en hafif elementidir?",
     "options": [
-      "Helyum",
       "Hidrojen",
+      "Helyum",
       "Lityum",
       "Karbon"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Yaprakların yeşil renginden sorumlu klorofil molekülünün merkezinde hangi metal iyonu bulunur?",
     "options": [
-      "Demir",
       "Magnezyum",
       "Çinko",
+      "Demir",
       "Bakır"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Hemoglobin molekülünün merkezinde oksijen taşımaktan sorumlu hangi metal atomu bulunur?",
     "options": [
       "Bakır",
       "Demir",
-      "Kobalt",
-      "Manganez"
+      "Manganez",
+      "Kobalt"
     ],
     "answer": 1
   },
   {
     "q": "Aşağıdaki gazlardan hangisi renksiz, kokusuz ve zehirli olup eksik yanma sonucu oluşur?",
     "options": [
-      "Karbondioksit",
       "Karbonmonoksit",
+      "Karbondioksit",
       "Kükürt dioksit",
       "Azot dioksit"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Kabartma tozunun ana bileşeni olan sodyum bikarbonatın formülü hangisidir?",
     "options": [
-      "Na2CO3",
-      "NaHCO3",
       "NaOH",
-      "NaCl"
+      "Na2CO3",
+      "NaCl",
+      "NaHCO3"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Aşağıdaki elementlerden hangisi radyoaktiftir ve Marie Curie tarafından keşfedilmiştir?",
     "options": [
-      "Radyum",
-      "Baryum",
+      "Sezyum",
       "Stronsiyum",
-      "Sezyum"
+      "Baryum",
+      "Radyum"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Periyodik tabloda alkali metaller hangi grupta yer alır?",
     "options": [
-      "1. grup",
       "2. grup",
       "17. grup",
-      "18. grup"
+      "18. grup",
+      "1. grup"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Suyun bir mol miktarındaki hidrojen atomu sayısı, oksijen atomu sayısının kaç katıdır?",
     "options": [
-      "Yarısı",
-      "Eşit",
+      "3 katı",
       "2 katı",
-      "3 katı"
+      "Eşit",
+      "Yarısı"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Aşağıdaki metallerden hangisi manyetik özellik göstermez?",
     "options": [
       "Demir",
+      "Kobalt",
       "Nikel",
-      "Alüminyum",
-      "Kobalt"
+      "Alüminyum"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Sülfürik asidin kimyasal formülü aşağıdakilerden hangisidir?",
     "options": [
-      "H2SO4",
       "HNO3",
-      "HCl",
-      "H3PO4"
+      "H3PO4",
+      "H2SO4",
+      "HCl"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Sirkeye ekşi tadını veren asit hangisidir?",
     "options": [
-      "Sitrik asit",
       "Asetik asit",
       "Laktik asit",
-      "Malik asit"
+      "Malik asit",
+      "Sitrik asit"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Limon ve portakal gibi turunçgillerde bol bulunan asit hangisidir?",
     "options": [
-      "Asetik asit",
       "Sitrik asit",
+      "Okzalik asit",
       "Formik asit",
-      "Okzalik asit"
+      "Asetik asit"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Bir asit ile bazın tepkimesi sonucu tuz ve su oluşması hangi tür tepkimedir?",
     "options": [
-      "Yanma",
-      "Nötralleşme",
       "Çözünme",
+      "Nötralleşme",
+      "Yanma",
       "Yükseltgenme"
     ],
     "answer": 1
@@ -2774,48 +2774,48 @@ export default [
     "q": "Aşağıdaki elementlerden hangisi yer kabuğunda en bol bulunan metaldir?",
     "options": [
       "Demir",
+      "Sodyum",
       "Alüminyum",
-      "Kalsiyum",
-      "Sodyum"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Yer kabuğunda kütlece en bol bulunan element hangisidir?",
-    "options": [
-      "Silisyum",
-      "Oksijen",
-      "Alüminyum",
-      "Demir"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Metan gazının (CH4) bir molekülünde kaç hidrojen atomu bulunur?",
-    "options": [
-      "2",
-      "3",
-      "4",
-      "6"
+      "Kalsiyum"
     ],
     "answer": 2
   },
   {
-    "q": "Aşağıdakilerden hangisi bir bazdır?",
+    "q": "Yer kabuğunda kütlece en bol bulunan element hangisidir?",
     "options": [
-      "Sodyum hidroksit",
-      "Hidroklorik asit",
-      "Sülfürik asit",
-      "Karbonik asit"
+      "Oksijen",
+      "Silisyum",
+      "Alüminyum",
+      "Demir"
     ],
     "answer": 0
+  },
+  {
+    "q": "Metan gazının (CH4) bir molekülünde kaç hidrojen atomu bulunur?",
+    "options": [
+      "4",
+      "3",
+      "2",
+      "6"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Aşağıdakilerden hangisi bir bazdır?",
+    "options": [
+      "Karbonik asit",
+      "Sülfürik asit",
+      "Sodyum hidroksit",
+      "Hidroklorik asit"
+    ],
+    "answer": 2
   },
   {
     "q": "Cıvanın periyodik tablodaki simgesi aşağıdakilerden hangisidir?",
     "options": [
       "Hg",
-      "Mg",
       "Mn",
+      "Mg",
       "Hf"
     ],
     "answer": 0
@@ -2824,17 +2824,17 @@ export default [
     "q": "Altının periyodik tablodaki simgesi hangisidir?",
     "options": [
       "Ag",
-      "Au",
       "Al",
+      "Au",
       "Ar"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Fotosentez sırasında bitkiler havadan hangi gazı alır?",
     "options": [
-      "Oksijen",
       "Azot",
+      "Oksijen",
       "Karbondioksit",
       "Hidrojen"
     ],
@@ -2844,229 +2844,229 @@ export default [
     "q": "Aşağıdaki elementlerden hangisi yarı iletken olarak elektronik sanayisinde en çok kullanılır?",
     "options": [
       "Bakır",
-      "Silisyum",
+      "Gümüş",
       "Germanyum",
-      "Gümüş"
+      "Silisyum"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Alçının (alçıtaşı) temel bileşeni olan kalsiyum sülfat kaç mol su ile kristal yapısını oluşturur (jips)?",
     "options": [
       "1",
-      "2",
       "3",
+      "2",
       "5"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Güneş Sistemi'ndeki en yüksek volkan olan Olympus Mons hangi gezegende bulunur?",
     "options": [
-      "Venüs",
       "Mars",
-      "Merkür",
-      "Jüpiter"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "İnsanlı ilk Ay yürüyüşünü gerçekleştiren Apollo 11 görevi hangi yılda gerçekleşti?",
-    "options": [
-      "1967",
-      "1969",
-      "1971",
-      "1972"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Güneş'e en yakın gezegen olan Merkür'ün bir yıldönümü (yörünge süresi) kaç Dünya günüdür?",
-    "options": [
-      "88 gün",
-      "225 gün",
-      "365 gün",
-      "59 gün"
+      "Venüs",
+      "Jüpiter",
+      "Merkür"
     ],
     "answer": 0
   },
   {
+    "q": "İnsanlı ilk Ay yürüyüşünü gerçekleştiren Apollo 11 görevi hangi yılda gerçekleşti?",
+    "options": [
+      "1971",
+      "1972",
+      "1967",
+      "1969"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "Güneş'e en yakın gezegen olan Merkür'ün bir yıldönümü (yörünge süresi) kaç Dünya günüdür?",
+    "options": [
+      "59 gün",
+      "225 gün",
+      "365 gün",
+      "88 gün"
+    ],
+    "answer": 3
+  },
+  {
     "q": "Satürn'ün en büyük uydusu olan ve yoğun bir atmosfere sahip olan uydu hangisidir?",
     "options": [
+      "Mimas",
       "Enceladus",
-      "Titan",
       "Rhea",
-      "Mimas"
+      "Titan"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Voyager 1 uzay aracı hangi yılda fırlatıldı?",
     "options": [
       "1972",
+      "1969",
       "1977",
-      "1981",
-      "1969"
+      "1981"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Jüpiter'in Galileo tarafından keşfedilen dört büyük uydusundan volkanik olarak en aktif olanı hangisidir?",
     "options": [
-      "Europa",
+      "Callisto",
       "Ganymede",
       "Io",
-      "Callisto"
+      "Europa"
     ],
     "answer": 2
   },
   {
     "q": "Güneş Sistemi'ndeki en büyük uydu olan ve Merkür gezegeninden bile büyük olan uydu hangisidir?",
     "options": [
+      "Ay",
       "Titan",
       "Ganymede",
-      "Ay",
       "Triton"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "2015 yılında Plüton'u yakından geçerek görüntüleyen NASA uzay aracının adı nedir?",
     "options": [
-      "New Horizons",
+      "Dawn",
       "Cassini",
       "Juno",
-      "Dawn"
+      "New Horizons"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Bir yıldızın yaşamının sonunda çok büyük kütleye sahip olması durumunda oluşabilecek en yoğun cisim hangisidir?",
     "options": [
       "Beyaz cüce",
       "Nötron yıldızı",
-      "Kara delik",
-      "Kırmızı dev"
-    ],
-    "answer": 2
-  },
-  {
-    "q": "Güneş'e en yakın yıldız sistemi olan Alpha Centauri yaklaşık kaç ışık yılı uzaklıktadır?",
-    "options": [
-      "4,2 ışık yılı",
-      "8,6 ışık yılı",
-      "1,3 ışık yılı",
-      "11 ışık yılı"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Uzaya çıkan ilk insan olan Yuri Gagarin hangi uzay aracıyla yörüngeye ulaştı?",
-    "options": [
-      "Vostok 1",
-      "Mercury",
-      "Soyuz 1",
-      "Voskhod 1"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Venüs gezegeninin bir günü (kendi ekseni etrafında dönüşü) neden ilginçtir?",
-    "options": [
-      "Bir yılından daha uzundur",
-      "Yalnızca 10 saattir",
-      "Dünya ile aynıdır",
-      "Hiç dönmez"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Güneş Sistemi'nde halkalara sahip olan gezegenlerden biri OLMAYAN hangisidir?",
-    "options": [
-      "Satürn",
-      "Uranüs",
-      "Neptün",
-      "Mars"
+      "Kırmızı dev",
+      "Kara delik"
     ],
     "answer": 3
   },
   {
+    "q": "Güneş'e en yakın yıldız sistemi olan Alpha Centauri yaklaşık kaç ışık yılı uzaklıktadır?",
+    "options": [
+      "11 ışık yılı",
+      "4,2 ışık yılı",
+      "8,6 ışık yılı",
+      "1,3 ışık yılı"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Uzaya çıkan ilk insan olan Yuri Gagarin hangi uzay aracıyla yörüngeye ulaştı?",
+    "options": [
+      "Voskhod 1",
+      "Soyuz 1",
+      "Vostok 1",
+      "Mercury"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "Venüs gezegeninin bir günü (kendi ekseni etrafında dönüşü) neden ilginçtir?",
+    "options": [
+      "Yalnızca 10 saattir",
+      "Bir yılından daha uzundur",
+      "Hiç dönmez",
+      "Dünya ile aynıdır"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Güneş Sistemi'nde halkalara sahip olan gezegenlerden biri OLMAYAN hangisidir?",
+    "options": [
+      "Uranüs",
+      "Mars",
+      "Satürn",
+      "Neptün"
+    ],
+    "answer": 1
+  },
+  {
     "q": "Uranüs'ün ekseninin yaklaşık 98 derece eğik olması nedeniyle gezegenin özelliği nedir?",
     "options": [
+      "En hızlı dönen gezegendir",
       "Yan yatmış şekilde döner",
-      "Ters döner",
       "Hiç mevsimi yoktur",
-      "En hızlı dönen gezegendir"
+      "Ters döner"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Mars'a 2021 yılında iniş yapan ve Ingenuity helikopterini taşıyan NASA gezginin (rover) adı nedir?",
     "options": [
       "Curiosity",
-      "Perseverance",
       "Opportunity",
-      "Spirit"
+      "Spirit",
+      "Perseverance"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Güneş'in yüzey sıcaklığı yaklaşık kaç derece Kelvin'dir?",
     "options": [
-      "5.800 K",
-      "15.000 K",
+      "100.000 K",
       "1.000 K",
-      "100.000 K"
+      "5.800 K",
+      "15.000 K"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Bir yıldızın parlaklığını ve sıcaklığını gösteren, gökbilimde temel olan diyagramın adı nedir?",
     "options": [
-      "Hertzsprung-Russell diyagramı",
-      "Hubble diyagramı",
       "Kepler diyagramı",
-      "Doppler diyagramı"
+      "Hertzsprung-Russell diyagramı",
+      "Doppler diyagramı",
+      "Hubble diyagramı"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Jüpiter'in yüzeyinde yüzyıllardır süren dev fırtına olarak bilinen yapı nedir?",
     "options": [
+      "Kutup Kasırgası",
       "Büyük Kırmızı Leke",
       "Kara Leke",
-      "Beyaz Oval",
-      "Kutup Kasırgası"
+      "Beyaz Oval"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Uzayda ilk yapay uydu olan Sputnik 1 hangi yılda fırlatıldı?",
     "options": [
       "1955",
-      "1957",
+      "1959",
       "1961",
-      "1959"
+      "1957"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Güneş Sistemi'ndeki en büyük asteroit ve aynı zamanda cüce gezegen sayılan cisim hangisidir?",
     "options": [
-      "Vesta",
       "Ceres",
-      "Pallas",
-      "Hygiea"
+      "Vesta",
+      "Hygiea",
+      "Pallas"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Neptün'ün 1846'daki keşfi öncesinde varlığı hangi yöntemle öngörülmüştü?",
     "options": [
       "Uranüs'ün yörüngesindeki sapmalar",
       "Teleskopla doğrudan gözlem",
-      "Radyo sinyalleri",
-      "Meteor yağmurları"
+      "Meteor yağmurları",
+      "Radyo sinyalleri"
     ],
     "answer": 0
   },
@@ -3074,257 +3074,257 @@ export default [
     "q": "James Webb Uzay Teleskobu esas olarak elektromanyetik spektrumun hangi bölgesinde gözlem yapar?",
     "options": [
       "Kızılötesi",
+      "Radyo",
       "Morötesi",
-      "X-ışını",
-      "Radyo"
+      "X-ışını"
     ],
     "answer": 0
   },
   {
     "q": "Satürn'ün Enceladus uydusu neden astrobiyoloji açısından ilgi çeker?",
     "options": [
-      "Buz altında sıvı su okyanusu barındırır",
-      "Yüzeyinde yaşam bulunmuştur",
+      "Volkanik lav püskürtür",
       "Atmosferi oksijen içerir",
-      "Volkanik lav püskürtür"
+      "Buz altında sıvı su okyanusu barındırır",
+      "Yüzeyinde yaşam bulunmuştur"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Uluslararası Uzay İstasyonu (ISS) Dünya çevresindeki bir turunu yaklaşık kaç dakikada tamamlar?",
     "options": [
-      "90 dakika",
-      "24 saat",
+      "45 dakika",
       "12 saat",
-      "45 dakika"
+      "24 saat",
+      "90 dakika"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Bir yıldızın patlamayla parlaklığının aniden çok artması olayına ne ad verilir?",
     "options": [
-      "Süpernova",
       "Nova cücesi",
       "Pulsar",
-      "Kuasar"
+      "Kuasar",
+      "Süpernova"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Halley kuyruklu yıldızı yaklaşık kaç yılda bir Güneş'e yaklaşır?",
     "options": [
-      "76 yıl",
-      "50 yıl",
       "100 yıl",
-      "200 yıl"
+      "50 yıl",
+      "200 yıl",
+      "76 yıl"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Mars'ın iki küçük uydusundan büyük olanının adı nedir?",
     "options": [
-      "Deimos",
       "Phobos",
       "Triton",
+      "Deimos",
       "Charon"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Güneş Sistemi'nin dışına gönderilen ve 2012'de yıldızlararası uzaya giren ilk insan yapımı nesne hangisidir?",
     "options": [
-      "Voyager 2",
-      "Voyager 1",
       "Pioneer 10",
-      "New Horizons"
+      "New Horizons",
+      "Voyager 1",
+      "Voyager 2"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Plüton'un en büyük uydusu olan ve Plüton'a oranla oldukça büyük olan uydu hangisidir?",
     "options": [
-      "Charon",
-      "Nix",
       "Hydra",
-      "Styx"
+      "Styx",
+      "Charon",
+      "Nix"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Güneş'ten sonra Dünya'ya en yakın yıldız olan Proxima Centauri hangi renk sınıfına aittir?",
     "options": [
-      "Kırmızı cüce",
-      "Sarı cüce",
       "Mavi dev",
-      "Beyaz cüce"
+      "Sarı cüce",
+      "Beyaz cüce",
+      "Kırmızı cüce"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "İlk uzay yürüyüşünü (EVA) 1965'te gerçekleştiren kozmonot kimdir?",
     "options": [
-      "Yuri Gagarin",
-      "Aleksey Leonov",
       "German Titov",
-      "Valentina Tereşkova"
+      "Valentina Tereşkova",
+      "Yuri Gagarin",
+      "Aleksey Leonov"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Uzaya giden ilk kadın olan Valentina Tereşkova hangi ülkenin vatandaşıydı?",
     "options": [
-      "ABD",
+      "Çin",
       "Sovyetler Birliği",
-      "Fransa",
-      "Çin"
+      "ABD",
+      "Fransa"
     ],
     "answer": 1
   },
   {
     "q": "Güneş Sistemi'nde en hızlı rüzgarlara sahip gezegen hangisidir?",
     "options": [
-      "Jüpiter",
       "Neptün",
       "Satürn",
-      "Mars"
+      "Mars",
+      "Jüpiter"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Cassini uzay aracı hangi gezegeni ve uydularını yıllarca inceledi?",
     "options": [
+      "Neptün",
       "Jüpiter",
       "Satürn",
-      "Uranüs",
-      "Neptün"
+      "Uranüs"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Bir gezegenin, yıldızının önünden geçerken yıldız ışığında oluşturduğu hafif azalmayı ölçen ötegezegen bulma yöntemi hangisidir?",
     "options": [
       "Geçiş (transit) yöntemi",
-      "Dopler kayması yöntemi",
       "Doğrudan görüntüleme",
-      "Radyometri"
+      "Radyometri",
+      "Dopler kayması yöntemi"
     ],
     "answer": 0
   },
   {
     "q": "NASA'nın ötegezegen avlamak için 2009'da fırlattığı uzay teleskobunun adı nedir?",
     "options": [
-      "Kepler",
+      "Chandra",
       "Hubble",
       "Spitzer",
-      "Chandra"
+      "Kepler"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Güneş'in çekirdeğinde enerji üreten temel süreç nedir?",
     "options": [
+      "Kimyasal yanma",
       "Nükleer füzyon",
       "Nükleer fisyon",
-      "Kimyasal yanma",
       "Radyoaktif bozunma"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Ay'ın Dünya'ya her zaman aynı yüzünü göstermesinin nedeni nedir?",
     "options": [
-      "Eşzamanlı (gelgitsel) dönme",
       "Ay'ın hiç dönmemesi",
+      "Güneş ışığı",
       "Dünya'nın çekim yokluğu",
-      "Güneş ışığı"
+      "Eşzamanlı (gelgitsel) dönme"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Çin'in 2019'da Ay'ın uzak (görünmeyen) yüzüne iniş yapan uzay aracının adı nedir?",
     "options": [
-      "Chang'e 4",
-      "Yutu",
       "Tianwen",
-      "Shenzhou"
+      "Shenzhou",
+      "Yutu",
+      "Chang'e 4"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Samanyolu galaksisinin merkezinde bulunan süper kütleli kara deliğin adı nedir?",
     "options": [
-      "Sagittarius A*",
-      "Cygnus X-1",
+      "Andromeda A",
       "M87*",
-      "Andromeda A"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Bir yıldızdan gelen ışığın kırmızıya kayması, o yıldızın veya galaksinin bize göre nasıl hareket ettiğini gösterir?",
-    "options": [
-      "Bizden uzaklaşıyor",
-      "Bize yaklaşıyor",
-      "Sabit duruyor",
-      "Bize dik hareket ediyor"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Bir düzgün beşgenin (regüler pentagon) her bir iç açısı kaç derecedir?",
-    "options": [
-      "108",
-      "120",
-      "135",
-      "144"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Bir dışbükey çokgenin iç açıları toplamı 1440 derece ise bu çokgen kaç kenarlıdır?",
-    "options": [
-      "8",
-      "9",
-      "10",
-      "12"
+      "Sagittarius A*",
+      "Cygnus X-1"
     ],
     "answer": 2
   },
   {
-    "q": "Altın oran (φ) sayısının yaklaşık değeri aşağıdakilerden hangisidir?",
+    "q": "Bir yıldızdan gelen ışığın kırmızıya kayması, o yıldızın veya galaksinin bize göre nasıl hareket ettiğini gösterir?",
     "options": [
-      "1,414",
-      "1,618",
-      "2,718",
-      "3,142"
+      "Bize yaklaşıyor",
+      "Sabit duruyor",
+      "Bize dik hareket ediyor",
+      "Bizden uzaklaşıyor"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
-    "q": "Bir kürenin hacim formülü aşağıdakilerden hangisidir?",
+    "q": "Bir düzgün beşgenin (regüler pentagon) her bir iç açısı kaç derecedir?",
     "options": [
-      "(4/3)πr³",
-      "4πr²",
-      "πr²h",
-      "(1/3)πr²h"
+      "144",
+      "120",
+      "135",
+      "108"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "Bir dışbükey çokgenin iç açıları toplamı 1440 derece ise bu çokgen kaç kenarlıdır?",
+    "options": [
+      "12",
+      "9",
+      "8",
+      "10"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "Altın oran (φ) sayısının yaklaşık değeri aşağıdakilerden hangisidir?",
+    "options": [
+      "1,618",
+      "1,414",
+      "3,142",
+      "2,718"
     ],
     "answer": 0
   },
   {
+    "q": "Bir kürenin hacim formülü aşağıdakilerden hangisidir?",
+    "options": [
+      "πr²h",
+      "(1/3)πr²h",
+      "4πr²",
+      "(4/3)πr³"
+    ],
+    "answer": 3
+  },
+  {
     "q": "Kenar uzunlukları 5, 12 ve 13 olan üçgen ne tür bir üçgendir?",
     "options": [
-      "Dar açılı",
-      "Dik açılı",
       "Geniş açılı",
-      "Eşkenar"
+      "Dar açılı",
+      "Eşkenar",
+      "Dik açılı"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Faktöriyel 6! (6 faktöriyel) kaçtır?",
     "options": [
-      "120",
       "360",
+      "120",
       "720",
       "5040"
     ],
@@ -3333,199 +3333,199 @@ export default [
   {
     "q": "Bir düzgün on iki kenarlı çokgenin (dodecagon) bir dış açısı kaç derecedir?",
     "options": [
-      "24",
+      "45",
       "30",
-      "36",
-      "45"
+      "24",
+      "36"
     ],
     "answer": 1
   },
   {
     "q": "'Palindrom' özelliği taşıyan sayı aşağıdakilerden hangisidir?",
     "options": [
-      "1234",
       "1221",
-      "1230",
-      "2013"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "En küçük mükemmel (perfect) sayı hangisidir? (Kendi öz bölenlerinin toplamına eşit olan)",
-    "options": [
-      "4",
-      "6",
-      "8",
-      "12"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Pi sayısının ondalık açılımında virgülden sonraki ilk üç basamak nedir?",
-    "options": [
-      "141",
-      "142",
-      "149",
-      "151"
+      "1234",
+      "2013",
+      "1230"
     ],
     "answer": 0
   },
   {
+    "q": "En küçük mükemmel (perfect) sayı hangisidir? (Kendi öz bölenlerinin toplamına eşit olan)",
+    "options": [
+      "8",
+      "12",
+      "4",
+      "6"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "Pi sayısının ondalık açılımında virgülden sonraki ilk üç basamak nedir?",
+    "options": [
+      "142",
+      "149",
+      "151",
+      "141"
+    ],
+    "answer": 3
+  },
+  {
     "q": "Bir sayının 3'e bölünebilmesi için hangi koşul sağlanmalıdır?",
     "options": [
-      "Son basamağı 3 olmalı",
-      "Rakamları toplamı 3'e bölünebilmeli",
+      "Son iki basamağı 3'e bölünebilmeli",
       "Çift olmalı",
-      "Son iki basamağı 3'e bölünebilmeli"
+      "Son basamağı 3 olmalı",
+      "Rakamları toplamı 3'e bölünebilmeli"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Yarıçapı r olan bir dairenin çevresi 2πr ise, çapı 10 cm olan dairenin çevresi yaklaşık kaç cm'dir?",
     "options": [
       "15,7",
-      "31,4",
       "62,8",
+      "31,4",
       "78,5"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Fibonacci dizisinde 8'den sonra gelen sayı hangisidir? (1,1,2,3,5,8,...)",
     "options": [
-      "11",
       "12",
       "13",
+      "11",
       "15"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Bir düzgün sekizgenin (oktagon) iç açıları toplamı kaç derecedir?",
     "options": [
       "900",
-      "1080",
       "1260",
-      "1440"
+      "1440",
+      "1080"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "'Sıfır' sayısını ilk kez sistematik olarak bir sayı olarak kullanan ve sıfır üzerine kurallar yazan matematikçi kimdir?",
     "options": [
-      "Öklid",
       "Brahmagupta",
       "Pisagor",
+      "Öklid",
       "Arşimet"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "27 sayısının küpkökü kaçtır?",
     "options": [
-      "3",
-      "6",
       "9",
-      "13,5"
+      "3",
+      "13,5",
+      "6"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Bir eşkenar üçgenin alanı formülünde kenar a ise alan aşağıdakilerden hangisidir?",
     "options": [
-      "(a²√3)/4",
-      "(a²√2)/4",
+      "(a²√3)/2",
       "a²/2",
-      "(a²√3)/2"
+      "(a²√2)/4",
+      "(a²√3)/4"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "100'den küçük kaç tane asal sayı vardır?",
     "options": [
+      "27",
       "23",
       "25",
-      "27",
       "29"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "İkili (binary) sayı sisteminde 1010 sayısının ondalık (decimal) karşılığı kaçtır?",
     "options": [
-      "8",
-      "10",
+      "20",
       "12",
-      "20"
+      "8",
+      "10"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Bir sayının 9'a bölünebilmesi için rakamları toplamı hangi sayıya bölünebilmelidir?",
     "options": [
       "3",
+      "11",
       "6",
-      "9",
-      "11"
+      "9"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Kenar uzunluğu 4 cm olan bir küpün hacmi kaç santimetreküptür?",
     "options": [
       "16",
-      "48",
       "64",
+      "48",
       "256"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Öklid, kaç tane 'düzgün çok yüzlü' (Platonik cisim) olduğunu göstermiştir?",
     "options": [
-      "3",
+      "6",
       "4",
-      "5",
-      "6"
+      "3",
+      "5"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Bir açının tümleyeni (tümler açısı) o açı ile toplandığında kaç derece eder?",
     "options": [
-      "90",
-      "180",
       "270",
-      "360"
+      "360",
+      "180",
+      "90"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "144 sayısının karekökü kaçtır?",
     "options": [
-      "11",
       "12",
+      "11",
       "13",
       "14"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Bir düzgün altıgenin (hexagon) bir iç açısı kaç derecedir?",
     "options": [
-      "108",
       "120",
-      "135",
-      "144"
+      "108",
+      "144",
+      "135"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "İki sayının EBOB'u (en büyük ortak bölen) 12, EKOK'u (en küçük ortak kat) 72 ise, sayıların çarpımı kaçtır?",
     "options": [
-      "600",
       "720",
       "840",
+      "600",
       "864"
     ],
     "answer": 3
@@ -3533,40 +3533,40 @@ export default [
   {
     "q": "Bir çemberde merkez açı, aynı yayı gören çevre açının kaç katıdır?",
     "options": [
+      "İki katı",
       "Yarısı",
       "Eşiti",
-      "İki katı",
       "Üç katı"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "'Asal ikizler' (twin primes) 11 ve 13 örneğinde olduğu gibi aralarındaki fark kaçtır?",
     "options": [
-      "1",
+      "4",
       "2",
-      "3",
-      "4"
+      "1",
+      "3"
     ],
     "answer": 1
   },
   {
     "q": "Roma rakamı 'CD' hangi sayıyı ifade eder?",
     "options": [
-      "400",
       "600",
       "1400",
+      "400",
       "900"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Bir üçgenin ağırlık merkezi, kenarortayları hangi oranda böler? (Köşeden itibaren)",
     "options": [
       "1:1",
       "2:1",
-      "3:1",
-      "3:2"
+      "3:2",
+      "3:1"
     ],
     "answer": 1
   },
@@ -3574,39 +3574,39 @@ export default [
     "q": "Bir sayının %25'i 50 ise, o sayının %10'u kaçtır?",
     "options": [
       "10",
-      "15",
       "20",
-      "25"
+      "25",
+      "15"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Düzlemde bir noktadan geçen ve bir doğruya paralel yalnız bir doğru çizilebileceğini söyleyen aksiyom kime aittir?",
     "options": [
       "Pisagor",
-      "Öklid",
       "Thales",
-      "Descartes"
+      "Descartes",
+      "Öklid"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Yarıçapı 6 cm olan bir dairenin alanı yaklaşık kaç santimetrekaredir? (π≈3,14)",
     "options": [
       "37,68",
-      "113,04",
+      "452,16",
       "150,72",
-      "452,16"
+      "113,04"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Bir dik koninin hacmi, aynı taban ve yüksekliğe sahip silindirin hacminin kaçta kaçıdır?",
     "options": [
-      "1/2",
-      "1/3",
       "1/4",
-      "2/3"
+      "1/3",
+      "2/3",
+      "1/2"
     ],
     "answer": 1
   },
@@ -3614,10 +3614,10 @@ export default [
     "q": "'Mersenne asalı' 2^n - 1 biçimindedir. n=5 için elde edilen Mersenne asalı kaçtır?",
     "options": [
       "15",
-      "31",
       "63",
-      "127"
+      "127",
+      "31"
     ],
-    "answer": 1
+    "answer": 3
   }
 ];

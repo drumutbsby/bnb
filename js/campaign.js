@@ -126,11 +126,11 @@ const IMG = {
     <polygon points="150,124 196,74 240,124" fill="#7f93b0"/>
     <polygon points="128,54 140,34 153,56 145,60 140,52 135,60" fill="#fff"/>
   </svg>`,
-  clock3: `<svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Saat">
+  clock3: `<svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Saat üçü gösteriyor">
     <rect width="240" height="140" fill="#f2f4f8"/>
     <circle cx="120" cy="70" r="48" fill="#fff" stroke="#2b2540" stroke-width="4"/>
-    <line x1="120" y1="70" x2="120" y2="38" stroke="#2b2540" stroke-width="4"/>
-    <line x1="120" y1="70" x2="156" y2="70" stroke="#2b2540" stroke-width="4"/>
+    <line x1="120" y1="70" x2="120" y2="30" stroke="#2b2540" stroke-width="4"/>
+    <line x1="120" y1="70" x2="150" y2="70" stroke="#2b2540" stroke-width="5"/>
     <circle cx="120" cy="70" r="4" fill="#2b2540"/>
   </svg>`,
   romanColumns: `<svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sütunlar">

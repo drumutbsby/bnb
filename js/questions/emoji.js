@@ -2,187 +2,187 @@
 export default [
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
-    "visual": "🦁👑",
     "options": [
-      "Tarzan",
       "Aslan Kral",
+      "Tarzan",
       "Madagaskar",
       "Jungle Book"
     ],
-    "answer": 1
+    "answer": 0,
+    "visual": "🦁👑"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
-    "visual": "❄️⛄👸",
     "options": [
-      "Sindirella",
-      "Karlar Ülkesi",
       "Buz Devri",
+      "Karlar Ülkesi",
+      "Sindirella",
       "Rapunzel"
     ],
-    "answer": 1
+    "answer": 1,
+    "visual": "❄️⛄👸"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
-    "visual": "🚢🧊💔",
     "options": [
-      "Titanic",
       "Deniz Feneri",
+      "Titanic",
       "Kutup Ekspresi",
       "Kaptan Phillips"
     ],
-    "answer": 0
+    "answer": 1,
+    "visual": "🚢🧊💔"
   },
   {
     "q": "Bu emojiler hangi süper kahramanı anlatıyor?",
-    "visual": "🕷️🧑",
     "options": [
-      "Batman",
-      "Örümcek Adam",
       "Süpermen",
-      "Kaptan Amerika"
+      "Batman",
+      "Kaptan Amerika",
+      "Örümcek Adam"
     ],
-    "answer": 1
+    "answer": 3,
+    "visual": "🕷️🧑"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
-    "visual": "🦖🏞️",
     "options": [
       "Kong",
-      "Jurassic Park",
+      "Avatar",
       "Godzilla",
-      "Avatar"
+      "Jurassic Park"
     ],
-    "answer": 1
+    "answer": 3,
+    "visual": "🦖🏞️"
   },
   {
     "q": "Bu emojiler hangi seriyi anlatıyor?",
-    "visual": "🧙‍♂️⚡🤓",
     "options": [
+      "Narnia",
       "Yüzüklerin Efendisi",
       "Harry Potter",
-      "Narnia",
       "Percy Jackson"
     ],
-    "answer": 1
+    "answer": 2,
+    "visual": "🧙‍♂️⚡🤓"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
-    "visual": "🐠🔍",
     "options": [
-      "Deniz Filmi",
-      "Kayıp Balık Nemo",
       "Küçük Deniz Kızı",
+      "Kayıp Balık Nemo",
+      "Deniz Filmi",
       "Shark Tale"
     ],
-    "answer": 1
+    "answer": 1,
+    "visual": "🐠🔍"
   },
   {
     "q": "Bu emojiler hangi süper kahramanı anlatıyor?",
-    "visual": "🦇🦸",
     "options": [
-      "Batman",
-      "Kara Şahin",
+      "Kanatlı Adam",
       "Örümcek Adam",
-      "Kanatlı Adam"
+      "Kara Şahin",
+      "Batman"
     ],
-    "answer": 0
+    "answer": 3,
+    "visual": "🦇🦸"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
-    "visual": "👽📞🏠",
     "options": [
-      "Uzaylılar",
       "E.T.",
       "İstila",
-      "Süpernova"
+      "Süpernova",
+      "Uzaylılar"
     ],
-    "answer": 1
+    "answer": 0,
+    "visual": "👽📞🏠"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
-    "visual": "🧞‍♂️🪔",
     "options": [
       "Sinbad",
-      "Alaaddin",
+      "Pinokyo",
       "Herkül",
-      "Pinokyo"
+      "Alaaddin"
     ],
-    "answer": 1
+    "answer": 3,
+    "visual": "🧞‍♂️🪔"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
-    "visual": "🍫🏭",
     "options": [
-      "Şeker Dünyası",
       "Charlie'nin Çikolata Fabrikası",
-      "Ratatouille",
-      "Şirinler"
+      "Şirinler",
+      "Şeker Dünyası",
+      "Ratatouille"
     ],
-    "answer": 1
+    "answer": 0,
+    "visual": "🍫🏭"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
-    "visual": "🤖🚮🌍",
     "options": [
       "Transformers",
-      "WALL-E",
       "Terminatör",
+      "WALL-E",
       "Big Hero 6"
     ],
-    "answer": 1
+    "answer": 2,
+    "visual": "🤖🚮🌍"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
       "Batman",
-      "Örümcek Adam",
       "Karınca Adam",
+      "Örümcek Adam",
       "Kara Şimşek"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🕷️👦"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
       "Poseidon",
-      "Titanik",
       "Kutup Ekspresi",
+      "Titanik",
       "Su Dünyası"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🚢🧊💔"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Transformers",
-      "WALL-E",
       "Terminatör",
-      "Ben Robot"
+      "Ben Robot",
+      "WALL-E",
+      "Transformers"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🤖❤️🌱"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Casper",
       "Hayalet Avcıları",
+      "Beetlejuice",
       "Altıncı His",
-      "Beetlejuice"
+      "Casper"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "👻🚫"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Kong",
+      "Dinozor",
       "Jurassic Park",
-      "Godzilla",
-      "Dinozor"
+      "Kong",
+      "Godzilla"
     ],
     "answer": 1,
     "visual": "🦖🏝️"
@@ -190,12 +190,12 @@ export default [
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Hobbit",
-      "Yüzüklerin Efendisi",
+      "Narnia",
       "Harry Potter",
-      "Narnia"
+      "Hobbit",
+      "Yüzüklerin Efendisi"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "💍🌋"
   },
   {
@@ -212,23 +212,23 @@ export default [
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
+      "Aquaman",
       "Örümcek Adam",
-      "Kara Şövalye",
       "Süpermen",
-      "Aquaman"
+      "Kara Şövalye"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🃏🦇"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
+      "Buz Devri",
       "Karlar Ülkesi",
       "Cinderella",
-      "Buz Devri",
       "Pamuk Prenses"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "❄️👸"
   },
   {
@@ -246,9 +246,9 @@ export default [
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
       "Yukarı Bak",
-      "Balon",
+      "Uçan Ev",
       "Cennet",
-      "Uçan Ev"
+      "Balon"
     ],
     "answer": 0,
     "visual": "🏠🎈"
@@ -257,11 +257,11 @@ export default [
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
       "Denizler Altında",
-      "Jaws (Denizin Dişleri)",
       "Meg",
+      "Jaws (Denizin Dişleri)",
       "Kutup"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🦈🌊😱"
   },
   {
@@ -278,9 +278,9 @@ export default [
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Paddington",
-      "Winnie the Pooh",
       "Ted",
+      "Winnie the Pooh",
+      "Paddington",
       "Ayı Kardeş"
     ],
     "answer": 1,
@@ -301,42 +301,42 @@ export default [
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
       "Buzz",
-      "Oyuncak Hikayesi",
       "Astronot",
-      "Uzay Kovboyu"
+      "Uzay Kovboyu",
+      "Oyuncak Hikayesi"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🤠🚀"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
       "Vızıltı",
-      "Arı Filmi",
       "Böcek Hayatı",
-      "Antz"
+      "Antz",
+      "Arı Filmi"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🐝🎬"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Matrix",
+      "Blade",
       "Inception",
-      "John Wick",
-      "Blade"
+      "Matrix",
+      "John Wick"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "🔴💊🕶️"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
       "Kung Fu Panda",
-      "Karate Kid",
+      "Ejderha",
       "Panda",
-      "Ejderha"
+      "Karate Kid"
     ],
     "answer": 0,
     "visual": "🐼🥋"
@@ -344,45 +344,45 @@ export default [
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Peter Rabbit",
-      "Alice Harikalar Diyarında",
+      "Sihirbaz",
       "Zootropolis",
-      "Sihirbaz"
+      "Peter Rabbit",
+      "Alice Harikalar Diyarında"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🎩🐰⏰"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Yorumlanış (Arrival)",
       "İşaretler (Signs)",
+      "Sinyaller",
       "Yakın Karşılaşmalar",
-      "Sinyaller"
+      "Yorumlanış (Arrival)"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🌀🌽👽"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Cadılar",
-      "O (IT)",
       "Korku Seansı",
-      "Anabelle"
+      "Anabelle",
+      "O (IT)",
+      "Cadılar"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🐀🎈🤡"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
+      "Nightcrawler",
       "Drive",
       "Taksi Şoförü",
-      "Collateral",
-      "Nightcrawler"
+      "Collateral"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🚕👨‍🦱🌃"
   },
   {
@@ -399,108 +399,108 @@ export default [
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
+      "Küçük Deniz Kızı",
       "Prenses ve Kurbağa",
       "Şrek",
-      "Küçük Deniz Kızı",
       "Kurbağa Prens"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "🤴🐸"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Zombie Ekspresi (Busan'a Son Tren)",
       "Yarımada",
       "Zombieland",
-      "28 Hafta Sonra"
+      "28 Hafta Sonra",
+      "Zombie Ekspresi (Busan'a Son Tren)"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🧟🏃🇰🇷"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Pikseller",
-      "Wreck-It Ralph",
       "Ready Player One",
-      "Tron"
+      "Tron",
+      "Wreck-It Ralph",
+      "Pikseller"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🕹️👾🏰"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Kayıp Balık Nemo",
       "Kayıp Balık Dory",
       "Denizler Altında",
-      "Aquaman"
+      "Aquaman",
+      "Kayıp Balık Nemo"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🐟🐠🌊🔵"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Interstellar",
       "Marslı (The Martian)",
       "Gravity",
+      "Interstellar",
       "Ad Astra"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "👨‍🚀🥔🔴"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Toy Story",
-      "Ted",
+      "Chucky",
       "Paddington",
-      "Chucky"
+      "Ted",
+      "Toy Story"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🧸🗣️"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
+      "Green Lantern",
       "Hulk",
       "Thor",
-      "Aquaman",
-      "Green Lantern"
+      "Aquaman"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "🦸‍♂️🟢😤"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Kong: Kafatası Adası",
-      "King Kong",
+      "Rampage",
       "Godzilla",
-      "Rampage"
+      "King Kong",
+      "Kong: Kafatası Adası"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🏙️🦍✈️"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Joker",
       "O (IT)",
+      "Joker",
       "Sivri Sakallı",
       "Cinayet Gecesi"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🤡🎈🔪"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Kong",
-      "Maymunlar Cehennemi",
       "Tarzan",
+      "Maymunlar Cehennemi",
+      "Kong",
       "George"
     ],
     "answer": 1,
@@ -509,56 +509,56 @@ export default [
   {
     "q": "Bu emojiler hangi çizgi filmi anlatıyor?",
     "options": [
-      "SpongeBob SquarePants",
-      "Küçük Deniz Kızı",
+      "Kayıp Balık",
       "Nemo'yu Bulmak",
-      "Kayıp Balık"
+      "SpongeBob SquarePants",
+      "Küçük Deniz Kızı"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "🧽🍍🌊"
   },
   {
     "q": "Bu emojiler hangi çizgi filmi anlatıyor?",
     "options": [
       "Family Guy",
+      "Bob's Burgers",
       "The Simpsons",
-      "American Dad",
-      "Bob's Burgers"
+      "American Dad"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "👨‍👩‍👦🍩💛"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "Vikingler",
-      "Game of Thrones",
+      "Merlin",
       "The Witcher",
-      "Merlin"
+      "Vikingler",
+      "Game of Thrones"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "👑🐉❄️"
   },
   {
     "q": "Bu emojiler hangi çizgi filmi anlatıyor?",
     "options": [
+      "Ratatouille",
       "Tom ve Jerry",
       "Mickey Mouse",
-      "Stuart Little",
-      "Ratatouille"
+      "Stuart Little"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🐭🏰🎡"
   },
   {
     "q": "Bu emojiler hangi çizgi film ikilisini anlatıyor?",
     "options": [
-      "Sylvester ve Tweety",
-      "Tom ve Jerry",
       "Pinky ve Beyin",
-      "Itchy ve Scratchy"
+      "Itchy ve Scratchy",
+      "Sylvester ve Tweety",
+      "Tom ve Jerry"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🐱🐭🏃"
   },
   {
@@ -576,11 +576,11 @@ export default [
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
       "The X-Files",
-      "Stranger Things",
       "Dark",
-      "Fringe"
+      "Fringe",
+      "Stranger Things"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "👽🚲🌲"
   },
   {
@@ -597,177 +597,177 @@ export default [
   {
     "q": "Bu emojiler hangi çizgi filmi anlatıyor?",
     "options": [
-      "Pluto",
       "Scooby-Doo",
       "101 Dalmaçyalı",
-      "Rex"
+      "Rex",
+      "Pluto"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🐶🕵️🦴"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "How I Met Your Mother",
-      "Friends",
       "Seinfeld",
-      "The Big Bang Theory"
+      "How I Met Your Mother",
+      "The Big Bang Theory",
+      "Friends"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "☕🛋️👥"
   },
   {
     "q": "Bu emojiler hangi çizgi filmi anlatıyor?",
     "options": [
+      "Masha ile Koca Ayı",
       "Paddington",
       "Winnie the Pooh",
-      "Yogi Ayı",
-      "Masha ile Koca Ayı"
+      "Yogi Ayı"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "💛🐻🍯"
   },
   {
     "q": "Bu emojiler hangi çizgi filmi anlatıyor?",
     "options": [
-      "Heidi",
       "Masha ile Koca Ayı",
-      "Pippi",
-      "Alice"
+      "Alice",
+      "Heidi",
+      "Pippi"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "👧🐻🌲"
   },
   {
     "q": "Bu emojiler hangi çizgi filmi anlatıyor?",
     "options": [
-      "Peter Rabbit",
       "Bugs Bunny",
       "Roger Rabbit",
+      "Peter Rabbit",
       "Sevimli Tavşan"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🐰🥕🔫"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "The Walking Dead",
-      "Z Nation",
       "Black Summer",
-      "Kingdom"
+      "Z Nation",
+      "Kingdom",
+      "The Walking Dead"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🧟🔫🚶"
   },
   {
     "q": "Bu emojiler hangi çizgi filmi anlatıyor?",
     "options": [
-      "Kaptan Tsubasa",
       "Inazuma Eleven",
-      "Blue Lock",
-      "Shoot"
+      "Shoot",
+      "Kaptan Tsubasa",
+      "Blue Lock"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "⚽👦🇯🇵"
   },
   {
     "q": "Bu emojiler hangi çizgi filmi anlatıyor?",
     "options": [
-      "Astro Boy",
       "Doraemon",
       "Mega Man",
-      "Chi"
+      "Chi",
+      "Astro Boy"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🤖🐱🔵"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "Suits",
-      "Mad Men",
+      "Billions",
       "Better Call Saul",
-      "Billions"
+      "Suits",
+      "Mad Men"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "👔💼📞"
   },
   {
     "q": "Bu emojiler hangi çizgi filmi anlatıyor?",
     "options": [
-      "Kayıp Balık Nemo",
-      "Denizler Altında",
+      "Küçük Deniz Kızı",
       "Shark Tale",
-      "Küçük Deniz Kızı"
+      "Denizler Altında",
+      "Kayıp Balık Nemo"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🐟🐠🌊🔍"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "The Crown",
-      "Victoria",
       "Bridgerton",
-      "Reign"
+      "Reign",
+      "The Crown",
+      "Victoria"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "👑🇬🇧👸"
   },
   {
     "q": "Bu emojiler hangi çizgi film karakterini anlatıyor?",
     "options": [
-      "Jerry",
       "Pikaçu",
+      "Speedy Gonzales",
       "Mighty Mouse",
-      "Speedy Gonzales"
+      "Jerry"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "⚡🐭🔴"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "Lost",
-      "Survivor",
       "The Wilds",
-      "Yellowjackets"
+      "Survivor",
+      "Yellowjackets",
+      "Lost"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🏝️✈️💥"
   },
   {
     "q": "Bu emojiler hangi çizgi filmi anlatıyor?",
     "options": [
+      "Dövüşçü Panda",
       "Kunfu Panda",
       "Panda Kaju",
-      "Po'nun Maceraları",
-      "Dövüşçü Panda"
+      "Po'nun Maceraları"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "🐼🥋🥢"
   },
   {
     "q": "Bu emojiler hangi çizgi filmi anlatıyor?",
     "options": [
-      "Turbo",
-      "Şimşek McQueen (Cars)",
       "Hız Tutkunu",
-      "Wacky Races"
+      "Wacky Races",
+      "Şimşek McQueen (Cars)",
+      "Turbo"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🚗🏁👀"
   },
   {
     "q": "Bu emojiler hangi çizgi filmi anlatıyor?",
     "options": [
-      "Ratatouille",
-      "Nemo",
       "Kayıp Fare",
-      "Şef Fare"
+      "Şef Fare",
+      "Ratatouille",
+      "Nemo"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "👨‍🍳🐭🍜"
   },
   {
@@ -775,43 +775,43 @@ export default [
     "options": [
       "Dinozor Treni",
       "Denver",
-      "The Land Before Time",
-      "Ice Age"
+      "Ice Age",
+      "The Land Before Time"
     ],
-    "answer": 2,
+    "answer": 3,
     "visual": "🦕🌋🌿"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
+      "Prison Break",
       "Money Heist (La Casa de Papel)",
-      "Ozark",
       "Narcos",
-      "Prison Break"
+      "Ozark"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "💰🐙🎭"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "Alice in Borderland",
-      "Squid Game",
+      "The Circle",
       "Physical 100",
-      "The Circle"
+      "Alice in Borderland",
+      "Squid Game"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🦑🔴🟢🍪"
   },
   {
     "q": "Bu emojiler hangi çizgi filmi anlatıyor?",
     "options": [
-      "Ice Age",
-      "Buz Devri Sincabı",
       "Buzul Çağı",
-      "Sincap Kardeşler"
+      "Buz Devri Sincabı",
+      "Sincap Kardeşler",
+      "Ice Age"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🧊🐿️🌰"
   },
   {
@@ -819,8 +819,8 @@ export default [
     "options": [
       "Tom",
       "Garfield",
-      "Sylvester",
-      "Felix"
+      "Felix",
+      "Sylvester"
     ],
     "answer": 1,
     "visual": "🍴🍝🐱🧡"
@@ -828,120 +828,120 @@ export default [
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "House",
-      "Grey's Anatomy",
       "ER",
-      "The Good Doctor"
+      "The Good Doctor",
+      "House",
+      "Grey's Anatomy"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🩺🏥❤️"
   },
   {
     "q": "Bu emojiler hangi çizgi filmi anlatıyor?",
     "options": [
       "Naruto",
-      "One Piece",
+      "Hunter x Hunter",
       "Bleach",
-      "Hunter x Hunter"
+      "One Piece"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🏴‍☠️🍖👒"
   },
   {
     "q": "Bu emojiler hangi çizgi filmi anlatıyor?",
     "options": [
-      "Naruto",
       "One Piece",
+      "Inuyasha",
       "Boruto",
-      "Inuyasha"
+      "Naruto"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🦊🍥🥷"
   },
   {
     "q": "Bu emojiler hangi çizgi filmi anlatıyor?",
     "options": [
-      "The Incredibles (İnanılmaz Aile)",
-      "Kral Şakir",
+      "Süper Aile",
       "Fantastik Dörtlü",
-      "Süper Aile"
+      "The Incredibles (İnanılmaz Aile)",
+      "Kral Şakir"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "👨‍👩‍👧‍👦🦸🔴"
   },
   {
     "q": "Bu emojiler hangi çizgi filmi anlatıyor?",
     "options": [
-      "Frozen (Karlar Ülkesi)",
-      "Cadılar Bayramı",
+      "Kar Beyaz",
       "Buz Prensesi",
-      "Kar Beyaz"
+      "Frozen (Karlar Ülkesi)",
+      "Cadılar Bayramı"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "👧❄️⛄"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "Parenthood",
       "This Is Us",
+      "A Million Little Things",
       "Modern Family",
-      "A Million Little Things"
+      "Parenthood"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🕰️👨‍👩‍👧‍👦❤️"
   },
   {
     "q": "Bu emojiler hangi çizgi filmi anlatıyor?",
     "options": [
-      "Winnie the Pooh",
-      "Calvin and Hobbes",
       "Tigger",
-      "Aslan Kral"
+      "Aslan Kral",
+      "Winnie the Pooh",
+      "Calvin and Hobbes"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "👦🐯🌈"
   },
   {
     "q": "Bu emojiler hangi atasözünü anlatıyor?",
     "options": [
-      "Yatan aslanın kuyruğuna basma",
-      "İşleyen demir ışıldar",
       "Damlaya damlaya göl olur",
-      "Ağaç yaş iken eğilir"
+      "Yatan aslanın kuyruğuna basma",
+      "Ağaç yaş iken eğilir",
+      "İşleyen demir ışıldar"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "🐕🦴😴"
   },
   {
     "q": "Bu emojiler hangi atasözünü anlatıyor?",
     "options": [
-      "Ateş olmayan yerden duman çıkmaz",
-      "Damlaya damlaya göl olur",
+      "Deniz dalgasız olmaz",
       "Su akar yolunu bulur",
-      "Deniz dalgasız olmaz"
+      "Ateş olmayan yerden duman çıkmaz",
+      "Damlaya damlaya göl olur"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "💧💧🌊"
   },
   {
     "q": "Bu emojiler hangi deyimi anlatıyor?",
     "options": [
+      "İğneden ip geçirmek",
       "Filden fil doğar",
       "Pireyi deve yapmak",
-      "İğneden ip geçirmek",
       "Fil hamama girdi"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🐘🪰"
   },
   {
     "q": "Bu emojiler hangi atasözünü anlatıyor?",
     "options": [
-      "Rüzgar eken fırtına biçer",
+      "Meşe palamudundan olur",
       "Ağaç yaş iken eğilir",
       "Yel esmeyince dal oynamaz",
-      "Meşe palamudundan olur"
+      "Rüzgar eken fırtına biçer"
     ],
     "answer": 2,
     "visual": "🌳💨🍃"
@@ -949,21 +949,21 @@ export default [
   {
     "q": "Bu emojiler hangi atasözünü anlatıyor?",
     "options": [
-      "Bir elin nesi var iki elin sesi var",
-      "Eldeki kuş daldaki kuştan iyidir",
+      "Sürüden ayrılanı kurt kapar",
       "Kuş kanadıyla uçar",
-      "Sürüden ayrılanı kurt kapar"
+      "Eldeki kuş daldaki kuştan iyidir",
+      "Bir elin nesi var iki elin sesi var"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🐦✋2️⃣🌳"
   },
   {
     "q": "Bu emojiler hangi atasözünü anlatıyor?",
     "options": [
       "Sabah ola hayrola",
-      "Erken kalkan yol alır",
+      "Vakit nakittir",
       "Erken kalkan kuş solucanı yakalar",
-      "Vakit nakittir"
+      "Erken kalkan yol alır"
     ],
     "answer": 2,
     "visual": "⏰🐦🪱"
@@ -971,10 +971,10 @@ export default [
   {
     "q": "Bu emojiler hangi atasözünü anlatıyor?",
     "options": [
+      "Meyveli ağacı taşlarlar",
       "Armut piş ağzıma düş",
-      "Ağaçtan maşa olmaz",
       "Elma dalının dibine düşer",
-      "Meyveli ağacı taşlarlar"
+      "Ağaçtan maşa olmaz"
     ],
     "answer": 2,
     "visual": "🍎🌳⬇️"
@@ -982,21 +982,21 @@ export default [
   {
     "q": "Bu emojiler hangi atasözünü anlatıyor?",
     "options": [
-      "Karınca kararınca",
-      "Kanaat tükenmez hazinedir",
+      "Aç tavuk kendini buğday ambarında sanır",
       "Ayağını yorganına göre uzat",
-      "Aç tavuk kendini buğday ambarında sanır"
+      "Kanaat tükenmez hazinedir",
+      "Karınca kararınca"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🐜🌰"
   },
   {
     "q": "Bu emojiler hangi deyimi anlatıyor?",
     "options": [
-      "Burnundan kıl aldırmamak",
+      "Burun kıvırmak",
       "Burnu havada olmak",
       "Havadan sudan konuşmak",
-      "Burun kıvırmak"
+      "Burnundan kıl aldırmamak"
     ],
     "answer": 1,
     "visual": "👃⬆️🌫️"
@@ -1015,21 +1015,21 @@ export default [
   {
     "q": "Bu emojiler hangi atasözünü anlatıyor?",
     "options": [
-      "Demir tavında dövülür",
       "İşleyen demir pas tutmaz",
+      "Çekiçle örs arasında",
       "Demir demiri keser",
-      "Çekiçle örs arasında"
+      "Demir tavında dövülür"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🔨🔥⚙️"
   },
   {
     "q": "Bu emojiler hangi deyimi anlatıyor?",
     "options": [
-      "Görmemiş görmüş oldu",
-      "Üç maymunu oynamak",
       "Kör kadı görmez",
-      "Duymaz kulağa laf söylenmez"
+      "Üç maymunu oynamak",
+      "Duymaz kulağa laf söylenmez",
+      "Görmemiş görmüş oldu"
     ],
     "answer": 1,
     "visual": "🙈🙉🙊"
@@ -1038,8 +1038,8 @@ export default [
     "q": "Bu emojiler hangi deyimi anlatıyor?",
     "options": [
       "Cebi delik olmak",
-      "Parayı çarçur etmek",
       "Elden ele dolaşmak",
+      "Parayı çarçur etmek",
       "Cebi para görmemek"
     ],
     "answer": 0,
@@ -1049,88 +1049,88 @@ export default [
     "q": "Bu emojiler hangi deyimi anlatıyor?",
     "options": [
       "Kulağı delik olmak",
-      "Duvarın kulağı vardır",
       "Kulak kabartmak",
+      "Duvarın kulağı vardır",
       "Kulağına küpe olmak"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "👂🧱"
   },
   {
     "q": "Bu emojiler hangi atasözünü anlatıyor?",
     "options": [
-      "Arı bal alacak çiçeği bilir",
-      "Tatlı dil yılanı deliğinden çıkarır",
       "Bal tutan parmağını yalar",
-      "Arısız bal olmaz"
+      "Arısız bal olmaz",
+      "Tatlı dil yılanı deliğinden çıkarır",
+      "Arı bal alacak çiçeği bilir"
     ],
-    "answer": 2,
+    "answer": 0,
     "visual": "🍯🐝🩹"
   },
   {
     "q": "Bu emojiler hangi deyimi anlatıyor?",
     "options": [
-      "Buzdağının görünen kısmı",
       "Soğuk savaş",
       "Buz gibi karşılamak",
+      "Buzdağının görünen kısmı",
       "Dağdan gelip bağdakini kovmak"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "🧊⛰️"
   },
   {
     "q": "Bu emojiler hangi atasözünü anlatıyor?",
     "options": [
-      "El elden üstündür",
       "Bir elin nesi var iki elin sesi var",
       "Eli boş dönmek",
+      "El elden üstündür",
       "İki el bir baş içindir"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "👐👐🔔"
   },
   {
     "q": "Bu emojiler hangi atasözünü anlatıyor?",
     "options": [
+      "Diken gül vermez",
       "Gülü seven dikenine katlanır",
       "Gül dikensiz olmaz",
-      "Her çiçek koklanmaz",
-      "Diken gül vermez"
+      "Her çiçek koklanmaz"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "🌹🥀🌿"
   },
   {
     "q": "Bu emojiler hangi atasözünü anlatıyor?",
     "options": [
-      "At binenin kılıç kuşananın",
-      "Verilen atın dişine bakılmaz",
       "At ölür meydan kalır",
-      "Atı alan Üsküdar'ı geçti"
+      "Atı alan Üsküdar'ı geçti",
+      "Verilen atın dişine bakılmaz",
+      "At binenin kılıç kuşananın"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🐴🎁👄"
   },
   {
     "q": "Bu emojiler hangi atasözünü anlatıyor?",
     "options": [
-      "Deniz dalgasız olmaz",
-      "Uyuyan suların altı derin olur",
       "Akıntıya kürek çekilmez",
-      "Su uyur düşman uyumaz"
+      "Su uyur düşman uyumaz",
+      "Deniz dalgasız olmaz",
+      "Uyuyan suların altı derin olur"
     ],
-    "answer": 3,
+    "answer": 1,
     "visual": "🌊😴🚫"
   },
   {
     "q": "Bu emojiler hangi deyimi anlatıyor?",
     "options": [
-      "Dili tatlı olmak",
       "Tatlı dil yılanı deliğinden çıkarır",
-      "Dilinin altında bir şey olmak",
-      "Bal dök yala"
+      "Dili tatlı olmak",
+      "Bal dök yala",
+      "Dilinin altında bir şey olmak"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "👅🍬🐍"
   },
   {
@@ -1148,33 +1148,33 @@ export default [
     "q": "Bu emojiler hangi atasözünü anlatıyor?",
     "options": [
       "Karınca kaderince",
+      "Dut yemiş bülbül",
       "Sakla samanı gelir zamanı",
-      "Tembel ağustos böceği aç kalır",
-      "Dut yemiş bülbül"
+      "Tembel ağustos böceği aç kalır"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🌰🌰🐿️"
   },
   {
     "q": "Bu emojiler hangi deyimi anlatıyor?",
     "options": [
       "Göz göre göre",
-      "İki gözüm iki çeşme",
+      "Gözden düşmek",
       "Göz yummak",
-      "Gözden düşmek"
+      "İki gözüm iki çeşme"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "👁️👁️😢"
   },
   {
     "q": "Bu emojiler hangi atasözünü anlatıyor?",
     "options": [
-      "Bir dut yaprağı ipek eder",
-      "Ağaca çıkan keçi",
       "Meyveli ağacı taşlarlar",
-      "Yüksek yerdeki üzüme kimse uzanamaz"
+      "Bir dut yaprağı ipek eder",
+      "Yüksek yerdeki üzüme kimse uzanamaz",
+      "Ağaca çıkan keçi"
     ],
-    "answer": 2,
+    "answer": 0,
     "visual": "👆🌳🍒"
   },
   {
@@ -1182,51 +1182,51 @@ export default [
     "options": [
       "Ayağı suya ermek",
       "Ayakları geri geri gitmek",
-      "Eli ayağı buz kesmek",
-      "Ayağını denk almak"
+      "Ayağını denk almak",
+      "Eli ayağı buz kesmek"
     ],
-    "answer": 2,
+    "answer": 3,
     "visual": "🦵🥶💧"
   },
   {
     "q": "Bu emojiler hangi atasözünü anlatıyor?",
     "options": [
+      "Ambarında un olan çorba pişirir",
       "Buğday ekmeğin var mı komşuluk",
       "Komşu komşunun külüne muhtaçtır",
-      "Ekmeğini taştan çıkarır",
-      "Ambarında un olan çorba pişirir"
+      "Ekmeğini taştan çıkarır"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🌾🏠🌾"
   },
   {
     "q": "Bu emojiler hangi deyimi anlatıyor?",
     "options": [
-      "Kafayı yemek",
+      "Kafası karışmak",
       "Kırmızı görmek",
-      "Beyni sulanmak",
-      "Kafası karışmak"
+      "Kafayı yemek",
+      "Beyni sulanmak"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "🧠🍅"
   },
   {
     "q": "Bu emojiler hangi atasözünü anlatıyor?",
     "options": [
-      "Keçi geberecek dağa bakar",
       "Köprüyü geçene kadar ayıya dayı derler",
+      "Keçi geberecek dağa bakar",
       "Keçinin geçtiği yerden koyun da geçer",
       "Dağ dağa kavuşmaz"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🐐🌉"
   },
   {
     "q": "Bu emojiler hangi atasözünü anlatıyor?",
     "options": [
       "Dağ dağa kavuşmaz insan insana kavuşur",
-      "Dağ ne kadar yüce olsa yol üstünden aşar",
       "Her yokuşun bir inişi vardır",
+      "Dağ ne kadar yüce olsa yol üstünden aşar",
       "Yüksek dağların başı dumanlı olur"
     ],
     "answer": 0,
@@ -1235,12 +1235,12 @@ export default [
   {
     "q": "Bu emojiler hangi atasözünü anlatıyor?",
     "options": [
-      "Üzüm üzüme baka baka kararır",
       "Üzümünü ye bağını sorma",
+      "Üzüm üzüme baka baka kararır",
       "Koruk iken üzüm olur",
       "Bir salkım üzüm bir bağ eder"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "🍇🍇🌑"
   },
   {
@@ -1257,65 +1257,65 @@ export default [
   {
     "q": "Bu emojiler hangi atasözünü anlatıyor?",
     "options": [
-      "Ağustos böceği ile karınca",
       "Cırcır böceği yaz boyu öter",
-      "Çekirge bir sıçrar iki sıçrar",
-      "Böcek başaktan çıkar"
+      "Böcek başaktan çıkar",
+      "Ağustos böceği ile karınca",
+      "Çekirge bir sıçrar iki sıçrar"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "🐜🦗🎻"
   },
   {
     "q": "Bu emojiler neyi anlatıyor?",
     "options": [
-      "Aslan Kral",
       "Madagaskar",
       "Narnia Günlükleri",
-      "Tarzan"
+      "Tarzan",
+      "Aslan Kral"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🦁👑"
   },
   {
     "q": "Bu emojiler hangi kavramı anlatıyor?",
     "options": [
+      "Coğrafya",
       "Küresel ısınma",
       "Sürdürülebilirlik",
-      "Dünya Barışı",
-      "Coğrafya"
+      "Dünya Barışı"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🌍♻️"
   },
   {
     "q": "Bu emojiler hangi ünlü yeri anlatıyor?",
     "options": [
-      "Big Ben",
-      "Eyfel Kulesi",
       "Pisa Kulesi",
-      "Kız Kulesi"
+      "Kız Kulesi",
+      "Eyfel Kulesi",
+      "Big Ben"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🗼🇫🇷"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
+      "Kızgın Yılanlar",
       "Kayıp Uçak",
-      "Uçaktaki Yılanlar",
       "Con Air",
-      "Kızgın Yılanlar"
+      "Uçaktaki Yılanlar"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🐍✈️"
   },
   {
     "q": "Bu emojiler hangi tarihi kişiyi anlatıyor?",
     "options": [
-      "Galileo",
+      "Tesla",
       "Isaac Newton",
       "Einstein",
-      "Tesla"
+      "Galileo"
     ],
     "answer": 1,
     "visual": "🍎🌳🧠"
@@ -1323,21 +1323,21 @@ export default [
   {
     "q": "Bu emojiler hangi ülkeyi anlatıyor?",
     "options": [
-      "Rusya",
       "Kanada",
       "İsveç",
-      "Finlandiya"
+      "Finlandiya",
+      "Rusya"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🍁🏒"
   },
   {
     "q": "Bu emojiler hangi kavramı anlatıyor?",
     "options": [
-      "Rüya",
+      "Karanlık",
       "Fikir",
-      "Uyku",
-      "Karanlık"
+      "Rüya",
+      "Uyku"
     ],
     "answer": 1,
     "visual": "💡🧠"
@@ -1346,9 +1346,9 @@ export default [
     "q": "Bu emojiler hangi ünlü yapıyı anlatıyor?",
     "options": [
       "Ayasofya",
-      "Taç Mahal",
+      "Alhambra",
       "Kabe",
-      "Alhambra"
+      "Taç Mahal"
     ],
     "answer": 0,
     "visual": "🕌🇹🇷"
@@ -1356,78 +1356,78 @@ export default [
   {
     "q": "Bu emojiler hangi atasözünü anlatıyor?",
     "options": [
-      "Kuş kanadıyla uçar",
       "Eldeki bir kuş daldaki iki kuştan iyidir",
+      "Kuş sütü eksik",
       "Aç kurt aslana saldırır",
-      "Kuş sütü eksik"
+      "Kuş kanadıyla uçar"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🐦✋🌳"
   },
   {
     "q": "Bu emojiler hangi kavramı anlatıyor?",
     "options": [
-      "Zaman nakittir",
-      "Bankacılık",
       "Alarm",
-      "Emeklilik"
+      "Bankacılık",
+      "Emeklilik",
+      "Zaman nakittir"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "⏰💰"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Wall-E",
       "Transformers",
-      "Terminator",
-      "Iron Man"
+      "Iron Man",
+      "Wall-E",
+      "Terminator"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🤖🚗"
   },
   {
     "q": "Bu emojiler hangi ünlü şehri anlatıyor?",
     "options": [
       "Paris",
-      "Las Vegas",
       "Dubai",
+      "Las Vegas",
       "Monako"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🎡🎰"
   },
   {
     "q": "Bu emojiler hangi kavramı anlatıyor?",
     "options": [
-      "Zaman her yarayı sarar",
       "Kalp krizi",
       "Aşk acısı",
+      "Zaman her yarayı sarar",
       "Hastane"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "❤️‍🩹⏳"
   },
   {
     "q": "Bu emojiler hangi tatlıyı/yemeği anlatıyor?",
     "options": [
+      "Reçel",
       "Baklava",
-      "Ballı ekmek",
       "Kek",
-      "Reçel"
+      "Ballı ekmek"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🍯🥖"
   },
   {
     "q": "Bu emojiler hangi ünlü kişiyi anlatıyor?",
     "options": [
-      "Picasso",
       "Van Gogh",
-      "Da Vinci",
-      "Monet"
+      "Picasso",
+      "Monet",
+      "Da Vinci"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🎨👂"
   },
   {
@@ -1435,8 +1435,8 @@ export default [
     "options": [
       "Fırtına öncesi sessizlik",
       "Her yağmurun ardından güneş doğar",
-      "Sel",
-      "Kış"
+      "Kış",
+      "Sel"
     ],
     "answer": 1,
     "visual": "🌧️🌈"
@@ -1445,11 +1445,11 @@ export default [
     "q": "Bu emojiler hangi spor dalını anlatıyor?",
     "options": [
       "Kayak",
-      "Buz hokeyi",
       "Curling",
+      "Buz hokeyi",
       "Artistik patinaj"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "⛸️🏒"
   },
   {
@@ -1466,10 +1466,10 @@ export default [
   {
     "q": "Bu emojiler hangi tarihi kişiyi anlatıyor?",
     "options": [
-      "Newton",
+      "Volta",
       "Thomas Edison",
       "Faraday",
-      "Volta"
+      "Newton"
     ],
     "answer": 1,
     "visual": "💡🔦"
@@ -1477,23 +1477,23 @@ export default [
   {
     "q": "Bu emojiler hangi kavramı anlatıyor?",
     "options": [
+      "Sınav",
       "Kitap kurdu",
       "Böcek",
-      "Kütüphane",
-      "Sınav"
+      "Kütüphane"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "📚🐛"
   },
   {
     "q": "Bu emojiler hangi ünlü yeri anlatıyor?",
     "options": [
-      "Özgürlük Anıtı",
       "Rushmore Dağı",
       "Hollywood",
-      "Golden Gate"
+      "Golden Gate",
+      "Özgürlük Anıtı"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🗽🇺🇸"
   },
   {
@@ -1501,8 +1501,8 @@ export default [
     "options": [
       "Yuri Gagarin",
       "Neil Armstrong",
-      "Buzz Aldrin",
-      "Elon Musk"
+      "Elon Musk",
+      "Buzz Aldrin"
     ],
     "answer": 1,
     "visual": "🚀🌕"
@@ -1511,9 +1511,9 @@ export default [
     "q": "Bu emojiler hangi kavramı anlatıyor?",
     "options": [
       "Filler asla unutmaz",
-      "Zoo",
       "Hafıza kaybı",
-      "Büyük düşün"
+      "Büyük düşün",
+      "Zoo"
     ],
     "answer": 0,
     "visual": "🐘🧠"
@@ -1521,43 +1521,43 @@ export default [
   {
     "q": "Bu emojiler hangi ünlü diziyi anlatıyor?",
     "options": [
+      "House",
       "Dexter",
       "Breaking Bad",
-      "Fringe",
-      "House"
+      "Fringe"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "⚗️🧪🔵"
   },
   {
     "q": "Bu emojiler hangi şehri anlatıyor?",
     "options": [
+      "Vancouver",
       "Seattle",
       "San Francisco",
-      "Sydney",
-      "Vancouver"
+      "Sydney"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🐟🌉🌁"
   },
   {
     "q": "Bu emojiler hangi masalı anlatıyor?",
     "options": [
-      "Kırmızı Başlıklı Kız",
       "Üç Küçük Domuz",
       "Bremen Mızıkacıları",
-      "Çirkin Ördek Yavrusu"
+      "Çirkin Ördek Yavrusu",
+      "Kırmızı Başlıklı Kız"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🐺🐷🐷🐷"
   },
   {
     "q": "Bu emojiler hangi kavramı anlatıyor?",
     "options": [
       "İtfaiye",
-      "Yangına körükle gitme",
+      "Kamp ateşi",
       "Ateşle oynama",
-      "Kamp ateşi"
+      "Yangına körükle gitme"
     ],
     "answer": 0,
     "visual": "🔥🧯"
@@ -1567,8 +1567,8 @@ export default [
     "options": [
       "Beethoven",
       "Mozart",
-      "Bach",
-      "Chopin"
+      "Chopin",
+      "Bach"
     ],
     "answer": 1,
     "visual": "🎻🇦🇹👶"
@@ -1576,144 +1576,144 @@ export default [
   {
     "q": "Bu emojiler hangi kavramı anlatıyor?",
     "options": [
-      "Adalet",
+      "Alışveriş",
       "Ticaret",
       "Denge",
-      "Alışveriş"
+      "Adalet"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "⚖️👩‍⚖️"
   },
   {
     "q": "Bu emojiler hangi ülkeyi anlatıyor?",
     "options": [
       "Yeni Zelanda",
-      "Avustralya",
       "Güney Afrika",
+      "Avustralya",
       "Endonezya"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🐨🦘"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Aslan Kral",
       "Madagaskar",
+      "Aslan Kral",
       "Tarzan",
       "Jungle Book"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "🦁👑🌅"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
       "Kong",
+      "Rampage",
       "Jurassic Park",
-      "Godzilla",
-      "Rampage"
+      "Godzilla"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🦖🏝️🧬"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Ex Machina",
-      "Terminatör",
       "I Robot",
-      "Blade Runner"
+      "Blade Runner",
+      "Terminatör",
+      "Ex Machina"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🤖🔴👁️"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
       "Inception",
+      "Equilibrium",
       "Matrix",
-      "Tron",
-      "Equilibrium"
+      "Tron"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "💊🔵🔴🕶️"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Finding Nemo",
       "Aquaman",
-      "Shark Tale",
-      "Moana"
+      "Moana",
+      "Finding Nemo",
+      "Shark Tale"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "🐟🔍🌊"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Charlie'nin Çikolata Fabrikası",
       "Ratatouille",
+      "Chocolat",
       "Chef",
-      "Chocolat"
+      "Charlie'nin Çikolata Fabrikası"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🍫🏭🎫"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Beetlejuice",
-      "Hayalet Avcıları",
+      "Poltergeist",
       "Casper",
-      "Poltergeist"
+      "Hayalet Avcıları",
+      "Beetlejuice"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "👻🚫🔫"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Harry Potter",
-      "Yüzüklerin Efendisi",
       "Narnia",
-      "Hobbit"
+      "Hobbit",
+      "Yüzüklerin Efendisi",
+      "Harry Potter"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "💍🌋🧙"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Venom",
       "Örümcek Adam",
-      "Ant-Man",
-      "Daredevil"
+      "Venom",
+      "Daredevil",
+      "Ant-Man"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🕷️🕸️🧑"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Kara Şövalye",
       "Watchmen",
       "Sin City",
-      "V for Vendetta"
+      "V for Vendetta",
+      "Kara Şövalye"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🦇🃏🌃"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Sindirella",
-      "Karlar Ülkesi",
       "Pamuk Prenses",
-      "Rapunzel"
+      "Sindirella",
+      "Rapunzel",
+      "Karlar Ülkesi"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "👠🎃🕛"
   },
   {
@@ -1721,32 +1721,32 @@ export default [
     "options": [
       "Interstellar",
       "Signs",
-      "Field of Dreams",
-      "Children of the Corn"
+      "Children of the Corn",
+      "Field of Dreams"
     ],
-    "answer": 2,
+    "answer": 3,
     "visual": "🌽🚗👻"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Balon",
       "Yukarı Bak (Up)",
-      "The Notebook",
-      "House"
+      "Balon",
+      "House",
+      "The Notebook"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🎈🏠👴"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
+      "Bug",
       "Bee Movie",
-      "Antz",
       "A Bug's Life",
-      "Bug"
+      "Antz"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "🐝🎬🎥"
   },
   {
@@ -1754,8 +1754,8 @@ export default [
     "options": [
       "Cıyak",
       "Sapık (Psycho)",
-      "The Shining",
-      "Bates Motel"
+      "Bates Motel",
+      "The Shining"
     ],
     "answer": 1,
     "visual": "🔪🚿🏨"
@@ -1763,21 +1763,21 @@ export default [
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Rudy",
-      "Forrest Gump",
       "The Blind Side",
-      "Remember the Titans"
+      "Remember the Titans",
+      "Rudy",
+      "Forrest Gump"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🏃🍫🏈"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Braveheart",
+      "Troy",
       "Gladyatör",
-      "300",
-      "Troy"
+      "Braveheart",
+      "300"
     ],
     "answer": 1,
     "visual": "🐗🐴🌾"
@@ -1785,34 +1785,34 @@ export default [
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Alice Harikalar Diyarında",
       "Oz Büyücüsü",
-      "Peter Pan",
-      "Coraline"
+      "Coraline",
+      "Alice Harikalar Diyarında",
+      "Peter Pan"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🌀🏠🐶👠"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
+      "Cinderella",
       "Buz Devri",
       "Karlar Ülkesi (Frozen)",
-      "Cinderella",
       "Moana"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "❄️👸⛄"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Deep Blue Sea",
       "Jaws (Denizin Dişleri)",
       "The Meg",
+      "Deep Blue Sea",
       "Piranha"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🦈🏖️🩸"
   },
   {
@@ -1830,8 +1830,8 @@ export default [
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
       "Toy Story",
-      "Rango",
       "Cars",
+      "Rango",
       "Wall-E"
     ],
     "answer": 0,
@@ -1840,45 +1840,45 @@ export default [
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Ratatöy (Ratatouille)",
-      "Fare Küçük Kahraman",
       "Chef",
-      "Burnt"
+      "Burnt",
+      "Fare Küçük Kahraman",
+      "Ratatöy (Ratatouille)"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🐭👨‍🍳🍝"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Pocahontas",
-      "Avatar",
+      "Rio",
       "Fern Gully",
-      "Rio"
+      "Pocahontas",
+      "Avatar"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🔵🌳🏹"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Speed",
-      "Die Hard",
       "The Rock",
-      "Con Air"
+      "Con Air",
+      "Die Hard",
+      "Speed"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "💣⏱️🚌"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "The Prestige",
       "Inception (Başlangıç)",
       "Shutter Island",
-      "Memento"
+      "Memento",
+      "The Prestige"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🎩🔝🌀"
   },
   {
@@ -1895,12 +1895,12 @@ export default [
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Titanic",
+      "The Legend of 1900",
       "Pianist",
-      "Whiplash",
-      "The Legend of 1900"
+      "Titanic",
+      "Whiplash"
     ],
-    "answer": 3,
+    "answer": 0,
     "visual": "🎻🚢🎹"
   },
   {
@@ -1917,34 +1917,34 @@ export default [
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Karate Kid",
       "Finding Dory",
       "The Cove",
-      "Big Fish"
+      "Big Fish",
+      "Karate Kid"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🐠🎣🥋"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Rocky",
-      "Fight Club (Dövüş Kulübü)",
       "Raging Bull",
-      "Warrior"
+      "Rocky",
+      "Warrior",
+      "Fight Club (Dövüş Kulübü)"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "👊🧼🩸"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Fried Green Tomatoes",
       "The Help",
+      "Julie & Julia",
       "Chocolat",
-      "Julie & Julia"
+      "Fried Green Tomatoes"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🍅👵🚂"
   },
   {
@@ -1952,8 +1952,8 @@ export default [
     "options": [
       "Batman",
       "Joker",
-      "The Dark Knight",
-      "Watchmen"
+      "Watchmen",
+      "The Dark Knight"
     ],
     "answer": 1,
     "visual": "🤡🎭🃏"
@@ -1961,67 +1961,67 @@ export default [
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "How to Train Your Dragon",
-      "Eragon",
+      "Brave",
       "Mulan",
-      "Brave"
+      "How to Train Your Dragon",
+      "Eragon"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "🐉🏹❄️👦"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "Kuyu",
       "Çukur",
+      "Vadi",
       "Batak",
-      "Vadi"
+      "Kuyu"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🕳️"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "Kurtlar Vadisi",
       "Kurt Kanunu",
       "Bozkurtlar",
+      "Kurtlar Vadisi",
       "Sarı Vadi"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "🐺🏞️"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
       "Sonbahar",
-      "Kavak Yelleri",
       "Yaprak Dökümü",
-      "Ağaç"
+      "Ağaç",
+      "Kavak Yelleri"
     ],
-    "answer": 2,
+    "answer": 1,
     "visual": "🍂🌳"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "Kara Para Aşk",
-      "Siyah İnci",
       "Aşk-ı Memnu",
-      "Kara Sevda"
+      "Siyah İnci",
+      "Kara Sevda",
+      "Kara Para Aşk"
     ],
-    "answer": 3,
+    "answer": 2,
     "visual": "🖤❤️"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "Erkenci Kuş",
       "Poyraz Karayel",
+      "Erkenci Kuş",
       "Kelebek",
       "Yalı Çapkını"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "🐦☀️"
   },
   {
@@ -2029,8 +2029,8 @@ export default [
     "options": [
       "Doğu Batı",
       "Kuzey Güney",
-      "Pusula",
-      "Poyraz Karayel"
+      "Poyraz Karayel",
+      "Pusula"
     ],
     "answer": 1,
     "visual": "⬆️⬇️🧭"
@@ -2038,10 +2038,10 @@ export default [
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "Sultan",
+      "Gece",
       "Binbir Gece",
       "Ramazan Sofrası",
-      "Gece"
+      "Sultan"
     ],
     "answer": 1,
     "visual": "🌙🕌🌃"
@@ -2050,9 +2050,9 @@ export default [
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
       "Muhteşem Yüzyıl",
-      "Payitaht",
       "Kösem Sultan",
-      "Diriliş"
+      "Diriliş",
+      "Payitaht"
     ],
     "answer": 0,
     "visual": "👑💯"
@@ -2060,54 +2060,54 @@ export default [
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Aile",
       "Babam ve Oğlum",
+      "Aile",
       "Baba",
       "İki Oğul"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "👨‍👦"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
       "Kara Sevda",
-      "Paraya Aşk",
       "Kara Para Aşk",
-      "Siyah Aşk"
+      "Siyah Aşk",
+      "Paraya Aşk"
     ],
-    "answer": 2,
+    "answer": 1,
     "visual": "🖤💰❤️"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "Kayıp Aşk",
       "Aşk Kapısı",
-      "Kiralık Aşk",
-      "Anahtar"
+      "Anahtar",
+      "Kayıp Aşk",
+      "Kiralık Aşk"
     ],
-    "answer": 2,
+    "answer": 3,
     "visual": "🔑❤️"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "Sen Çal Kapımı",
-      "Kapıyı Aç",
       "Zil",
-      "Komşular"
+      "Komşular",
+      "Kapıyı Aç",
+      "Sen Çal Kapımı"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🚪🔔"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "Melekler",
+      "Apartman",
       "Masumlar Apartmanı",
-      "Masum",
-      "Apartman"
+      "Melekler",
+      "Masum"
     ],
     "answer": 1,
     "visual": "😇🏢"
@@ -2115,23 +2115,23 @@ export default [
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "Gelin",
-      "İstanbullu Gelin",
       "Köprü",
-      "Boğaz Gelini"
+      "Gelin",
+      "Boğaz Gelini",
+      "İstanbullu Gelin"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "👰🌉"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "Kuruluş Osman",
       "Diriliş Ertuğrul",
-      "Mehmed Fetihler Sultanı",
-      "Payitaht"
+      "Payitaht",
+      "Kuruluş Osman",
+      "Mehmed Fetihler Sultanı"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "🏗️⚔️🇹🇷"
   },
   {
@@ -2139,30 +2139,30 @@ export default [
     "options": [
       "Vatan",
       "Kurtuluş",
-      "Vatanım Sensin",
-      "Bir Zamanlar"
+      "Bir Zamanlar",
+      "Vatanım Sensin"
     ],
-    "answer": 2,
+    "answer": 3,
     "visual": "🇹🇷❤️"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "Vişne Suyu",
       "Kızılcık Şerbeti",
       "Kırmızı Şerbet",
+      "Vişne Suyu",
       "Nar Suyu"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🔴🥤"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "Goncagül",
       "Kırmızı Gül",
+      "Gül Bahçesi",
       "Kızıl Goncalar",
-      "Gül Bahçesi"
+      "Goncagül"
     ],
     "answer": 2,
     "visual": "🌹🔴"
@@ -2181,45 +2181,45 @@ export default [
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "Bizimkiler",
-      "Aile",
+      "Akraba",
       "Aile Saadeti",
-      "Akraba"
+      "Bizimkiler",
+      "Aile"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "👨‍👩‍👧‍👦"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
       "Kelebek",
-      "Rüya",
       "Kelebeğin Rüyası",
-      "Pervane"
+      "Pervane",
+      "Rüya"
     ],
-    "answer": 2,
+    "answer": 1,
     "visual": "🦋💭"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
+      "Sınıf",
       "Okul",
       "Hababam Sınıfı",
-      "Sınıf",
       "Öğrenciler"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🏫😜"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "A.R.O.G.",
-      "Dünyayı Kurtaran Adam",
       "G.O.R.A.",
-      "Uzay Yolu"
+      "A.R.O.G.",
+      "Uzay Yolu",
+      "Dünyayı Kurtaran Adam"
     ],
-    "answer": 2,
+    "answer": 0,
     "visual": "🛸👽"
   },
   {
@@ -2227,8 +2227,8 @@ export default [
     "options": [
       "Vizontele",
       "Televizyon",
-      "Antenler",
-      "Ekran"
+      "Ekran",
+      "Antenler"
     ],
     "answer": 0,
     "visual": "📺"
@@ -2237,33 +2237,33 @@ export default [
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
       "Haydut",
+      "Dağ Adamı",
       "Eşkıya",
-      "Çakırcalı",
-      "Dağ Adamı"
+      "Çakırcalı"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🔫🏔️"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Ayla",
       "Küçük Asker",
-      "Kore",
-      "Yetim"
+      "Ayla",
+      "Yetim",
+      "Kore"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "👧🎖️🪖"
   },
   {
     "q": "Bu emojiler hangi film serisini anlatıyor?",
     "options": [
-      "Şaban",
-      "Recep İvedik",
       "Kötü Adam",
-      "Ivedik"
+      "Ivedik",
+      "Recep İvedik",
+      "Şaban"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🧔😤"
   },
   {
@@ -2281,53 +2281,53 @@ export default [
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
       "Kırmızı Yazma",
-      "Sevda",
       "Selvi Boylum Al Yazmalım",
-      "Al Yazma"
+      "Al Yazma",
+      "Sevda"
     ],
-    "answer": 2,
+    "answer": 1,
     "visual": "🧣❤️"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
+      "Sürgün",
       "Sürü",
       "Çoban",
-      "Koyunlar",
-      "Sürgün"
+      "Koyunlar"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "🐑🐑🐑"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
+      "Yol",
       "Güzergah",
       "Yolculuk",
-      "Yol",
       "Sokak"
     ],
-    "answer": 2,
+    "answer": 0,
     "visual": "🛣️"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
       "Deli Kafa",
-      "Sıcak Kafa",
       "Ateşli",
-      "Kızgın"
+      "Kızgın",
+      "Sıcak Kafa"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🥵🧠"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Kartondan",
+      "Belge",
       "Kağıt",
       "Kağıttan Hayatlar",
-      "Belge"
+      "Kartondan"
     ],
     "answer": 2,
     "visual": "📄📄"
@@ -2335,21 +2335,21 @@ export default [
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "7. Koğuştaki Mucize",
       "Yedinci Kapı",
+      "7. Koğuştaki Mucize",
       "Koğuş",
       "Hapishane"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "7️⃣🚪✨"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Yalnız Adam",
+      "Issızlık",
       "Issız Adam",
-      "Şehir",
-      "Issızlık"
+      "Yalnız Adam",
+      "Şehir"
     ],
     "answer": 1,
     "visual": "👨🏙️😔"
@@ -2357,75 +2357,75 @@ export default [
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
+      "Kader",
       "Aşk ve Tesadüf",
       "Aşk Tesadüfleri Sever",
-      "Şans Oyunu",
-      "Kader"
+      "Şans Oyunu"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "💘🎲"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
       "Yalı",
+      "Çapkın",
       "Martı",
-      "Yalı Çapkını",
-      "Çapkın"
+      "Yalı Çapkını"
     ],
-    "answer": 2,
+    "answer": 3,
     "visual": "🐦🏠💰"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "Gelgit",
-      "Medcezir",
+      "Deniz",
       "Dalga",
-      "Deniz"
+      "Gelgit",
+      "Medcezir"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🌊🌊"
   },
   {
     "q": "Bu emojiler hangi müzik grubunu anlatıyor?",
     "options": [
-      "Foo Fighters",
-      "Red Hot Chili Peppers",
+      "Metallica",
       "Nirvana",
-      "Metallica"
+      "Red Hot Chili Peppers",
+      "Foo Fighters"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🔴🔥🌶️"
   },
   {
     "q": "Bu emojiler hangi müzik grubunu anlatıyor?",
     "options": [
-      "Guns N' Roses",
+      "Poison",
       "Aerosmith",
-      "Bon Jovi",
-      "Poison"
+      "Guns N' Roses",
+      "Bon Jovi"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "🔫🌹"
   },
   {
     "q": "Bu emoji hangi efsanevi müzik grubunu anlatıyor?",
     "options": [
-      "The Kinks",
-      "The Who",
       "The Beatles",
-      "The Rolling Stones"
+      "The Kinks",
+      "The Rolling Stones",
+      "The Who"
     ],
-    "answer": 2,
+    "answer": 0,
     "visual": "🪲"
   },
   {
     "q": "Bu emojiler hangi müzik grubunu anlatıyor?",
     "options": [
+      "The Police",
       "The Cure",
       "The Clash",
-      "The Police",
       "The Doors"
     ],
     "answer": 3,
@@ -2434,32 +2434,32 @@ export default [
   {
     "q": "Bu emoji hangi Alman rock grubunu anlatıyor?",
     "options": [
-      "Scorpions",
-      "Rammstein",
+      "AC/DC",
       "Kiss",
-      "AC/DC"
+      "Rammstein",
+      "Scorpions"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🦂"
   },
   {
     "q": "Bu emojiler hangi müzik grubunu anlatıyor?",
     "options": [
-      "The Byrds",
       "Eagles",
+      "America",
       "Fleetwood Mac",
-      "America"
+      "The Byrds"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🦅🦅"
   },
   {
     "q": "Bu ünlü logo (dudak-dil) hangi grubu simgeler?",
     "options": [
-      "Kiss",
+      "The Beatles",
       "Queen",
       "The Rolling Stones",
-      "The Beatles"
+      "Kiss"
     ],
     "answer": 2,
     "visual": "👅💋"
@@ -2467,87 +2467,87 @@ export default [
   {
     "q": "Bu emoji hangi rock grubunu anlatıyor?",
     "options": [
-      "King Crimson",
-      "Prince",
       "ABBA",
-      "Queen"
+      "Queen",
+      "Prince",
+      "King Crimson"
     ],
-    "answer": 3,
+    "answer": 1,
     "visual": "👑"
   },
   {
     "q": "Bu emojiler hangi K-pop grubunu anlatıyor?",
     "options": [
-      "Blackpink",
-      "Twice",
       "Red Velvet",
-      "BTS"
+      "BTS",
+      "Blackpink",
+      "Twice"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "🖤💗"
   },
   {
     "q": "Bu emojiler Pink Floyd'un hangi ünlü albümünü anlatıyor?",
     "options": [
-      "The Wall",
       "Wish You Were Here",
-      "The Dark Side of the Moon",
-      "Animals"
+      "Animals",
+      "The Wall",
+      "The Dark Side of the Moon"
     ],
-    "answer": 2,
+    "answer": 3,
     "visual": "🌑🌈"
   },
   {
     "q": "Bu emojiler Rihanna'nın hangi şarkısını anlatıyor?",
     "options": [
-      "Diamonds",
       "Rain on Me",
-      "Umbrella",
-      "Only Girl"
+      "Only Girl",
+      "Diamonds",
+      "Umbrella"
     ],
-    "answer": 2,
+    "answer": 3,
     "visual": "🌧️☂️"
   },
   {
     "q": "Bu emojiler Elton John'un hangi şarkısını anlatıyor?",
     "options": [
-      "Rocket Man",
       "Space Oddity",
+      "Rocket Man",
       "Starman",
       "Major Tom"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "🚀👨"
   },
   {
     "q": "Bu emojiler David Bowie'nin hangi şarkısını anlatıyor?",
     "options": [
-      "Rocket Man",
       "Starman",
-      "Starboy",
-      "Space Cowboy"
+      "Space Cowboy",
+      "Rocket Man",
+      "Starboy"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "⭐👨"
   },
   {
     "q": "Bu emojiler Survivor'ın hangi şarkısını anlatıyor?",
     "options": [
-      "Roar",
-      "Hungry Like the Wolf",
       "Eye of the Tiger",
-      "Tiger"
+      "Roar",
+      "Tiger",
+      "Hungry Like the Wolf"
     ],
-    "answer": 2,
+    "answer": 0,
     "visual": "👁️🐅"
   },
   {
     "q": "Bu emojiler Beatles'ın hangi şarkısını anlatıyor?",
     "options": [
-      "Sailing",
-      "Yellow Submarine",
       "Beyond the Sea",
-      "Octopus's Garden"
+      "Yellow Submarine",
+      "Octopus's Garden",
+      "Sailing"
     ],
     "answer": 1,
     "visual": "🟡🚤"
@@ -2555,78 +2555,78 @@ export default [
   {
     "q": "Bu emojiler Beatles'ın hangi şarkısını anlatıyor?",
     "options": [
-      "Penny Lane",
       "Fields of Gold",
-      "Strawberry Fields Forever",
-      "Blackbird"
+      "Penny Lane",
+      "Blackbird",
+      "Strawberry Fields Forever"
     ],
-    "answer": 2,
+    "answer": 3,
     "visual": "🍓🏞️"
   },
   {
     "q": "Bu emojiler Prince'in hangi şarkısını anlatıyor?",
     "options": [
-      "Purple Haze",
-      "Purple Rain",
       "November Rain",
-      "Set Fire to the Rain"
+      "Set Fire to the Rain",
+      "Purple Haze",
+      "Purple Rain"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "💜🌧️"
   },
   {
     "q": "Bu emojiler Eagles'ın hangi şarkısını anlatıyor?",
     "options": [
-      "Hotel California",
-      "California Dreamin'",
       "Paradise City",
-      "Welcome to the Jungle"
+      "California Dreamin'",
+      "Welcome to the Jungle",
+      "Hotel California"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🏨🌴"
   },
   {
     "q": "Bu emojiler Psy'ın hangi ünlü şarkısını anlatıyor?",
     "options": [
-      "Macarena",
-      "Harlem Shake",
       "Gangnam Style",
-      "Waka Waka"
+      "Waka Waka",
+      "Harlem Shake",
+      "Macarena"
     ],
-    "answer": 2,
+    "answer": 0,
     "visual": "🐴💃"
   },
   {
     "q": "Bu emojiler ABBA'nın hangi şarkısını anlatıyor?",
     "options": [
-      "Killer Queen",
       "Material Girl",
-      "Dancing Queen",
-      "Queen of the Night"
+      "Queen of the Night",
+      "Killer Queen",
+      "Dancing Queen"
     ],
-    "answer": 2,
+    "answer": 3,
     "visual": "💃👑"
   },
   {
     "q": "Bu emojiler ABBA'nın hangi şarkısını anlatıyor?",
     "options": [
-      "Money, Money, Money",
       "Rich Girl",
+      "Gold Digger",
       "Billionaire",
-      "Gold Digger"
+      "Money, Money, Money"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "💰💰💰"
   },
   {
     "q": "Bu emojiler John Denver'ın hangi şarkısını anlatıyor?",
     "options": [
       "Life is a Highway",
-      "Take Me Home, Country Roads",
+      "Highway to Hell",
       "On the Road Again",
-      "Highway to Hell"
+      "Take Me Home, Country Roads"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🚗🛣️🏠"
   },
   {
@@ -2634,63 +2634,63 @@ export default [
     "options": [
       "Fire and Rain",
       "Blowin' in the Wind",
-      "Candle in the Wind",
-      "Set Fire to the Rain"
+      "Set Fire to the Rain",
+      "Candle in the Wind"
     ],
-    "answer": 2,
+    "answer": 3,
     "visual": "🕯️🌬️"
   },
   {
     "q": "Bu emojiler Simon & Garfunkel'ın hangi şarkısını anlatıyor?",
     "options": [
-      "Under the Bridge",
-      "Bridge Over Troubled Water",
+      "The River",
       "Waterfalls",
-      "The River"
+      "Under the Bridge",
+      "Bridge Over Troubled Water"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🌉💧"
   },
   {
     "q": "Bu emojiler hangi ünlü çocuk şarkısını anlatıyor?",
     "options": [
-      "Baby Beluga",
       "Under the Sea",
-      "Baby Shark",
-      "Sharknado"
+      "Baby Beluga",
+      "Sharknado",
+      "Baby Shark"
     ],
-    "answer": 2,
+    "answer": 3,
     "visual": "👶🦈"
   },
   {
     "q": "Bu emoji Katy Perry'nin hangi şarkısını anlatıyor?",
     "options": [
-      "Firework",
-      "Roar",
       "Sparks",
+      "Roar",
+      "Firework",
       "Fireflies"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "🎆"
   },
   {
     "q": "Bu emojiler Carly Rae Jepsen'in hangi şarkısını anlatıyor?",
     "options": [
-      "Telephone",
-      "Hotline Bling",
       "Call Me Maybe",
-      "Hello"
+      "Hello",
+      "Hotline Bling",
+      "Telephone"
     ],
-    "answer": 2,
+    "answer": 0,
     "visual": "📞❓"
   },
   {
     "q": "Bu emojiler hangi ünlü hayır amaçlı şarkıyı anlatıyor?",
     "options": [
-      "Heal the World",
-      "We Are the World",
       "Earth Song",
-      "One"
+      "We Are the World",
+      "One",
+      "Heal the World"
     ],
     "answer": 1,
     "visual": "🌍🤝🎵"
@@ -2698,10 +2698,10 @@ export default [
   {
     "q": "Bu emojiler hangi 60'lar grubunu anlatıyor?",
     "options": [
-      "The Animals",
+      "The Eagles",
       "The Byrds",
       "The Turtles",
-      "The Eagles"
+      "The Animals"
     ],
     "answer": 2,
     "visual": "🐢🐢"
@@ -2711,8 +2711,8 @@ export default [
     "options": [
       "Pearl Jam",
       "The Smashing Pumpkins",
-      "Soundgarden",
-      "Alice in Chains"
+      "Alice in Chains",
+      "Soundgarden"
     ],
     "answer": 1,
     "visual": "🔨🎃"
@@ -2720,43 +2720,43 @@ export default [
   {
     "q": "Bu emojiler hangi müzik grubunu anlatıyor?",
     "options": [
-      "The Beach Boys",
       "The Ventures",
-      "Jan and Dean",
-      "The Beatles"
+      "The Beach Boys",
+      "The Beatles",
+      "Jan and Dean"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "🏖️👦👦"
   },
   {
     "q": "Bu harfler hangi İsveçli pop grubunu anlatıyor?",
     "options": [
-      "Aqua",
-      "A-ha",
       "ABBA",
-      "Ace of Base"
+      "A-ha",
+      "Ace of Base",
+      "Aqua"
     ],
-    "answer": 2,
+    "answer": 0,
     "visual": "🅰️🅱️🅱️🅰️"
   },
   {
     "q": "Bu emojiler (mor hayran rengi) hangi K-pop grubunu anlatıyor?",
     "options": [
-      "EXO",
       "BTS",
+      "NCT",
       "Stray Kids",
-      "NCT"
+      "EXO"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "💜🇰🇷👦👦"
   },
   {
     "q": "Bu emojiler (ay yürüyüşü ve tek eldiven) hangi sanatçıyı anlatıyor?",
     "options": [
       "Prince",
-      "James Brown",
+      "Usher",
       "Michael Jackson",
-      "Usher"
+      "James Brown"
     ],
     "answer": 2,
     "visual": "🌙🚶🧤"
@@ -2765,64 +2765,64 @@ export default [
     "q": "Bu emojiler Beatles'ın hangi şarkısını anlatıyor?",
     "options": [
       "Diamonds",
-      "Lucy in the Sky with Diamonds",
       "Shine On You Crazy Diamond",
+      "Lucy in the Sky with Diamonds",
       "Space Girl"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "💎🌌👧"
   },
   {
     "q": "Bu emojiler hangi ünlü Noel şarkısını anlatıyor?",
     "options": [
-      "Carol of the Bells",
+      "Ring My Bell",
       "Hells Bells",
-      "Jingle Bells",
-      "Ring My Bell"
+      "Carol of the Bells",
+      "Jingle Bells"
     ],
-    "answer": 2,
+    "answer": 3,
     "visual": "🔔🔔🎄"
   },
   {
     "q": "Bu emojiler (şeytan, keman, Georgia şeftalisi) hangi şarkıyı anlatıyor?",
     "options": [
       "Sympathy for the Devil",
-      "The Devil Went Down to Georgia",
       "Highway to Hell",
+      "The Devil Went Down to Georgia",
       "Runnin' with the Devil"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "😈🎻🍑"
   },
   {
     "q": "Bu emojiler hangi reggae efsanesini anlatıyor?",
     "options": [
+      "Shaggy",
       "Bob Marley",
-      "Jimmy Cliff",
       "Peter Tosh",
-      "Shaggy"
+      "Jimmy Cliff"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "🇯🇲🌿🎵"
   },
   {
     "q": "Bu emojiler Frozen filminin hangi ünlü şarkısını anlatıyor?",
     "options": [
-      "Cold as Ice",
-      "Ice Ice Baby",
       "Let It Go",
-      "Frozen Heart"
+      "Ice Ice Baby",
+      "Frozen Heart",
+      "Cold as Ice"
     ],
-    "answer": 2,
+    "answer": 0,
     "visual": "❄️🎤👸"
   },
   {
     "q": "Bu emojiler Nena'nın hangi 80'ler şarkısını anlatıyor (99 balon)?",
     "options": [
       "99 Luftballons",
+      "Balloon",
       "99 Problems",
-      "Red Balloon",
-      "Balloon"
+      "Red Balloon"
     ],
     "answer": 0,
     "visual": "🎈🇩🇪🎵"
@@ -2830,43 +2830,43 @@ export default [
   {
     "q": "Bu emojiler neyi anlatıyor?",
     "options": [
-      "Cadılar Bayramı",
       "Hayalet Avcıları",
+      "Cadılar Bayramı",
       "Görünmez Adam",
       "Karanlık Gece"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "👻🚫"
   },
   {
     "q": "Bu emojiler neyi anlatıyor?",
     "options": [
-      "Örümcek Adam",
+      "Ağ Ustası",
       "Kara Dul",
-      "Böcek Adam",
-      "Ağ Ustası"
+      "Örümcek Adam",
+      "Böcek Adam"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "🕷️🧑"
   },
   {
     "q": "Bu emojiler neyi anlatıyor?",
     "options": [
       "Yarasa Mağarası",
+      "Kara Şövalye",
       "Batman",
-      "Gece Gezgini",
-      "Kara Şövalye"
+      "Gece Gezgini"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🦇🧑"
   },
   {
     "q": "Bu emojiler neyi anlatıyor?",
     "options": [
-      "Kar Beyaz",
+      "Soğuk Savaş",
       "Karlar Ülkesi",
       "Buz Devri",
-      "Soğuk Savaş"
+      "Kar Beyaz"
     ],
     "answer": 1,
     "visual": "❄️👸"
@@ -2885,45 +2885,45 @@ export default [
   {
     "q": "Bu emojiler neyi anlatıyor?",
     "options": [
-      "Jurassic Park",
       "Dinozor Çağı",
+      "Kayıp Dünya",
       "King Kong",
-      "Kayıp Dünya"
+      "Jurassic Park"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🦖🏞️"
   },
   {
     "q": "Bu emojiler neyi anlatıyor?",
     "options": [
-      "Yüzüklerin Efendisi",
+      "Altın Yüzük",
       "Hobbit Evi",
-      "Volkan Patlaması",
-      "Altın Yüzük"
+      "Yüzüklerin Efendisi",
+      "Volkan Patlaması"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "💍🌋"
   },
   {
     "q": "Bu emojiler neyi anlatıyor?",
     "options": [
-      "Arı Filmi",
-      "Bal Ustası",
       "Vızıltı",
-      "Arı Maya"
+      "Arı Maya",
+      "Bal Ustası",
+      "Arı Filmi"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🐝🎬"
   },
   {
     "q": "Bu emojiler neyi anlatıyor?",
     "options": [
-      "Ratatuy",
       "Fare Kapanı",
       "Mutfak Kavgası",
-      "Sıçan Yılı"
+      "Sıçan Yılı",
+      "Ratatuy"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "👨‍🍳🐀"
   },
   {
@@ -2931,76 +2931,76 @@ export default [
     "options": [
       "Fil kadar iştah",
       "Pire için yorgan yakmak",
-      "Fincanda fırtına",
-      "Filden korku"
+      "Filden korku",
+      "Fincanda fırtına"
     ],
-    "answer": 2,
+    "answer": 3,
     "visual": "🐘🫖"
   },
   {
     "q": "Bu emoji atasözünü anlatıyor?",
     "options": [
+      "Kel başa şimşir tarak",
       "Kuş kanadıyla uçar",
-      "Bir eldeki kuş daldaki iki kuştan iyidir",
       "Kuş sütü eksik",
-      "Kel başa şimşir tarak"
+      "Bir eldeki kuş daldaki iki kuştan iyidir"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🐦✋🌳🐦🐦"
   },
   {
     "q": "Bu emoji deyimini anlatıyor?",
     "options": [
       "Kurt puslu havayı sever",
-      "Koyun can derdinde",
       "Kuzu postuna bürünmüş kurt",
-      "Sürüden ayrılan koyun"
+      "Sürüden ayrılan koyun",
+      "Koyun can derdinde"
     ],
-    "answer": 2,
+    "answer": 1,
     "visual": "🐑🐺👕"
   },
   {
     "q": "Bu emoji deyimini anlatıyor?",
     "options": [
-      "Damlaya damlaya göl olur",
+      "Sudan çıkmış balık",
       "Su testisi",
-      "Taş kesilmek",
-      "Sudan çıkmış balık"
+      "Damlaya damlaya göl olur",
+      "Taş kesilmek"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "💧🪨"
   },
   {
     "q": "Bu emoji atasözünü anlatıyor?",
     "options": [
-      "Armut piş ağzıma düş",
-      "Ağaç yaşken eğilir",
+      "Meyveli ağacı taşlarlar",
       "Elma dalının dibine düşer",
-      "Meyveli ağacı taşlarlar"
+      "Armut piş ağzıma düş",
+      "Ağaç yaşken eğilir"
     ],
-    "answer": 2,
+    "answer": 1,
     "visual": "🍎🌳⬇️"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "Breaking Bad",
-      "Dexter",
       "Fringe",
-      "Ozark"
+      "Breaking Bad",
+      "Ozark",
+      "Dexter"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "🧪👨‍🔬🚐"
   },
   {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
-      "Vikingler",
-      "Game of Thrones",
       "The Witcher",
-      "Merlin"
+      "Merlin",
+      "Game of Thrones",
+      "Vikingler"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🐉👑❄️"
   },
   {
@@ -3008,8 +3008,8 @@ export default [
     "options": [
       "Alice Sınırında",
       "Squid Game",
-      "Para Soygunu",
-      "Kaçış Odası"
+      "Kaçış Odası",
+      "Para Soygunu"
     ],
     "answer": 1,
     "visual": "🦑💰🟩"
@@ -3018,30 +3018,30 @@ export default [
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
       "Dark",
+      "Sens8",
       "Stranger Things",
-      "The OA",
-      "Sens8"
+      "The OA"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🧑‍🔬🙃🔀"
   },
   {
     "q": "Bu emojiler hangi şarkıyı anlatıyor?",
     "options": [
-      "Space Oddity",
       "Rocket Man",
-      "Starman",
-      "Fly Me to the Moon"
+      "Fly Me to the Moon",
+      "Space Oddity",
+      "Starman"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🚀🧑‍🚀"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Robotlar",
-      "Vall-i (Wall-E)",
       "Yapay Zeka",
+      "Vall-i (Wall-E)",
+      "Robotlar",
       "Terminatör"
     ],
     "answer": 1,
@@ -3050,76 +3050,76 @@ export default [
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
+      "Blade",
       "John Wick",
-      "Matrix",
       "Inception",
-      "Blade"
+      "Matrix"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🕶️💊🔴🔵"
   },
   {
     "q": "Bu emojiler hangi kavramı anlatıyor?",
     "options": [
-      "Küresel ısınma",
       "Volkanik kış",
-      "El Nino",
-      "Ozon tabakası"
+      "Ozon tabakası",
+      "Küresel ısınma",
+      "El Nino"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "🌍🔥🌡️"
   },
   {
     "q": "Bu emojiler hangi kavramı anlatıyor?",
     "options": [
-      "Yapay zeka",
       "Sanal gerçeklik",
-      "Nöron ağı",
-      "Robotik cerrahi"
+      "Robotik cerrahi",
+      "Yapay zeka",
+      "Nöron ağı"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "🧠⚡🤖"
   },
   {
     "q": "Bu emoji deyimini anlatıyor?",
     "options": [
-      "Duvara söylemek",
       "Yerin kulağı var",
       "Kulak misafiri",
-      "Duymazdan gelmek"
+      "Duymazdan gelmek",
+      "Duvara söylemek"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "👂🧱"
   },
   {
     "q": "Bu emoji deyimini anlatıyor?",
     "options": [
-      "El sıkışmak",
-      "Sırtından bıçaklamak",
+      "Kanı kaynamak",
       "İki yüzlülük",
-      "Kanı kaynamak"
+      "Sırtından bıçaklamak",
+      "El sıkışmak"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🤝🔪"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Arı Filmi",
-      "Yaramaz Arı",
+      "Kelebek Etkisi",
       "Bal Hırsızı",
-      "Kelebek Etkisi"
+      "Arı Filmi",
+      "Yaramaz Arı"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "🐝👨🎥"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Batman Başlıyor",
+      "Palyaço",
       "Joker",
-      "V for Vendetta",
-      "Palyaço"
+      "Batman Başlıyor",
+      "V for Vendetta"
     ],
     "answer": 1,
     "visual": "🃏🤡🎭"
@@ -3127,9 +3127,9 @@ export default [
   {
     "q": "Bu emojiler hangi kavramı anlatıyor?",
     "options": [
-      "Enflasyon",
-      "Ekonomik kriz",
       "Faiz oranı",
+      "Ekonomik kriz",
+      "Enflasyon",
       "Vergi indirimi"
     ],
     "answer": 1,
@@ -3138,54 +3138,54 @@ export default [
   {
     "q": "Bu emoji deyimini anlatıyor?",
     "options": [
-      "Sudan çıkmış balığa dönmek",
-      "Denize girmemek",
+      "Suyu bulandırmak",
       "Balık kavağa çıkınca",
-      "Suyu bulandırmak"
+      "Denize girmemek",
+      "Sudan çıkmış balığa dönmek"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🐟🚫🌊"
   },
   {
     "q": "Bu emojiler hangi kavramı anlatıyor?",
     "options": [
-      "İnternet ağı",
-      "Blok zinciri",
       "Bulut bilişim",
-      "Siber güvenlik"
+      "İnternet ağı",
+      "Siber güvenlik",
+      "Blok zinciri"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🔗⛓️💻"
   },
   {
     "q": "Bu emoji atasözünü anlatıyor?",
     "options": [
-      "Dilin kemiği yok",
-      "Tatlı dil yılanı deliğinden çıkarır",
       "Bülbülü altın kafese koymuşlar",
-      "Dili tutulmak"
+      "Dili tutulmak",
+      "Tatlı dil yılanı deliğinden çıkarır",
+      "Dilin kemiği yok"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "👅🦴"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
+      "Conan",
       "Yüzüklerin Efendisi",
       "Game of Thrones",
-      "Conan",
       "300"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "👑💍🌋"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Aquaman",
-      "Jaws (Denizin Dişleri)",
       "Deep Blue Sea",
-      "The Meg"
+      "Jaws (Denizin Dişleri)",
+      "The Meg",
+      "Aquaman"
     ],
     "answer": 1,
     "visual": "🦈🏊🌊"
@@ -3193,32 +3193,32 @@ export default [
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Bir Balığın Rüyası",
-      "Kayıp Balık Nemo",
       "Shark Tale",
-      "Ponyo"
+      "Bir Balığın Rüyası",
+      "Ponyo",
+      "Kayıp Balık Nemo"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🐟🔍👨‍👦"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
+      "Cars",
       "Speed",
       "Geleceğe Dönüş",
-      "Cars",
       "Ford v Ferrari"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "⏰🚗⚡"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Inception",
+      "Tron",
       "Matrix",
-      "Equilibrium",
-      "Tron"
+      "Inception",
+      "Equilibrium"
     ],
     "answer": 1,
     "visual": "🕶️💊🟥🟦"
@@ -3226,98 +3226,87 @@ export default [
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Batman: Kara Şövalye",
       "Watchmen",
-      "V for Vendetta",
-      "Sin City"
+      "Sin City",
+      "Batman: Kara Şövalye",
+      "V for Vendetta"
     ],
-    "answer": 0,
+    "answer": 2,
     "visual": "🦇🃏🏙️"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Ratatouille",
-      "Chef",
       "Burnt",
-      "Julie & Julia"
+      "Chef",
+      "Julie & Julia",
+      "Ratatouille"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🐀👨‍🍳🍝"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
       "Marley ve Ben",
-      "Yukarı Bak (Up)",
       "Bolt",
-      "Beethoven"
+      "Beethoven",
+      "Yukarı Bak (Up)"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🎈🏠🐶"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Oz Büyücüsü",
       "Alice Harikalar Diyarında",
-      "Peter Pan",
-      "Mary Poppins"
+      "Oz Büyücüsü",
+      "Mary Poppins",
+      "Peter Pan"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "💛🧱🌪️"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
+      "Madagascar",
       "Bambi",
       "Dumbo",
-      "Madagascar",
       "Zootopia"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🐘👂🎪"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
       "Sürgün",
-      "Psycho (Sapık)",
       "The Shining",
-      "Bates Motel"
+      "Bates Motel",
+      "Psycho (Sapık)"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🔪🚿🏨"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Oyuncak Hikayesi",
       "Small Soldiers",
+      "Oyuncak Hikayesi",
       "Chucky",
       "Ted"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "🧸🤠🚀"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Doctor Who",
-      "Interstellar",
-      "Donnie Darko",
-      "The Terminal"
-    ],
-    "answer": 0,
-    "visual": "🕰️🔵📞"
-  },
-  {
-    "q": "Bu emojiler hangi filmi anlatıyor?",
-    "options": [
-      "Rocky",
+      "Warrior",
       "Dövüş Kulübü",
-      "Raging Bull",
-      "Warrior"
+      "Rocky",
+      "Raging Bull"
     ],
     "answer": 1,
     "visual": "👊🧼🩸"
@@ -3325,109 +3314,109 @@ export default [
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Willy Wonka ve Çikolata Fabrikası",
-      "Chef",
       "Ratatouille",
-      "Chocolat"
+      "Willy Wonka ve Çikolata Fabrikası",
+      "Chocolat",
+      "Chef"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "🍫🏭🎩"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Frankenstein",
-      "Makas Eller",
+      "Corpse Bride",
       "Beetlejuice",
-      "Corpse Bride"
+      "Frankenstein",
+      "Makas Eller"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "👨‍🦱✂️❄️"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Bee Movie",
       "Antz",
-      "A Bug's Life",
-      "Bugsy"
+      "Bee Movie",
+      "Bugsy",
+      "A Bug's Life"
     ],
-    "answer": 0,
+    "answer": 1,
     "visual": "🐝🎬🍯"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Creed",
       "Rocky IV",
-      "Southpaw",
-      "Cinderella Man"
+      "Cinderella Man",
+      "Creed",
+      "Southpaw"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🥊🇺🇸🇷🇺"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Field of Dreams (Düşler Tarlası)",
       "Signs",
+      "Moneyball",
       "The Natural",
-      "Moneyball"
+      "Field of Dreams (Düşler Tarlası)"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🌽👻⚾"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Aquaman",
-      "Denizler Altında 20000 Fersah",
       "Pirates of the Caribbean",
-      "Kong"
+      "Kong",
+      "Aquaman",
+      "Denizler Altında 20000 Fersah"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🐙🚢🎩"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Joker",
       "It (O)",
-      "Poltergeist",
-      "Us"
+      "Us",
+      "Joker",
+      "Poltergeist"
     ],
-    "answer": 1,
+    "answer": 0,
     "visual": "🤡🎈🚸"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
       "Paddington",
+      "Ted",
       "Winnie the Pooh",
-      "Brave",
-      "Ted"
+      "Brave"
     ],
-    "answer": 1,
+    "answer": 2,
     "visual": "🐻🍯🎈"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Black Swan (Siyah Kuğu)",
+      "Coco",
       "Flashdance",
       "Whiplash",
-      "Coco"
+      "Black Swan (Siyah Kuğu)"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "💃🦢🖤"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Drive",
+      "Nightcrawler",
       "Taksi Şoförü",
       "Collateral",
-      "Nightcrawler"
+      "Drive"
     ],
     "answer": 1,
     "visual": "🚕🌃😠"
@@ -3435,45 +3424,45 @@ export default [
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "Alice Harikalar Diyarında",
-      "Mary Poppins",
+      "Hugo",
       "Bedknobs",
-      "Hugo"
+      "Mary Poppins",
+      "Alice Harikalar Diyarında"
     ],
-    "answer": 0,
+    "answer": 3,
     "visual": "🎩🐇⏳"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "World War Z",
-      "Zombieland",
       "Ölülerin Şafağı (Dawn of the Dead)",
-      "28 Days Later"
+      "28 Days Later",
+      "World War Z",
+      "Zombieland"
     ],
-    "answer": 2,
+    "answer": 0,
     "visual": "🧟‍♂️🛒🏙️"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
-      "La La Land",
-      "1900: Efsane Adam (The Legend of 1900)",
+      "Amadeus",
       "Whiplash",
-      "Amadeus"
+      "La La Land",
+      "1900: Efsane Adam (The Legend of 1900)"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🎻🚢🎹"
   },
   {
     "q": "Bu emojiler hangi filmi anlatıyor?",
     "options": [
+      "Guardians",
       "Pandora",
-      "Avatar",
       "Star Trek",
-      "Guardians"
+      "Avatar"
     ],
-    "answer": 1,
+    "answer": 3,
     "visual": "🔵👽🌳"
   }
 ];

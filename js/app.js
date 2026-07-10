@@ -133,6 +133,50 @@ function clearSession() { try { sessionStorage.removeItem("bnb_session"); } catc
 function loadSession() {
   try { return JSON.parse(sessionStorage.getItem("bnb_session")); } catch (e) { return null; }
 }
+
+// Solo/macera kalıcılığı (localStorage — sekme atılmasına ve yenilemeye dayanır).
+// Uzun oyunlarda (100 soruya kadar) ilerleme kaybını önler.
+const SOLO_KEY = "bnb_solo_save";
+function saveSoloState() {
+  if (!state.solo || !state.room) return;
+  try {
+    localStorage.setItem(SOLO_KEY, JSON.stringify({
+      v: 1, campaign: state.campaign, soloParams: state.soloParams, name: state.name,
+      room: state.room, localQuestions: state.localQuestions,
+      gameStats: state.gameStats, statsInit: state.statsInit, recorded: state.recorded,
+      lastRevealIndex: state.lastRevealIndex, answeredIndex: state.answeredIndex,
+      playerChoice: state.playerChoice, ts: Date.now(),
+    }));
+  } catch (e) {}
+}
+function clearSoloState() { try { localStorage.removeItem(SOLO_KEY); } catch (e) {} }
+function loadSoloState() {
+  try { const s = JSON.parse(localStorage.getItem(SOLO_KEY)); return (s && s.room && s.localQuestions) ? s : null; } catch (e) { return null; }
+}
+function resumeSolo(saved) {
+  state.solo = true;
+  state.campaign = saved.campaign || null;
+  state.soloParams = saved.soloParams || null;
+  state.role = "host"; state.playerId = "host";
+  state.name = saved.name || loadProfile().name || "Sen";
+  state.code = state.campaign ? "MACERA" : "SOLO";
+  state.room = saved.room;
+  state.localQuestions = saved.localQuestions;
+  state.gameStats = saved.gameStats || null;
+  state.statsInit = !!saved.statsInit;
+  state.recorded = !!saved.recorded;
+  state.lastRevealIndex = typeof saved.lastRevealIndex === "number" ? saved.lastRevealIndex : -1;
+  state.answeredIndex = typeof saved.answeredIndex === "number" ? saved.answeredIndex : -1;
+  state.playerChoice = saved.playerChoice;
+  requestWake();
+  if (state.room.meta && state.room.meta.status === "question") {
+    const i = state.room.meta.questionIndex;
+    const limit = state.room.meta.timeLimit || 20;
+    clearTimeout(state.autoRevealTimer);
+    state.autoRevealTimer = setTimeout(() => maybeReveal(i), COUNTDOWN_MS + limit * 1000 + 800);
+  }
+  render();
+}
 function loadCustom() {
   try { return JSON.parse(localStorage.getItem(CUSTOM_KEY)) || []; } catch (e) { return []; }
 }
@@ -438,6 +482,7 @@ function hostShowQuestion(i) {
   state.room.meta.questionIndex = i;
   state.room.meta.status = "question";
   hostPublish();
+  if (state.solo) saveSoloState(); // solo/macera ilerlemesini kalıcı kıl
   render();
 
   const limit = state.room.meta.timeLimit || 20;
@@ -515,6 +560,7 @@ function hostRevealQuestion(i) {
   room.reveal[i] = { correct, counts };
   room.meta.status = "reveal";
   hostPublish();
+  if (state.solo) saveSoloState();
   render();
 }
 
@@ -1175,7 +1221,7 @@ function renderHostSetup() {
       <div class="difficulty-grid">${diffs}</div>
 
       <label class="field-label">Soru sayısı: <b id="qcountLbl">10</b></label>
-      <input type="range" id="qcount" min="5" max="100" value="10" step="1" class="range">
+      <input type="range" id="qcount" min="5" max="100" value="10" step="1" class="range" aria-label="Soru sayısı (5-100)">
 
       <label class="field-label">Oyun Ayarları</label>
       <label class="toggle-chip"><input type="checkbox" id="setHostPlays" checked> <span>🙋 Ben de oynayacağım (oda kuran da cevaplasın)</span></label>
@@ -1262,7 +1308,7 @@ function renderSoloSetup() {
       <div class="difficulty-grid">${diffs}</div>
 
       <label class="field-label">Soru sayısı: <b id="qcountLbl">10</b></label>
-      <input type="range" id="qcount" min="5" max="100" value="10" step="1" class="range">
+      <input type="range" id="qcount" min="5" max="100" value="10" step="1" class="range" aria-label="Soru sayısı (5-100)">
 
       <label class="field-label">Ayarlar</label>
       <label class="toggle-chip"><input type="checkbox" id="setSpeedBonus" checked> <span>⚡ Hız bonusu (erken cevap = çok puan)</span></label>
@@ -1470,6 +1516,7 @@ async function startCampaignStage(stageIndex) {
 }
 
 function exitCampaignToMap() {
+  clearSoloState();
   clearTimeout(state.autoRevealTimer);
   clearTimeout(state.autoNextTimer);
   releaseWake();
@@ -1485,6 +1532,7 @@ function renderCampaignStageResult(m) {
   const ratio = gs.questions ? gs.correct / gs.questions : 0;
   const passed = ratio >= (stage.passRatio || 0.5);
   const pct = Math.round(ratio * 100);
+  clearSoloState(); // bölüm bitti — yarım-oyun kaydını temizle
   const xpSummary = recordLocalResult(m, playersList());
   const statsHtml = `<div class="solo-stats">
       <div><b>${gs.correct}/${gs.questions}</b><span>doğru</span></div>
@@ -2345,6 +2393,7 @@ function showBadge(a) {
 }
 
 function renderSoloEnded(m, players) {
+  clearSoloState(); // oyun bitti — yarım-oyun kaydını temizle
   const meP = (state.room.players && state.room.players.host) || {};
   const gs = state.gameStats || { correct: 0, questions: 0, maxStreak: 0 };
   const acc = gs.questions ? Math.round((gs.correct / gs.questions) * 100) : 0;
@@ -2599,8 +2648,15 @@ function renderRoomGone() {
 
 function resetToHome() {
   releaseWake();
+  clearSoloState();
   clearTimeout(state.autoRevealTimer);
   clearTimeout(state.autoNextTimer);
+  // Host gerçek bir çok oyunculu odadan ayrılıyorsa retained state'i temizle
+  // (aksi halde broker'da "zombi" oda kalır, Hızlı Eşleş oyuncuları host'suz
+  // odaya sokar). Solo/macera sahte kod kullanır (SOLO/MACERA) — dokunma.
+  if (state.role === "host" && !state.solo && state.code && state.code !== "SOLO" && state.code !== "MACERA") {
+    try { clearState(state.code); } catch (e) {}
+  }
   if (state.stateUnsub) state.stateUnsub();
   if (state.inputUnsub) state.inputUnsub();
   clearSession();
@@ -2737,6 +2793,11 @@ function setupBackGuard() {
     }
     if (state.currentView === "stageIntro") { renderCampaignMap(); armBackGuard(); return; }
     if (state.currentView && state.currentView !== "home") {
+      // Host bir çok oyunculu odadan (lobi) ayrılacaksa oda kapanacağı için onay iste
+      if (state.role === "host" && !state.solo && state.room && state.code &&
+          state.code !== "SOLO" && state.code !== "MACERA") {
+        if (!confirm("Odadan çıkılsın mı? Oda kapanır ve katılanlar düşer.")) { armBackGuard(); return; }
+      }
       if (state.room) resetToHome(); else renderHome();
       armBackGuard();
       return;
@@ -2775,7 +2836,27 @@ function boot() {
   const saved = loadSession();
   if (saved && saved.code) { resumeSession(saved); return; }
   if (deepCode) { renderHome(); renderJoin(null, deepCode); return; }
+  // Yarım kalan solo/macera oyunu varsa devam teklifi göster
+  const soloSave = loadSoloState();
+  if (soloSave) { renderSoloResumePrompt(soloSave); return; }
   renderHome();
+}
+
+function renderSoloResumePrompt(saved) {
+  state.currentView = "soloResume"; armBackGuard();
+  const m = saved.room && saved.room.meta;
+  const qi = m ? (m.questionIndex + 1) : 1;
+  const tot = m ? m.totalQuestions : "?";
+  const mode = saved.campaign ? "🗺️ Macera bölümü" : "🎯 Tek Başına";
+  APP.innerHTML = `
+    <div class="card center">
+      <div class="logo small">Devam edelim mi?</div>
+      <p class="story-text">${mode} oyunun yarım kaldı — <b>${qi}/${tot}</b>. soruda.</p>
+      <button class="btn btn-primary btn-big" id="resumeGo">▶️ Kaldığın yerden devam et</button>
+      <button class="btn btn-secondary" id="resumeDrop">Yeni oyun / vazgeç</button>
+    </div>`;
+  document.getElementById("resumeGo").onclick = () => { sfx.click(); resumeSolo(saved); };
+  document.getElementById("resumeDrop").onclick = () => { sfx.click(); clearSoloState(); renderHome(); };
 }
 
 boot();

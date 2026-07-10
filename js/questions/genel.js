@@ -13,22 +13,22 @@ export default [
   {
     "q": "Gökkuşağında kaç renk bulunur?",
     "options": [
-      "5",
       "6",
       "7",
+      "5",
       "8"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Satranç tahtasında kaç kare vardır?",
     "options": [
-      "48",
-      "56",
       "64",
-      "72"
+      "72",
+      "56",
+      "48"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "Bir futbol takımı sahada kaç oyuncuyla başlar?",
@@ -43,119 +43,119 @@ export default [
   {
     "q": "İnsan vücudunda kaç kemik bulunur?",
     "options": [
-      "186",
-      "206",
+      "246",
       "226",
-      "246"
+      "186",
+      "206"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Trafik lambasında 'dur' anlamına gelen renk hangisidir?",
     "options": [
       "Yeşil",
       "Sarı",
-      "Kırmızı",
-      "Mavi"
+      "Mavi",
+      "Kırmızı"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Bir haftada kaç gün vardır?",
     "options": [
-      "5",
-      "6",
       "7",
-      "8"
+      "8",
+      "6",
+      "5"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "Aşağıdakilerden hangisi bir asal sayıdır?",
     "options": [
-      "9",
-      "15",
+      "7",
       "21",
-      "7"
+      "15",
+      "9"
     ],
-    "answer": 3
+    "answer": 0
   },
   {
     "q": "Bir düzine kaç adettir?",
     "options": [
       "6",
-      "10",
       "12",
+      "10",
       "20"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Olimpiyat bayrağında kaç halka vardır?",
     "options": [
       "3",
+      "6",
       "4",
-      "5",
-      "6"
+      "5"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Osmanlı Devleti'nde ilk kağıt para (kaime) hangi padişah döneminde çıkarılmıştır?",
     "options": [
       "II. Mahmud",
       "Abdülmecid",
-      "Abdülaziz",
-      "II. Abdülhamid"
+      "II. Abdülhamid",
+      "Abdülaziz"
     ],
     "answer": 1
   },
   {
     "q": "İnsan vücudundaki en uzun kemik hangisidir?",
     "options": [
-      "Kaval kemiği",
       "Uyluk kemiği (femur)",
-      "Kol kemiği",
-      "Kürek kemiği"
+      "Kürek kemiği",
+      "Kaval kemiği",
+      "Kol kemiği"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Periyodik tabloda 'Au' sembolü hangi elementi ifade eder?",
     "options": [
-      "Gümüş",
       "Altın",
+      "Alüminyum",
       "Bakır",
-      "Alüminyum"
+      "Gümüş"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Dünyanın en büyük okyanusu hangisidir?",
     "options": [
-      "Atlas Okyanusu",
-      "Hint Okyanusu",
+      "Arktik Okyanusu",
       "Büyük Okyanus (Pasifik)",
-      "Arktik Okyanusu"
+      "Atlas Okyanusu",
+      "Hint Okyanusu"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Türkiye'nin yüzölçümü bakımından en büyük ili hangisidir?",
     "options": [
-      "Erzurum",
-      "Sivas",
       "Konya",
-      "Ankara"
+      "Sivas",
+      "Ankara",
+      "Erzurum"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "Mona Lisa tablosu hangi müzede sergilenmektedir?",
     "options": [
-      "Prado Müzesi",
-      "Louvre Müzesi",
       "Uffizi Galerisi",
+      "Louvre Müzesi",
+      "Prado Müzesi",
       "British Museum"
     ],
     "answer": 1
@@ -163,82 +163,82 @@ export default [
   {
     "q": "Işığın boşluktaki hızı yaklaşık olarak saniyede kaç kilometredir?",
     "options": [
-      "150.000 km",
-      "300.000 km",
+      "3.000 km",
       "30.000 km",
-      "3.000 km"
+      "300.000 km",
+      "150.000 km"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Hangi gezegen Güneş Sistemi'nin en çok uyduya sahip olanlarından biri olup 'halkalarıyla' ünlüdür?",
     "options": [
-      "Jüpiter",
-      "Satürn",
       "Uranüs",
-      "Neptün"
+      "Neptün",
+      "Jüpiter",
+      "Satürn"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Cumhuriyet'in ilanından sonra kabul edilen ilk anayasa hangi yıla aittir?",
     "options": [
+      "1982",
       "1921",
-      "1924",
       "1961",
-      "1982"
+      "1924"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "'Sefiller' (Les Misérables) romanının yazarı kimdir?",
     "options": [
-      "Émile Zola",
-      "Victor Hugo",
       "Gustave Flaubert",
-      "Honoré de Balzac"
+      "Émile Zola",
+      "Honoré de Balzac",
+      "Victor Hugo"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Kanın pıhtılaşmasında rol oynayan kan hücresi hangisidir?",
     "options": [
-      "Alyuvar",
       "Trombosit",
+      "Alyuvar",
       "Akyuvar",
       "Plazma"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "İstanbul Boğazı'nı geçen ilk asma köprü hangi yıl açılmıştır?",
     "options": [
-      "1970",
       "1973",
+      "1970",
       "1980",
       "1988"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Hangi ülkenin başkenti Canberra'dır?",
     "options": [
-      "Yeni Zelanda",
-      "Avustralya",
       "Kanada",
-      "Güney Afrika"
+      "Avustralya",
+      "Güney Afrika",
+      "Yeni Zelanda"
     ],
     "answer": 1
   },
   {
     "q": "İnsan vücudunda safra salgılayan organ hangisidir?",
     "options": [
+      "Böbrek",
       "Pankreas",
       "Karaciğer",
-      "Böbrek",
       "Dalak"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Osmanlı'da 'Lale Devri' hangi padişah döneminde yaşanmıştır?",
@@ -254,71 +254,71 @@ export default [
     "q": "Suyun kimyasal formülü nedir?",
     "options": [
       "CO2",
-      "H2O",
       "O2",
+      "H2O",
       "NaCl"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "'Beşinci Senfoni' ile ünlü besteci kimdir?",
     "options": [
       "Mozart",
+      "Chopin",
       "Beethoven",
-      "Bach",
-      "Chopin"
+      "Bach"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Türkiye'nin en uzun akarsuyu hangisidir?",
     "options": [
-      "Sakarya",
+      "Yeşilırmak",
       "Kızılırmak",
-      "Fırat",
-      "Yeşilırmak"
+      "Sakarya",
+      "Fırat"
     ],
     "answer": 1
   },
   {
     "q": "Bir üçgenin iç açıları toplamı kaç derecedir?",
     "options": [
-      "90",
       "180",
-      "270",
-      "360"
+      "360",
+      "90",
+      "270"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Antik Yunan'da tıbbın babası olarak bilinen kişi kimdir?",
     "options": [
-      "Aristoteles",
+      "Galen",
       "Hipokrat",
-      "Platon",
-      "Galen"
+      "Aristoteles",
+      "Platon"
     ],
     "answer": 1
   },
   {
     "q": "Dünyanın en yüksek dağı olan Everest hangi sıradağlarda yer alır?",
     "options": [
-      "And Dağları",
-      "Himalayalar",
       "Alpler",
-      "Kayalık Dağları"
+      "Kayalık Dağları",
+      "Himalayalar",
+      "And Dağları"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Türk edebiyatında ilk yerli roman kabul edilen 'Taaşşuk-ı Talat ve Fitnat'ın yazarı kimdir?",
     "options": [
-      "Namık Kemal",
       "Şemsettin Sami",
-      "Ahmet Mithat Efendi",
-      "Recaizade Mahmut Ekrem"
+      "Namık Kemal",
+      "Recaizade Mahmut Ekrem",
+      "Ahmet Mithat Efendi"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Hangi element atmosferin en büyük bölümünü oluşturur?",
@@ -333,30 +333,30 @@ export default [
   {
     "q": "Malazgirt Savaşı hangi yılda yapılmıştır?",
     "options": [
-      "1071",
       "1176",
       "1048",
+      "1071",
       "1243"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "'Guernica' adlı ünlü tablo hangi ressama aittir?",
     "options": [
-      "Salvador Dalí",
-      "Pablo Picasso",
+      "Diego Velázquez",
       "Joan Miró",
-      "Diego Velázquez"
+      "Salvador Dalí",
+      "Pablo Picasso"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "İnsan kalbi normalde kaç odacıktan oluşur?",
     "options": [
-      "2",
+      "5",
       "3",
       "4",
-      "5"
+      "2"
     ],
     "answer": 2
   },
@@ -364,49 +364,49 @@ export default [
     "q": "Birleşmiş Milletler'in resmi kuruluş yılı hangisidir?",
     "options": [
       "1919",
+      "1950",
       "1945",
-      "1948",
-      "1950"
+      "1948"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Hangi vitamin güneş ışığı sayesinde deride sentezlenebilir?",
     "options": [
-      "C vitamini",
       "D vitamini",
-      "B12 vitamini",
-      "A vitamini"
+      "C vitamini",
+      "A vitamini",
+      "B12 vitamini"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Türkiye Cumhuriyeti'nin ilk kadın milletvekilleri hangi yıl meclise girmiştir?",
     "options": [
+      "1940",
       "1930",
-      "1934",
       "1935",
-      "1940"
+      "1934"
     ],
     "answer": 2
   },
   {
     "q": "'Don Kişot' romanının yazarı kimdir?",
     "options": [
-      "Miguel de Cervantes",
+      "Camilo José Cela",
       "Lope de Vega",
-      "Federico García Lorca",
-      "Camilo José Cela"
+      "Miguel de Cervantes",
+      "Federico García Lorca"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Sıcaklık ölçümünde kullanılan Kelvin biriminde suyun donma noktası yaklaşık kaç derecedir?",
     "options": [
-      "0 K",
       "100 K",
+      "373 K",
       "273 K",
-      "373 K"
+      "0 K"
     ],
     "answer": 2
   },
@@ -414,129 +414,129 @@ export default [
     "q": "Piri Reis'in ünlü dünya haritasını çizdiği yüzyıl hangisidir?",
     "options": [
       "15. yüzyıl",
-      "16. yüzyıl",
+      "14. yüzyıl",
       "17. yüzyıl",
-      "14. yüzyıl"
+      "16. yüzyıl"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Hangi organ insan vücudunda insülin hormonunu salgılar?",
     "options": [
       "Karaciğer",
-      "Pankreas",
       "Tiroit",
-      "Böbrek üstü bezi"
+      "Böbrek üstü bezi",
+      "Pankreas"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Dünyanın en kalabalık nüfusa sahip ülkelerinden biri olup 2023'te Çin'i geçen ülke hangisidir?",
     "options": [
       "ABD",
       "Hindistan",
-      "Endonezya",
-      "Pakistan"
+      "Pakistan",
+      "Endonezya"
     ],
     "answer": 1
   },
   {
     "q": "Osmanlı Devleti'nin kurucusu kimdir?",
     "options": [
-      "Ertuğrul Gazi",
-      "Osman Bey",
+      "Alaeddin Bey",
       "Orhan Bey",
-      "Alaeddin Bey"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Ses hangi ortamda yayılamaz?",
-    "options": [
-      "Katı",
-      "Sıvı",
-      "Gaz",
-      "Boşluk (vakum)"
+      "Ertuğrul Gazi",
+      "Osman Bey"
     ],
     "answer": 3
   },
   {
+    "q": "Ses hangi ortamda yayılamaz?",
+    "options": [
+      "Gaz",
+      "Boşluk (vakum)",
+      "Katı",
+      "Sıvı"
+    ],
+    "answer": 1
+  },
+  {
     "q": "'Kaptan Grant'ın Çocukları' ve 'Denizler Altında 20 Bin Fersah' romanlarının yazarı kimdir?",
     "options": [
-      "Jules Verne",
-      "H. G. Wells",
       "Daniel Defoe",
+      "H. G. Wells",
+      "Jules Verne",
       "Robert Louis Stevenson"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Türkiye'de saat ayarı ve resmi zaman hizmetini yürüten kurum hangisidir?",
     "options": [
-      "TÜBİTAK UME",
       "MTA",
       "DMİ",
-      "TSE"
+      "TSE",
+      "TÜBİTAK UME"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Hangi gezegen Güneş'e en yakın olanıdır?",
     "options": [
-      "Venüs",
+      "Dünya",
       "Merkür",
       "Mars",
-      "Dünya"
+      "Venüs"
     ],
     "answer": 1
   },
   {
     "q": "Bir kilogram kaç grama eşittir?",
     "options": [
-      "100 gram",
       "1000 gram",
+      "10000 gram",
       "10 gram",
-      "10000 gram"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Romen rakamlarında 'L' harfi hangi sayıyı ifade eder?",
-    "options": [
-      "50",
-      "100",
-      "500",
-      "1000"
+      "100 gram"
     ],
     "answer": 0
   },
   {
+    "q": "Romen rakamlarında 'L' harfi hangi sayıyı ifade eder?",
+    "options": [
+      "1000",
+      "500",
+      "100",
+      "50"
+    ],
+    "answer": 3
+  },
+  {
     "q": "Bir asal sayının en küçüğü hangisidir?",
     "options": [
-      "0",
+      "3",
       "1",
       "2",
-      "3"
+      "0"
     ],
     "answer": 2
   },
   {
     "q": "1 ton kaç kilogramdır?",
     "options": [
-      "100",
-      "1000",
+      "500",
       "10000",
-      "500"
+      "1000",
+      "100"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Aşağıdakilerden hangisi bir açı ölçü birimidir?",
     "options": [
       "Newton",
       "Radyan",
-      "Joule",
-      "Amper"
+      "Amper",
+      "Joule"
     ],
     "answer": 1
   },
@@ -545,8 +545,8 @@ export default [
     "options": [
       "24",
       "32",
-      "30",
-      "20"
+      "20",
+      "30"
     ],
     "answer": 1
   },
@@ -555,227 +555,227 @@ export default [
     "options": [
       "10",
       "100",
-      "1000",
-      "50"
+      "50",
+      "1000"
     ],
     "answer": 1
   },
   {
     "q": "'Bütün kediler memelidir' önermesinin karşıt (değili) doğru ifadesi hangisidir?",
     "options": [
-      "Hiçbir kedi memeli değildir",
       "Bazı kediler memeli değildir",
-      "Bütün memeliler kedidir",
-      "Bazı memeliler kedidir"
+      "Bazı memeliler kedidir",
+      "Hiçbir kedi memeli değildir",
+      "Bütün memeliler kedidir"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Elektrik akımının birimi nedir?",
     "options": [
       "Volt",
-      "Amper",
       "Watt",
+      "Amper",
       "Ohm"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Bir saat kaç saniyedir?",
-    "options": [
-      "60",
-      "600",
-      "3600",
-      "1000"
     ],
     "answer": 2
   },
   {
+    "q": "Bir saat kaç saniyedir?",
+    "options": [
+      "600",
+      "1000",
+      "60",
+      "3600"
+    ],
+    "answer": 3
+  },
+  {
     "q": "100'ün karekökü kaçtır?",
     "options": [
-      "10",
-      "50",
       "1000",
+      "50",
+      "10",
       "20"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Sıcaklık ölçmede kullanılan SI birimi hangisidir?",
     "options": [
+      "Fahrenheit",
       "Santigrat derece",
       "Kelvin",
-      "Fahrenheit",
       "Newton"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "3, 1, 4, 1, 5, 9 rakamları hangi ünlü sayının basamaklarıdır?",
     "options": [
-      "Pi sayısı",
       "Altın oran",
+      "Pi sayısı",
       "Euler sayısı",
       "Kök 2"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Bir gün kaç dakikadır?",
     "options": [
-      "1440",
-      "1240",
       "2400",
+      "1240",
+      "1440",
       "3600"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Aşağıdakilerden hangisi bir güç birimidir?",
     "options": [
       "Watt",
+      "Saniye",
       "Metre",
-      "Litre",
-      "Saniye"
+      "Litre"
     ],
     "answer": 0
   },
   {
     "q": "Fibonacci dizisinde 5 ve 8'den sonra gelen sayı kaçtır?",
     "options": [
-      "11",
       "12",
       "13",
-      "15"
+      "15",
+      "11"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Bir litre kaç mililitredir?",
     "options": [
-      "10",
+      "500",
       "100",
-      "1000",
-      "500"
+      "10",
+      "1000"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Sıfırdan farklı hangi sayı çift ve asal olma özelliğini birlikte taşır?",
     "options": [
-      "1",
       "2",
       "4",
+      "1",
       "9"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Basıncın SI birimi nedir?",
     "options": [
       "Pascal",
-      "Newton",
+      "Hertz",
       "Joule",
-      "Hertz"
+      "Newton"
     ],
     "answer": 0
   },
   {
     "q": "Bir dik açı kaç derecedir?",
     "options": [
+      "180",
       "45",
       "90",
-      "180",
       "360"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Frekansın birimi olan Hertz neyi ölçer?",
     "options": [
-      "Saniyedeki titreşim sayısını",
       "Sıcaklığı",
+      "Uzunluğu",
       "Kütleyi",
-      "Uzunluğu"
+      "Saniyedeki titreşim sayısını"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Romen rakamı 'IX' hangi sayıyı gösterir?",
     "options": [
-      "11",
+      "14",
       "9",
-      "19",
-      "14"
+      "11",
+      "19"
     ],
     "answer": 1
   },
   {
     "q": "Bir sayının kendisiyle çarpımına ne denir?",
     "options": [
-      "Küpü",
       "Karesi",
+      "Yarısı",
       "Karekökü",
-      "Yarısı"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Enerji ve işin SI birimi hangisidir?",
-    "options": [
-      "Joule",
-      "Watt",
-      "Volt",
-      "Pascal"
+      "Küpü"
     ],
     "answer": 0
   },
   {
-    "q": "1, 3, 6, 10, 15 şeklinde giden üçgensel sayılar dizisinde sonraki sayı kaçtır?",
+    "q": "Enerji ve işin SI birimi hangisidir?",
     "options": [
-      "18",
-      "20",
-      "21",
-      "25"
+      "Watt",
+      "Pascal",
+      "Joule",
+      "Volt"
     ],
     "answer": 2
   },
   {
+    "q": "1, 3, 6, 10, 15 şeklinde giden üçgensel sayılar dizisinde sonraki sayı kaçtır?",
+    "options": [
+      "25",
+      "21",
+      "18",
+      "20"
+    ],
+    "answer": 1
+  },
+  {
     "q": "Bir denizcilik mili yaklaşık kaç metredir?",
     "options": [
-      "1000",
       "1609",
+      "2000",
       "1852",
-      "2000"
+      "1000"
     ],
     "answer": 2
   },
   {
     "q": "Mantıkta 'p ise q' önermesinde q'nun yanlış, p'nin doğru olması durumunda önerme nedir?",
     "options": [
-      "Doğru",
       "Yanlış",
+      "Her zaman doğru",
       "Belirsiz",
-      "Her zaman doğru"
+      "Doğru"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Bir tam çember kaç derecedir?",
     "options": [
       "180",
-      "270",
       "360",
+      "270",
       "400"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Aşağıdaki sayılardan hangisi bir tam kare değildir?",
     "options": [
+      "36",
       "16",
       "25",
-      "36",
       "50"
     ],
     "answer": 3
@@ -783,252 +783,252 @@ export default [
   {
     "q": "Işık şiddetinin SI birimi hangisidir?",
     "options": [
+      "Watt",
       "Kandela",
       "Lümen",
-      "Lux",
-      "Watt"
+      "Lux"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Yarım (½) sayısının yüzde olarak karşılığı nedir?",
     "options": [
+      "%75",
       "%25",
       "%50",
-      "%75",
       "%5"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "'Hiçbir A, B değildir' önermesi ile çelişen önerme hangisidir?",
     "options": [
-      "Bazı A'lar B'dir",
-      "Bütün A'lar B değildir",
       "Hiçbir B, A değildir",
-      "Bazı A'lar B değildir"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Bir hafta kaç saattir?",
-    "options": [
-      "148",
-      "158",
-      "168",
-      "178"
-    ],
-    "answer": 2
-  },
-  {
-    "q": "Madde miktarının SI birimi olan mol, kaç adet tanecik içerir (Avogadro sayısı)?",
-    "options": [
-      "6,02 x 10^23",
-      "3,14 x 10^10",
-      "9,81 x 10^8",
-      "1,6 x 10^19"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "En küçük iki basamaklı asal sayı hangisidir?",
-    "options": [
-      "10",
-      "11",
-      "13",
-      "12"
+      "Bazı A'lar B'dir",
+      "Bazı A'lar B değildir",
+      "Bütün A'lar B değildir"
     ],
     "answer": 1
   },
   {
+    "q": "Bir hafta kaç saattir?",
+    "options": [
+      "178",
+      "158",
+      "148",
+      "168"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "Madde miktarının SI birimi olan mol, kaç adet tanecik içerir (Avogadro sayısı)?",
+    "options": [
+      "1,6 x 10^19",
+      "6,02 x 10^23",
+      "3,14 x 10^10",
+      "9,81 x 10^8"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "En küçük iki basamaklı asal sayı hangisidir?",
+    "options": [
+      "11",
+      "12",
+      "13",
+      "10"
+    ],
+    "answer": 0
+  },
+  {
     "q": "Bir milimetre kaç mikrometredir?",
     "options": [
-      "10",
-      "100",
+      "10000",
       "1000",
-      "10000"
+      "10",
+      "100"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "48 ve 60 sayılarının en büyük ortak böleni (EBOB) kaçtır?",
     "options": [
-      "6",
+      "4",
       "12",
       "24",
-      "4"
+      "6"
     ],
     "answer": 1
   },
   {
     "q": "Direncin (elektriksel) birimi nedir?",
     "options": [
-      "Volt",
+      "Watt",
       "Amper",
       "Ohm",
-      "Watt"
+      "Volt"
     ],
     "answer": 2
   },
   {
     "q": "7! (7 faktöriyel) kaça eşittir?",
     "options": [
-      "49",
-      "720",
+      "4900",
       "5040",
-      "4900"
-    ],
-    "answer": 2
-  },
-  {
-    "q": "Çamaşır yıkarken kıyafet etiketindeki içi boş kare sembolü neyi ifade eder?",
-    "options": [
-      "Ütüleme",
-      "Kurutma",
-      "Ağartma",
-      "Kuru temizleme"
+      "720",
+      "49"
     ],
     "answer": 1
   },
   {
+    "q": "Çamaşır yıkarken kıyafet etiketindeki içi boş kare sembolü neyi ifade eder?",
+    "options": [
+      "Ağartma",
+      "Ütüleme",
+      "Kuru temizleme",
+      "Kurutma"
+    ],
+    "answer": 3
+  },
+  {
     "q": "Buzdolabında çiğ eti hangi rafta saklamak en doğrudur?",
     "options": [
-      "En üst raf",
-      "Orta raf",
       "En alt raf",
-      "Kapak bölümü"
+      "Kapak bölümü",
+      "Orta raf",
+      "En üst raf"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "Yanmış tencerenin dibini temizlemek için sık kullanılan mutfak malzemesi hangisidir?",
     "options": [
+      "Un",
       "Karbonat",
       "Şeker",
-      "Nişasta",
-      "Un"
+      "Nişasta"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Bir yumurtanın taze olup olmadığını anlamak için suya konulduğunda taze yumurta ne yapar?",
     "options": [
       "Dibe yatay yatar",
       "Yüzeye çıkar",
-      "Dik durur",
-      "Erir"
+      "Erir",
+      "Dik durur"
     ],
     "answer": 0
   },
   {
     "q": "Elektrik prizindeki topraklama hattının temel amacı nedir?",
     "options": [
-      "Enerji tasarrufu",
-      "Cihaz hızını artırmak",
       "Kaçak akımı toprağa iletmek",
-      "Voltajı yükseltmek"
+      "Voltajı yükseltmek",
+      "Enerji tasarrufu",
+      "Cihaz hızını artırmak"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "Zeytinyağının duman noktası tereyağına göre genellikle nasıldır?",
     "options": [
-      "Aynıdır",
-      "Daha yüksektir",
       "Daha düşüktür",
-      "Yoktur"
+      "Yoktur",
+      "Aynıdır",
+      "Daha yüksektir"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Bir ilacın prospektüsünde 'tok karnına alınız' ifadesi neyi önerir?",
     "options": [
-      "Aç iken alınmalı",
-      "Yemekten sonra alınmalı",
+      "Gece alınmalı",
       "Sadece suyla",
-      "Gece alınmalı"
+      "Aç iken alınmalı",
+      "Yemekten sonra alınmalı"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Çamaşır makinesinde renkli kıyafetlerin solmasını azaltmak için genellikle hangi su sıcaklığı tercih edilir?",
     "options": [
-      "90 derece",
-      "Soğuk/düşük sıcaklık",
       "60 derece",
-      "Kaynar su"
+      "Kaynar su",
+      "Soğuk/düşük sıcaklık",
+      "90 derece"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Yağ yangınına su dökmek neden tehlikelidir?",
     "options": [
-      "Yağı dondurur",
-      "Buharlaşan su yağı sıçratarak alevi büyütür",
       "Kokuyu artırır",
-      "Elektrik verir"
+      "Yağı dondurur",
+      "Elektrik verir",
+      "Buharlaşan su yağı sıçratarak alevi büyütür"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Ekmeğin bayatlamasını yavaşlatmak için saklanması en uygun yer hangisidir?",
     "options": [
-      "Buzdolabı rafı",
-      "Oda sıcaklığında ekmek kutusu",
+      "Fırın içi",
       "Pencere önü",
-      "Fırın içi"
+      "Oda sıcaklığında ekmek kutusu",
+      "Buzdolabı rafı"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Bir ampulün watt değeri neyi gösterir?",
     "options": [
-      "Işık rengini",
       "Harcadığı gücü",
       "Ömrünü",
-      "Boyutunu"
+      "Boyutunu",
+      "Işık rengini"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Diş fırçasının ortalama ne kadar sürede bir değiştirilmesi önerilir?",
     "options": [
-      "Her hafta",
       "3-4 ayda bir",
       "2 yılda bir",
+      "Her hafta",
       "Hiç"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Kırmızı et pişirilirken iç sıcaklığın güvenli seviyeye ulaştığını ölçmek için kullanılan alet nedir?",
     "options": [
       "Higrometre",
+      "Manometre",
       "Et termometresi",
-      "Barometre",
-      "Manometre"
+      "Barometre"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Sirke ve karbonat karıştırıldığında açığa çıkan gaz hangisidir?",
     "options": [
+      "Hidrojen",
       "Oksijen",
       "Karbondioksit",
-      "Hidrojen",
       "Azot"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Bir kredi kartı ekstresinde 'asgari ödeme tutarı' ödenirse ne olur?",
     "options": [
       "Borç tamamen kapanır",
+      "Limit artar",
       "Kalan borca faiz işler",
-      "Kart iptal olur",
-      "Limit artar"
+      "Kart iptal olur"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Kışın araç camındaki buğuyu en hızlı gidermek için klima nasıl ayarlanır?",
@@ -1043,9 +1043,9 @@ export default [
   {
     "q": "Bir bıçağı bileme amacı nedir?",
     "options": [
-      "Ağırlaştırmak",
-      "Keskinliğini geri kazandırmak",
       "Renk vermek",
+      "Keskinliğini geri kazandırmak",
+      "Ağırlaştırmak",
       "Paslandırmak"
     ],
     "answer": 1
@@ -1053,12 +1053,12 @@ export default [
   {
     "q": "Gıda etiketlerinde 'son tüketim tarihi' (STT) ile 'tavsiye edilen tüketim tarihi' (TETT) farkı nedir?",
     "options": [
-      "Aynı şeydir",
-      "STT geçince tüketilmemeli, TETT sonrası kalite düşer ama tüketilebilir",
       "TETT daha kesindir",
-      "STT sadece içecekler için"
+      "Aynı şeydir",
+      "STT sadece içecekler için",
+      "STT geçince tüketilmemeli, TETT sonrası kalite düşer ama tüketilebilir"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Priz üzerinde çok sayıda cihazı çoklu priz ile bağlamanın riski nedir?",
@@ -1073,20 +1073,20 @@ export default [
   {
     "q": "Avokadonun olgunlaşmasını hızlandırmak için yanına konabilecek meyve hangisidir?",
     "options": [
+      "Üzüm",
       "Muz",
-      "Karpuz",
       "Limon",
-      "Üzüm"
+      "Karpuz"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Çay demlerken suyun kaynadıktan sonra hafif dinlendirilmesi önerilir çünkü çok yüksek sıcaklık ne yapar?",
     "options": [
-      "Rengi açar",
+      "Şekerlenir",
       "Acılaştırıp tanenleri fazla çıkarır",
-      "Soğutur",
-      "Şekerlenir"
+      "Rengi açar",
+      "Soğutur"
     ],
     "answer": 1
   },
@@ -1094,41 +1094,41 @@ export default [
     "q": "Lastik üzerindeki diş derinliğinin azalması sürüşte neyi etkiler?",
     "options": [
       "Yakıtı azaltır",
-      "Yol tutuşu ve frenlemeyi kötüleştirir",
+      "Rengi değiştirir",
       "Sesi keser",
-      "Rengi değiştirir"
+      "Yol tutuşu ve frenlemeyi kötüleştirir"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Beyaz kıyafetteki ter lekesine karşı etkili basit ev yöntemlerinden biri hangisidir?",
     "options": [
-      "Zeytinyağı",
-      "Karbonat macunu",
       "Bal",
-      "Süt"
+      "Zeytinyağı",
+      "Süt",
+      "Karbonat macunu"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Bir yangın söndürme tüpü kullanılırken hedef alınması gereken yer neresidir?",
     "options": [
       "Alevin tepesi",
-      "Yangının kaynağı/tabanı",
       "Duman",
-      "Tavan"
+      "Tavan",
+      "Yangının kaynağı/tabanı"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Buzlukta dondurulan yiyecek çözüldükten sonra tekrar dondurulması neden sakıncalıdır?",
     "options": [
       "Rengi bozulur",
-      "Bakteri üremesi ve kalite kaybı riski artar",
+      "Donmaz",
       "Ağırlaşır",
-      "Donmaz"
+      "Bakteri üremesi ve kalite kaybı riski artar"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Soğan doğrarken gözlerin yaşarmasının nedeni açığa çıkan hangi bileşiktir?",
@@ -1143,89 +1143,89 @@ export default [
   {
     "q": "Elektrikli su ısıtıcısında (kettle) biriken beyaz kireç tabakasını çözmek için kullanılan mutfak asidi hangisidir?",
     "options": [
+      "Süt",
       "Sirke",
       "Zeytinyağı",
-      "Bal",
-      "Süt"
+      "Bal"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Bir poşet çayın içindeki tanen lekesi bardakta kaldığında temizlemek için etkili olan hangisidir?",
     "options": [
+      "Tuzlu tereyağı",
       "Karbonat",
       "Un",
-      "Şeker",
-      "Tuzlu tereyağı"
+      "Şeker"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Kombi peteklerinin ısınmaması durumunda uygulanan basit işlem nedir?",
     "options": [
+      "Yıkamak",
       "Boyamak",
-      "Hava almasını sağlamak (purjör)",
       "Kapatmak",
-      "Yıkamak"
+      "Hava almasını sağlamak (purjör)"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Bir banka IBAN numarasının Türkiye için başladığı harf kodu hangisidir?",
     "options": [
-      "TR",
-      "TC",
       "TK",
-      "TU"
+      "TU",
+      "TR",
+      "TC"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Cam yüzeyleri izsiz temizlemek için gazete veya mikrofiber bez kullanılmasının nedeni nedir?",
     "options": [
-      "Parlatıcı içerir",
-      "Tüy bırakmaz ve iz yapmaz",
+      "Isıtır",
       "Renk verir",
-      "Isıtır"
+      "Parlatıcı içerir",
+      "Tüy bırakmaz ve iz yapmaz"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Patatesin filizlenip yeşermesi durumunda oluşan ve sağlığa zararlı olabilen madde hangisidir?",
     "options": [
       "Solanin",
-      "Kafein",
+      "Laktoz",
       "Kolajen",
-      "Laktoz"
+      "Kafein"
     ],
     "answer": 0
   },
   {
     "q": "Kırmızı ışıkta yaya olarak karşıdan karşıya geçmek için hangi ışığın yanması beklenir?",
     "options": [
-      "Sarı yaya ışığı",
-      "Yeşil yaya ışığı",
       "Kırmızı yaya ışığı",
-      "Mavi ışık"
+      "Yeşil yaya ışığı",
+      "Mavi ışık",
+      "Sarı yaya ışığı"
     ],
     "answer": 1
   },
   {
     "q": "Bal neden uzun süre bozulmadan saklanabilir?",
     "options": [
+      "Yağlı olduğu için",
       "Düşük su ve yüksek şeker içeriği bakteri üremesini engeller",
       "Soğuk olduğu için",
-      "Asit içermediği için",
-      "Yağlı olduğu için"
+      "Asit içermediği için"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Elektrik sigortası (otomat) attığında ilk yapılması gereken nedir?",
     "options": [
-      "Su dökmek",
-      "Aşırı yükü/sorunu bulup sigortayı tekrar kaldırmak",
       "Kabloyu kesmek",
+      "Aşırı yükü/sorunu bulup sigortayı tekrar kaldırmak",
+      "Su dökmek",
       "Beklemek"
     ],
     "answer": 1
@@ -1234,31 +1234,31 @@ export default [
     "q": "Deterjan dozunu önerilenden fazla kullanmak çamaşır makinesinde neye yol açar?",
     "options": [
       "Daha temiz sonuç",
+      "Su tasarrufu",
       "Durulanamayan kalıntı ve köpük sorunu",
-      "Daha hızlı yıkama",
-      "Su tasarrufu"
+      "Daha hızlı yıkama"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Bir muzun kabuğundaki kahverengi lekeler neyi gösterir?",
     "options": [
       "Bozulduğunu",
+      "Ham olduğunu",
       "Olgunlaştığını ve şekerlendiğini",
-      "Zehirli olduğunu",
-      "Ham olduğunu"
+      "Zehirli olduğunu"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Ahşap kesme tahtasının plastik olana göre bir avantajı olarak öne sürülen özellik nedir?",
     "options": [
       "Hiç bakteri barındırmaz",
+      "Su geçirmezlik",
       "Doğal antibakteriyel eğilim ve bıçağı daha az köreltme",
-      "Sonsuz ömür",
-      "Su geçirmezlik"
+      "Sonsuz ömür"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Yemek pişirirken tuzu en son eklemenin bir nedeni bazı durumlarda nedir?",
@@ -1273,72 +1273,72 @@ export default [
   {
     "q": "Dünyanın en uzun nehri olarak kabul edilen Nil Nehri hangi denize dökülür?",
     "options": [
+      "Hint Okyanusu",
       "Kızıldeniz",
       "Akdeniz",
-      "Hint Okyanusu",
       "Karadeniz"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Avustralya'nın başkenti hangisidir?",
     "options": [
       "Sidney",
       "Melbourne",
-      "Canberra",
-      "Perth"
+      "Perth",
+      "Canberra"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Eyfel Kulesi hangi yıl uluslararası bir sergi için inşa edilmiştir?",
     "options": [
       "1889",
       "1901",
-      "1875",
-      "1920"
+      "1920",
+      "1875"
     ],
     "answer": 0
   },
   {
     "q": "Dünya üzerindeki en büyük okyanus hangisidir?",
     "options": [
-      "Atlas Okyanusu",
-      "Hint Okyanusu",
+      "Arktik Okyanusu",
       "Pasifik Okyanusu",
-      "Arktik Okyanusu"
+      "Atlas Okyanusu",
+      "Hint Okyanusu"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Machu Picchu antik kenti hangi ülkededir?",
     "options": [
-      "Meksika",
-      "Peru",
       "Bolivya",
-      "Şili"
+      "Şili",
+      "Peru",
+      "Meksika"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Japonya'nın para birimi nedir?",
     "options": [
       "Won",
-      "Yuan",
       "Yen",
-      "Ringgit"
+      "Ringgit",
+      "Yuan"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Sahra Çölü hangi kıtada yer alır?",
     "options": [
       "Asya",
-      "Afrika",
       "Avustralya",
-      "Güney Amerika"
+      "Güney Amerika",
+      "Afrika"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Dünyanın en yüksek dağı olan Everest hangi sıradağların bir parçasıdır?",
@@ -1353,78 +1353,78 @@ export default [
   {
     "q": "Kanada'nın en kalabalık şehri hangisidir?",
     "options": [
-      "Ottawa",
       "Toronto",
-      "Montreal",
-      "Vancouver"
+      "Vancouver",
+      "Ottawa",
+      "Montreal"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Dünyada en çok konuşulan ana dil (anadili sayısı en fazla) hangisidir?",
     "options": [
-      "İngilizce",
       "Mandarin Çincesi",
-      "İspanyolca",
-      "Hintçe"
+      "İngilizce",
+      "Hintçe",
+      "İspanyolca"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Christ the Redeemer (Kurtarıcı İsa) heykeli hangi şehirdedir?",
     "options": [
-      "Buenos Aires",
-      "Rio de Janeiro",
       "Lima",
-      "Santiago"
+      "Buenos Aires",
+      "Santiago",
+      "Rio de Janeiro"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Dünyanın en büyük yüzölçümüne sahip ülkesi hangisidir?",
     "options": [
-      "Çin",
       "Kanada",
+      "ABD",
       "Rusya",
-      "ABD"
+      "Çin"
     ],
     "answer": 2
   },
   {
     "q": "Berlin Duvarı hangi yıl yıkılmıştır?",
     "options": [
-      "1985",
-      "1989",
+      "1979",
       "1991",
-      "1979"
+      "1989",
+      "1985"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Güneş sistemindeki en büyük gezegen hangisidir?",
     "options": [
       "Satürn",
+      "Dünya",
       "Jüpiter",
-      "Neptün",
-      "Dünya"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Kanguru ve koala gibi keseli hayvanlarıyla ünlü kıta hangisidir?",
-    "options": [
-      "Afrika",
-      "Güney Amerika",
-      "Avustralya",
-      "Asya"
+      "Neptün"
     ],
     "answer": 2
   },
   {
+    "q": "Kanguru ve koala gibi keseli hayvanlarıyla ünlü kıta hangisidir?",
+    "options": [
+      "Güney Amerika",
+      "Asya",
+      "Afrika",
+      "Avustralya"
+    ],
+    "answer": 3
+  },
+  {
     "q": "Dünyanın en derin okyanus çukuru olan Mariana Çukuru hangi okyanustadır?",
     "options": [
-      "Atlas",
       "Hint",
+      "Atlas",
       "Pasifik",
       "Arktik"
     ],
@@ -1433,28 +1433,28 @@ export default [
   {
     "q": "Antik dünyanın yedi harikasından günümüze kadar ayakta kalan tek yapı hangisidir?",
     "options": [
-      "Rodos Heykeli",
-      "Gize Piramitleri",
       "İskenderiye Feneri",
-      "Babil Asma Bahçeleri"
+      "Gize Piramitleri",
+      "Babil Asma Bahçeleri",
+      "Rodos Heykeli"
     ],
     "answer": 1
   },
   {
     "q": "Hangi ülke 'Doğan Güneş Ülkesi' olarak bilinir?",
     "options": [
-      "Çin",
-      "Japonya",
       "Güney Kore",
-      "Tayland"
+      "Çin",
+      "Tayland",
+      "Japonya"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Amazon Yağmur Ormanları'nın büyük kısmı hangi ülkenin sınırları içindedir?",
     "options": [
-      "Peru",
       "Kolombiya",
+      "Peru",
       "Brezilya",
       "Venezuela"
     ],
@@ -1463,50 +1463,50 @@ export default [
   {
     "q": "Dünyanın en kalabalık nüfusuna sahip ülkesi (2023 itibarıyla) hangisidir?",
     "options": [
-      "Çin",
       "Hindistan",
-      "ABD",
-      "Endonezya"
+      "Endonezya",
+      "Çin",
+      "ABD"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Kolezyum hangi antik uygarlığın eseridir?",
     "options": [
       "Yunan",
-      "Roma",
+      "Pers",
       "Mısır",
-      "Pers"
+      "Roma"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Büyük Set Resifi (Great Barrier Reef) hangi ülkenin kıyısındadır?",
     "options": [
-      "Endonezya",
+      "Yeni Zelanda",
       "Filipinler",
-      "Avustralya",
-      "Yeni Zelanda"
+      "Endonezya",
+      "Avustralya"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Titanik gemisi hangi yıl battı?",
     "options": [
+      "1918",
       "1905",
       "1912",
-      "1918",
       "1923"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Petra antik kenti hangi ülkededir?",
     "options": [
-      "Mısır",
-      "Ürdün",
       "Suriye",
-      "Lübnan"
+      "Ürdün",
+      "Lübnan",
+      "Mısır"
     ],
     "answer": 1
   },
@@ -1515,48 +1515,48 @@ export default [
     "options": [
       "Monako",
       "Nauru",
-      "Vatikan",
-      "San Marino"
+      "San Marino",
+      "Vatikan"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Hangi para birimi Avrupa Birliği'nin ortak para birimidir?",
     "options": [
       "Sterlin",
       "Euro",
-      "Frank",
-      "Kron"
+      "Kron",
+      "Frank"
     ],
     "answer": 1
   },
   {
     "q": "Niagara Şelaleleri hangi iki ülkenin sınırında yer alır?",
     "options": [
-      "ABD-Meksika",
-      "ABD-Kanada",
+      "Brezilya-Arjantin",
       "Kanada-Rusya",
-      "Brezilya-Arjantin"
+      "ABD-Kanada",
+      "ABD-Meksika"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Dünyanın en uzun kara sınırına sahip iki komşu ülkesi hangileridir?",
     "options": [
       "Rusya-Çin",
-      "ABD-Kanada",
       "Hindistan-Çin",
-      "Arjantin-Şili"
+      "Arjantin-Şili",
+      "ABD-Kanada"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Kızıldeniz ile Akdeniz'i birbirine bağlayan yapay su yolu hangisidir?",
     "options": [
-      "Panama Kanalı",
+      "Korint Kanalı",
       "Süveyş Kanalı",
       "Kiel Kanalı",
-      "Korint Kanalı"
+      "Panama Kanalı"
     ],
     "answer": 1
   },
@@ -1564,341 +1564,341 @@ export default [
     "q": "Tac Mahal hangi şehirde bulunur?",
     "options": [
       "Yeni Delhi",
-      "Mumbai",
       "Agra",
-      "Jaipur"
+      "Jaipur",
+      "Mumbai"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Vikingler tarihsel olarak günümüzde hangi bölgeden gelen denizcilerdir?",
     "options": [
       "Akdeniz",
-      "İskandinavya",
+      "Kafkasya",
       "Balkanlar",
-      "Kafkasya"
+      "İskandinavya"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Dünyanın en büyük adası hangisidir?",
     "options": [
       "Yeni Gine",
-      "Borneo",
       "Grönland",
-      "Madagaskar"
+      "Madagaskar",
+      "Borneo"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Hangi şehir ikiye bölünerek Avrupa ve Asya kıtalarında yer alan tek metropoldür?",
     "options": [
-      "Moskova",
-      "İstanbul",
       "Atina",
-      "Kahire"
+      "İstanbul",
+      "Kahire",
+      "Moskova"
     ],
     "answer": 1
   },
   {
     "q": "Alfabenin ilk versiyonlarından biri olan Fenike alfabesini geliştiren Fenikeliler hangi bölgede yaşamıştır?",
     "options": [
-      "Mezopotamya",
-      "Doğu Akdeniz kıyısı",
       "Anadolu içleri",
-      "Mısır"
+      "Doğu Akdeniz kıyısı",
+      "Mısır",
+      "Mezopotamya"
     ],
     "answer": 1
   },
   {
     "q": "Angkor Wat tapınak kompleksi hangi ülkededir?",
     "options": [
+      "Vietnam",
       "Tayland",
       "Kamboçya",
-      "Vietnam",
       "Laos"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Dünyanın en büyük gölü olan Hazar (kara ile çevrili en büyük su kütlesi) coğrafi olarak ne tür bir su kütlesi kabul edilir?",
     "options": [
-      "Nehir",
-      "Körfez",
       "Göl",
+      "Körfez",
+      "Nehir",
       "Boğaz"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "Bal arılarının kanat çırpma sesinden bağımsız olarak, bir arı kolonisinin ürettiği bal miktarı için tek bir işçi arının ömrü boyunca ürettiği bal ortalama ne kadardır?",
     "options": [
-      "Yaklaşık 1/12 çay kaşığı",
       "Yaklaşık yarım kilogram",
+      "Yaklaşık 1/12 çay kaşığı",
       "Yaklaşık 100 gram",
       "Yaklaşık 1 çay bardağı"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Ahtapotların kaç kalbi vardır?",
     "options": [
-      "1",
       "2",
-      "3",
-      "4"
+      "4",
+      "1",
+      "3"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Eyfel Kulesi sıcak havalarda ısı ile genleşerek yaklaşık ne kadar uzayabilir?",
     "options": [
-      "15 santimetre",
       "1 metre",
       "5 santimetre",
+      "15 santimetre",
       "3 metre"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Dünyanın en küçük kemiği olan üzengi kemiği (stapes) hangi organda bulunur?",
     "options": [
       "Burun",
+      "Diz",
       "Kulak",
-      "Göz",
-      "Diz"
+      "Göz"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Muzun botanik sınıflandırmasında hangi kategoriye girdiği doğrudur?",
     "options": [
+      "Tahıl",
       "Sebze",
-      "Kuruyemiş",
       "Meyve (böğürtlengiller / berry)",
-      "Tahıl"
+      "Kuruyemiş"
     ],
     "answer": 2
   },
   {
     "q": "Tarihteki en kısa savaş olarak bilinen Anglo-Zanzibar Savaşı yaklaşık ne kadar sürmüştür?",
     "options": [
-      "38-45 dakika",
-      "3 gün",
       "6 saat",
+      "3 gün",
+      "38-45 dakika",
       "2 hafta"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "İnsan vücudundaki en güçlü kas, çeneyi hareket ettiren hangi kas kabul edilir?",
-    "options": [
-      "Masseter (çiğneme kası)",
-      "Kalp kası",
-      "Baldır kası",
-      "Dil"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Bir grup kediye İngilizcede topluluk adı olarak ne denir?",
-    "options": [
-      "A clowder",
-      "A pack",
-      "A herd",
-      "A flock"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Venüs gezegeninde bir gün (kendi ekseni etrafında dönüşü) bir yılından (Güneş etrafında turu) daha uzundur. Bu doğru mudur?",
-    "options": [
-      "Doğru",
-      "Yanlış",
-      "Sadece kutuplarda",
-      "Ölçülemez"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Bal, uygun koşullarda saklandığında bozulmadan ne kadar dayanabilir?",
-    "options": [
-      "Yaklaşık 1 yıl",
-      "Yaklaşık 10 yıl",
-      "Neredeyse süresiz (binlerce yıl)",
-      "Yaklaşık 50 yıl"
     ],
     "answer": 2
   },
   {
-    "q": "Karidesin kalbi vücudunun hangi bölgesinde bulunur?",
+    "q": "İnsan vücudundaki en güçlü kas, çeneyi hareket ettiren hangi kas kabul edilir?",
     "options": [
-      "Kafasında (baş bölgesinde)",
-      "Kuyruğunda",
-      "Karın ortasında",
-      "Kalbi yoktur"
+      "Baldır kası",
+      "Kalp kası",
+      "Masseter (çiğneme kası)",
+      "Dil"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
-    "q": "Göz kırpma dışında flamingoların pembe rengi neyden kaynaklanır?",
+    "q": "Bir grup kediye İngilizcede topluluk adı olarak ne denir?",
     "options": [
-      "Genetik pigment",
-      "Beslendikleri karotenoid içeren yosun ve karideslerden",
-      "Güneş ışığı",
-      "Su sıcaklığından"
+      "A flock",
+      "A herd",
+      "A pack",
+      "A clowder"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "Venüs gezegeninde bir gün (kendi ekseni etrafında dönüşü) bir yılından (Güneş etrafında turu) daha uzundur. Bu doğru mudur?",
+    "options": [
+      "Yanlış",
+      "Ölçülemez",
+      "Doğru",
+      "Sadece kutuplarda"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "Bal, uygun koşullarda saklandığında bozulmadan ne kadar dayanabilir?",
+    "options": [
+      "Yaklaşık 10 yıl",
+      "Neredeyse süresiz (binlerce yıl)",
+      "Yaklaşık 1 yıl",
+      "Yaklaşık 50 yıl"
     ],
     "answer": 1
   },
   {
+    "q": "Karidesin kalbi vücudunun hangi bölgesinde bulunur?",
+    "options": [
+      "Kalbi yoktur",
+      "Kafasında (baş bölgesinde)",
+      "Kuyruğunda",
+      "Karın ortasında"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Göz kırpma dışında flamingoların pembe rengi neyden kaynaklanır?",
+    "options": [
+      "Su sıcaklığından",
+      "Genetik pigment",
+      "Güneş ışığı",
+      "Beslendikleri karotenoid içeren yosun ve karideslerden"
+    ],
+    "answer": 3
+  },
+  {
     "q": "Dünya üzerinde tek başına bir çift olarak sayıldığında, salyangozların dişleri yaklaşık kaç tane olabilir?",
     "options": [
-      "Hiç yoktur",
+      "Yaklaşık 100",
       "Binlerce (mikroskobik radula dişleri)",
       "Tam 32",
-      "Yaklaşık 100"
+      "Hiç yoktur"
     ],
     "answer": 1
   },
   {
     "q": "Napolyon Bonapart'ın boyu döneminde 'kısa' olarak anılsa da, aslında dönemin Fransız ortalamasına göre nasıldı?",
     "options": [
-      "Ortalama ya da hafif üzerinde",
+      "Ölçülmemiştir",
       "Aşırı kısa",
       "En uzun asker",
-      "Ölçülmemiştir"
+      "Ortalama ya da hafif üzerinde"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Deve kuşunun gözü beynine göre nasıldır?",
     "options": [
       "Beyninden daha büyüktür",
-      "Beyniyle aynı boyuttadır",
       "Beyninin yarısı kadardır",
-      "Çok daha küçüktür"
+      "Çok daha küçüktür",
+      "Beyniyle aynı boyuttadır"
     ],
     "answer": 0
   },
   {
     "q": "Ay'da bırakılan ilk ayak izlerinin, atmosfer ve rüzgar olmadığı için tahminen ne kadar kalacağı düşünülür?",
     "options": [
+      "Birkaç ay",
       "Birkaç yıl",
       "Milyonlarca yıl",
-      "Birkaç ay",
       "10 yıl"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Wombat adlı Avustralya hayvanının dışkısı hangi ilginç şekle sahiptir?",
     "options": [
       "Küp (kübik) şeklinde",
-      "Yıldız şeklinde",
+      "Spiral",
       "Tamamen yuvarlak",
-      "Spiral"
+      "Yıldız şeklinde"
     ],
     "answer": 0
   },
   {
     "q": "İnsan DNA'sının yaklaşık yüzde kaçı muz ile ortaktır?",
     "options": [
-      "Yaklaşık %10",
+      "Hiç ortak yoktur",
       "Yaklaşık %50-60",
       "Yaklaşık %99",
-      "Hiç ortak yoktur"
+      "Yaklaşık %10"
     ],
     "answer": 1
   },
   {
     "q": "Sıcak su, belirli koşullar altında soğuk sudan daha hızlı donabilir. Bu olaya ne ad verilir?",
     "options": [
-      "Mpemba etkisi",
+      "Bernoulli etkisi",
       "Doppler etkisi",
-      "Coriolis etkisi",
-      "Bernoulli etkisi"
+      "Mpemba etkisi",
+      "Coriolis etkisi"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Oxford Üniversitesi ile Aztek İmparatorluğu'ndan hangisi daha eskidir?",
     "options": [
-      "Oxford Üniversitesi daha eskidir",
+      "Bilinmiyor",
       "Aztek İmparatorluğu daha eskidir",
       "Aynı dönemdirler",
-      "Bilinmiyor"
+      "Oxford Üniversitesi daha eskidir"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Yıldırım aynı yere birden fazla kez düşebilir mi?",
     "options": [
-      "Hayır, asla",
       "Evet, hatta yüksek yapılara sık düşer",
-      "Sadece çölde",
-      "Sadece kışın"
+      "Hayır, asla",
+      "Sadece kışın",
+      "Sadece çölde"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Bir insan ne kadar uzun süre hapşırırken gözlerini açık tutabilir? (yaygın inanış dışında gerçek)",
     "options": [
       "Gözler açık tutulabilir, refleks isteğe bağlı bastırılabilir",
       "Fiziksel olarak imkansızdır",
-      "Gözler patlar",
-      "Sadece çocuklar açabilir"
+      "Sadece çocuklar açabilir",
+      "Gözler patlar"
     ],
     "answer": 0
   },
   {
     "q": "Deniz atlarında (hipokamp) yavruları hangi ebeveyn taşır ve doğurur?",
     "options": [
-      "Erkek",
-      "Dişi",
       "İkisi birlikte",
-      "Yumurtaları terk ederler"
+      "Yumurtaları terk ederler",
+      "Dişi",
+      "Erkek"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Tavşanlar ve bazı kemirgenlerin gözleri kafalarının yanlarında olduğu için görme açıları nasıldır?",
     "options": [
-      "Neredeyse 360 derece görebilirler",
       "Sadece önlerini görürler",
-      "Sadece geceleri görürler",
-      "Renk körüdürler"
+      "Neredeyse 360 derece görebilirler",
+      "Renk körüdürler",
+      "Sadece geceleri görürler"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Denizanaları, mercanlar ve süngerler gibi bazı canlıların ortak eksikliği nedir?",
     "options": [
       "Beyin (merkezi sinir sistemi yoktur)",
-      "Hücre",
+      "Üreme",
       "Su ihtiyacı",
-      "Üreme"
+      "Hücre"
     ],
     "answer": 0
   },
   {
     "q": "Bir 'jiffy' terimi bilimde belirli bir zaman birimidir. Yaklaşık ne kadardır?",
     "options": [
-      "Işığın 1 cm gitmesi gibi çok kısa bir an",
       "Tam 1 saniye",
+      "Işığın 1 cm gitmesi gibi çok kısa bir an",
       "1 dakika",
       "1 milisaniye sabiti"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Cleopatra'nın yaşadığı dönem, Giza Piramitleri'nin inşasından mı yoksa iPhone'un icadından mı zaman olarak daha yakındır?",
     "options": [
+      "Tam ortadadır",
       "Piramitlerin inşasına daha yakındır",
       "iPhone'un icadına daha yakındır",
-      "Tam ortadadır",
       "Aynı dönemdedir"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "İnsan midesindeki asit (mide asidi) neyi eritebilecek kadar güçlüdür?",
@@ -1913,22 +1913,22 @@ export default [
   {
     "q": "Uzayda astronotlar neden ağlayamaz (gözyaşı normal akmaz)?",
     "options": [
-      "Yerçekimi olmadığı için gözyaşı damla olarak akmaz, gözde toplanır",
-      "Gözyaşı bezleri çalışmaz",
       "Uzayda su donar",
-      "Duygular bastırılır"
+      "Duygular bastırılır",
+      "Yerçekimi olmadığı için gözyaşı damla olarak akmaz, gözde toplanır",
+      "Gözyaşı bezleri çalışmaz"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Bazı kaplumbağalar oksijeni vücutlarının hangi bölgesinden de alabilir?",
     "options": [
-      "Kloak (arka bölge)",
       "Kabukları",
+      "Kuyrukları yoktur",
       "Gözleri",
-      "Kuyrukları yoktur"
+      "Kloak (arka bölge)"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Nutella'nın bir yılda dünyada tükettiği fındık, dünya fındık üretiminin yaklaşık ne kadarını oluşturur?",
@@ -1943,22 +1943,22 @@ export default [
   {
     "q": "İskoçya'nın resmi ulusal hayvanı hangisidir?",
     "options": [
-      "Unicorn (tek boynuzlu at)",
-      "Aslan",
       "Geyik",
-      "Kartal"
+      "Kartal",
+      "Unicorn (tek boynuzlu at)",
+      "Aslan"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Bir kaplanın derisi tıraş edilse, altındaki deride ne görülür?",
     "options": [
-      "Çizgiler (deri de çizgilidir)",
-      "Düz turuncu",
+      "Siyah",
       "Beyaz",
-      "Siyah"
+      "Çizgiler (deri de çizgilidir)",
+      "Düz turuncu"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Ananas bitkisi nasıl yetişir?",
@@ -1973,130 +1973,130 @@ export default [
   {
     "q": "Titanik'in enkazını keşfeden 1985 seferi aslında gizli bir askeri görevin parçasıydı. Bu görevin asıl amacı neydi?",
     "options": [
-      "Batık nükleer denizaltıları araştırmak",
-      "Petrol aramak",
+      "İklim ölçümü",
       "Balık sürülerini izlemek",
-      "İklim ölçümü"
+      "Batık nükleer denizaltıları araştırmak",
+      "Petrol aramak"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Bir yumurtanın kabuğu kırılmadan tek elle sıkılarak kırılması neden zordur?",
     "options": [
-      "Kubbe/kemer şekli basıncı dağıtır",
       "Kabuk metaldir",
-      "İçindeki hava",
-      "Kalsiyum sertliği sonsuzdur"
+      "Kalsiyum sertliği sonsuzdur",
+      "Kubbe/kemer şekli basıncı dağıtır",
+      "İçindeki hava"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Sekizgen değil ama arıların bal peteğini altıgen (hexagon) yapmasının başlıca sebebi nedir?",
     "options": [
-      "En az malzemeyle en fazla alanı kaplaması",
+      "Isı üretmek",
       "Rastgele oluşması",
       "Görsel güzellik",
-      "Isı üretmek"
+      "En az malzemeyle en fazla alanı kaplaması"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Sözde 'balık hafızası 3 saniye' klişesinin aksine, japon balıklarının hafızası gerçekte ne kadar sürebilir?",
     "options": [
-      "Birkaç saniye",
       "Aylarca",
+      "Hafızaları yoktur",
       "Sadece 3 saniye",
-      "Hafızaları yoktur"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Bir yıldırımın sıcaklığı yaklaşık olarak neye kıyaslanır?",
-    "options": [
-      "Güneş yüzeyinden yaklaşık 5 kat daha sıcak olabilir",
-      "Buzdan biraz sıcak",
-      "Kaynayan su kadar",
-      "Lav ile aynı"
+      "Birkaç saniye"
     ],
     "answer": 0
   },
   {
-    "q": "Dünyanın en yüksek binası olan Burj Khalifa hangi şehirdedir?",
+    "q": "Bir yıldırımın sıcaklığı yaklaşık olarak neye kıyaslanır?",
     "options": [
-      "Abu Dabi",
-      "Dubai",
-      "Riyad",
-      "Doha"
+      "Kaynayan su kadar",
+      "Güneş yüzeyinden yaklaşık 5 kat daha sıcak olabilir",
+      "Lav ile aynı",
+      "Buzdan biraz sıcak"
     ],
     "answer": 1
   },
   {
+    "q": "Dünyanın en yüksek binası olan Burj Khalifa hangi şehirdedir?",
+    "options": [
+      "Dubai",
+      "Doha",
+      "Abu Dabi",
+      "Riyad"
+    ],
+    "answer": 0
+  },
+  {
     "q": "Karada yaşayan en hızlı hayvan olan çita, kısa mesafede yaklaşık saatte kaç km hıza ulaşabilir?",
     "options": [
+      "150 km",
       "80 km",
-      "100 km",
       "120 km",
-      "150 km"
+      "100 km"
     ],
     "answer": 2
   },
   {
     "q": "Dünyanın en uzun nehri kabul edilen (geleneksel ölçüme göre) hangisidir?",
     "options": [
-      "Amazon",
       "Yangtze",
       "Nil",
+      "Amazon",
       "Mississippi"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Antik Dünyanın Yedi Harikası'ndan günümüze kadar ayakta kalan tek yapı hangisidir?",
     "options": [
-      "Rodos Heykeli",
-      "Giza Büyük Piramidi",
       "İskenderiye Feneri",
-      "Artemis Tapınağı"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Yeryüzündeki en derin okyanus çukuru olan Mariana Çukuru hangi okyanustadır?",
-    "options": [
-      "Atlas Okyanusu",
-      "Hint Okyanusu",
-      "Pasifik Okyanusu",
-      "Güney Okyanusu"
+      "Artemis Tapınağı",
+      "Giza Büyük Piramidi",
+      "Rodos Heykeli"
     ],
     "answer": 2
   },
   {
+    "q": "Yeryüzündeki en derin okyanus çukuru olan Mariana Çukuru hangi okyanustadır?",
+    "options": [
+      "Pasifik Okyanusu",
+      "Hint Okyanusu",
+      "Güney Okyanusu",
+      "Atlas Okyanusu"
+    ],
+    "answer": 0
+  },
+  {
     "q": "Dünyanın en büyük çölü (soğuk çöller dahil en geniş) hangisidir?",
     "options": [
-      "Sahra Çölü",
-      "Antarktika Çölü",
+      "Arabistan Çölü",
       "Gobi Çölü",
-      "Arabistan Çölü"
+      "Sahra Çölü",
+      "Antarktika Çölü"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "İlk insanlı ay yürüyüşünü gerçekleştiren Apollo 11 misyonu hangi yılda gerçekleşti?",
     "options": [
-      "1967",
       "1969",
       "1971",
-      "1972"
+      "1972",
+      "1967"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Uzaya çıkan ilk insan olan Yuri Gagarin hangi ülkenin vatandaşıydı?",
     "options": [
-      "ABD",
-      "Sovyetler Birliği",
       "Almanya",
-      "Fransa"
+      "Sovyetler Birliği",
+      "Fransa",
+      "ABD"
     ],
     "answer": 1
   },
@@ -2104,41 +2104,41 @@ export default [
     "q": "Karada yaşayan en büyük memeli hayvan hangisidir?",
     "options": [
       "Su aygırı",
-      "Afrika fili",
+      "Zürafa",
       "Beyaz gergedan",
-      "Zürafa"
+      "Afrika fili"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Dünyanın en yüksek dağı Everest hangi sıradağların üzerindedir?",
     "options": [
-      "Karakurum",
       "Alpler",
-      "Himalayalar",
-      "And Dağları"
+      "Karakurum",
+      "And Dağları",
+      "Himalayalar"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Everest'e ilk tırmanan iki kişiden biri olan Tenzing Norgay'ın yanındaki dağcı kimdi?",
     "options": [
       "George Mallory",
       "Edmund Hillary",
-      "Reinhold Messner",
-      "Chris Bonington"
+      "Chris Bonington",
+      "Reinhold Messner"
     ],
     "answer": 1
   },
   {
     "q": "Yaşayan en büyük hayvan olan mavi balina yaklaşık kaç metre uzunluğa ulaşabilir?",
     "options": [
-      "20 metre",
-      "30 metre",
       "45 metre",
-      "60 metre"
+      "60 metre",
+      "30 metre",
+      "20 metre"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Dünyanın en yüksek şelalesi olan Angel Şelalesi hangi ülkededir?",
@@ -2155,128 +2155,128 @@ export default [
     "options": [
       "Endonezya",
       "ABD",
-      "Hindistan",
-      "Pakistan"
+      "Pakistan",
+      "Hindistan"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Dünyanın en küçük bağımsız devleti (yüzölçümü olarak) hangisidir?",
     "options": [
+      "San Marino",
       "Monako",
-      "Nauru",
       "Vatikan",
-      "San Marino"
+      "Nauru"
     ],
     "answer": 2
   },
   {
     "q": "Yeryüzünün en tuzlu ve en alçak noktalarından biri olan, deniz seviyesinin çok altındaki göl hangisidir?",
     "options": [
+      "Tuz Gölü",
       "Hazar Denizi",
-      "Ölü Deniz",
       "Aral Gölü",
-      "Tuz Gölü"
+      "Ölü Deniz"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "İlk basılı kitap olarak kabul edilen Gutenberg İncili yaklaşık hangi yüzyılda basılmıştır?",
     "options": [
-      "13. yüzyıl",
-      "14. yüzyıl",
+      "16. yüzyıl",
       "15. yüzyıl",
-      "16. yüzyıl"
+      "13. yüzyıl",
+      "14. yüzyıl"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Dünyanın en uzun kara sınırı hangi iki ülke arasındadır?",
     "options": [
       "ABD-Meksika",
-      "Rusya-Çin",
       "Kanada-ABD",
+      "Rusya-Çin",
       "Arjantin-Şili"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "En hızlı kuş olan ve dalış sırasında saatte 300 km'yi aşan tür hangisidir?",
     "options": [
       "Kartal",
-      "Gökdoğan (Peregrin)",
       "Albatros",
-      "Sağan"
+      "Sağan",
+      "Gökdoğan (Peregrin)"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Dünyanın en yüksekte yer alan başkenti hangisidir?",
     "options": [
+      "Bogota",
       "Quito",
       "La Paz",
-      "Bogota",
       "Katmandu"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "İnsan yapımı, uzaydan çıplak gözle görülebildiği efsanesiyle bilinen yapı hangisidir?",
     "options": [
-      "Çin Seddi",
-      "Piramitler",
       "Petra",
-      "Kolezyum"
+      "Kolezyum",
+      "Piramitler",
+      "Çin Seddi"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Dünyanın en büyük mercan resifi sistemi hangisidir?",
     "options": [
       "Belize Bariyer Resifi",
-      "Büyük Set Resifi",
       "Kızıldeniz Resifi",
-      "Maldiv Resifi"
+      "Maldiv Resifi",
+      "Büyük Set Resifi"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Modern Olimpiyat Oyunları ilk kez 1896'da hangi şehirde düzenlenmiştir?",
     "options": [
-      "Paris",
-      "Londra",
+      "Roma",
       "Atina",
-      "Roma"
+      "Paris",
+      "Londra"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Yaşayan en uzun boylu hayvan olan zürafa yaklaşık kaç metre yüksekliğe ulaşabilir?",
     "options": [
-      "4 metre",
+      "8 metre",
       "5.5 metre",
-      "7 metre",
-      "8 metre"
+      "4 metre",
+      "7 metre"
     ],
     "answer": 1
   },
   {
     "q": "Dünyanın en büyük gölü (yüzölçümü olarak) olan Hazar Denizi'ne kıyısı olmayan ülke hangisidir?",
     "options": [
-      "İran",
+      "Gürcistan",
       "Kazakistan",
       "Türkmenistan",
-      "Gürcistan"
+      "İran"
     ],
-    "answer": 3
+    "answer": 0
   },
   {
     "q": "İlk başarılı motorlu uçuşu 1903'te gerçekleştiren kardeşler kimlerdir?",
     "options": [
-      "Montgolfier Kardeşler",
+      "Lilienthal Kardeşler",
       "Wright Kardeşler",
-      "Lumiere Kardeşler",
-      "Lilienthal Kardeşler"
+      "Montgolfier Kardeşler",
+      "Lumiere Kardeşler"
     ],
     "answer": 1
   },
@@ -2293,52 +2293,52 @@ export default [
   {
     "q": "Dünyanın en uzun demiryolu tünellerinden Gotthard Baz Tüneli hangi ülkededir?",
     "options": [
-      "Fransa",
       "İsviçre",
-      "Avusturya",
-      "İtalya"
+      "İtalya",
+      "Fransa",
+      "Avusturya"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "En büyük yaşayan sürüngen olan tuzlu su timsahının doğal yaşam alanı hangi bölgededir?",
     "options": [
-      "Amazon Havzası",
-      "Güneydoğu Asya ve Avustralya",
       "Orta Afrika",
-      "Kuzey Amerika"
+      "Kuzey Amerika",
+      "Amazon Havzası",
+      "Güneydoğu Asya ve Avustralya"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Dünyanın en soğuk yerleşik yerlerinden biri olan ve -60°C'nin altına düşebilen Oymyakon köyü hangi ülkededir?",
     "options": [
       "Kanada",
       "Rusya",
-      "Moğolistan",
-      "Norveç"
+      "Norveç",
+      "Moğolistan"
     ],
     "answer": 1
   },
   {
     "q": "En eski işleyen üniversitelerden biri sayılan ve 859'da kurulan El Karaviyyin hangi ülkededir?",
     "options": [
-      "Mısır",
       "Fas",
-      "Tunus",
-      "İspanya"
+      "İspanya",
+      "Mısır",
+      "Tunus"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Dünyanın en büyük adası (kıta sayılmayan) hangisidir?",
     "options": [
-      "Yeni Gine",
       "Borneo",
       "Grönland",
+      "Yeni Gine",
       "Madagaskar"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "En yavaş metabolizmalı, ağaçlarda ağır hareket eden memeli olarak bilinen hayvan hangisidir?",
@@ -2354,107 +2354,107 @@ export default [
     "q": "And Dağları'nın en yüksek volkanlarından Ojos del Salado hangi kıtadadır?",
     "options": [
       "Afrika",
-      "Asya",
       "Güney Amerika",
+      "Asya",
       "Kuzey Amerika"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "İlk kadın astronot olan Valentina Tereşkova hangi yılda uzaya çıkmıştır?",
     "options": [
-      "1961",
       "1963",
       "1969",
-      "1971"
+      "1971",
+      "1961"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Dünyanın en büyük yağmur ormanı olan Amazon'un büyük bölümü hangi ülkededir?",
     "options": [
-      "Peru",
       "Kolombiya",
-      "Brezilya",
-      "Venezuela"
+      "Venezuela",
+      "Peru",
+      "Brezilya"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Binlerce yıl yaşayabilen, dünyanın en uzun ömürlü ağaçlarından biri olan çam türü hangisidir?",
     "options": [
-      "Sekoya",
-      "Bristlecone çamı",
+      "Baobab",
       "Sedir",
-      "Baobab"
+      "Sekoya",
+      "Bristlecone çamı"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Nüfusça en büyük şehir aglomerasyonu (metropol alan) genellikle hangisi kabul edilir?",
     "options": [
-      "Şanghay",
-      "Delhi",
       "Tokyo",
-      "Sao Paulo"
+      "Delhi",
+      "Sao Paulo",
+      "Şanghay"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "En büyük tekil çiçeği açan ve leş kokusuyla bilinen Rafflesia bitkisi hangi bölgeye özgüdür?",
     "options": [
+      "Orta Afrika",
       "Güneydoğu Asya",
       "Amazon",
-      "Orta Afrika",
       "Avustralya"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "70 yıl tahtta kalarak Birleşik Krallık tarihinin en uzun süre hüküm süren hükümdarı olan kraliçe kimdir?",
     "options": [
       "I. Elizabeth",
       "Victoria",
-      "II. Elizabeth",
-      "I. Anne"
+      "I. Anne",
+      "II. Elizabeth"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Dünyanın en uzun askılı köprülerinden biri olan ve 2022'de açılan 1915 Çanakkale Köprüsü hangi ülkededir?",
     "options": [
       "Japonya",
+      "İtalya",
       "Türkiye",
-      "Yunanistan",
-      "İtalya"
+      "Yunanistan"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Dinamiti icat eden ve adına ödül verilen İsveçli kimyager kimdir?",
     "options": [
+      "Carl Wilhelm Scheele",
       "Alfred Nobel",
       "Svante Arrhenius",
-      "Jöns Jacob Berzelius",
-      "Carl Wilhelm Scheele"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "İlk pratik dizel motorunu geliştiren mühendis kimdir?",
-    "options": [
-      "Nikolaus Otto",
-      "Rudolf Diesel",
-      "Karl Benz",
-      "Gottlieb Daimler"
+      "Jöns Jacob Berzelius"
     ],
     "answer": 1
   },
   {
+    "q": "İlk pratik dizel motorunu geliştiren mühendis kimdir?",
+    "options": [
+      "Rudolf Diesel",
+      "Karl Benz",
+      "Gottlieb Daimler",
+      "Nikolaus Otto"
+    ],
+    "answer": 0
+  },
+  {
     "q": "Penisilini 1928'de tesadüfen keşfeden bilim insanı kimdir?",
     "options": [
-      "Howard Florey",
       "Ernst Chain",
+      "Howard Florey",
       "Alexander Fleming",
       "Selman Waksman"
     ],
@@ -2463,230 +2463,230 @@ export default [
   {
     "q": "Radyoaktiviteyi ilk gözlemleyen ve uranyum tuzlarıyla çalışan Fransız fizikçi kimdir?",
     "options": [
-      "Henri Becquerel",
-      "Pierre Curie",
       "Paul Villard",
-      "Antoine Lavoisier"
+      "Pierre Curie",
+      "Antoine Lavoisier",
+      "Henri Becquerel"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Dünyanın ilk başarılı motorlu uçuşunu 1903'te gerçekleştiren Wright kardeşlerin uçağının adı nedir?",
     "options": [
+      "Eole",
       "Spirit of St. Louis",
-      "Flyer",
       "Kitty Hawk",
-      "Eole"
+      "Flyer"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Telgraf için kullanılan nokta-çizgi kodlama sistemini geliştiren kişi kimdir?",
     "options": [
-      "Alexander Graham Bell",
       "Samuel Morse",
+      "Alexander Graham Bell",
       "Guglielmo Marconi",
       "Thomas Edison"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "İlk pratik ampulü ticarileştiren ve karbon filament kullanan mucit kimdir?",
     "options": [
-      "Nikola Tesla",
-      "Thomas Edison",
+      "Humphry Davy",
       "Joseph Swan",
-      "Humphry Davy"
+      "Nikola Tesla",
+      "Thomas Edison"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Alternatif akım (AC) sistemlerinin gelişimine öncülük eden Sırp asıllı mucit kimdir?",
     "options": [
+      "André-Marie Ampère",
       "Nikola Tesla",
-      "George Westinghouse",
       "Michael Faraday",
-      "André-Marie Ampère"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Pastörizasyon yöntemini geliştiren ve kuduz aşısını bulan bilim insanı kimdir?",
-    "options": [
-      "Robert Koch",
-      "Louis Pasteur",
-      "Joseph Lister",
-      "Edward Jenner"
+      "George Westinghouse"
     ],
     "answer": 1
   },
   {
+    "q": "Pastörizasyon yöntemini geliştiren ve kuduz aşısını bulan bilim insanı kimdir?",
+    "options": [
+      "Joseph Lister",
+      "Edward Jenner",
+      "Robert Koch",
+      "Louis Pasteur"
+    ],
+    "answer": 3
+  },
+  {
     "q": "Çiçek hastalığına karşı ilk aşıyı geliştiren İngiliz hekim kimdir?",
     "options": [
-      "Edward Jenner",
       "Louis Pasteur",
-      "Jonas Salk",
-      "Robert Koch"
+      "Robert Koch",
+      "Edward Jenner",
+      "Jonas Salk"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Çocuk felci (polio) aşısını 1955'te geliştiren bilim insanı kimdir?",
     "options": [
       "Albert Sabin",
-      "Jonas Salk",
       "Alexander Fleming",
-      "Frederick Banting"
+      "Frederick Banting",
+      "Jonas Salk"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "İnsülini 1921'de keşfeden ve Nobel ödülü alan Kanadalı bilim insanı kimdir?",
     "options": [
-      "Frederick Banting",
       "Charles Best",
-      "John Macleod",
-      "Paul Langerhans"
+      "Frederick Banting",
+      "Paul Langerhans",
+      "John Macleod"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Amerika'dan önce Kuzey Amerika'ya ulaştığı kabul edilen İskandinav kaşif kimdir?",
     "options": [
-      "Erik the Red",
       "Leif Erikson",
+      "Erik the Red",
       "Amerigo Vespucci",
       "John Cabot"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Dünyanın çevresini dolaşan ilk sefere önderlik eden ancak yolda ölen denizci kimdir?",
-    "options": [
-      "Vasco da Gama",
-      "Ferdinand Macellan",
-      "Juan Sebastián Elcano",
-      "Bartolomeu Dias"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Ümit Burnu'nu ilk kez geçen Portekizli denizci kimdir?",
-    "options": [
-      "Vasco da Gama",
-      "Bartolomeu Dias",
-      "Pedro Álvares Cabral",
-      "Henrique"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Hindistan'a deniz yoluyla ulaşan ilk Avrupalı denizci kimdir?",
-    "options": [
-      "Kristof Kolomb",
-      "Vasco da Gama",
-      "Ferdinand Macellan",
-      "Amerigo Vespucci"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Güney Kutbu'na ilk ulaşan kaşif kimdir?",
-    "options": [
-      "Robert Falcon Scott",
-      "Roald Amundsen",
-      "Ernest Shackleton",
-      "Fridtjof Nansen"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Matbaayı hareketli metal harflerle Avrupa'da geliştiren kişi kimdir?",
-    "options": [
-      "Johannes Gutenberg",
-      "Aldus Manutius",
-      "William Caxton",
-      "Nicolas Jenson"
     ],
     "answer": 0
   },
   {
+    "q": "Dünyanın çevresini dolaşan ilk sefere önderlik eden ancak yolda ölen denizci kimdir?",
+    "options": [
+      "Bartolomeu Dias",
+      "Juan Sebastián Elcano",
+      "Ferdinand Macellan",
+      "Vasco da Gama"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "Ümit Burnu'nu ilk kez geçen Portekizli denizci kimdir?",
+    "options": [
+      "Henrique",
+      "Vasco da Gama",
+      "Pedro Álvares Cabral",
+      "Bartolomeu Dias"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "Hindistan'a deniz yoluyla ulaşan ilk Avrupalı denizci kimdir?",
+    "options": [
+      "Amerigo Vespucci",
+      "Ferdinand Macellan",
+      "Vasco da Gama",
+      "Kristof Kolomb"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "Güney Kutbu'na ilk ulaşan kaşif kimdir?",
+    "options": [
+      "Roald Amundsen",
+      "Fridtjof Nansen",
+      "Robert Falcon Scott",
+      "Ernest Shackleton"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Matbaayı hareketli metal harflerle Avrupa'da geliştiren kişi kimdir?",
+    "options": [
+      "William Caxton",
+      "Aldus Manutius",
+      "Nicolas Jenson",
+      "Johannes Gutenberg"
+    ],
+    "answer": 3
+  },
+  {
     "q": "Barometreyi icat ederek atmosfer basıncını ölçen İtalyan bilim insanı kimdir?",
     "options": [
-      "Galileo Galilei",
       "Evangelista Torricelli",
       "Blaise Pascal",
-      "Robert Boyle"
+      "Robert Boyle",
+      "Galileo Galilei"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Termometrede günümüzde yaygın kullanılan sıcaklık ölçeğini geliştiren İsveçli bilim insanı kimdir?",
     "options": [
-      "Daniel Fahrenheit",
-      "Anders Celsius",
       "Lord Kelvin",
-      "William Rankine"
+      "William Rankine",
+      "Daniel Fahrenheit",
+      "Anders Celsius"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Telefonu icat ederek ilk patenti alan kişi kimdir?",
     "options": [
       "Elisha Gray",
+      "Thomas Edison",
       "Alexander Graham Bell",
-      "Antonio Meucci",
-      "Thomas Edison"
+      "Antonio Meucci"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "İlk kez radyo dalgalarıyla okyanus ötesi iletişim kuran mucit kimdir?",
     "options": [
-      "Nikola Tesla",
-      "Guglielmo Marconi",
       "Heinrich Hertz",
-      "Lee de Forest"
+      "Lee de Forest",
+      "Guglielmo Marconi",
+      "Nikola Tesla"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Elektromanyetik dalgaların varlığını deneysel olarak kanıtlayan Alman fizikçi kimdir?",
     "options": [
-      "James Clerk Maxwell",
-      "Heinrich Hertz",
       "Michael Faraday",
-      "Wilhelm Röntgen"
+      "Wilhelm Röntgen",
+      "Heinrich Hertz",
+      "James Clerk Maxwell"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "X ışınlarını 1895'te keşfeden ve ilk Nobel Fizik Ödülü'nü alan bilim insanı kimdir?",
     "options": [
-      "Wilhelm Röntgen",
       "Henri Becquerel",
+      "Max Planck",
       "Marie Curie",
-      "Max Planck"
+      "Wilhelm Röntgen"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Buhar makinesini önemli ölçüde geliştirerek Sanayi Devrimi'ne katkı sağlayan İskoç mühendis kimdir?",
     "options": [
+      "George Stephenson",
       "Thomas Newcomen",
-      "James Watt",
       "Richard Arkwright",
-      "George Stephenson"
+      "James Watt"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "İlk pratik buharlı lokomotifi ticari başarıya ulaştıran ve 'Rocket' ile tanınan mühendis kimdir?",
     "options": [
-      "Richard Trevithick",
-      "George Stephenson",
       "Isambard Brunel",
-      "James Watt"
+      "George Stephenson",
+      "James Watt",
+      "Richard Trevithick"
     ],
     "answer": 1
   },
@@ -2694,129 +2694,129 @@ export default [
     "q": "Dikiş makinesinin ticari başarısını sağlayan Amerikalı mucit kimdir?",
     "options": [
       "Elias Howe",
-      "Isaac Singer",
+      "Walter Hunt",
       "Barthélemy Thimonnier",
-      "Walter Hunt"
+      "Isaac Singer"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Vulkanize kauçuğu tesadüfen geliştiren Amerikalı mucit kimdir?",
     "options": [
-      "Charles Goodyear",
       "John Dunlop",
+      "Charles Macintosh",
       "Thomas Hancock",
-      "Charles Macintosh"
+      "Charles Goodyear"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Fotoğrafçılıkta dagerreyotipi yöntemini geliştiren Fransız kimdir?",
     "options": [
-      "Nicéphore Niépce",
       "Louis Daguerre",
+      "George Eastman",
       "William Talbot",
-      "George Eastman"
+      "Nicéphore Niépce"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Kodak markasını kurarak rulo filmi ve kutu fotoğraf makinesini yaygınlaştıran kişi kimdir?",
     "options": [
       "Louis Daguerre",
+      "Auguste Lumière",
       "George Eastman",
-      "Edwin Land",
-      "Auguste Lumière"
+      "Edwin Land"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Sinematografı geliştirerek ilk halka açık film gösterimini yapan kardeşler kimdir?",
     "options": [
-      "Lumière Kardeşler",
       "Wright Kardeşler",
-      "Warner Kardeşler",
-      "Montgolfier Kardeşler"
+      "Montgolfier Kardeşler",
+      "Lumière Kardeşler",
+      "Warner Kardeşler"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "İlk sıcak hava balonunu geliştiren Fransız kardeşler kimdir?",
     "options": [
       "Lumière Kardeşler",
-      "Montgolfier Kardeşler",
       "Wright Kardeşler",
+      "Montgolfier Kardeşler",
       "Voisin Kardeşler"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Periyodik tabloyu düzenleyerek keşfedilmemiş elementleri öngören Rus kimyager kimdir?",
     "options": [
       "Dmitri Mendeleyev",
-      "Antoine Lavoisier",
       "John Dalton",
-      "Robert Boyle"
+      "Robert Boyle",
+      "Antoine Lavoisier"
     ],
     "answer": 0
   },
   {
     "q": "Radyum ve polonyum elementlerini keşfeden bilim insanı kimdir?",
     "options": [
-      "Lise Meitner",
-      "Marie Curie",
+      "Dorothy Hodgkin",
       "Irène Joliot-Curie",
-      "Dorothy Hodgkin"
+      "Lise Meitner",
+      "Marie Curie"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Yerçekimi ve hareket yasalarını formüle eden İngiliz bilim insanı kimdir?",
     "options": [
-      "Galileo Galilei",
       "Isaac Newton",
-      "Robert Hooke",
-      "Edmond Halley"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Kan dolaşımını ilk kez doğru biçimde açıklayan İngiliz hekim kimdir?",
-    "options": [
-      "William Harvey",
-      "Andreas Vesalius",
-      "Galen",
-      "Marcello Malpighi"
+      "Edmond Halley",
+      "Galileo Galilei",
+      "Robert Hooke"
     ],
     "answer": 0
   },
   {
-    "q": "Mikroskopla ilk kez bakteri ve tek hücreli canlıları gözlemleyen Hollandalı kimdir?",
+    "q": "Kan dolaşımını ilk kez doğru biçimde açıklayan İngiliz hekim kimdir?",
     "options": [
-      "Robert Hooke",
-      "Antonie van Leeuwenhoek",
-      "Jan Swammerdam",
-      "Zacharias Janssen"
+      "Galen",
+      "William Harvey",
+      "Marcello Malpighi",
+      "Andreas Vesalius"
     ],
     "answer": 1
   },
   {
+    "q": "Mikroskopla ilk kez bakteri ve tek hücreli canlıları gözlemleyen Hollandalı kimdir?",
+    "options": [
+      "Zacharias Janssen",
+      "Jan Swammerdam",
+      "Antonie van Leeuwenhoek",
+      "Robert Hooke"
+    ],
+    "answer": 2
+  },
+  {
     "q": "World Wide Web'i (WWW) 1989'da icat eden İngiliz bilgisayarcı kimdir?",
     "options": [
-      "Vint Cerf",
       "Tim Berners-Lee",
       "Robert Kahn",
-      "Marc Andreessen"
+      "Marc Andreessen",
+      "Vint Cerf"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Kuzey Kutbu'na ulaştığını iddia eden ve tartışmalı Amerikalı kaşif kimdir?",
     "options": [
       "Robert Peary",
+      "Richard Byrd",
       "Roald Amundsen",
-      "James Cook",
-      "Richard Byrd"
+      "James Cook"
     ],
     "answer": 0
   },
@@ -2833,59 +2833,59 @@ export default [
   {
     "q": "'NATO' kısaltmasının açılımındaki 'O' harfi hangi kelimeyi temsil eder?",
     "options": [
-      "Organization",
-      "Operation",
       "Office",
-      "Order"
+      "Operation",
+      "Order",
+      "Organization"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Tıpta 'iatrojenik' terimi neyi ifade eder?",
     "options": [
-      "Doğuştan gelen hastalık",
       "Tıbbi tedavi veya hekim kaynaklı oluşan durum",
       "Bulaşıcı hastalık",
+      "Doğuştan gelen hastalık",
       "Kalıtsal bozukluk"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Dilbilimde 'onomatope' terimi neyi anlatır?",
     "options": [
-      "Eş anlamlı sözcük",
-      "Ses yansımalı (yansıma) sözcük",
       "Karşıt anlamlı sözcük",
-      "Birleşik sözcük"
+      "Birleşik sözcük",
+      "Eş anlamlı sözcük",
+      "Ses yansımalı (yansıma) sözcük"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "'GSYİH' kısaltması Türkçede neyin karşılığıdır?",
     "options": [
       "Gayrisafi Milli Hasıla",
-      "Gayrisafi Yurt İçi Hasıla",
       "Genel Sanayi Yatırım Hasılası",
-      "Gelir Sağlayan Yurt İçi Harcama"
+      "Gelir Sağlayan Yurt İçi Harcama",
+      "Gayrisafi Yurt İçi Hasıla"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Felsefede 'epistemoloji' hangi konuyu inceler?",
     "options": [
-      "Varlık",
       "Bilgi",
       "Ahlak",
-      "Güzellik"
+      "Güzellik",
+      "Varlık"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "'LASER' kısaltmasındaki ilk 'A' harfi hangi kelimeye karşılık gelir?",
     "options": [
       "Amplification",
-      "Absorption",
       "Analysis",
+      "Absorption",
       "Acceleration"
     ],
     "answer": 0
@@ -2903,249 +2903,249 @@ export default [
   {
     "q": "Psikolojide 'plasebo etkisi' neyi ifade eder?",
     "options": [
-      "İlacın yan etkisi",
-      "Etkisiz maddenin, hasta inancı nedeniyle iyileştirici etki göstermesi",
+      "İlaç direnci gelişmesi",
       "İlaç bağımlılığı",
-      "İlaç direnci gelişmesi"
+      "Etkisiz maddenin, hasta inancı nedeniyle iyileştirici etki göstermesi",
+      "İlacın yan etkisi"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "'UNESCO' kuruluşunun temel çalışma alanı aşağıdakilerden hangisidir?",
     "options": [
-      "Sağlık",
-      "Eğitim, bilim ve kültür",
+      "Mülteciler",
       "Tarım ve gıda",
-      "Mülteciler"
+      "Eğitim, bilim ve kültür",
+      "Sağlık"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Ekonomide 'monopson' terimi neyi ifade eder?",
     "options": [
       "Tek satıcının olduğu piyasa",
-      "Tek alıcının olduğu piyasa",
       "Çok sayıda satıcının olduğu piyasa",
-      "Devlet tekeli"
+      "Devlet tekeli",
+      "Tek alıcının olduğu piyasa"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Edebiyatta 'ironi' kavramının temel özelliği nedir?",
     "options": [
       "Söylenenin tam tersinin kastedilmesi",
-      "Abartılı övgü",
       "Doğrudan betimleme",
-      "Sözcük tekrarı"
+      "Sözcük tekrarı",
+      "Abartılı övgü"
     ],
     "answer": 0
   },
   {
     "q": "Bilişimde 'HTTP' kısaltmasındaki 'T' harflerinden biri hangi kelimeye karşılık gelir?",
     "options": [
-      "Transfer",
-      "Terminal",
+      "Text",
       "Table",
-      "Text"
+      "Transfer",
+      "Terminal"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "'De facto' Latince deyimi hukukta ne anlama gelir?",
     "options": [
-      "Hukuken, yasal olarak",
-      "Fiilen, gerçekte var olan",
       "Karşılıklı olarak",
-      "Geriye dönük olarak"
+      "Geriye dönük olarak",
+      "Hukuken, yasal olarak",
+      "Fiilen, gerçekte var olan"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Tıpta 'kronik' terimi neyi belirtir?",
     "options": [
-      "Aniden başlayan ve kısa süren",
+      "Ölümcül olan",
       "Uzun süreli ve genellikle yavaş ilerleyen",
-      "Bulaşıcı olan",
-      "Ölümcül olan"
+      "Aniden başlayan ve kısa süren",
+      "Bulaşıcı olan"
     ],
     "answer": 1
   },
   {
     "q": "Coğrafyada 'delta' terimi neyi ifade eder?",
     "options": [
-      "Akarsuyun denize döküldüğü yerde oluşan alüvyal ova",
-      "Buzul vadisi",
       "Volkanik krater",
-      "Kıyı falezi"
+      "Akarsuyun denize döküldüğü yerde oluşan alüvyal ova",
+      "Kıyı falezi",
+      "Buzul vadisi"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "'CPU' kısaltması bilgisayarda neyi ifade eder?",
     "options": [
-      "Merkezi İşlem Birimi",
       "Grafik İşlem Birimi",
+      "Merkezi İşlem Birimi",
       "Bellek Denetim Birimi",
       "Güç Kaynağı Birimi"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Ekonomide 'enflasyon' ile 'deflasyon' arasındaki fark nedir?",
     "options": [
-      "İkisi de fiyat artışıdır",
       "Enflasyon genel fiyat artışı, deflasyon genel fiyat düşüşüdür",
+      "İkisi de fiyat artışıdır",
       "Enflasyon fiyat düşüşü, deflasyon fiyat artışıdır",
       "İkisi de para basımıdır"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Sosyolojide 'anomi' kavramı hangi düşünürle özdeşleşmiştir?",
     "options": [
-      "Max Weber",
-      "Émile Durkheim",
       "Karl Marx",
-      "Auguste Comte"
+      "Auguste Comte",
+      "Émile Durkheim",
+      "Max Weber"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "'PIN' kısaltması (banka kartlarında) neyin baş harfleridir?",
     "options": [
-      "Personal Identification Number",
+      "Personal Internet Name",
       "Private Internet Node",
-      "Payment Information Network",
-      "Personal Internet Name"
+      "Personal Identification Number",
+      "Payment Information Network"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Müzikte 'a cappella' terimi neyi ifade eder?",
     "options": [
-      "Enstrüman eşliğinde solo",
       "Yalnızca insan sesiyle, çalgısız icra",
+      "Enstrüman eşliğinde solo",
       "Orkestra eşliğinde koro",
       "Doğaçlama çalış"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Hukukta 'müruruzaman' terimi hangi kavramın eski/Osmanlıca karşılığıdır?",
     "options": [
+      "Tebligat",
       "Zamanaşımı",
       "Yürürlük",
-      "Temyiz",
-      "Tebligat"
+      "Temyiz"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Fizikte 'entropi' kavramı en genel anlamda neyle ilişkilidir?",
     "options": [
-      "Bir sistemdeki düzensizlik/dağınıklık ölçüsü",
-      "Cismin kütlesi",
+      "Işık hızı",
       "Elektrik yükü",
-      "Işık hızı"
+      "Bir sistemdeki düzensizlik/dağınıklık ölçüsü",
+      "Cismin kütlesi"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "'ISO' (standart kuruluşu) kısaltmasının anlamı nedir?",
     "options": [
-      "Uluslararası Standardizasyon Örgütü",
-      "İç Sistem Operasyonu",
+      "Uluslararası Güvenlik Örgütü",
       "Endüstriyel Servis Ofisi",
-      "Uluslararası Güvenlik Örgütü"
+      "Uluslararası Standardizasyon Örgütü",
+      "İç Sistem Operasyonu"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Dilbilgisinde 'pekiştirme' hangi amaçla kullanılır?",
     "options": [
-      "Sözcüğün anlamını güçlendirmek",
       "Sözcüğü küçültmek",
-      "Cümleyi olumsuz yapmak",
-      "Soru sormak"
+      "Sözcüğün anlamını güçlendirmek",
+      "Soru sormak",
+      "Cümleyi olumsuz yapmak"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Ekonomide 'oligopol' terimi neyi ifade eder?",
     "options": [
+      "Devletin fiyatları belirlediği piyasa",
       "Tek firmanın hâkim olduğu piyasa",
       "Az sayıda büyük firmanın hâkim olduğu piyasa",
-      "Sınırsız rekabetin olduğu piyasa",
-      "Devletin fiyatları belirlediği piyasa"
+      "Sınırsız rekabetin olduğu piyasa"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Tıpta 'benign' terimi tümörler için ne anlama gelir?",
     "options": [
-      "Kötü huylu",
       "İyi huylu",
+      "Nüks etmiş",
       "Yayılmış",
-      "Nüks etmiş"
+      "Kötü huylu"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "'GPS' kısaltmasının açılımı aşağıdakilerden hangisidir?",
     "options": [
-      "Global Positioning System",
+      "Ground Position Sensor",
       "General Purpose Server",
       "Global Payment Service",
-      "Ground Position Sensor"
+      "Global Positioning System"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Felsefede 'determinizm' görüşü neyi savunur?",
     "options": [
+      "Tanrının varlığını",
       "Her olayın kendinden önceki nedenlerce belirlendiğini",
       "İnsanın tamamen özgür olduğunu",
-      "Bilginin imkânsızlığını",
-      "Tanrının varlığını"
+      "Bilginin imkânsızlığını"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "AB ortak para birimi 'euro' banknot ve madeni paraları hangi yıl fiziki olarak tedavüle girmiştir?",
     "options": [
-      "1999",
       "2002",
+      "2004",
       "1995",
-      "2004"
+      "1999"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Edebiyatta 'metafor' (istiare) neyi ifade eder?",
     "options": [
       "Benzetme edatı kullanarak kıyas",
-      "Bir kavramı, benzediği başka bir kavramla benzetme yönü gizli anlatma",
+      "Karşıtlık kurma",
       "Sözcüğü tekrar etme",
-      "Karşıtlık kurma"
+      "Bir kavramı, benzediği başka bir kavramla benzetme yönü gizli anlatma"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Bankacılıkta 'IBAN' kısaltmasındaki 'B' harfi neyi temsil eder?",
     "options": [
+      "Branch",
       "Bank",
-      "Banking",
       "Balance",
-      "Branch"
+      "Banking"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Kimyada 'katalizör' terimi neyi ifade eder?",
     "options": [
-      "Tepkimeye girip tükenen madde",
-      "Tepkime hızını değiştiren, kendisi tükenmeyen madde",
       "Tepkimeyi durduran madde",
+      "Tepkime hızını değiştiren, kendisi tükenmeyen madde",
+      "Tepkimeye girip tükenen madde",
       "Isı üreten madde"
     ],
     "answer": 1
@@ -3154,9 +3154,9 @@ export default [
     "q": "'STK' kısaltması Türkçede neyi ifade eder?",
     "options": [
       "Sivil Toplum Kuruluşu",
-      "Sosyal Turizm Konseyi",
+      "Stratejik Teknoloji Komitesi",
       "Sanayi ve Ticaret Kurulu",
-      "Stratejik Teknoloji Komitesi"
+      "Sosyal Turizm Konseyi"
     ],
     "answer": 0
   },
@@ -3164,38 +3164,38 @@ export default [
     "q": "Siyaset biliminde 'plebisit' terimi neyi ifade eder?",
     "options": [
       "Meclis oylaması",
-      "Halkın belirli bir konuda doğrudan oyuna başvurması",
+      "Parti kongresi",
       "Cumhurbaşkanı seçimi",
-      "Parti kongresi"
+      "Halkın belirli bir konuda doğrudan oyuna başvurması"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "'RAM' bilgisayarda hangi tür bellektir?",
     "options": [
-      "Kalıcı depolama belleği",
+      "Grafik belleği",
       "Geçici (uçucu) çalışma belleği",
-      "Salt okunur bellek",
-      "Grafik belleği"
+      "Kalıcı depolama belleği",
+      "Salt okunur bellek"
     ],
     "answer": 1
   },
   {
     "q": "Denizcilikte 'knot' (deniz mili/saat) yaklaşık kaç km/saat'e karşılık gelir?",
     "options": [
-      "1,0 km/s",
-      "1,85 km/s",
+      "0,5 km/s",
       "3,6 km/s",
-      "0,5 km/s"
+      "1,0 km/s",
+      "1,85 km/s"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Ekonomide 'resesyon' terimi neyi ifade eder?",
     "options": [
-      "Ekonomik büyüme dönemi",
-      "Ekonomik daralma/durgunluk dönemi",
       "Para biriminin değer kazanması",
+      "Ekonomik daralma/durgunluk dönemi",
+      "Ekonomik büyüme dönemi",
       "Bütçe fazlası"
     ],
     "answer": 1
@@ -3203,10 +3203,10 @@ export default [
   {
     "q": "Hukukta 'beraat' kavramı neyi ifade eder?",
     "options": [
-      "Suçlu bulunma",
+      "Cezanın affı",
       "Sanığın suçsuz bulunarak aklanması",
       "Davanın ertelenmesi",
-      "Cezanın affı"
+      "Suçlu bulunma"
     ],
     "answer": 1
   },
@@ -3215,8 +3215,8 @@ export default [
     "options": [
       "World Wide Web",
       "Wireless Web World",
-      "Web Wide Work",
-      "World Web Window"
+      "World Web Window",
+      "Web Wide Work"
     ],
     "answer": 0
   },
@@ -3224,211 +3224,211 @@ export default [
     "q": "Bal, uygun koşullarda saklandığında binlerce yıl bozulmadan kalabilir. Bunun temel nedeni aşağıdakilerden hangisidir?",
     "options": [
       "Yüksek su içeriği",
-      "Düşük su içeriği ve yüksek asitlik",
+      "Yüksek sıcaklıkta üretilmesi",
       "İçindeki bol miktarda protein",
-      "Yüksek sıcaklıkta üretilmesi"
+      "Düşük su içeriği ve yüksek asitlik"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Bir grup karganın topluca uçuşuna İngilizcede verilen özel isim aşağıdakilerden hangisidir?",
     "options": [
-      "A murder",
-      "A pride",
       "A school",
-      "A pack"
+      "A pride",
+      "A pack",
+      "A murder"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Eyfel Kulesi sıcak havalarda metalin genleşmesi nedeniyle yaklaşık ne kadar uzayabilir?",
     "options": [
-      "Yaklaşık 1 mm",
       "Yaklaşık 15 cm",
       "Yaklaşık 2 metre",
+      "Yaklaşık 1 mm",
       "Yaklaşık 10 metre"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Tarihte kaydedilmiş en kısa savaş olan Anglo-Zanzibar Savaşı yaklaşık ne kadar sürmüştür?",
-    "options": [
-      "Yaklaşık 40 dakika",
-      "Yaklaşık 6 saat",
-      "Yaklaşık 3 gün",
-      "Yaklaşık 2 hafta"
     ],
     "answer": 0
   },
   {
+    "q": "Tarihte kaydedilmiş en kısa savaş olan Anglo-Zanzibar Savaşı yaklaşık ne kadar sürmüştür?",
+    "options": [
+      "Yaklaşık 6 saat",
+      "Yaklaşık 2 hafta",
+      "Yaklaşık 3 gün",
+      "Yaklaşık 40 dakika"
+    ],
+    "answer": 3
+  },
+  {
     "q": "Muzlar botanik açıdan hangi sınıfa girer?",
     "options": [
-      "Sebze",
-      "Kuruyemiş",
       "Çilek (bir tür meyve/berry)",
-      "Mantar"
+      "Mantar",
+      "Kuruyemiş",
+      "Sebze"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "İnsan vücudundaki en güçlü kas (kendi büyüklüğüne oranla) hangisidir?",
     "options": [
       "Kalp kası",
+      "Pazı kası",
       "Çene kası (masseter)",
-      "Baldır kası",
-      "Pazı kası"
+      "Baldır kası"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Venüs gezegeninde bir gün (kendi ekseni etrafında bir tam dönüş), bir yılından (Güneş etrafında bir turdan) daha uzundur. Bu doğru mudur?",
     "options": [
-      "Doğru",
       "Yanlış, gün daha kısadır",
+      "Venüs hiç dönmez",
       "İkisi tam eşittir",
-      "Venüs hiç dönmez"
+      "Doğru"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Deniz atlarında yavruları hangi ebeveyn taşır ve doğurur?",
     "options": [
-      "Dişi",
-      "Erkek",
       "İkisi birlikte",
-      "Hiçbiri, yumurtalar kayalara bırakılır"
+      "Erkek",
+      "Hiçbiri, yumurtalar kayalara bırakılır",
+      "Dişi"
     ],
     "answer": 1
   },
   {
     "q": "Wombat adlı hayvanın dışkısı hangi olağandışı özelliğiyle bilinir?",
     "options": [
-      "Parlak mavi renklidir",
       "Küp şeklindedir",
-      "Işık saçar",
-      "Tamamen sıvıdır"
+      "Tamamen sıvıdır",
+      "Parlak mavi renklidir",
+      "Işık saçar"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Oxford Üniversitesi, aşağıdaki uygarlıklardan hangisinden daha eskidir?",
     "options": [
-      "Aztek İmparatorluğu",
       "Roma İmparatorluğu",
-      "Antik Mısır",
-      "Antik Yunan"
+      "Aztek İmparatorluğu",
+      "Antik Yunan",
+      "Antik Mısır"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Bir salyangozun uyuyabildiği en uzun süre yaklaşık ne kadar olabilir?",
     "options": [
+      "20 yıl",
       "Birkaç dakika",
       "Birkaç saat",
-      "Yaklaşık 3 yıl",
-      "20 yıl"
+      "Yaklaşık 3 yıl"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "İnsan gözü yaklaşık kaç farklı rengi ayırt edebilir?",
     "options": [
+      "Yaklaşık bir milyon",
       "Yaklaşık bin",
       "Yaklaşık on bin",
-      "Yaklaşık bir milyon",
       "Yaklaşık bir milyar"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "Uzayda gözyaşları düşmez çünkü yerçekimi yoktur; bunun yerine ne olur?",
     "options": [
-      "Anında buharlaşır",
       "Gözün etrafında birikip top oluşturur",
-      "Donarak buz kristaline dönüşür",
-      "Yukarı doğru yükselir"
+      "Yukarı doğru yükselir",
+      "Anında buharlaşır",
+      "Donarak buz kristaline dönüşür"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Kaplanların derisi de tıpkı tüyleri gibi çizgilidir. Bu ifade doğru mudur?",
     "options": [
-      "Doğru",
       "Yanlış, deri düz renklidir",
+      "Doğru",
       "Yanlış, deri benekli olur",
       "Kaplanların derisi hiç pigment içermez"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Napolyon Bonapart'ın boyu döneminde 'kısa' sanılsa da, gerçekte ortalama ya da biraz üzerindeydi. Bu yanlış algının başlıca nedeni nedir?",
     "options": [
-      "Portrelerdeki abartı",
-      "Fransız ve İngiliz ölçü birimleri arasındaki fark",
       "Askeri üniformasının etkisi",
-      "Kendi yazdığı anılar"
+      "Portrelerdeki abartı",
+      "Kendi yazdığı anılar",
+      "Fransız ve İngiliz ölçü birimleri arasındaki fark"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Bir yıldırım çarpması sırasında havanın ısındığı sıcaklık, Güneş'in yüzey sıcaklığının yaklaşık kaç katına ulaşabilir?",
     "options": [
-      "Yarısı kadar",
-      "Yaklaşık eşit",
       "Yaklaşık 5 katı",
-      "Yaklaşık 100 katı"
-    ],
-    "answer": 2
-  },
-  {
-    "q": "Kelebekler tat almayı vücutlarının hangi kısmıyla yapar?",
-    "options": [
-      "Antenleriyle",
-      "Ayaklarıyla",
-      "Kanatlarıyla",
-      "Gözleriyle"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Dünyanın en derin noktası olan Mariana Çukuru'na Everest Dağı konsa, zirvesi hâlâ suyun altında kalır. Bu ifade doğru mudur?",
-    "options": [
-      "Doğru",
-      "Yanlış, zirve suyun üstüne çıkar",
-      "İkisi tam aynı yüksekliktedir",
-      "Everest daha derindir"
+      "Yaklaşık eşit",
+      "Yaklaşık 100 katı",
+      "Yarısı kadar"
     ],
     "answer": 0
   },
   {
+    "q": "Kelebekler tat almayı vücutlarının hangi kısmıyla yapar?",
+    "options": [
+      "Kanatlarıyla",
+      "Antenleriyle",
+      "Ayaklarıyla",
+      "Gözleriyle"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "Dünyanın en derin noktası olan Mariana Çukuru'na Everest Dağı konsa, zirvesi hâlâ suyun altında kalır. Bu ifade doğru mudur?",
+    "options": [
+      "Yanlış, zirve suyun üstüne çıkar",
+      "İkisi tam aynı yüksekliktedir",
+      "Doğru",
+      "Everest daha derindir"
+    ],
+    "answer": 2
+  },
+  {
     "q": "Flamingoların pembe rengi nereden gelir?",
     "options": [
-      "Genetik olarak doğuştan pembedir",
+      "Su sıcaklığından",
       "Beslendikleri karides ve alglerdeki pigmentlerden",
-      "Güneş ışığının tüylerini yakmasından",
-      "Su sıcaklığından"
+      "Genetik olarak doğuştan pembedir",
+      "Güneş ışığının tüylerini yakmasından"
     ],
     "answer": 1
   },
   {
     "q": "İskoçya'nın resmi ulusal hayvanı aşağıdakilerden hangisidir?",
     "options": [
-      "Kızıl geyik",
       "Tek boynuzlu at (unicorn)",
-      "Kartal",
-      "Ayı"
+      "Ayı",
+      "Kızıl geyik",
+      "Kartal"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "İnsan vücudundaki kan damarları uç uca eklenirse yaklaşık uzunluğu ne kadar olur?",
     "options": [
-      "Yaklaşık 1.000 km",
-      "Yaklaşık 10.000 km",
       "Yaklaşık 100.000 km",
-      "Yaklaşık 1 milyon km"
+      "Yaklaşık 10.000 km",
+      "Yaklaşık 1 milyon km",
+      "Yaklaşık 1.000 km"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "Bir grup flamingoya İngilizcede verilen isim aşağıdakilerden hangisidir?",
@@ -3443,129 +3443,129 @@ export default [
   {
     "q": "Antarktika, teknik olarak Dünya'nın en büyük çölü sayılır. Bunun nedeni nedir?",
     "options": [
+      "Kum ile kaplı olması",
       "Hiç bitki örtüsü olmaması",
       "Çok az yıllık yağış (nem) alması",
-      "Kum ile kaplı olması",
       "Çok sıcak olması"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "İnsan beyni, tüm vücudun ürettiği enerjinin yaklaşık yüzde kaçını tüketir?",
     "options": [
-      "Yaklaşık %2",
+      "Yaklaşık %75",
       "Yaklaşık %20",
       "Yaklaşık %50",
-      "Yaklaşık %75"
+      "Yaklaşık %2"
     ],
     "answer": 1
   },
   {
     "q": "Uzun süre uzayda kalan astronotlar Dünya'ya döndüğünde geçici olarak birkaç santimetre daha uzun olabilir. Bunun nedeni nedir?",
     "options": [
-      "Kemiklerin uzaması",
+      "Saç uzaması",
       "Omurga disklerinin yerçekimi baskısı olmadan genişlemesi",
-      "Kasların şişmesi",
-      "Saç uzaması"
+      "Kemiklerin uzaması",
+      "Kasların şişmesi"
     ],
     "answer": 1
   },
   {
     "q": "Kanguruların hareketiyle ilgili aşağıdakilerden hangisi doğrudur?",
     "options": [
-      "Geriye doğru sıçrayabilirler",
-      "Geriye doğru yürüyemezler",
+      "Yalnızca dört ayak üzerinde koşarlar",
       "Sadece geri geri yürürler",
-      "Yalnızca dört ayak üzerinde koşarlar"
+      "Geriye doğru sıçrayabilirler",
+      "Geriye doğru yürüyemezler"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Ay'ın Dünya'ya her zaman aynı yüzünü göstermesinin nedeni aşağıdakilerden hangisidir?",
     "options": [
-      "Ay hiç dönmez",
-      "Ay'ın kendi ekseni etrafındaki dönüşü ile Dünya çevresindeki dönüşünün eşit sürmesi (gelgit kilitlenmesi)",
       "Dünya'nın manyetik alanı",
-      "Güneş'in çekimi"
+      "Güneş'in çekimi",
+      "Ay hiç dönmez",
+      "Ay'ın kendi ekseni etrafındaki dönüşü ile Dünya çevresindeki dönüşünün eşit sürmesi (gelgit kilitlenmesi)"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Bir çaydanlıktaki suyun kaynama sıcaklığı, yüksek bir dağın zirvesinde deniz seviyesine göre nasıl değişir?",
     "options": [
       "Daha yüksektir",
-      "Daha düşüktür",
       "Aynıdır",
-      "Su hiç kaynamaz"
+      "Su hiç kaynamaz",
+      "Daha düşüktür"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Kırmızı gıda boyalarının bazılarında (ör. karmin) kullanılan doğal kırmızı pigment neyden elde edilir?",
     "options": [
+      "Deniz yosunu",
       "Bir tür böcek (koşnil)",
       "Kırmızı pancar kökü",
-      "Deniz yosunu",
       "Demir oksit"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Bir grup baykuşa İngilizcede ne ad verilir?",
     "options": [
-      "A parliament",
+      "A senate",
       "A congress",
       "A court",
-      "A senate"
+      "A parliament"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Dünya üzerindeki en yaşlı bilinen tek tek canlı organizmalardan bazıları olan Bristlecone çam ağaçları yaklaşık kaç yıl yaşayabilir?",
     "options": [
       "Yaklaşık 500 yıl",
-      "Yaklaşık 1.500 yıl",
+      "Yaklaşık 20.000 yıl",
       "Yaklaşık 4.800 yıldan fazla",
-      "Yaklaşık 20.000 yıl"
+      "Yaklaşık 1.500 yıl"
     ],
     "answer": 2
   },
   {
     "q": "Şempanzeler ve insanlar DNA'sının yaklaşık yüzde kaçını paylaşır?",
     "options": [
-      "Yaklaşık %50",
-      "Yaklaşık %75",
       "Yaklaşık %98-99",
-      "Yaklaşık %100"
+      "Yaklaşık %100",
+      "Yaklaşık %75",
+      "Yaklaşık %50"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "Sıcak su, belirli koşullarda soğuk sudan daha hızlı donabilir. Bu olaya verilen ad nedir?",
     "options": [
-      "Doppler etkisi",
-      "Mpemba etkisi",
       "Coriolis etkisi",
-      "Bernoulli etkisi"
+      "Doppler etkisi",
+      "Bernoulli etkisi",
+      "Mpemba etkisi"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Yunanistan'daki antik Olimpiyat Oyunlarında sporcular genellikle nasıl yarışırdı?",
     "options": [
-      "Zırh giyerek",
-      "Çıplak olarak",
       "Maske takarak",
-      "Renkli üniformalarla"
+      "Renkli üniformalarla",
+      "Çıplak olarak",
+      "Zırh giyerek"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Bir yıl içinde Dünya'ya en çok can kaybı yaşatan hayvan hangisidir?",
     "options": [
-      "Köpekbalığı",
-      "Sivrisinek",
       "Yılan",
+      "Sivrisinek",
+      "Köpekbalığı",
       "Timsah"
     ],
     "answer": 1
@@ -3574,9 +3574,9 @@ export default [
     "q": "Domatesler Avrupa'ya ilk getirildiğinde bir süre yenmekten kaçınılmıştır çünkü bazıları onları neyle ilişkilendirmiştir?",
     "options": [
       "Zehirli sanılan bir bitki ailesiyle (itüzümügiller)",
-      "Kutsal sayılmasıyla",
+      "Kötü kokusuyla",
       "Çok pahalı olmasıyla",
-      "Kötü kokusuyla"
+      "Kutsal sayılmasıyla"
     ],
     "answer": 0
   }

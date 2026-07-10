@@ -3,9 +3,9 @@ export default [
   {
     "q": "'Titanic' filminin yönetmeni kimdir?",
     "options": [
-      "Steven Spielberg",
-      "James Cameron",
       "Christopher Nolan",
+      "James Cameron",
+      "Steven Spielberg",
       "Ridley Scott"
     ],
     "answer": 1
@@ -23,50 +23,50 @@ export default [
   {
     "q": "'The Lion King' hangi tür bir filmdir?",
     "options": [
+      "Western",
       "Animasyon",
       "Belgesel",
-      "Korku",
-      "Western"
+      "Korku"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Bir gitarda genellikle kaç tel bulunur?",
     "options": [
+      "7",
       "4",
-      "5",
       "6",
-      "7"
+      "5"
     ],
     "answer": 2
   },
   {
     "q": "'Inception' ve 'Interstellar' filmlerinin yönetmeni kimdir?",
     "options": [
-      "Tarantino",
       "Christopher Nolan",
       "Scorsese",
+      "Tarantino",
       "Fincher"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Michael Jackson hangi ünvanla anılır?",
     "options": [
-      "Rock Kralı",
       "Pop'un Kralı",
+      "Blues Kralı",
       "Caz Kralı",
-      "Blues Kralı"
+      "Rock Kralı"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "'Star Wars' evreninde ışın kılıcını kullananlara ne denir?",
     "options": [
       "Sith",
       "Jedi",
-      "Wookiee",
-      "Ewok"
+      "Ewok",
+      "Wookiee"
     ],
     "answer": 1
   },
@@ -74,168 +74,168 @@ export default [
     "q": "Bir davulda ritmi tutan temel enstrüman grubuna ne denir?",
     "options": [
       "Yaylılar",
+      "Klavye",
       "Perküsyon",
-      "Üflemeliler",
-      "Klavye"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Türkiye'nin en çok bilinen yıllık film festivali hangi şehirde yapılır?",
-    "options": [
-      "Ankara",
-      "İzmir",
-      "Antalya",
-      "Bursa"
+      "Üflemeliler"
     ],
     "answer": 2
   },
   {
+    "q": "Türkiye'nin en çok bilinen yıllık film festivali hangi şehirde yapılır?",
+    "options": [
+      "Antalya",
+      "Ankara",
+      "İzmir",
+      "Bursa"
+    ],
+    "answer": 0
+  },
+  {
     "q": "'Matrix' filminde başrol oyuncusu kimdir?",
     "options": [
+      "Tom Cruise",
       "Brad Pitt",
       "Keanu Reeves",
-      "Tom Cruise",
       "Will Smith"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Akira Kurosawa'nın 1954 yapımı, yedi savaşçının bir köyü haydutlardan koruduğu klasik filmi hangisidir?",
     "options": [
+      "Yojimbo",
       "Yedi Samuray",
-      "Ran",
       "Kagemusha",
-      "Yojimbo"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "1948 yapımı İtalyan Yeni Gerçekçilik akımının başyapıtı 'Bisiklet Hırsızları'nın yönetmeni kimdir?",
-    "options": [
-      "Roberto Rossellini",
-      "Vittorio De Sica",
-      "Federico Fellini",
-      "Luchino Visconti"
+      "Ran"
     ],
     "answer": 1
   },
   {
+    "q": "1948 yapımı İtalyan Yeni Gerçekçilik akımının başyapıtı 'Bisiklet Hırsızları'nın yönetmeni kimdir?",
+    "options": [
+      "Federico Fellini",
+      "Luchino Visconti",
+      "Roberto Rossellini",
+      "Vittorio De Sica"
+    ],
+    "answer": 3
+  },
+  {
     "q": "Alman Dışavurumculuğunun öncü filmi 'Dr. Caligari'nin Muayenehanesi' hangi yılda gösterime girmiştir?",
     "options": [
-      "1920",
-      "1927",
       "1931",
-      "1915"
+      "1915",
+      "1920",
+      "1927"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Fransız Yeni Dalga akımının simge filmlerinden 'Serseri Aşıklar' (À bout de souffle) filminin yönetmeni kimdir?",
     "options": [
       "François Truffaut",
+      "Éric Rohmer",
       "Jean-Luc Godard",
-      "Claude Chabrol",
-      "Éric Rohmer"
+      "Claude Chabrol"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Güney Kore yapımı 'Parazit' (Parasite) filmiyle Oscar'da En İyi Film ödülünü kazanan yönetmen kimdir?",
     "options": [
       "Park Chan-wook",
-      "Kim Ki-duk",
       "Bong Joon-ho",
-      "Lee Chang-dong"
+      "Lee Chang-dong",
+      "Kim Ki-duk"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Hint sinemasının usta yönetmeni Satyajit Ray'in dünyaca ünlü üçlemesinin ilk filmi hangisidir?",
     "options": [
-      "Aparajito",
-      "Pather Panchali",
       "Apur Sansar",
-      "Charulata"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "İsveçli yönetmen Ingmar Bergman'ın bir şövalyenin Ölüm ile satranç oynadığı 1957 yapımı filmi hangisidir?",
-    "options": [
-      "Yaban Çilekleri",
-      "Persona",
-      "Yedinci Mühür",
-      "Bir Kış Masalı"
+      "Charulata",
+      "Pather Panchali",
+      "Aparajito"
     ],
     "answer": 2
   },
   {
+    "q": "İsveçli yönetmen Ingmar Bergman'ın bir şövalyenin Ölüm ile satranç oynadığı 1957 yapımı filmi hangisidir?",
+    "options": [
+      "Bir Kış Masalı",
+      "Persona",
+      "Yaban Çilekleri",
+      "Yedinci Mühür"
+    ],
+    "answer": 3
+  },
+  {
     "q": "İtalyan yönetmen Federico Fellini'nin 1960 yapımı, 'paparazzi' kelimesini popülerleştiren filmi hangisidir?",
     "options": [
-      "La Dolce Vita",
+      "La Strada",
       "8½",
-      "Amarcord",
-      "La Strada"
+      "La Dolce Vita",
+      "Amarcord"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "'Cennet Sineması' (Nuovo Cinema Paradiso) filminin unutulmaz müziklerini besteleyen İtalyan sanatçı kimdir?",
     "options": [
+      "Nicola Piovani",
       "Nino Rota",
       "Ennio Morricone",
-      "Riz Ortolani",
-      "Nicola Piovani"
+      "Riz Ortolani"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Rus yönetmen Sergei Eisenstein'ın Odessa Merdivenleri sahnesiyle ünlü 1925 yapımı filmi hangisidir?",
     "options": [
-      "Ekim",
-      "Potemkin Zırhlısı",
       "Grev",
-      "Korkunç İvan"
+      "Potemkin Zırhlısı",
+      "Korkunç İvan",
+      "Ekim"
     ],
     "answer": 1
   },
   {
     "q": "İspanyol yönetmen Pedro Almodóvar'ın Oscar'da Yabancı Dilde En İyi Film ödülü alan 1999 yapımı filmi hangisidir?",
     "options": [
+      "Volver",
       "Konuş Onunla",
-      "Annem Hakkında Her Şey",
       "Kırık Sarılmalar",
-      "Volver"
+      "Annem Hakkında Her Şey"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Japon animasyon stüdyosu Studio Ghibli'nin 'Ruhların Kaçışı' (Spirited Away) filminin yönetmeni kimdir?",
     "options": [
+      "Makoto Shinkai",
       "Isao Takahata",
       "Hayao Miyazaki",
-      "Mamoru Hosoda",
-      "Makoto Shinkai"
+      "Mamoru Hosoda"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Danimarka kökenli, Lars von Trier'in öncülük ettiği ve teknik kısıtlamalar getiren sinema akımının adı nedir?",
     "options": [
-      "Dogma 95",
-      "Yeni Alman Sineması",
       "Cinéma Vérité",
-      "Free Cinema"
+      "Free Cinema",
+      "Dogma 95",
+      "Yeni Alman Sineması"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Çinli yönetmen Zhang Yimou'nun Jet Li'nin başrolde olduğu 2002 yapımı görsel şölen niteliğindeki dövüş sanatları filmi hangisidir?",
     "options": [
-      "Uçan Hançerler",
-      "Kahraman (Hero)",
       "Kırmızı Fener",
+      "Kahraman (Hero)",
+      "Uçan Hançerler",
       "Sorgum Tarlası"
     ],
     "answer": 1
@@ -244,149 +244,149 @@ export default [
     "q": "Ang Lee'nin yönettiği, dört Oscar kazanan 2000 yapımı Çin dövüş sanatları filmi hangisidir?",
     "options": [
       "Ejder Kaplan",
-      "Kaplan ve Ejderha",
+      "Gizli Kaplan",
       "Uçan Ejderha",
-      "Gizli Kaplan"
+      "Kaplan ve Ejderha"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Meksikalı yönetmen Guillermo del Toro'nun İspanya İç Savaşı arka planında geçen 2006 yapımı fantastik filmi hangisidir?",
     "options": [
       "Şeytanın Belkemiği",
-      "Pan'ın Labirenti",
       "Kızıl Tepe",
+      "Pan'ın Labirenti",
       "Suyun Sesi"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Brezilya sinemasının kült yapımı, Rio favelalarında geçen 2002 yapımı 'Tanrı Kent' (Cidade de Deus) filminin ana yönetmeni kimdir?",
     "options": [
-      "Walter Salles",
-      "Fernando Meirelles",
       "José Padilha",
-      "Kleber Mendonça Filho"
+      "Kleber Mendonça Filho",
+      "Fernando Meirelles",
+      "Walter Salles"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "İran sinemasının önemli yönetmeni Abbas Kiarostami'nin 'Koker üçlemesi' hangi ülke sinemasına aittir?",
     "options": [
-      "Türkiye",
-      "İran",
       "Irak",
-      "Afganistan"
+      "Türkiye",
+      "Afganistan",
+      "İran"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "İranlı yönetmen Asghar Farhadi'ye Oscar kazandıran, bir boşanma etrafında gelişen 2011 yapımı filmi hangisidir?",
     "options": [
       "Satıcı",
-      "Bir Ayrılık",
+      "Herkes Bilir",
       "Geçmiş",
-      "Herkes Bilir"
+      "Bir Ayrılık"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Fransız yönetmen Jean Renoir'ın Birinci Dünya Savaşı esir kampında geçen 1937 yapımı klasiği hangisidir?",
     "options": [
+      "Boudu Sulardan Kurtuldu",
       "Büyük Yanılgı",
-      "Oyunun Kuralı",
       "Kızgın Toprak",
-      "Boudu Sulardan Kurtuldu"
+      "Oyunun Kuralı"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Alman yönetmen Fritz Lang'ın 1927 yapımı, distopik bir gelecek şehrini anlatan bilimkurgu klasiği hangisidir?",
     "options": [
       "M",
       "Metropolis",
-      "Nibelungen",
-      "Dr. Mabuse"
+      "Dr. Mabuse",
+      "Nibelungen"
     ],
     "answer": 1
   },
   {
     "q": "F. W. Murnau'nun 1922 yapımı, Dracula romanından uyarlanan yetkisiz Alman vampir filmi hangisidir?",
     "options": [
-      "Golem",
-      "Nosferatu",
       "Faust",
-      "Şafak"
+      "Şafak",
+      "Golem",
+      "Nosferatu"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "'Amélie' (Le Fabuleux Destin d'Amélie Poulain) filminin yönetmeni olan Fransız sinemacı kimdir?",
     "options": [
-      "Luc Besson",
       "Jean-Pierre Jeunet",
+      "Luc Besson",
       "Michel Gondry",
       "Jacques Audiard"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Danimarkalı yönetmen Thomas Vinterberg'in Mads Mikkelsen'e Oscar kazandıran, alkolle ilgili 2020 yapımı filmi hangisidir?",
-    "options": [
-      "Av",
-      "Bir Yuvarlak Daha (Druk)",
-      "Submarino",
-      "Kutlama"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Japon yönetmen Yasujiro Ozu'nun aile ilişkilerini anlatan 1953 tarihli başyapıtı hangisidir?",
-    "options": [
-      "Tokyo Hikayesi",
-      "Geç Bahar",
-      "Kayışığı",
-      "Yüzen Otlar"
     ],
     "answer": 0
   },
   {
+    "q": "Danimarkalı yönetmen Thomas Vinterberg'in Mads Mikkelsen'e Oscar kazandıran, alkolle ilgili 2020 yapımı filmi hangisidir?",
+    "options": [
+      "Submarino",
+      "Kutlama",
+      "Av",
+      "Bir Yuvarlak Daha (Druk)"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "Japon yönetmen Yasujiro Ozu'nun aile ilişkilerini anlatan 1953 tarihli başyapıtı hangisidir?",
+    "options": [
+      "Kayışığı",
+      "Tokyo Hikayesi",
+      "Yüzen Otlar",
+      "Geç Bahar"
+    ],
+    "answer": 1
+  },
+  {
     "q": "Cannes Film Festivali'nde verilen en büyük ödülün adı nedir?",
     "options": [
-      "Altın Ayı",
-      "Altın Aslan",
       "Altın Palmiye",
-      "Altın Küre"
+      "Altın Aslan",
+      "Altın Küre",
+      "Altın Ayı"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "Venedik Film Festivali'nin en büyük ödülü olan başlıca ödülün adı nedir?",
     "options": [
+      "Altın Palmiye",
       "Altın Aslan",
-      "Altın Ayı",
       "Gümüş Ayı",
+      "Altın Ayı"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Berlin Film Festivali'nin (Berlinale) en büyük ödülü hangisidir?",
+    "options": [
+      "Altın Ayı",
+      "Altın Aslan",
+      "Kristal Küre",
       "Altın Palmiye"
     ],
     "answer": 0
   },
   {
-    "q": "Berlin Film Festivali'nin (Berlinale) en büyük ödülü hangisidir?",
-    "options": [
-      "Altın Palmiye",
-      "Altın Aslan",
-      "Altın Ayı",
-      "Kristal Küre"
-    ],
-    "answer": 2
-  },
-  {
     "q": "İtalyan 'Spagetti Western' türünün en ünlü yönetmeni ve 'İyi, Kötü ve Çirkin' filminin yaratıcısı kimdir?",
     "options": [
-      "Sergio Corbucci",
-      "Sergio Leone",
       "Dario Argento",
-      "Mario Bava"
+      "Sergio Leone",
+      "Mario Bava",
+      "Sergio Corbucci"
     ],
     "answer": 1
   },
@@ -394,39 +394,39 @@ export default [
     "q": "Polonyalı yönetmen Krzysztof Kieślowski'nin Fransız bayrağının renklerinden esinlenen üçlemesinin filmleri hangi renkleri taşır?",
     "options": [
       "Kırmızı, Yeşil, Sarı",
+      "Yeşil, Beyaz, Kırmızı",
       "Mavi, Beyaz, Kırmızı",
-      "Siyah, Beyaz, Gri",
-      "Yeşil, Beyaz, Kırmızı"
+      "Siyah, Beyaz, Gri"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Rus yönetmen Andrei Tarkovsky'nin Stanisław Lem romanından uyarladığı 1972 yapımı bilimkurgu filmi hangisidir?",
     "options": [
       "Stalker",
+      "Nostalghia",
       "Solaris",
-      "Ayna",
-      "Nostalghia"
+      "Ayna"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "'Cehennem Silahı' değil; Hong Kong sineması ustası Wong Kar-wai'nin 2000 yapımı, bastırılmış aşkı anlatan filmi hangisidir?",
     "options": [
-      "Chungking Ekspresi",
       "Aşk Zamanı (In the Mood for Love)",
-      "2046",
-      "Mutlu Beraberlik"
+      "Chungking Ekspresi",
+      "Mutlu Beraberlik",
+      "2046"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Yunan yönetmen Yorgos Lanthimos'un absürt kurallara sahip bir toplumu anlatan 2009 yapımı filmi hangisidir?",
     "options": [
       "Köpek Dişi (Dogtooth)",
+      "Alps",
       "Istakoz",
-      "Kutsal Geyiğin Ölümü",
-      "Alps"
+      "Kutsal Geyiğin Ölümü"
     ],
     "answer": 0
   },
@@ -434,111 +434,111 @@ export default [
     "q": "Meksikalı yönetmen Alfonso Cuarón'a En İyi Yönetmen Oscar'ı kazandıran, siyah beyaz çekilen 2018 yapımı filmi hangisidir?",
     "options": [
       "Roma",
-      "Y Tu Mamá También",
+      "Gravity",
       "Çocukların Çocuğu",
-      "Gravity"
+      "Y Tu Mamá También"
     ],
     "answer": 0
   },
   {
     "q": "Fransız yönetmen François Truffaut'nun 1959 yapımı, zor bir çocukluğu anlatan ilk uzun metrajlı filmi hangisidir?",
     "options": [
-      "Jules ve Jim",
       "400 Darbe",
       "Piyanisti Vurun",
+      "Jules ve Jim",
       "Amerikan Gecesi"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Japon korku sinemasının 'Halka' (Ringu) filmi hangi Amerikan yeniden çevrimine (remake) ilham vermiştir?",
     "options": [
-      "The Grudge",
       "The Ring",
       "Dark Water",
-      "One Missed Call"
+      "One Missed Call",
+      "The Grudge"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Kore sineması yönetmeni Park Chan-wook'un 'İntikam Üçlemesi'nin en ünlü filmi, bir adamın 15 yıl hapsedilmesini anlatan hangisidir?",
     "options": [
-      "Oldboy",
-      "İntikam Bayan İçin",
       "Sympathy for Mr. Vengeance",
-      "The Handmaiden"
+      "The Handmaiden",
+      "İntikam Bayan İçin",
+      "Oldboy"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Alman yönetmen Wolfgang Petersen'in bir Alman denizaltısını konu alan 1981 yapımı savaş filmi hangisidir?",
     "options": [
-      "Das Boot",
-      "Köprü",
       "Stalingrad",
-      "Downfall"
+      "Downfall",
+      "Das Boot",
+      "Köprü"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Danimarkalı Carl Theodor Dreyer'in 1928 yapımı, yüz ifadeleriyle ünlü sessiz filmi hangi tarihi kişiyi anlatır?",
     "options": [
-      "Kraliçe Elizabeth",
-      "Jeanne d'Arc",
       "Marie Antoinette",
-      "Katolik Papa"
+      "Jeanne d'Arc",
+      "Katolik Papa",
+      "Kraliçe Elizabeth"
     ],
     "answer": 1
   },
   {
     "q": "Yeni Zelanda'da çekilen ve Peter Jackson'ın yönettiği destansı üçlemenin dayandığı roman serisi kime aittir?",
     "options": [
-      "C.S. Lewis",
       "J.R.R. Tolkien",
+      "C.S. Lewis",
       "George R.R. Martin",
       "Philip Pullman"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Avustralya sinemasının kült yapımı 'Çılgın Max' (Mad Max) serisinin yaratıcısı olan yönetmen kimdir?",
     "options": [
-      "Peter Weir",
       "George Miller",
+      "Peter Weir",
       "Baz Luhrmann",
       "Bruce Beresford"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "1964 yapımı 'Susuz Yaz' filmi hangi uluslararası festivalde Altın Ayı ödülünü kazanmıştır?",
     "options": [
-      "Cannes Film Festivali",
-      "Berlin Film Festivali",
       "Venedik Film Festivali",
-      "Locarno Film Festivali"
+      "Berlin Film Festivali",
+      "Locarno Film Festivali",
+      "Cannes Film Festivali"
     ],
     "answer": 1
   },
   {
     "q": "Yılmaz Güney'in senaryosunu yazdığı ve Cannes'da Altın Palmiye kazanan 1982 yapımı film hangisidir?",
     "options": [
-      "Sürü",
+      "Duvar",
       "Yol",
-      "Umut",
-      "Duvar"
+      "Sürü",
+      "Umut"
     ],
     "answer": 1
   },
   {
     "q": "'Yol' filmi Cannes'da Altın Palmiye'yi hangi filmle paylaşmıştır?",
     "options": [
-      "Missing",
-      "Gandhi",
       "Fanny ve Alexander",
-      "E.T."
+      "Gandhi",
+      "E.T.",
+      "Missing"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Türk sinemasının 'Yeşilçam' olarak anılan döneminin adı hangi İstanbul semtinden gelir?",
@@ -555,127 +555,127 @@ export default [
     "options": [
       "Münir Özkul",
       "Kemal Sunal",
-      "Şener Şen",
-      "Adile Naşit"
+      "Adile Naşit",
+      "Şener Şen"
     ],
     "answer": 0
   },
   {
     "q": "Kemal Sunal'ın canlandırdığı ünlü 'Şaban' karakterinin ilk kez göründüğü film serisi hangisidir?",
     "options": [
-      "Hababam Sınıfı",
-      "Salako",
       "İnek Şaban",
-      "Zübük"
+      "Zübük",
+      "Salako",
+      "Hababam Sınıfı"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "'Muhsin Bey' filminin yönetmeni kimdir?",
     "options": [
-      "Ömer Kavur",
       "Yavuz Turgul",
       "Zeki Ökten",
+      "Ömer Kavur",
       "Atıf Yılmaz"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Şener Şen ve Cem Yılmaz'ın başrolde olduğu, Yavuz Turgul'un yönettiği 2005 yapımı film hangisidir?",
     "options": [
-      "Gönül Yarası",
-      "Eşkıya",
       "Av Mevsimi",
-      "Kabadayı"
+      "Eşkıya",
+      "Kabadayı",
+      "Gönül Yarası"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "'Eşkıya' (1996) filminde 'Baran' karakterini kim canlandırmıştır?",
     "options": [
-      "Kadir İnanır",
-      "Şener Şen",
+      "Halil Ergün",
       "Uğur Yücel",
-      "Halil Ergün"
+      "Kadir İnanır",
+      "Şener Şen"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Nuri Bilge Ceylan'ın Cannes'da Altın Palmiye kazanan filmi hangisidir?",
     "options": [
-      "Kış Uykusu",
-      "Uzak",
       "Bir Zamanlar Anadolu'da",
-      "Üç Maymun"
+      "Üç Maymun",
+      "Kış Uykusu",
+      "Uzak"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Nuri Bilge Ceylan hangi filmiyle Cannes'da En İyi Yönetmen ödülünü kazanmıştır?",
     "options": [
       "İklimler",
-      "Uzak",
       "Üç Maymun",
+      "Uzak",
       "Ahlat Ağacı"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "'Uzak' (2002) filminde başrol oynayan ve Cannes'da ödül alan oyunculardan biri, filmin çekiminden kısa süre sonra hayatını kaybetmiştir. Bu oyuncu kimdir?",
     "options": [
-      "Mehmet Emin Toprak",
       "Muzaffer Özdemir",
       "Yavuz Bingöl",
-      "Tuncel Kurtiz"
+      "Tuncel Kurtiz",
+      "Mehmet Emin Toprak"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Semih Kaplanoğlu'nun Berlin'de Altın Ayı kazanan filmi hangisidir?",
     "options": [
+      "Buğday",
       "Bal",
       "Süt",
-      "Yumurta",
-      "Buğday"
+      "Yumurta"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Fatih Akın'ın Berlin Film Festivali'nde Altın Ayı kazanan 2004 yapımı filmi hangisidir?",
     "options": [
       "Duvara Karşı",
-      "Yaşamın Kıyısında",
+      "Solino",
       "Kesik",
-      "Solino"
+      "Yaşamın Kıyısında"
     ],
     "answer": 0
   },
   {
     "q": "Netflix'in ilk Türk orijinal dizisi hangisidir?",
     "options": [
-      "Hakan: Muhafız",
-      "Atiye",
       "Aşk 101",
-      "Bir Başkadır"
+      "Bir Başkadır",
+      "Atiye",
+      "Hakan: Muhafız"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "'Bir Başkadır' (Ethos) dizisinin yönetmeni kimdir?",
     "options": [
-      "Onur Ünlü",
-      "Berkun Oya",
       "Çağan Irmak",
-      "Zeki Demirkubuz"
+      "Zeki Demirkubuz",
+      "Onur Ünlü",
+      "Berkun Oya"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Uluslararası alanda büyük başarı kazanan ve 100'den fazla ülkede yayınlanan 'Muhteşem Yüzyıl' dizisi hangi padişahın dönemini anlatır?",
     "options": [
-      "Fatih Sultan Mehmet",
-      "Kanuni Sultan Süleyman",
       "Yavuz Sultan Selim",
+      "Kanuni Sultan Süleyman",
+      "Fatih Sultan Mehmet",
       "II. Abdülhamid"
     ],
     "answer": 1
@@ -683,170 +683,170 @@ export default [
   {
     "q": "'Diriliş: Ertuğrul' dizisinde başrol Ertuğrul Bey'i canlandıran oyuncu kimdir?",
     "options": [
-      "Engin Altan Düzyatan",
-      "Burak Özçivit",
       "Kıvanç Tatlıtuğ",
-      "Çağatay Ulusoy"
+      "Engin Altan Düzyatan",
+      "Çağatay Ulusoy",
+      "Burak Özçivit"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "'Kurtlar Vadisi' dizisinde 'Polat Alemdar' karakterini kim canlandırmıştır?",
     "options": [
+      "Gürkan Uygun",
       "Necati Şaşmaz",
-      "Kenan İmirzalıoğlu",
       "Oğuz Yılmaz",
-      "Gürkan Uygun"
+      "Kenan İmirzalıoğlu"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Çağan Irmak'ın yönettiği, baba-oğul ilişkisini konu alan ve büyük ilgi gören 2005 yapımı filmi hangisidir?",
     "options": [
-      "Babam ve Oğlum",
+      "Prensesin Uykusu",
       "Issız Adam",
       "Ulak",
-      "Prensesin Uykusu"
+      "Babam ve Oğlum"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Zeki Demirkubuz'un 'Karanlık Öyküler' üçlemesinin ilk filmi hangisidir?",
     "options": [
-      "Yazgı",
+      "Kader",
       "İtiraf",
-      "Masumiyet",
-      "Kader"
+      "Yazgı",
+      "Masumiyet"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "'Masumiyet' (1997) ve devamı niteliğindeki 'Kader' (2006) filmlerinin yönetmeni kimdir?",
     "options": [
       "Zeki Demirkubuz",
       "Nuri Bilge Ceylan",
-      "Reha Erdem",
-      "Yeşim Ustaoğlu"
+      "Yeşim Ustaoğlu",
+      "Reha Erdem"
     ],
     "answer": 0
   },
   {
     "q": "'Sultan' lakabıyla anılan ünlü Yeşilçam oyuncusu kimdir?",
     "options": [
-      "Türkan Şoray",
       "Hülya Koçyiğit",
       "Filiz Akın",
+      "Türkan Şoray",
       "Fatma Girik"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Metin Erksan'ın yönettiği ve Berlin'de Altın Ayı kazanan 'Susuz Yaz' filminin başrol kadın oyuncusu kimdir?",
     "options": [
       "Hülya Koçyiğit",
-      "Türkan Şoray",
       "Fatma Girik",
-      "Belgin Doruk"
+      "Belgin Doruk",
+      "Türkan Şoray"
     ],
     "answer": 0
   },
   {
     "q": "'Vizontele' filminin yönetmenlerinden ve başrol oyuncularından biri olan sanatçı kimdir?",
     "options": [
+      "Cem Yılmaz",
+      "Şahan Gökbakar",
+      "Ata Demirer",
+      "Yılmaz Erdoğan"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "Cem Yılmaz'ın yazıp başrolünde oynadığı, uzayda geçen bilim kurgu komedi filmi hangisidir?",
+    "options": [
+      "Pardon",
+      "Hokkabaz",
+      "G.O.R.A.",
+      "Av Mevsimi"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "'Recep İvedik' film serisinin başrol oyuncusu kimdir?",
+    "options": [
       "Yılmaz Erdoğan",
       "Cem Yılmaz",
       "Şahan Gökbakar",
       "Ata Demirer"
     ],
-    "answer": 0
-  },
-  {
-    "q": "Cem Yılmaz'ın yazıp başrolünde oynadığı, uzayda geçen bilim kurgu komedi filmi hangisidir?",
-    "options": [
-      "G.O.R.A.",
-      "Hokkabaz",
-      "Pardon",
-      "Av Mevsimi"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "'Recep İvedik' film serisinin başrol oyuncusu kimdir?",
-    "options": [
-      "Şahan Gökbakar",
-      "Ata Demirer",
-      "Cem Yılmaz",
-      "Yılmaz Erdoğan"
-    ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Reha Erdem'in çocukların dünyasını anlatan, doğa ve zaman temalı 2006 yapımı filmi hangisidir?",
     "options": [
       "Beş Vakit",
+      "Hayat Var",
       "Kaç Para Kaç",
-      "Kosmos",
-      "Hayat Var"
+      "Kosmos"
     ],
     "answer": 0
   },
   {
     "q": "'Aşk-ı Memnu' dizisinin uyarlandığı klasik Türk romanının yazarı kimdir?",
     "options": [
-      "Halid Ziya Uşaklıgil",
-      "Reşat Nuri Güntekin",
       "Yakup Kadri Karaosmanoğlu",
-      "Halide Edib Adıvar"
+      "Reşat Nuri Güntekin",
+      "Halide Edib Adıvar",
+      "Halid Ziya Uşaklıgil"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "'Yaprak Dökümü' dizisi hangi yazarın romanından uyarlanmıştır?",
     "options": [
       "Reşat Nuri Güntekin",
-      "Halid Ziya Uşaklıgil",
+      "Ahmet Hamdi Tanpınar",
       "Peyami Safa",
-      "Ahmet Hamdi Tanpınar"
+      "Halid Ziya Uşaklıgil"
     ],
     "answer": 0
   },
   {
     "q": "Yeşim Ustaoğlu'nun Kürt kimliği ve göç temalı, Berlin'de ödül alan 1999 yapımı filmi hangisidir?",
     "options": [
-      "Güneşe Yolculuk",
       "Bulutları Beklerken",
-      "Pandora'nın Kutusu",
-      "Tereddüt"
+      "Tereddüt",
+      "Güneşe Yolculuk",
+      "Pandora'nın Kutusu"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "'Selvi Boylum Al Yazmalım' filminin senaryosu hangi yazarın eserinden uyarlanmıştır?",
     "options": [
       "Cengiz Aytmatov",
-      "Yaşar Kemal",
+      "Sabahattin Ali",
       "Orhan Kemal",
-      "Sabahattin Ali"
+      "Yaşar Kemal"
     ],
     "answer": 0
   },
   {
     "q": "Türk sinemasında ilk sesli film olarak kabul edilen 1931 yapımı film hangisidir?",
     "options": [
-      "İstanbul Sokaklarında",
       "Bir Millet Uyanıyor",
       "Ateşten Gömlek",
-      "Aysel Bataklı Damın Kızı"
+      "Aysel Bataklı Damın Kızı",
+      "İstanbul Sokaklarında"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Antalya'da düzenlenen ve Türkiye'nin en köklü film festivali olan yarışmanın ödülünün adı nedir?",
     "options": [
       "Altın Portakal",
-      "Altın Koza",
       "Altın Lale",
-      "Altın Çınar"
+      "Altın Çınar",
+      "Altın Koza"
     ],
     "answer": 0
   },
@@ -854,79 +854,79 @@ export default [
     "q": "Adana'da düzenlenen film festivalinin ödülü hangi isimle anılır?",
     "options": [
       "Altın Koza",
-      "Altın Portakal",
+      "Altın Deve",
       "Altın Başak",
-      "Altın Deve"
+      "Altın Portakal"
     ],
     "answer": 0
   },
   {
     "q": "Ferzan Özpetek'in İtalya'da çektiği, iki farklı ailenin hikayesini anlatan ünlü filmlerinden 'Hamam'ın ardından gelen 1999 yapımı filmi hangisidir?",
     "options": [
-      "Harem Suare",
+      "İstanbul Kırmızısı",
       "Cahil Periler",
       "Karşı Pencere",
-      "İstanbul Kırmızısı"
+      "Harem Suare"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "'Leyla ile Mecnun' dizisinin yönetmeni ve fantastik komedi tarzıyla tanınan isim kimdir?",
     "options": [
-      "Onur Ünlü",
-      "Yılmaz Erdoğan",
       "Çağan Irmak",
-      "Serdar Akar"
+      "Yılmaz Erdoğan",
+      "Serdar Akar",
+      "Onur Ünlü"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Deniz Gamze Ergüven'in yönettiği, beş kız kardeşin hikayesini anlatan ve Oscar'a Fransa adına aday gösterilen 2015 yapımı film hangisidir?",
     "options": [
-      "Mustang",
-      "Sivas",
+      "Abluka",
       "Kurak Günler",
-      "Abluka"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Queen grubunun 'Bohemian Rhapsody' şarkısını yazan ve seslendiren solisti kimdir?",
-    "options": [
-      "Freddie Mercury",
-      "Brian May",
-      "Roger Taylor",
-      "John Deacon"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "'Thriller' albümü hangi sanatçıya aittir?",
-    "options": [
-      "Prince",
-      "Michael Jackson",
-      "Stevie Wonder",
-      "Lionel Richie"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "The Beatles grubu hangi İngiliz şehrinde kurulmuştur?",
-    "options": [
-      "Manchester",
-      "Londra",
-      "Liverpool",
-      "Birmingham"
+      "Mustang",
+      "Sivas"
     ],
     "answer": 2
   },
   {
+    "q": "Queen grubunun 'Bohemian Rhapsody' şarkısını yazan ve seslendiren solisti kimdir?",
+    "options": [
+      "Brian May",
+      "Roger Taylor",
+      "John Deacon",
+      "Freddie Mercury"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "'Thriller' albümü hangi sanatçıya aittir?",
+    "options": [
+      "Michael Jackson",
+      "Prince",
+      "Stevie Wonder",
+      "Lionel Richie"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "The Beatles grubu hangi İngiliz şehrinde kurulmuştur?",
+    "options": [
+      "Birmingham",
+      "Liverpool",
+      "Manchester",
+      "Londra"
+    ],
+    "answer": 1
+  },
+  {
     "q": "'Like a Virgin' ve 'Material Girl' şarkılarıyla tanınan, 'Pop Kraliçesi' lakaplı sanatçı kimdir?",
     "options": [
-      "Cyndi Lauper",
+      "Cher",
       "Whitney Houston",
       "Madonna",
-      "Cher"
+      "Cyndi Lauper"
     ],
     "answer": 2
   },
@@ -934,68 +934,68 @@ export default [
     "q": "Nirvana grubunun solisti ve 'Smells Like Teen Spirit' şarkısının yazarı kimdir?",
     "options": [
       "Eddie Vedder",
+      "Chris Cornell",
       "Kurt Cobain",
-      "Dave Grohl",
-      "Chris Cornell"
+      "Dave Grohl"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Elvis Presley'nin lakabı aşağıdakilerden hangisidir?",
     "options": [
-      "The Boss",
-      "The King",
       "The Voice",
-      "The Chairman"
+      "The Boss",
+      "The Chairman",
+      "The King"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Coldplay grubunun solisti kimdir?",
     "options": [
-      "Chris Martin",
-      "Thom Yorke",
+      "Brandon Flowers",
       "Matt Bellamy",
-      "Brandon Flowers"
+      "Thom Yorke",
+      "Chris Martin"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "'Rolling in the Deep' ve 'Someone Like You' şarkılarıyla tanınan İngiliz sanatçı kimdir?",
     "options": [
-      "Amy Winehouse",
-      "Adele",
+      "Sam Smith",
       "Duffy",
-      "Sam Smith"
+      "Amy Winehouse",
+      "Adele"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Led Zeppelin'in gitaristi kimdir?",
     "options": [
-      "Jimmy Page",
-      "Eric Clapton",
+      "Ritchie Blackmore",
       "Jeff Beck",
-      "Ritchie Blackmore"
+      "Jimmy Page",
+      "Eric Clapton"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "'Purple Rain' filmi ve albümü hangi sanatçıya aittir?",
     "options": [
-      "Michael Jackson",
-      "Prince",
       "David Bowie",
-      "George Michael"
+      "George Michael",
+      "Michael Jackson",
+      "Prince"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "U2 grubunun solisti kimdir?",
     "options": [
-      "Sting",
-      "Bono",
       "Freddie Mercury",
+      "Bono",
+      "Sting",
       "Phil Collins"
     ],
     "answer": 1
@@ -1003,79 +1003,79 @@ export default [
   {
     "q": "'Bad Guy' şarkısıyla Grammy ödülleri kazanan genç Amerikalı pop sanatçısı kimdir?",
     "options": [
-      "Olivia Rodrigo",
       "Billie Eilish",
       "Dua Lipa",
+      "Olivia Rodrigo",
       "Halsey"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "The Rolling Stones grubunun solisti kimdir?",
     "options": [
       "Keith Richards",
-      "Mick Jagger",
       "Charlie Watts",
-      "Ronnie Wood"
+      "Ronnie Wood",
+      "Mick Jagger"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "'Shape of You' şarkısını seslendiren İngiliz sanatçı kimdir?",
     "options": [
-      "Ed Sheeran",
-      "Sam Smith",
+      "James Blunt",
       "Lewis Capaldi",
-      "James Blunt"
+      "Ed Sheeran",
+      "Sam Smith"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Pink Floyd'un 1973 tarihli, tüm zamanların en çok satan albümlerinden biri olan eseri hangisidir?",
     "options": [
-      "The Wall",
       "The Dark Side of the Moon",
-      "Wish You Were Here",
-      "Animals"
+      "Animals",
+      "The Wall",
+      "Wish You Were Here"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "'Poker Face' ve 'Bad Romance' şarkılarıyla tanınan sanatçı kimdir?",
     "options": [
-      "Katy Perry",
+      "Rihanna",
       "Lady Gaga",
       "Kesha",
-      "Rihanna"
+      "Katy Perry"
     ],
     "answer": 1
   },
   {
     "q": "AC/DC grubu hangi ülkede kurulmuştur?",
     "options": [
-      "İngiltere",
-      "ABD",
+      "Kanada",
       "Avustralya",
-      "Kanada"
-    ],
-    "answer": 2
-  },
-  {
-    "q": "Michael Jackson'ın 'Billie Jean' performanslarıyla ünlenen dans figürü hangisidir?",
-    "options": [
-      "Robot dansı",
-      "Moonwalk",
-      "Twist",
-      "Vogue"
+      "ABD",
+      "İngiltere"
     ],
     "answer": 1
   },
   {
+    "q": "Michael Jackson'ın 'Billie Jean' performanslarıyla ünlenen dans figürü hangisidir?",
+    "options": [
+      "Moonwalk",
+      "Robot dansı",
+      "Twist",
+      "Vogue"
+    ],
+    "answer": 0
+  },
+  {
     "q": "Amy Winehouse'un en çok bilinen albümünün adı nedir?",
     "options": [
-      "Frank",
-      "Back to Black",
       "21",
+      "Back to Black",
+      "Frank",
       "Lemonade"
     ],
     "answer": 1
@@ -1083,60 +1083,60 @@ export default [
   {
     "q": "The Police grubunun solisti ve basçısı, sonrasında solo kariyer yapan sanatçı kimdir?",
     "options": [
+      "Elton John",
       "Sting",
       "Peter Gabriel",
-      "Phil Collins",
-      "Elton John"
+      "Phil Collins"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "David Bowie'nin 1972'de yarattığı ünlü uzaylı rock yıldızı sahne kişiliği hangisidir?",
     "options": [
-      "Ziggy Stardust",
       "Aladdin Sane",
-      "The Thin White Duke",
-      "Halloween Jack"
+      "Halloween Jack",
+      "Ziggy Stardust",
+      "The Thin White Duke"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "'Umbrella' ve 'Diamonds' şarkılarıyla tanınan Barbados doğumlu sanatçı kimdir?",
     "options": [
       "Beyoncé",
       "Rihanna",
-      "Nicki Minaj",
-      "Cardi B"
+      "Cardi B",
+      "Nicki Minaj"
     ],
     "answer": 1
   },
   {
     "q": "Guns N' Roses grubunun solisti kimdir?",
     "options": [
-      "Slash",
+      "Izzy Stradlin",
       "Axl Rose",
-      "Duff McKagan",
-      "Izzy Stradlin"
+      "Slash",
+      "Duff McKagan"
     ],
     "answer": 1
   },
   {
     "q": "'Hotel California' şarkısı hangi gruba aittir?",
     "options": [
-      "Fleetwood Mac",
-      "Eagles",
       "The Doors",
-      "Lynyrd Skynyrd"
+      "Fleetwood Mac",
+      "Lynyrd Skynyrd",
+      "Eagles"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Beyoncé'nin daha önce solistliğini yaptığı kız grubunun adı nedir?",
     "options": [
       "TLC",
       "Destiny's Child",
-      "Spice Girls",
-      "En Vogue"
+      "En Vogue",
+      "Spice Girls"
     ],
     "answer": 1
   },
@@ -1144,79 +1144,79 @@ export default [
     "q": "'Rocket Man' ve 'Your Song' şarkılarıyla tanınan İngiliz piyanist ve şarkıcı kimdir?",
     "options": [
       "Billy Joel",
-      "Elton John",
       "Rod Stewart",
+      "Elton John",
       "Paul McCartney"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Radiohead grubunun 1997 tarihli, eleştirmenlerce çok övülen albümü hangisidir?",
     "options": [
-      "The Bends",
-      "OK Computer",
+      "In Rainbows",
       "Kid A",
-      "In Rainbows"
+      "OK Computer",
+      "The Bends"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "'Firework' ve 'Roar' şarkılarıyla tanınan Amerikalı pop sanatçısı kimdir?",
     "options": [
       "Katy Perry",
       "Kelly Clarkson",
-      "Pink",
-      "Gwen Stefani"
+      "Gwen Stefani",
+      "Pink"
     ],
     "answer": 0
   },
   {
     "q": "ABBA grubu hangi ülkeden çıkmıştır?",
     "options": [
-      "Norveç",
-      "İsveç",
       "Danimarka",
-      "Finlandiya"
+      "Norveç",
+      "Finlandiya",
+      "İsveç"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "'Purple Haze' ve 'Hey Joe' şarkılarıyla tanınan efsanevi gitarist kimdir?",
     "options": [
-      "Eric Clapton",
+      "Carlos Santana",
       "Jimi Hendrix",
       "Jimmy Page",
-      "Carlos Santana"
+      "Eric Clapton"
     ],
     "answer": 1
   },
   {
     "q": "Taylor Swift'in müzik kariyerine başladığı tür hangisidir?",
     "options": [
-      "Pop",
       "Country",
       "R&B",
-      "Rock"
+      "Rock",
+      "Pop"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Metallica grubu hangi müzik türüyle özdeşleşmiştir?",
     "options": [
-      "Punk rock",
       "Thrash metal",
       "Grunge",
+      "Punk rock",
       "Glam rock"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "'Wonderwall' şarkısı hangi İngiliz grubuna aittir?",
     "options": [
-      "Blur",
+      "Pulp",
       "Oasis",
-      "The Verve",
-      "Pulp"
+      "Blur",
+      "The Verve"
     ],
     "answer": 1
   },
@@ -1224,151 +1224,151 @@ export default [
     "q": "Whitney Houston'ın 'The Bodyguard' filminde seslendirdiği ve büyük başarı kazanan şarkı hangisidir?",
     "options": [
       "I Have Nothing",
-      "I Will Always Love You",
+      "I Wanna Dance with Somebody",
       "Greatest Love of All",
-      "I Wanna Dance with Somebody"
+      "I Will Always Love You"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "The Weeknd'in 2020 yılında çıkan, 'Blinding Lights' şarkısını içeren albümü hangisidir?",
     "options": [
-      "Starboy",
       "After Hours",
       "Beauty Behind the Madness",
+      "Starboy",
       "Dawn FM"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "'Sweet Child o' Mine' hangi grubun şarkısıdır?",
     "options": [
-      "Bon Jovi",
       "Guns N' Roses",
+      "Bon Jovi",
       "Aerosmith",
       "Def Leppard"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Foo Fighters grubunun kurucusu, önceden Nirvana'nın davulcusu olan kişi kimdir?",
     "options": [
-      "Dave Grohl",
+      "Pat Smear",
       "Taylor Hawkins",
-      "Krist Novoselic",
-      "Pat Smear"
+      "Dave Grohl",
+      "Krist Novoselic"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "'New Rules' ve 'Levitating' şarkılarıyla tanınan İngiliz pop sanatçısı kimdir?",
     "options": [
-      "Dua Lipa",
+      "Rita Ora",
       "Ellie Goulding",
-      "Jessie J",
-      "Rita Ora"
+      "Dua Lipa",
+      "Jessie J"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Bob Dylan'a 2016 yılında verilen prestijli ödül hangisidir?",
     "options": [
-      "Pulitzer Ödülü",
       "Nobel Edebiyat Ödülü",
+      "Pulitzer Ödülü",
       "Booker Ödülü",
       "Oscar Ödülü"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "'Uptown Funk' şarkısında Bruno Mars ile birlikte yer alan İngiliz yapımcı kimdir?",
     "options": [
-      "Pharrell Williams",
-      "Mark Ronson",
+      "David Guetta",
       "Calvin Harris",
-      "David Guetta"
+      "Mark Ronson",
+      "Pharrell Williams"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Spice Girls grubu hangi ülkeden çıkmıştır?",
     "options": [
-      "ABD",
       "İngiltere",
-      "Avustralya",
-      "İrlanda"
+      "İrlanda",
+      "ABD",
+      "Avustralya"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Oscar tarihinde En İyi Yönetmen ödülünü kazanan ilk kadın kimdir?",
     "options": [
       "Sofia Coppola",
-      "Kathryn Bigelow",
+      "Greta Gerwig",
       "Jane Campion",
-      "Greta Gerwig"
+      "Kathryn Bigelow"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "'The Hurt Locker' filmiyle En İyi Yönetmen Oscar'ı kazanan Kathryn Bigelow, o yıl kimi geçmişti?",
     "options": [
-      "Steven Spielberg",
       "James Cameron",
       "Martin Scorsese",
+      "Steven Spielberg",
       "Quentin Tarantino"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Dört kez En İyi Yönetmen Oscar'ı kazanarak bu dalda rekor sahibi olan yönetmen kimdir?",
     "options": [
-      "William Wyler",
-      "John Ford",
       "Frank Capra",
-      "Steven Spielberg"
+      "John Ford",
+      "Steven Spielberg",
+      "William Wyler"
     ],
     "answer": 1
   },
   {
     "q": "'Parasite' (Parazit) filmiyle 2020'de En İyi Film Oscar'ı kazanan Güney Koreli yönetmen kimdir?",
     "options": [
-      "Park Chan-wook",
       "Bong Joon-ho",
       "Kim Ki-duk",
+      "Park Chan-wook",
       "Lee Chang-dong"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "En İyi Erkek Oyuncu Oscar'ını üç kez kazanan oyuncu kimdir?",
     "options": [
       "Jack Nicholson",
-      "Daniel Day-Lewis",
       "Marlon Brando",
-      "Tom Hanks"
+      "Tom Hanks",
+      "Daniel Day-Lewis"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "'The Godfather' (Baba) filminde Michael Corleone'yi canlandıran oyuncu kimdir?",
     "options": [
-      "Robert De Niro",
-      "Al Pacino",
       "Marlon Brando",
-      "James Caan"
+      "Al Pacino",
+      "James Caan",
+      "Robert De Niro"
     ],
     "answer": 1
   },
   {
     "q": "En fazla Oscar kazanan tek kişi (toplam 22 ödül) kimdir?",
     "options": [
-      "Walt Disney",
       "Alfred Hitchcock",
       "John Williams",
-      "Cedric Gibbons"
+      "Cedric Gibbons",
+      "Walt Disney"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Ölümünden sonra Oscar kazanan ilk oyuncu (Network filmi) kimdir?",
@@ -1384,98 +1384,98 @@ export default [
     "q": "Heath Ledger, ölümünden sonra hangi film için En İyi Yardımcı Erkek Oyuncu Oscar'ı aldı?",
     "options": [
       "Brokeback Mountain",
+      "A Knight's Tale",
       "The Dark Knight",
-      "10 Things I Hate About You",
-      "A Knight's Tale"
+      "10 Things I Hate About You"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "'Titanic' ve 'Avatar' filmlerinin yönetmeni kimdir?",
     "options": [
-      "Ridley Scott",
+      "Michael Bay",
       "James Cameron",
-      "Peter Jackson",
-      "Michael Bay"
+      "Ridley Scott",
+      "Peter Jackson"
     ],
     "answer": 1
   },
   {
     "q": "En İyi Kadın Oyuncu Oscar'ını rekor sayıda (4 kez) kazanan oyuncu kimdir?",
     "options": [
-      "Meryl Streep",
       "Katharine Hepburn",
+      "Ingrid Bergman",
       "Bette Davis",
-      "Ingrid Bergman"
+      "Meryl Streep"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Meryl Streep toplam kaç kez Oscar'a aday gösterilerek bu alanda rekora sahiptir?",
     "options": [
-      "15",
+      "25",
       "18",
-      "21",
-      "25"
+      "15",
+      "21"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "'Pulp Fiction' ve 'Kill Bill' filmlerinin yönetmeni kimdir?",
     "options": [
-      "Robert Rodriguez",
       "Quentin Tarantino",
-      "David Fincher",
-      "Coen Kardeşler"
+      "Robert Rodriguez",
+      "Coen Kardeşler",
+      "David Fincher"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "'Psycho' ve 'Vertigo' gibi klasiklerle 'gerilimin ustası' olarak anılan yönetmen kimdir?",
     "options": [
-      "Orson Welles",
-      "Alfred Hitchcock",
       "Billy Wilder",
-      "Stanley Kubrick"
+      "Stanley Kubrick",
+      "Orson Welles",
+      "Alfred Hitchcock"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Alfred Hitchcock kariyeri boyunca kaç kez En İyi Yönetmen Oscar'ı kazanmıştır?",
     "options": [
-      "Hiç",
-      "1",
       "2",
+      "1",
+      "Hiç",
       "4"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Venedik Film Festivali'nin en büyük ödülü hangisidir?",
     "options": [
       "Altın Aslan",
+      "Kristal Küre",
       "Altın Palmiye",
-      "Altın Ayı",
-      "Kristal Küre"
+      "Altın Ayı"
     ],
     "answer": 0
   },
   {
     "q": "Berlin Film Festivali'nin en büyük ödülü hangisidir?",
     "options": [
-      "Altın Palmiye",
-      "Altın Aslan",
       "Altın Ayı",
-      "Altın Küre"
+      "Altın Palmiye",
+      "Altın Küre",
+      "Altın Aslan"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "'Nuri Bilge Ceylan' hangi filmiyle 2014 Cannes'da Altın Palmiye kazandı?",
     "options": [
-      "Bir Zamanlar Anadolu'da",
-      "Kış Uykusu",
       "Uzak",
+      "Kış Uykusu",
+      "Bir Zamanlar Anadolu'da",
       "İklimler"
     ],
     "answer": 1
@@ -1483,92 +1483,92 @@ export default [
   {
     "q": "Yılmaz Güney'in 1982 Cannes'da Altın Palmiye kazanan filmi hangisidir?",
     "options": [
-      "Sürü",
       "Yol",
       "Umut",
+      "Sürü",
       "Duvar"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "'Schindler's List' ve 'Saving Private Ryan' ile Oscar kazanan yönetmen kimdir?",
     "options": [
-      "George Lucas",
       "Steven Spielberg",
-      "Francis Ford Coppola",
-      "Robert Zemeckis"
+      "George Lucas",
+      "Robert Zemeckis",
+      "Francis Ford Coppola"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "'The Lord of the Rings' üçlemesinin yönetmeni kimdir?",
     "options": [
-      "Guillermo del Toro",
-      "Peter Jackson",
       "Ridley Scott",
-      "Chris Columbus"
+      "Chris Columbus",
+      "Guillermo del Toro",
+      "Peter Jackson"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "'The Lord of the Rings: The Return of the King' kaç Oscar kazanarak rekora ortak oldu?",
     "options": [
-      "9",
       "11",
+      "9",
       "13",
       "8"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "'La La Land' filminin yönetmeni kimdir?",
     "options": [
-      "Damien Chazelle",
-      "Barry Jenkins",
       "Alejandro Iñárritu",
+      "Barry Jenkins",
+      "Damien Chazelle",
       "Denis Villeneuve"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "2017 Oscar töreninde yanlışlıkla önce 'La La Land' anons edilse de En İyi Film ödülünü kazanan film hangisiydi?",
     "options": [
       "Moonlight",
       "Manchester by the Sea",
-      "Hidden Figures",
-      "Arrival"
+      "Arrival",
+      "Hidden Figures"
     ],
     "answer": 0
   },
   {
     "q": "'Joker' (2019) filmindeki performansıyla En İyi Erkek Oyuncu Oscar'ı kazanan oyuncu kimdir?",
     "options": [
-      "Jared Leto",
       "Joaquin Phoenix",
+      "Adam Driver",
       "Christian Bale",
-      "Adam Driver"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "'Nomadland' filmiyle 2021'de En İyi Yönetmen Oscar'ı kazanan kadın yönetmen kimdir?",
-    "options": [
-      "Chloé Zhao",
-      "Emerald Fennell",
-      "Regina King",
-      "Greta Gerwig"
+      "Jared Leto"
     ],
     "answer": 0
   },
   {
-    "q": "'Oppenheimer' (2023) filminin yönetmeni kimdir?",
+    "q": "'Nomadland' filmiyle 2021'de En İyi Yönetmen Oscar'ı kazanan kadın yönetmen kimdir?",
     "options": [
-      "Denis Villeneuve",
-      "Christopher Nolan",
-      "Sam Mendes",
-      "Ridley Scott"
+      "Greta Gerwig",
+      "Chloé Zhao",
+      "Emerald Fennell",
+      "Regina King"
     ],
     "answer": 1
+  },
+  {
+    "q": "'Oppenheimer' (2023) filminin yönetmeni kimdir?",
+    "options": [
+      "Sam Mendes",
+      "Denis Villeneuve",
+      "Christopher Nolan",
+      "Ridley Scott"
+    ],
+    "answer": 2
   },
   {
     "q": "Christopher Nolan ilk En İyi Yönetmen Oscar'ını hangi filmle kazandı?",
@@ -1584,29 +1584,29 @@ export default [
     "q": "'Roma' ve 'Gravity' filmleriyle Oscar kazanan Meksikalı yönetmen kimdir?",
     "options": [
       "Guillermo del Toro",
-      "Alfonso Cuarón",
+      "Robert Rodriguez",
       "Alejandro Iñárritu",
-      "Robert Rodriguez"
+      "Alfonso Cuarón"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "'Birdman' ve 'The Revenant' ile üst üste iki yıl En İyi Yönetmen Oscar'ı kazanan yönetmen kimdir?",
     "options": [
-      "Alfonso Cuarón",
       "Alejandro G. Iñárritu",
+      "Damien Chazelle",
       "Guillermo del Toro",
-      "Damien Chazelle"
+      "Alfonso Cuarón"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "'The Shape of Water' filmiyle En İyi Yönetmen Oscar'ı kazanan yönetmen kimdir?",
     "options": [
       "Guillermo del Toro",
+      "Pedro Almodóvar",
       "Alfonso Cuarón",
-      "Denis Villeneuve",
-      "Pedro Almodóvar"
+      "Denis Villeneuve"
     ],
     "answer": 0
   },
@@ -1614,9 +1614,9 @@ export default [
     "q": "'Unforgiven' ve 'Million Dollar Baby' ile En İyi Yönetmen Oscar'ı kazanan oyuncu-yönetmen kimdir?",
     "options": [
       "Clint Eastwood",
+      "Kevin Costner",
       "Warren Beatty",
-      "Robert Redford",
-      "Kevin Costner"
+      "Robert Redford"
     ],
     "answer": 0
   },
@@ -1624,68 +1624,68 @@ export default [
     "q": "En genç En İyi Kadın Oyuncu Oscar'ı sahibi (21 yaşında, Monster's Ball değil) hangi filmle bu ödülü aldı?",
     "options": [
       "Jennifer Lawrence - Silver Linings Playbook",
-      "Marlee Matlin - Children of a Lesser God",
+      "Brie Larson - Room",
       "Emma Stone - La La Land",
-      "Brie Larson - Room"
+      "Marlee Matlin - Children of a Lesser God"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "'Whiplash' filmindeki katı müzik öğretmeni rolüyle Oscar kazanan oyuncu kimdir?",
     "options": [
-      "J.K. Simmons",
       "Miles Teller",
       "Mark Rylance",
-      "Christoph Waltz"
+      "Christoph Waltz",
+      "J.K. Simmons"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "'Bohemian Rhapsody' filminde Freddie Mercury rolüyle Oscar kazanan oyuncu kimdir?",
     "options": [
-      "Taron Egerton",
-      "Rami Malek",
+      "Sacha Baron Cohen",
       "Ben Whishaw",
-      "Sacha Baron Cohen"
+      "Rami Malek",
+      "Taron Egerton"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Ennio Morricone, ilk (rekabetçi) Oscar'ını hangi film için kazandı?",
     "options": [
+      "Once Upon a Time in America",
       "The Good, the Bad and the Ugly",
-      "The Hateful Eight",
       "Cinema Paradiso",
-      "Once Upon a Time in America"
+      "The Hateful Eight"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "2020'de En İyi Film Oscar'ını kazanan ve İngilizce olmayan ilk film olarak tarihe geçen Güney Kore yapımı hangisidir?",
     "options": [
-      "Yolcu (The Handmaiden)",
       "Parazit (Parasite)",
-      "Oldboy",
-      "Anne (Mother)"
+      "Anne (Mother)",
+      "Yolcu (The Handmaiden)",
+      "Oldboy"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Cannes Film Festivali'nin en büyük ödülü olan Altın Palmiye'yi ve ardından En İyi Film Oscar'ını kazanan ilk film hangisidir?",
     "options": [
       "Marty",
       "The Lost Weekend",
-      "Parasite",
-      "Delicatessen"
+      "Delicatessen",
+      "Parasite"
     ],
     "answer": 0
   },
   {
     "q": "En fazla Oscar (11 adet) kazanan üç filmden biri değildir aşağıdakilerden hangisi?",
     "options": [
-      "Ben-Hur",
-      "Titanic",
       "The Lord of the Rings: The Return of the King",
+      "Titanic",
+      "Ben-Hur",
       "Schindler's List"
     ],
     "answer": 3
@@ -1693,32 +1693,32 @@ export default [
   {
     "q": "'The Lord of the Rings: The Return of the King' Oscar töreninde aday gösterildiği kaç dalın tümünü kazanmıştır?",
     "options": [
-      "9",
       "11",
+      "7",
       "13",
-      "7"
+      "9"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Berlin Film Festivali'nin en büyük ödülünün adı nedir?",
     "options": [
       "Altın Aslan",
+      "Kristal Küre",
       "Altın Ayı",
-      "Altın Palmiye",
-      "Kristal Küre"
+      "Altın Palmiye"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Venedik Film Festivali'nin en büyük ödülü aşağıdakilerden hangisidir?",
     "options": [
-      "Altın Aslan",
       "Altın Ayı",
+      "Gümüş Ayı",
       "Altın Palmiye",
-      "Gümüş Ayı"
+      "Altın Aslan"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "2017 Oscar töreninde 'La La Land' yanlışlıkla En İyi Film olarak anons edildikten sonra ödülü asıl kazanan film hangisiydi?",
@@ -1733,119 +1733,119 @@ export default [
   {
     "q": "En İyi Yönetmen Oscar'ını kazanan ilk kadın kimdir?",
     "options": [
-      "Sofia Coppola",
+      "Jane Campion",
       "Kathryn Bigelow",
       "Chloé Zhao",
-      "Jane Campion"
+      "Sofia Coppola"
     ],
     "answer": 1
   },
   {
     "q": "Kathryn Bigelow En İyi Yönetmen Oscar'ını hangi filmiyle kazandı?",
     "options": [
-      "Zero Dark Thirty",
       "The Hurt Locker",
-      "Point Break",
-      "Detroit"
+      "Zero Dark Thirty",
+      "Detroit",
+      "Point Break"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Nuri Bilge Ceylan hangi filmiyle 2014'te Cannes'da Altın Palmiye kazandı?",
     "options": [
       "Bir Zamanlar Anadolu'da",
-      "Kış Uykusu",
       "Üç Maymun",
-      "Ahlat Ağacı"
+      "Ahlat Ağacı",
+      "Kış Uykusu"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Yılmaz Güney'in senaryosunu yazdığı ve 1982'de Cannes'da Altın Palmiye kazanan film hangisidir?",
     "options": [
-      "Sürü",
       "Yol",
       "Duvar",
+      "Sürü",
       "Umut"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "'Yol' filmi Altın Palmiye'yi hangi ünlü filmle paylaşarak (ex-aequo) kazanmıştır?",
-    "options": [
-      "Missing",
-      "Fanny ve Alexander",
-      "Gandhi",
-      "Fitzcarraldo"
     ],
     "answer": 0
   },
   {
+    "q": "'Yol' filmi Altın Palmiye'yi hangi ünlü filmle paylaşarak (ex-aequo) kazanmıştır?",
+    "options": [
+      "Fitzcarraldo",
+      "Fanny ve Alexander",
+      "Missing",
+      "Gandhi"
+    ],
+    "answer": 2
+  },
+  {
     "q": "Federico Fellini'nin En İyi Yabancı Film Oscar'ı kazanan filmlerinden biri değildir?",
     "options": [
-      "La Strada",
       "8½",
+      "Amarcord",
       "La Dolce Vita",
-      "Amarcord"
+      "La Strada"
     ],
     "answer": 2
   },
   {
     "q": "Akira Kurosawa'nın Venedik'te Altın Aslan kazanarak Batı'da tanınmasını sağlayan 1951 filmi hangisidir?",
     "options": [
-      "Yedi Samuray",
-      "Rashomon",
       "Ran",
-      "Kagemusha"
+      "Kagemusha",
+      "Rashomon",
+      "Yedi Samuray"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Roberto Benigni'nin 1998 tarihli, En İyi Yabancı Film ve En İyi Erkek Oyuncu Oscar'ı kazanan filmi hangisidir?",
     "options": [
       "Cinema Paradiso",
-      "Hayat Güzeldir (La vita è bella)",
+      "Mediterraneo",
       "Il Postino",
-      "Mediterraneo"
+      "Hayat Güzeldir (La vita è bella)"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Oscar töreninde En İyi Erkek Oyuncu ödülünü kabul etmek için sahneye çıkmayı reddeden ve ödülü geri çeviren, 'The Godfather' ile ödül kazanan oyuncu kimdir?",
     "options": [
-      "Al Pacino",
       "Marlon Brando",
-      "Robert De Niro",
-      "Jack Nicholson"
+      "Al Pacino",
+      "Jack Nicholson",
+      "Robert De Niro"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "John Ford kaç kez En İyi Yönetmen Oscar'ı kazanarak bu dalda rekora sahiptir?",
     "options": [
-      "3",
-      "4",
+      "6",
       "5",
-      "6"
+      "3",
+      "4"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Alejandro González Iñárritu'nun üst üste iki yıl (2015 ve 2016) En İyi Yönetmen Oscar'ı kazandığı filmler hangileridir?",
     "options": [
+      "The Revenant ve Bardo",
       "Babel ve Biutiful",
-      "Birdman ve The Revenant",
       "Amores Perros ve 21 Grams",
-      "The Revenant ve Bardo"
+      "Birdman ve The Revenant"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "En İyi Animasyon Film dalında ilk Oscar'ı kazanan film hangisidir (2002'de ihdas edilen kategori)?",
     "options": [
-      "Toy Story",
-      "Shrek",
       "Finding Nemo",
+      "Shrek",
+      "Toy Story",
       "Monsters, Inc."
     ],
     "answer": 1
@@ -1854,17 +1854,17 @@ export default [
     "q": "Hayao Miyazaki'nin Berlin'de Altın Ayı (2002) ve En İyi Animasyon Oscar'ı kazanan filmi hangisidir?",
     "options": [
       "Prenses Mononoke",
-      "Ruhların Kaçışı (Spirited Away)",
       "Yürüyen Şato",
+      "Ruhların Kaçışı (Spirited Away)",
       "Rüzgar Yükseliyor"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Michael Haneke Cannes'da iki kez Altın Palmiye kazanmıştır; bunlardan biri değildir?",
     "options": [
-      "Beyaz Bant (Das weiße Band)",
       "Aşk (Amour)",
+      "Beyaz Bant (Das weiße Band)",
       "Saklı (Caché)",
       "-"
     ],
@@ -1873,89 +1873,89 @@ export default [
   {
     "q": "'Amour' (Aşk) filmi 2013'te hangi Oscar dalını kazandı?",
     "options": [
-      "En İyi Film",
+      "En İyi Senaryo",
       "En İyi Yabancı Dilde Film",
-      "En İyi Yönetmen",
-      "En İyi Senaryo"
+      "En İyi Film",
+      "En İyi Yönetmen"
     ],
     "answer": 1
   },
   {
     "q": "En İyi Kadın Oyuncu Oscar'ını rekor sayıda (4 kez) kazanan aktris kimdir?",
     "options": [
-      "Meryl Streep",
       "Katharine Hepburn",
-      "Bette Davis",
-      "Ingrid Bergman"
+      "Ingrid Bergman",
+      "Meryl Streep",
+      "Bette Davis"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "'Nomadland' filmiyle 2021'de En İyi Yönetmen Oscar'ını kazanarak bu dalı kazanan ikinci kadın olan yönetmen kimdir?",
     "options": [
       "Greta Gerwig",
-      "Chloé Zhao",
       "Emerald Fennell",
-      "Jane Campion"
+      "Jane Campion",
+      "Chloé Zhao"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "'Nomadland' aynı yıl Venedik Film Festivali'nde hangi ödülü kazanmıştı?",
     "options": [
+      "Altın Palmiye",
       "Altın Ayı",
       "Altın Aslan",
-      "Altın Palmiye",
       "Jüri Büyük Ödülü"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Bir filmin En İyi Film Oscar'ı alması ama yönetmeninin En İyi Yönetmen dalına aday bile gösterilmemesi ender görülür; 1990'da 'Driving Miss Daisy' bu duruma örnektir. Bu filmin yönetmeni kimdir?",
     "options": [
-      "Bruce Beresford",
       "Barry Levinson",
-      "Oliver Stone",
-      "Kevin Costner"
+      "Kevin Costner",
+      "Bruce Beresford",
+      "Oliver Stone"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Quentin Tarantino'nun 1994'te Cannes'da Altın Palmiye kazanan filmi hangisidir?",
     "options": [
+      "Kill Bill",
       "Reservoir Dogs",
-      "Pulp Fiction",
       "Jackie Brown",
-      "Kill Bill"
+      "Pulp Fiction"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Steven Soderbergh yalnızca 26 yaşındayken hangi filmiyle Cannes'da Altın Palmiye kazanarak en genç kazananlardan biri oldu (1989)?",
     "options": [
+      "Out of Sight",
       "Sex, Lies, and Videotape",
-      "Traffic",
       "Erin Brockovich",
-      "Out of Sight"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "En İyi Uluslararası Film Oscar'ını en çok kazanan ülke hangisidir?",
-    "options": [
-      "Fransa",
-      "İtalya",
-      "İspanya",
-      "Japonya"
+      "Traffic"
     ],
     "answer": 1
   },
   {
+    "q": "En İyi Uluslararası Film Oscar'ını en çok kazanan ülke hangisidir?",
+    "options": [
+      "İtalya",
+      "Japonya",
+      "Fransa",
+      "İspanya"
+    ],
+    "answer": 0
+  },
+  {
     "q": "2022'de 'CODA' ile En İyi Film Oscar'ını kazanan yapımın dağıtımcısı olarak dikkat çeken ve bir yayın platformu olarak ilk kez bu ödülü alan şirket hangisidir?",
     "options": [
-      "Netflix",
-      "Apple TV+",
       "Amazon Prime",
+      "Apple TV+",
+      "Netflix",
       "Hulu"
     ],
     "answer": 1
@@ -1963,272 +1963,272 @@ export default [
   {
     "q": "Cannes'da Altın Palmiye kazanan ilk kadın yönetmen Jane Campion hangi filmiyle bu ödülü (paylaşarak) aldı?",
     "options": [
-      "The Piano",
-      "Bright Star",
       "The Power of the Dog",
-      "An Angel at My Table"
+      "The Piano",
+      "An Angel at My Table",
+      "Bright Star"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Cannes tarihinde Altın Palmiye'yi tek başına kazanan ilk kadın yönetmen olan Julia Ducournau'nun 2021 filmi hangisidir?",
     "options": [
-      "Raw",
-      "Titane",
       "Grave",
-      "Titanium"
+      "Titanium",
+      "Titane",
+      "Raw"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "'The Silence of the Lambs' dahil Oscar tarihinde beş büyük dalı (Film, Yönetmen, Erkek Oyuncu, Kadın Oyuncu, Senaryo) süpüren yalnızca üç film vardır. Bu filmlerden biri değildir?",
     "options": [
-      "It Happened One Night",
       "One Flew Over the Cuckoo's Nest",
-      "The Silence of the Lambs",
-      "Schindler's List"
+      "Schindler's List",
+      "It Happened One Night",
+      "The Silence of the Lambs"
     ],
-    "answer": 3
+    "answer": 1
   },
   {
     "q": "'Oppenheimer' 2024'te kaç dalda Oscar kazandı?",
     "options": [
-      "5",
-      "7",
       "9",
-      "11"
+      "5",
+      "11",
+      "7"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "'Everything Everywhere All at Once' 2023'te En İyi Kadın Oyuncu Oscar'ını hangi oyuncuya kazandırdı?",
     "options": [
       "Cate Blanchett",
       "Michelle Yeoh",
-      "Ana de Armas",
-      "Andrea Riseborough"
+      "Andrea Riseborough",
+      "Ana de Armas"
     ],
     "answer": 1
   },
   {
     "q": "Alfred Hitchcock kariyeri boyunca kaç kez En İyi Yönetmen Oscar'ı kazanmıştır?",
     "options": [
-      "Hiç kazanmadı",
-      "1",
       "2",
-      "3"
+      "3",
+      "1",
+      "Hiç kazanmadı"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Costa-Gavras'ın 1969 tarihli, En İyi Yabancı Film Oscar'ı kazanan ve aynı zamanda En İyi Film dalına da aday gösterilen politik gerilim filmi hangisidir?",
     "options": [
+      "L'Aveu",
       "Z",
-      "État de siège",
       "Missing",
-      "L'Aveu"
+      "État de siège"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Yılmaz Güney'in yönetmenliğini Şerif Gören ile paylaştığı ve 1982 Cannes Film Festivali'nde Altın Palmiye kazanan filmi hangisidir?",
     "options": [
-      "Sürü",
-      "Yol",
       "Umut",
-      "Duvar"
+      "Duvar",
+      "Yol",
+      "Sürü"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Türk sinemasının ilk sesli filmi olarak kabul edilen 1931 yapımı film hangisidir?",
     "options": [
-      "Bir Millet Uyanıyor",
-      "İstanbul Sokaklarında",
       "Ankara Postası",
-      "Aysel Bataklı Damın Kızı"
+      "Aysel Bataklı Damın Kızı",
+      "İstanbul Sokaklarında",
+      "Bir Millet Uyanıyor"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Metin Erksan'ın yönetip 1964 Berlin Film Festivali'nde Altın Ayı kazanan filmi hangisidir?",
     "options": [
-      "Susuz Yaz",
       "Sevmek Zamanı",
       "Acı Hayat",
+      "Susuz Yaz",
       "Kuyu"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Nuri Bilge Ceylan'ın 2014 Cannes'da Altın Palmiye kazanan filmi hangisidir?",
     "options": [
-      "Bir Zamanlar Anadolu'da",
-      "Kış Uykusu",
       "Üç Maymun",
-      "Ahlat Ağacı"
+      "Kış Uykusu",
+      "Ahlat Ağacı",
+      "Bir Zamanlar Anadolu'da"
     ],
     "answer": 1
   },
   {
     "q": "Türk sinemasında ilk kez perdeye getirilen belgesel niteliğindeki 1914 tarihli çekimin yönetmeni kabul edilen kişi kimdir?",
     "options": [
-      "Fuat Uzkınay",
-      "Muhsin Ertuğrul",
+      "Şadi Karagözoğlu",
       "Sigmund Weinberg",
-      "Şadi Karagözoğlu"
+      "Muhsin Ertuğrul",
+      "Fuat Uzkınay"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Kemal Sunal'ın canlandırdığı 'Şaban' karakteriyle öne çıktığı 'Hababam Sınıfı' serisinin ilk filmi hangi yıl vizyona girmiştir?",
     "options": [
-      "1968",
-      "1975",
       "1980",
-      "1972"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Zeki Demirkubuz'un 'Karanlık Üzerine Öyküler' üçlemesinin ilk filmi hangisidir?",
-    "options": [
-      "Masumiyet",
-      "İtiraf",
-      "Yazgı",
-      "Kader"
+      "1972",
+      "1975",
+      "1968"
     ],
     "answer": 2
   },
   {
-    "q": "Fatih Akın'ın 2004 Berlin Film Festivali'nde Altın Ayı kazanan filmi hangisidir?",
+    "q": "Zeki Demirkubuz'un 'Karanlık Üzerine Öyküler' üçlemesinin ilk filmi hangisidir?",
     "options": [
-      "Duvara Karşı",
-      "Yaşamın Kıyısında",
-      "Kesik",
-      "Solino"
+      "Yazgı",
+      "Kader",
+      "İtiraf",
+      "Masumiyet"
     ],
     "answer": 0
+  },
+  {
+    "q": "Fatih Akın'ın 2004 Berlin Film Festivali'nde Altın Ayı kazanan filmi hangisidir?",
+    "options": [
+      "Kesik",
+      "Yaşamın Kıyısında",
+      "Duvara Karşı",
+      "Solino"
+    ],
+    "answer": 2
   },
   {
     "q": "Semih Kaplanoğlu'nun 'Yusuf Üçlemesi' olarak bilinen serisinin filmleri hangi sırayla çekilmiştir?",
     "options": [
       "Süt, Yumurta, Bal",
-      "Yumurta, Süt, Bal",
+      "Yumurta, Bal, Süt",
       "Bal, Süt, Yumurta",
-      "Yumurta, Bal, Süt"
+      "Yumurta, Süt, Bal"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Türk televizyon tarihinin en uzun soluklu dizilerinden 'Bizimkiler' hangi kanalda yayınlanmıştır?",
     "options": [
-      "Kanal D",
       "TRT",
       "Star TV",
-      "Show TV"
+      "Show TV",
+      "Kanal D"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "'Muhteşem Yüzyıl' dizisinde Kanuni Sultan Süleyman'ı canlandıran oyuncu kimdir?",
     "options": [
-      "Okan Yalabık",
       "Halit Ergenç",
       "Mehmet Günsür",
+      "Okan Yalabık",
       "Selim Bayraktar"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Yılmaz Güney'in senaryosunu hapishanede yazdığı, 1970 yapımı ve umudun temsili olan filmi hangisidir?",
     "options": [
       "Umut",
       "Arkadaş",
-      "Endişe",
-      "Baba"
+      "Baba",
+      "Endişe"
     ],
     "answer": 0
   },
   {
     "q": "Reha Erdem'in Assos'ta çekilen, çocukluk ve zaman temalı 2006 yapımı filmi hangisidir?",
     "options": [
-      "Kaç Para Kaç",
-      "Beş Vakit",
       "Kosmos",
-      "Hayat Var"
+      "Hayat Var",
+      "Kaç Para Kaç",
+      "Beş Vakit"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Türkiye'nin ilk renkli uzun metrajlı filmi olarak kabul edilen 1953 yapımı film hangisidir?",
     "options": [
-      "Halıcı Kız",
       "Salgın",
-      "Kanun Namına",
-      "Vurun Kahpeye"
+      "Vurun Kahpeye",
+      "Halıcı Kız",
+      "Kanun Namına"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "'Çağan Irmak'ın baba-oğul ilişkisini konu alan ve büyük gişe başarısı elde eden 2005 yapımı filmi hangisidir?",
     "options": [
+      "Ulak",
       "Babam ve Oğlum",
       "Issız Adam",
-      "Ulak",
       "Karanlıktakiler"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Türk sinemasının usta oyuncusu Şener Şen'in babası olan, Yeşilçam'ın ünlü komedyeni kimdir?",
     "options": [
       "Vahi Öz",
-      "Ali Şen",
       "İsmail Dümbüllü",
+      "Ali Şen",
       "Münir Özkul"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "'Ezel' dizisinin başrolünde intikam peşindeki Ömer/Ezel karakterini canlandıran oyuncu kimdir?",
     "options": [
-      "Kenan İmirzalıoğlu",
       "Kıvanç Tatlıtuğ",
       "Engin Akyürek",
-      "Halit Ergenç"
+      "Halit Ergenç",
+      "Kenan İmirzalıoğlu"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Lütfi Ö. Akad'ın 1970'lerde çektiği, köyden kente göçü konu alan üçlemesinin ilk filmi hangisidir?",
     "options": [
-      "Gelin",
-      "Düğün",
       "Diyet",
-      "Bereketli Topraklar Üzerinde"
+      "Bereketli Topraklar Üzerinde",
+      "Düğün",
+      "Gelin"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Deniz Gamze Ergüven'in yönettiği, 2016 Oscar'larında Fransa adına aday gösterilen ve Türkiye'de geçen filmi hangisidir?",
     "options": [
-      "Mustang",
-      "Kelebekler",
+      "Nefesim Kesilene Kadar",
       "Sivas",
-      "Nefesim Kesilene Kadar"
+      "Kelebekler",
+      "Mustang"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "'Aşk-ı Memnu' dizisinin uyarlandığı romanı yazan Servet-i Fünun edebiyatçısı kimdir?",
     "options": [
+      "Yakup Kadri Karaosmanoğlu",
       "Halid Ziya Uşaklıgil",
-      "Mehmet Rauf",
       "Reşat Nuri Güntekin",
-      "Yakup Kadri Karaosmanoğlu"
+      "Mehmet Rauf"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Onur Ünlü'nün siyah-beyaz çekilen, süper güçlere sahip kasaba sakinlerini anlatan 2013 yapımı filmi hangisidir?",
@@ -2245,67 +2245,67 @@ export default [
     "options": [
       "Dünyayı Kurtaran Adam",
       "Kara Murat",
-      "Malkoçoğlu",
-      "Battal Gazi Destanı"
+      "Battal Gazi Destanı",
+      "Malkoçoğlu"
     ],
     "answer": 0
   },
   {
     "q": "'Yaprak Dökümü' dizisinin dayandığı romanın yazarı kimdir?",
     "options": [
-      "Reşat Nuri Güntekin",
-      "Halid Ziya Uşaklıgil",
       "Peyami Safa",
+      "Halid Ziya Uşaklıgil",
+      "Reşat Nuri Güntekin",
       "Kemal Tahir"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Ferzan Özpetek'in İtalya'da çektiği, bir ailenin sırlarını konu alan ve Türk kökenli yönetmenin öne çıkan 2001 yapımı filmi hangisidir?",
     "options": [
-      "Cahil Periler",
       "Karşı Pencere",
+      "Cahil Periler",
       "Serseri Mayınlar",
       "Hamam"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "'Kurtlar Vadisi' dizisinde Polat Alemdar karakterini canlandıran oyuncu kimdir?",
     "options": [
-      "Necati Şaşmaz",
-      "Kenan Çoban",
+      "Oktay Kaynarca",
       "Gürkan Uygun",
-      "Oktay Kaynarca"
+      "Necati Şaşmaz",
+      "Kenan Çoban"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Nuri Bilge Ceylan'ın, kendisinin ve eşi Ebru Ceylan'ın başrolde oynadığı 2006 yapımı filmi hangisidir?",
     "options": [
-      "İklimler",
-      "Uzak",
+      "Mayıs Sıkıntısı",
       "Kasaba",
-      "Mayıs Sıkıntısı"
+      "Uzak",
+      "İklimler"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "'Selvi Boylum Al Yazmalım' filminin yönetmeni kimdir?",
     "options": [
-      "Atıf Yılmaz",
-      "Ömer Lütfi Akad",
+      "Metin Erksan",
       "Halit Refiğ",
-      "Metin Erksan"
+      "Atıf Yılmaz",
+      "Ömer Lütfi Akad"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Cengiz Aytmatov'un eserinden uyarlanan 'Selvi Boylum Al Yazmalım' filminde geçen ünlü replik hangisidir?",
     "options": [
       "Sevgi neydi? Emekti.",
-      "Aşk bir yolculuktur.",
       "Sevmek beklemektir.",
+      "Aşk bir yolculuktur.",
       "Sevmek ölmektir."
     ],
     "answer": 0
@@ -2313,70 +2313,70 @@ export default [
   {
     "q": "'Şahsiyet' dizisinde Alzheimer hastası emekli mübaşir Agah Beyoğlu'nu canlandıran usta oyuncu kimdir?",
     "options": [
-      "Haluk Bilginer",
       "Erdal Beşikçioğlu",
-      "Uğur Yücel",
-      "Cevdet Arıcılar"
+      "Cevdet Arıcılar",
+      "Haluk Bilginer",
+      "Uğur Yücel"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Türk sinemasının önemli yönetmeni Halit Refiğ'in teorileştirdiği, milli değerlere dayalı sinema akımının adı nedir?",
     "options": [
-      "Ulusal Sinema",
       "Devrimci Sinema",
       "Halk Sineması",
+      "Ulusal Sinema",
       "Toplumsal Gerçekçilik"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "'Behzat Ç.' dizisinde başkomiser Behzat Çalışkan'ı canlandıran oyuncu kimdir?",
     "options": [
-      "Erdal Beşikçioğlu",
-      "Fatih Artman",
+      "Berkan Şal",
       "Nejat İşler",
-      "Berkan Şal"
+      "Erdal Beşikçioğlu",
+      "Fatih Artman"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Kaan Müjdeci'nin 2014 Venedik Film Festivali'nde Jüri Özel Ödülü kazanan, dövüş köpekleri temalı filmi hangisidir?",
     "options": [
+      "Ivy",
       "Sivas",
       "Rüzgar",
-      "Ivy",
       "Toz Bezi"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Pink Floyd'un 1973 tarihli 'The Dark Side of the Moon' albümünün kapağını hangi tasarım grubu hazırlamıştır?",
     "options": [
       "Hipgnosis",
-      "Pentagram",
       "Factory",
-      "Stax"
+      "Stax",
+      "Pentagram"
     ],
     "answer": 0
   },
   {
     "q": "Queen grubunun 'Bohemian Rhapsody' şarkısı hangi albümde yer alır?",
     "options": [
-      "A Night at the Opera",
       "Sheer Heart Attack",
+      "News of the World",
       "Jazz",
-      "News of the World"
+      "A Night at the Opera"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "The Beatles'ın kayıtlarının büyük bölümü 'Abbey Road'dan önce yapıldığı halde ondan sonra, grubun son albümü olarak yayımlanan albüm hangisidir?",
     "options": [
       "Let It Be",
-      "Yellow Submarine",
       "Revolver",
-      "Help!"
+      "Help!",
+      "Yellow Submarine"
     ],
     "answer": 0
   },
@@ -2384,9 +2384,9 @@ export default [
     "q": "Nirvana'nın 'Smells Like Teen Spirit' şarkısı hangi 1991 albümünde yer alır?",
     "options": [
       "Nevermind",
-      "Bleach",
       "In Utero",
-      "Incesticide"
+      "Incesticide",
+      "Bleach"
     ],
     "answer": 0
   },
@@ -2403,49 +2403,49 @@ export default [
   {
     "q": "Michael Jackson'ın tüm zamanların en çok satan albümü sayılan eseri hangisidir?",
     "options": [
-      "Thriller",
-      "Bad",
       "Off the Wall",
+      "Bad",
+      "Thriller",
       "Dangerous"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "The Rolling Stones'un dilini çıkarmış ağız-dudak logosunu tasarlayan sanatçı kimdir?",
     "options": [
-      "John Pasche",
-      "Andy Warhol",
+      "Storm Thorgerson",
       "Peter Blake",
-      "Storm Thorgerson"
+      "John Pasche",
+      "Andy Warhol"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "ABBA grubunun üyeleri hangi ülkedendir?",
     "options": [
-      "İsveç",
       "Norveç",
-      "Danimarka",
-      "Finlandiya"
+      "İsveç",
+      "Finlandiya",
+      "Danimarka"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Radiohead'in 1997 tarihli, eleştirmenlerce yüceltilen albümü hangisidir?",
     "options": [
-      "OK Computer",
       "The Bends",
       "Kid A",
-      "Pablo Honey"
+      "Pablo Honey",
+      "OK Computer"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "David Bowie'nin sahne kişiliği 'Ziggy Stardust' hangi yılın albümünde ortaya çıkmıştır?",
     "options": [
       "1972",
-      "1969",
       "1977",
+      "1969",
       "1983"
     ],
     "answer": 0
@@ -2453,179 +2453,179 @@ export default [
   {
     "q": "Bob Marley hangi müzik türünün en tanınmış ismidir?",
     "options": [
-      "Reggae",
-      "Ska",
       "Calypso",
-      "Soca"
+      "Ska",
+      "Soca",
+      "Reggae"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Metallica'nın 'Master of Puppets' albümü hangi yılda yayımlanmıştır?",
     "options": [
-      "1986",
-      "1983",
+      "1991",
       "1988",
-      "1991"
+      "1986",
+      "1983"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "The Doors grubunun solisti kimdir?",
     "options": [
-      "Jim Morrison",
-      "Jimi Hendrix",
       "Janis Joplin",
-      "Roger Daltrey"
+      "Roger Daltrey",
+      "Jimi Hendrix",
+      "Jim Morrison"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Prince'in 1984 tarihli, aynı adlı filme eşlik eden albümü hangisidir?",
     "options": [
-      "Purple Rain",
-      "1999",
+      "Dirty Mind",
       "Sign o' the Times",
-      "Dirty Mind"
+      "1999",
+      "Purple Rain"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Fleetwood Mac'in 1977 tarihli, grup içi ayrılıkları anlatan efsanevi albümü hangisidir?",
     "options": [
-      "Rumours",
       "Tusk",
+      "Tango in the Night",
       "Mirage",
-      "Tango in the Night"
+      "Rumours"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "The Who grubunun 1969 tarihli rock operası hangisidir?",
     "options": [
-      "Tommy",
-      "Quadrophenia",
+      "My Generation",
       "Who's Next",
-      "My Generation"
+      "Tommy",
+      "Quadrophenia"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "AC/DC'nin solisti Bon Scott'ın ölümünden sonra grubun başına geçen vokalist kimdir?",
     "options": [
-      "Brian Johnson",
-      "Axl Rose",
       "Ronnie James Dio",
+      "Axl Rose",
+      "Brian Johnson",
       "Rob Halford"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Amy Winehouse'un Grammy kazanan 2006 albümü hangisidir?",
     "options": [
-      "Back to Black",
-      "Frank",
       "Lioness",
+      "Frank",
+      "Back to Black",
       "Rehab"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "U2 grubu hangi ülkedendir?",
     "options": [
+      "Avustralya",
       "İrlanda",
-      "İngiltere",
       "İskoçya",
-      "Avustralya"
+      "İngiltere"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Beethoven'ın ünlü 'Ay Işığı Sonatı' aslında hangi tonda yazılmıştır?",
     "options": [
-      "Do diyez minör",
-      "La minör",
       "Fa majör",
-      "Re minör"
+      "Do diyez minör",
+      "Re minör",
+      "La minör"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "The Velvet Underground'un ilk albümünün kapağındaki muz görselini kim tasarlamıştır?",
     "options": [
-      "Andy Warhol",
-      "Roy Lichtenstein",
       "Keith Haring",
-      "Jean-Michel Basquiat"
+      "Jean-Michel Basquiat",
+      "Andy Warhol",
+      "Roy Lichtenstein"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Elvis Presley'nin lakabı nedir?",
     "options": [
-      "The King",
+      "The Killer",
       "The Boss",
-      "The Voice",
-      "The Killer"
+      "The King",
+      "The Voice"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Guns N' Roses'ın 1987 tarihli çıkış albümü hangisidir?",
     "options": [
-      "Appetite for Destruction",
+      "Chinese Democracy",
       "Use Your Illusion I",
       "G N' R Lies",
-      "Chinese Democracy"
+      "Appetite for Destruction"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Daft Punk ikilisi hangi ülkedendir?",
     "options": [
-      "Fransa",
-      "Almanya",
       "Belçika",
-      "İngiltere"
+      "Almanya",
+      "İngiltere",
+      "Fransa"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Johnny Cash'in siyah giyinme alışkanlığından ötürü aldığı lakap nedir?",
     "options": [
-      "The Man in Black",
-      "The Red Headed Stranger",
+      "The Possum",
       "The Silver Fox",
-      "The Possum"
+      "The Red Headed Stranger",
+      "The Man in Black"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "The Clash'in 1979 tarihli çift albümü hangisidir?",
     "options": [
-      "London Calling",
       "Combat Rock",
-      "Sandinista!",
-      "Give 'Em Enough Rope"
+      "Give 'Em Enough Rope",
+      "London Calling",
+      "Sandinista!"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Whitney Houston'ın 'I Will Always Love You' şarkısı aslında hangi şarkıcının bestesidir?",
     "options": [
-      "Dolly Parton",
       "Carole King",
       "Aretha Franklin",
-      "Diana Ross"
+      "Diana Ross",
+      "Dolly Parton"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Kraftwerk grubu hangi ülkeden elektronik müziğin öncülerindendir?",
     "options": [
       "Almanya",
-      "Hollanda",
       "İsviçre",
+      "Hollanda",
       "Avusturya"
     ],
     "answer": 0
@@ -2633,72 +2633,72 @@ export default [
   {
     "q": "Miles Davis'in caz tarihinin en çok satan albümlerinden biri olan 1959 eseri hangisidir?",
     "options": [
-      "Kind of Blue",
       "Bitches Brew",
+      "Kind of Blue",
       "Sketches of Spain",
       "In a Silent Way"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "The Police grubunun basçı ve solisti kimdir?",
     "options": [
-      "Sting",
-      "Andy Summers",
       "Stewart Copeland",
+      "Andy Summers",
+      "Sting",
       "Phil Collins"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Iron Maiden'ın maskotu olan iskelet figürünün adı nedir?",
     "options": [
-      "Eddie",
       "Vic",
       "Snaggletooth",
-      "Murray"
+      "Murray",
+      "Eddie"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Aretha Franklin hangi müzik türünün 'kraliçesi' olarak anılır?",
     "options": [
+      "Jazz",
       "Soul",
-      "Blues",
       "Gospel",
-      "Jazz"
+      "Blues"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Oasis grubunun kavgalı Gallagher kardeşlerinin adları nelerdir?",
     "options": [
-      "Liam ve Noel",
-      "Liam ve Paul",
       "Noel ve Bonehead",
-      "Guigsy ve Tony"
+      "Guigsy ve Tony",
+      "Liam ve Paul",
+      "Liam ve Noel"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Talking Heads grubunun solisti kimdir?",
     "options": [
-      "David Byrne",
       "Brian Eno",
+      "David Byrne",
       "Iggy Pop",
       "Lou Reed"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Frank Sinatra'nın imza şarkılarından 'My Way'in melodisi hangi Fransız şarkısına dayanır?",
     "options": [
-      "Comme d'habitude",
+      "La Mer",
       "La Vie en rose",
-      "Ne me quitte pas",
-      "La Mer"
+      "Comme d'habitude",
+      "Ne me quitte pas"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Ray Charles'ın gözlerini hangi yaşlarda kaybettiği bilinir?",
@@ -2713,99 +2713,99 @@ export default [
   {
     "q": "Black Sabbath'ın solisti olarak heavy metalin öncülerinden sayılan sanatçı kimdir?",
     "options": [
+      "Bruce Dickinson",
       "Ozzy Osbourne",
-      "Ronnie James Dio",
       "Rob Halford",
-      "Bruce Dickinson"
+      "Ronnie James Dio"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Simon & Garfunkel'in 1970 tarihli, aynı adlı ünlü şarkıyı içeren albümü hangisidir?",
     "options": [
       "Bridge over Troubled Water",
+      "Parsley, Sage, Rosemary and Thyme",
       "Bookends",
-      "Sounds of Silence",
-      "Parsley, Sage, Rosemary and Thyme"
+      "Sounds of Silence"
     ],
     "answer": 0
   },
   {
     "q": "Walt Disney'in ilk sesli Mickey Mouse çizgi filmi olan 'Steamboat Willie' hangi yılda gösterime girmiştir?",
     "options": [
+      "1937",
       "1928",
-      "1923",
       "1932",
-      "1937"
+      "1923"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Disney'in ilk uzun metrajlı animasyon filmi 'Pamuk Prenses ve Yedi Cüceler' hangi yılda vizyona girmiştir?",
     "options": [
+      "1932",
       "1937",
       "1940",
-      "1932",
       "1928"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Japon animasyon stüdyosu Studio Ghibli'nin kurucularından olan ve 'Komşum Totoro' filmini yöneten yönetmen kimdir?",
     "options": [
-      "Hayao Miyazaki",
       "Isao Takahata",
       "Makoto Shinkai",
+      "Hayao Miyazaki",
       "Mamoru Hosoda"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Studio Ghibli'nin logosunda yer alan karakter hangi filmden gelmektedir?",
     "options": [
+      "Kızıl Domuz",
       "Komşum Totoro",
-      "Ruhların Kaçışı",
       "Prenses Mononoke",
-      "Kızıl Domuz"
+      "Ruhların Kaçışı"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Pixar'ın ilk uzun metrajlı bilgisayar animasyon filmi olan 'Oyuncak Hikayesi' hangi yılda çıkmıştır?",
     "options": [
-      "1995",
-      "1998",
       "1993",
-      "2001"
+      "2001",
+      "1995",
+      "1998"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Oscar tarihinde 'En İyi Animasyon Filmi' kategorisi ilk kez hangi yıl verilmeye başlanmıştır?",
     "options": [
-      "2001",
-      "1995",
       "1990",
+      "1995",
+      "2001",
       "2005"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "'En İyi Animasyon Filmi' Oscar'ını kazanan ilk film hangisidir?",
     "options": [
-      "Shrek",
       "Canavarlar Şirketi",
-      "Buz Devri",
-      "Ratatouille"
+      "Shrek",
+      "Ratatouille",
+      "Buz Devri"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "The Simpsons (Simpsonlar) çizgi dizisinin yaratıcısı kimdir?",
     "options": [
       "Matt Groening",
-      "Seth MacFarlane",
       "Trey Parker",
+      "Seth MacFarlane",
       "Mike Judge"
     ],
     "answer": 0
@@ -2813,19 +2813,19 @@ export default [
   {
     "q": "Simpsonlar ailesinin yaşadığı kurgusal şehrin adı nedir?",
     "options": [
-      "Springfield",
+      "Langley Falls",
       "Quahog",
       "South Park",
-      "Langley Falls"
+      "Springfield"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "'South Park' çizgi dizisinin yaratıcıları kimlerdir?",
     "options": [
       "Trey Parker ve Matt Stone",
-      "Matt Groening ve David Silverman",
       "Seth MacFarlane ve Mike Henry",
+      "Matt Groening ve David Silverman",
       "Mike Judge ve Greg Daniels"
     ],
     "answer": 0
@@ -2833,190 +2833,190 @@ export default [
   {
     "q": "Warner Bros'un Looney Tunes serisindeki 'What's up, Doc?' repliğiyle bilinen tavşan karakteri kimdir?",
     "options": [
-      "Bugs Bunny",
       "Daffy Duck",
       "Porky Pig",
-      "Elmer Fudd"
+      "Elmer Fudd",
+      "Bugs Bunny"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Tex Avery ve arkadaşlarının çalıştığı, Looney Tunes'un müzikli kısa filmlerine verilen kardeş seri adı nedir?",
     "options": [
       "Merrie Melodies",
-      "Silly Symphonies",
+      "Happy Harmonies",
       "Color Classics",
-      "Happy Harmonies"
+      "Silly Symphonies"
     ],
     "answer": 0
   },
   {
     "q": "Hanna-Barbera stüdyosunun ürettiği, taş devrinde geçen ünlü çizgi dizi hangisidir?",
     "options": [
-      "Taş Devri (The Flintstones)",
       "Jetgiller",
+      "Taş Devri (The Flintstones)",
       "Yogi Ayı",
       "Huckleberry Hound"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "'Jetgiller' (The Jetsons) çizgi dizisi hangi zaman diliminde geçmektedir?",
     "options": [
-      "Gelecek/uzay çağı",
-      "Taş devri",
       "Orta Çağ",
-      "Vahşi Batı"
+      "Vahşi Batı",
+      "Gelecek/uzay çağı",
+      "Taş devri"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Tom ve Jerry karakterlerini yaratan ikili kimlerdir?",
     "options": [
-      "William Hanna ve Joseph Barbera",
       "Walt Disney ve Ub Iwerks",
-      "Chuck Jones ve Tex Avery",
-      "Max ve Dave Fleischer"
+      "William Hanna ve Joseph Barbera",
+      "Max ve Dave Fleischer",
+      "Chuck Jones ve Tex Avery"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Fleischer Studios tarafından yaratılan ve 1930'larda popüler olan kadın çizgi karakter kimdir?",
     "options": [
-      "Betty Boop",
-      "Minnie Mouse",
+      "Wilma Flintstone",
       "Olive Oyl",
-      "Wilma Flintstone"
+      "Betty Boop",
+      "Minnie Mouse"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Popeye (Temel Reis) karakteri güç kazanmak için hangi yiyeceği yer?",
     "options": [
-      "Ispanak",
+      "Brokoli",
       "Havuç",
-      "Elma",
-      "Brokoli"
+      "Ispanak",
+      "Elma"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Disney'in 'Aslan Kral' filminde küçük Simba'ya hükümdarlık öğreten babasının adı nedir?",
     "options": [
-      "Mufasa",
-      "Scar",
       "Rafiki",
-      "Zazu"
+      "Zazu",
+      "Mufasa",
+      "Scar"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "'Aslan Kral' filminin müziklerini besteleyen ve Oscar kazanan besteci kimdir?",
     "options": [
+      "John Williams",
       "Hans Zimmer",
-      "Alan Menken",
       "Danny Elfman",
-      "John Williams"
+      "Alan Menken"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Disney'in 'Küçük Deniz Kızı' filmindeki kırmızı saçlı ana karakterin adı nedir?",
     "options": [
-      "Ariel",
-      "Belle",
       "Jasmine",
-      "Aurora"
+      "Ariel",
+      "Aurora",
+      "Belle"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Studio Ghibli'nin 2001 yapımı, Oscar kazanan ve bir kız çocuğunun ruhlar dünyasındaki maceralarını anlatan filmi hangisidir?",
     "options": [
-      "Ruhların Kaçışı (Spirited Away)",
-      "Prenses Mononoke",
       "Howl'un Yürüyen Şatosu",
-      "Kiki'nin Taşımacılık Servisi"
+      "Kiki'nin Taşımacılık Servisi",
+      "Ruhların Kaçışı (Spirited Away)",
+      "Prenses Mononoke"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Çek animasyon ustası olarak bilinen ve stop-motion tekniğinde eserler veren yönetmen kimdir?",
     "options": [
-      "Jan Švankmajer",
       "Nick Park",
       "Henry Selick",
+      "Jan Švankmajer",
       "Wes Anderson"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Aardman Animations stüdyosunun Wallace ve Gromit karakterlerini yaratan yönetmen kimdir?",
     "options": [
-      "Nick Park",
-      "Peter Lord",
       "Henry Selick",
+      "Peter Lord",
+      "Nick Park",
       "Tim Burton"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Wallace ve Gromit filmlerinde kullanılan animasyon tekniği hangisidir?",
     "options": [
-      "Kil ile stop-motion (claymation)",
+      "Rotoskopi",
       "2D geleneksel çizim",
-      "3D bilgisayar animasyonu",
-      "Rotoskopi"
+      "Kil ile stop-motion (claymation)",
+      "3D bilgisayar animasyonu"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "'Rüzgar Yükseliyor' (The Wind Rises) filmini yöneterek emekliliğini açıklayan (sonra geri dönen) yönetmen kimdir?",
     "options": [
-      "Hayao Miyazaki",
+      "Katsuhiro Otomo",
       "Isao Takahata",
       "Hideaki Anno",
-      "Katsuhiro Otomo"
+      "Hayao Miyazaki"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "1988 yapımı, siberpunk türünün klasiklerinden sayılan ve Katsuhiro Otomo'nun yönettiği anime film hangisidir?",
     "options": [
-      "Akira",
       "Ghost in the Shell",
       "Neon Genesis Evangelion",
+      "Akira",
       "Cowboy Bebop"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "'Ateşböceklerinin Mezarı' (Grave of the Fireflies) adlı hüzünlü Ghibli filmini yöneten kimdir?",
     "options": [
-      "Isao Takahata",
-      "Hayao Miyazaki",
       "Yoshifumi Kondo",
-      "Goro Miyazaki"
+      "Hayao Miyazaki",
+      "Goro Miyazaki",
+      "Isao Takahata"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Disney'in 'Alaaddin' filminde Cin karakterini orijinal dilinde seslendiren ünlü komedyen kimdir?",
     "options": [
-      "Robin Williams",
       "Eddie Murphy",
+      "Steve Martin",
       "Jim Carrey",
-      "Steve Martin"
+      "Robin Williams"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "DreamWorks'ün 'Shrek' filminde Eşek (Donkey) karakterini orijinal dilinde seslendiren oyuncu kimdir?",
     "options": [
       "Eddie Murphy",
+      "Chris Rock",
       "Mike Myers",
-      "Antonio Banderas",
-      "Chris Rock"
+      "Antonio Banderas"
     ],
     "answer": 0
   },
@@ -3035,8 +3035,8 @@ export default [
     "options": [
       "Balonlar",
       "Jet motorları",
-      "Bir kasırga",
-      "Helyum tankları"
+      "Helyum tankları",
+      "Bir kasırga"
     ],
     "answer": 0
   },
@@ -3044,9 +3044,9 @@ export default [
     "q": "'Uzay Kovboyu' (Toy Story) filmindeki uzay askeri oyuncak karakterin adı nedir?",
     "options": [
       "Buzz Lightyear",
-      "Woody",
       "Rex",
-      "Hamm"
+      "Hamm",
+      "Woody"
     ],
     "answer": 0
   },
@@ -3063,110 +3063,110 @@ export default [
   {
     "q": "Belçikalı çizer Hergé'nin yarattığı, köpeği Milu (Snowy) ile maceralara atılan genç gazeteci karakter kimdir?",
     "options": [
-      "Tenten",
-      "Asteriks",
       "Spirou",
+      "Asteriks",
+      "Tenten",
       "Gaston"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Şirinleri (The Smurfs) yaratan Belçikalı çizerin takma adı nedir?",
     "options": [
+      "Franquin",
       "Peyo",
-      "Hergé",
       "Morris",
-      "Franquin"
+      "Hergé"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "'Batman: The Animated Series' dizisinde ilk kez tanıtılan ve sonradan çizgi roman kanonuna giren kadın karakter kimdir?",
     "options": [
-      "Harley Quinn",
-      "Catwoman",
       "Poison Ivy",
-      "Batgirl"
+      "Catwoman",
+      "Batgirl",
+      "Harley Quinn"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Cartoon Network'ün 'Adventure Time' (Macera Zamanı) dizisindeki iki ana karakter kimlerdir?",
     "options": [
       "Finn ve Jake",
-      "Mordecai ve Rigby",
+      "Rick ve Morty",
       "Gumball ve Darwin",
-      "Rick ve Morty"
+      "Mordecai ve Rigby"
     ],
     "answer": 0
   },
   {
     "q": "Genndy Tartakovsky tarafından yaratılan, laboratuvarı olan dahi çocuğu konu alan Cartoon Network dizisi hangisidir?",
     "options": [
-      "Dexter'ın Laboratuvarı",
-      "Samuray Jack",
       "Powerpuff Girls",
-      "Ben 10"
+      "Samuray Jack",
+      "Ben 10",
+      "Dexter'ın Laboratuvarı"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "SpongeBob SquarePants (SüngerBob) çizgi dizisini yaratan, deniz biyoloğu geçmişi olan kişi kimdir?",
     "options": [
-      "Stephen Hillenburg",
+      "John Kricfalusi",
       "Butch Hartman",
-      "Craig McCracken",
-      "John Kricfalusi"
+      "Stephen Hillenburg",
+      "Craig McCracken"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "2020 yılında 'Parasite' (Parazit) filmiyle En İyi Film Oscar'ını kazanan yönetmen kimdir?",
     "options": [
       "Park Chan-wook",
-      "Bong Joon-ho",
       "Lee Chang-dong",
+      "Bong Joon-ho",
       "Kim Ki-duk"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "'Parasite', En İyi Film Oscar'ını kazanan ilk hangi dilde çekilmiş filmdir?",
     "options": [
-      "Japonca",
+      "Vietnamca",
       "Korece",
-      "Çince",
-      "Vietnamca"
+      "Japonca",
+      "Çince"
     ],
     "answer": 1
   },
   {
     "q": "Cannes Film Festivali'nin en büyük ödülü olan Altın Palmiye'yi 2019'da hangi film kazandı?",
     "options": [
-      "Bir Zamanlar Hollywood'da",
       "Parasite",
+      "Atlantics",
       "Portrait of a Lady on Fire",
-      "Atlantics"
+      "Bir Zamanlar Hollywood'da"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "1998 yapımı 'La Vita è Bella' (Hayat Güzeldir) filminin başrol oyuncusu ve yönetmeni kimdir?",
     "options": [
-      "Roberto Benigni",
-      "Giuseppe Tornatore",
+      "Vittorio Gassman",
       "Nanni Moretti",
-      "Vittorio Gassman"
+      "Roberto Benigni",
+      "Giuseppe Tornatore"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Alfred Hitchcock kariyeri boyunca kaç kez En İyi Yönetmen Oscar'ı kazandı?",
     "options": [
       "Hiç kazanmadı",
-      "Bir kez",
       "İki kez",
-      "Üç kez"
+      "Üç kez",
+      "Bir kez"
     ],
     "answer": 0
   },
@@ -3183,9 +3183,9 @@ export default [
   {
     "q": "'Titanic', 'Ben-Hur' ve hangi film 11 Oscar rekorunu paylaşır?",
     "options": [
-      "Batı Cephesinde Yeni Bir Şey Yok",
-      "Yüzüklerin Efendisi: Kralın Dönüşü",
       "Rüzgar Gibi Geçti",
+      "Yüzüklerin Efendisi: Kralın Dönüşü",
+      "Batı Cephesinde Yeni Bir Şey Yok",
       "Amadeus"
     ],
     "answer": 1
@@ -3193,30 +3193,30 @@ export default [
   {
     "q": "En İyi Yabancı Film / Uluslararası Film dalında en çok Oscar kazanan ülke hangisidir?",
     "options": [
-      "Fransa",
-      "İtalya",
+      "Japonya",
       "İspanya",
-      "Japonya"
+      "Fransa",
+      "İtalya"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "1976 yapımı 'Rocky' filmiyle En İyi Film Oscar'ını kazanan senaryonun yazarı ve başrol oyuncusu kimdir?",
     "options": [
       "Robert De Niro",
+      "Burt Reynolds",
       "Sylvester Stallone",
-      "Al Pacino",
-      "Burt Reynolds"
+      "Al Pacino"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "2020'de Venedik'te Altın Aslan kazanan ve Frances McDormand'a Oscar getiren film hangisidir?",
     "options": [
       "Nomadland",
-      "Joker",
+      "The Shape of Water",
       "Roma",
-      "The Shape of Water"
+      "Joker"
     ],
     "answer": 0
   },
@@ -3224,59 +3224,59 @@ export default [
     "q": "Katharine Hepburn kaç kez En İyi Kadın Oyuncu Oscar'ı kazanarak rekora sahiptir?",
     "options": [
       "İki",
-      "Üç",
       "Dört",
+      "Üç",
       "Beş"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "1973'te 'The Godfather' için En İyi Erkek Oyuncu Oscar'ını kazanan ancak ödülü reddeden oyuncu kimdir?",
     "options": [
       "Al Pacino",
       "Marlon Brando",
-      "Robert Duvall",
-      "James Caan"
+      "James Caan",
+      "Robert Duvall"
     ],
     "answer": 1
   },
   {
     "q": "Akira Kurosawa'nın 1951'de Venedik'te Altın Aslan kazanan filmi hangisidir?",
     "options": [
+      "Kagemusha",
       "Yedi Samuray",
-      "Rashomon",
       "Ran",
-      "Kagemusha"
+      "Rashomon"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Türkiye'nin Cannes'da Altın Palmiye kazandığı 'Kış Uykusu' filminin yönetmeni kimdir?",
     "options": [
-      "Zeki Demirkubuz",
       "Nuri Bilge Ceylan",
-      "Yılmaz Güney",
-      "Reha Erdem"
+      "Reha Erdem",
+      "Zeki Demirkubuz",
+      "Yılmaz Güney"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Yılmaz Güney'in 1982'de Cannes'da Altın Palmiye kazanan (Costa-Gavras'ın filmiyle paylaştığı) filmi hangisidir?",
     "options": [
       "Sürü",
-      "Yol",
       "Duvar",
-      "Umut"
+      "Umut",
+      "Yol"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "1994'te Cannes'da Altın Palmiye kazanan Quentin Tarantino filmi hangisidir?",
     "options": [
       "Reservoir Dogs",
       "Pulp Fiction",
-      "Jackie Brown",
-      "Kill Bill"
+      "Kill Bill",
+      "Jackie Brown"
     ],
     "answer": 1
   },
@@ -3285,78 +3285,68 @@ export default [
     "options": [
       "12",
       "18",
-      "22",
-      "26"
+      "26",
+      "22"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "İlk renkli En İyi Film Oscar'ını kazanan film hangisidir?",
     "options": [
+      "Rebecca",
       "Rüzgar Gibi Geçti",
       "The Wizard of Oz",
-      "Rebecca",
       "Gone with the Wind öncesi hiçbiri"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "2017 Oscar töreninde 'La La Land' yanlışlıkla En İyi Film ilan edildikten sonra gerçek kazanan hangi film oldu?",
     "options": [
-      "Manchester by the Sea",
       "Moonlight",
       "Hidden Figures",
+      "Manchester by the Sea",
       "Arrival"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "En İyi Yönetmen Oscar'ı kazanan ilk kadın kimdir?",
-    "options": [
-      "Sofia Coppola",
-      "Kathryn Bigelow",
-      "Jane Campion",
-      "Chloé Zhao"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Kathryn Bigelow hangi filmle En İyi Yönetmen Oscar'ını kazandı?",
-    "options": [
-      "Zero Dark Thirty",
-      "The Hurt Locker",
-      "Point Break",
-      "Strange Days"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Bir oyuncu için art arda iki kez En İyi Erkek Oyuncu Oscar'ı kazanan Tom Hanks'in kazandığı filmler hangileridir?",
-    "options": [
-      "Forrest Gump ve Cast Away",
-      "Philadelphia ve Forrest Gump",
-      "Saving Private Ryan ve Philadelphia",
-      "Big ve Forrest Gump"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "'Moonlight' filminin yönetmeni kimdir?",
-    "options": [
-      "Barry Jenkins",
-      "Ryan Coogler",
-      "Jordan Peele",
-      "Steve McQueen"
     ],
     "answer": 0
   },
   {
-    "q": "En İyi Film Oscar'ı kazanan ilk sessiz film (2011 yapımı) hangisidir?",
+    "q": "En İyi Yönetmen Oscar'ı kazanan ilk kadın kimdir?",
     "options": [
-      "Hugo",
-      "The Artist",
-      "The Descendants",
-      "War Horse"
+      "Kathryn Bigelow",
+      "Chloé Zhao",
+      "Jane Campion",
+      "Sofia Coppola"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Kathryn Bigelow hangi filmle En İyi Yönetmen Oscar'ını kazandı?",
+    "options": [
+      "The Hurt Locker",
+      "Strange Days",
+      "Zero Dark Thirty",
+      "Point Break"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Bir oyuncu için art arda iki kez En İyi Erkek Oyuncu Oscar'ı kazanan Tom Hanks'in kazandığı filmler hangileridir?",
+    "options": [
+      "Saving Private Ryan ve Philadelphia",
+      "Forrest Gump ve Cast Away",
+      "Philadelphia ve Forrest Gump",
+      "Big ve Forrest Gump"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "'Moonlight' filminin yönetmeni kimdir?",
+    "options": [
+      "Ryan Coogler",
+      "Barry Jenkins",
+      "Steve McQueen",
+      "Jordan Peele"
     ],
     "answer": 1
   },
@@ -3364,19 +3354,19 @@ export default [
     "q": "1976'da 'Taxi Driver' ile Cannes'da Altın Palmiye kazanan yönetmen kimdir?",
     "options": [
       "Francis Ford Coppola",
-      "Martin Scorsese",
       "Brian De Palma",
+      "Martin Scorsese",
       "Michael Cimino"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Meryl Streep toplamda kaç Oscar kazanmıştır?",
     "options": [
       "Bir",
-      "İki",
+      "Dört",
       "Üç",
-      "Dört"
+      "İki"
     ],
     "answer": 2
   },
@@ -3384,9 +3374,9 @@ export default [
     "q": "'Schindler's List' ile ilk Oscar'ını kazanan yönetmen kimdir?",
     "options": [
       "Steven Spielberg",
+      "Robert Zemeckis",
       "Oliver Stone",
-      "Ron Howard",
-      "Robert Zemeckis"
+      "Ron Howard"
     ],
     "answer": 0
   },
@@ -3394,41 +3384,41 @@ export default [
     "q": "2019'da 'Roma' ile En İyi Yönetmen Oscar'ı kazanan Meksikalı yönetmen kimdir?",
     "options": [
       "Guillermo del Toro",
+      "Emmanuel Lubezki",
       "Alejandro González Iñárritu",
-      "Alfonso Cuarón",
-      "Emmanuel Lubezki"
+      "Alfonso Cuarón"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "En İyi Uluslararası Film Oscar'ı kazanan ilk İran filmi hangisidir?",
     "options": [
-      "The Salesman",
+      "Taste of Cherry",
       "A Separation",
-      "Children of Heaven",
-      "Taste of Cherry"
+      "The Salesman",
+      "Children of Heaven"
     ],
     "answer": 1
   },
   {
     "q": "'A Separation' ve 'The Salesman' ile iki Oscar kazanan İranlı yönetmen kimdir?",
     "options": [
+      "Jafar Panahi",
       "Abbas Kiarostami",
-      "Asghar Farhadi",
       "Majid Majidi",
-      "Jafar Panahi"
+      "Asghar Farhadi"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "11 yaşında 'The Piano' ile En İyi Yardımcı Kadın Oyuncu Oscar'ını kazanan (en genç kazananlardan) oyuncu kimdir?",
     "options": [
-      "Tatum O'Neal",
       "Anna Paquin",
       "Dakota Fanning",
+      "Tatum O'Neal",
       "Abigail Breslin"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "1990'da Cannes'da 'Wild at Heart' ile Altın Palmiye kazanan yönetmen kimdir?",
@@ -3443,40 +3433,30 @@ export default [
   {
     "q": "'Yüzüklerin Efendisi: Kralın Dönüşü' aday olduğu tüm 11 dalda kazanarak hangi rekoru kırdı?",
     "options": [
-      "En çok adaylık",
-      "En yüksek kazanma oranıyla (11/11)",
       "En kısa filmle en çok ödül",
-      "İlk fantastik film Oscar'ı"
+      "İlk fantastik film Oscar'ı",
+      "En yüksek kazanma oranıyla (11/11)",
+      "En çok adaylık"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Bong Joon-ho'nun 'Parasite' ile aynı yıl kazandığı dört Oscar arasında YER ALMAYAN dal hangisidir?",
     "options": [
-      "En İyi Film",
       "En İyi Yönetmen",
-      "En İyi Erkek Oyuncu",
-      "En İyi Özgün Senaryo"
+      "En İyi Özgün Senaryo",
+      "En İyi Film",
+      "En İyi Erkek Oyuncu"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Federico Fellini onursal Oscar dışında kaç kez En İyi Yabancı Film Oscar'ı kazandı?",
     "options": [
-      "İki",
-      "Üç",
       "Dört",
-      "Beş"
-    ],
-    "answer": 2
-  },
-  {
-    "q": "2013'te '12 Years a Slave' ile En İyi Film Oscar'ı kazanan filmi yöneten kişi kimdir?",
-    "options": [
-      "Steve McQueen",
-      "Barry Jenkins",
-      "Ava DuVernay",
-      "John Ridley"
+      "İki",
+      "Beş",
+      "Üç"
     ],
     "answer": 0
   },
@@ -3485,18 +3465,18 @@ export default [
     "options": [
       "Lars von Trier",
       "Michael Haneke",
-      "Ken Loach",
-      "Emir Kusturica"
+      "Emir Kusturica",
+      "Ken Loach"
     ],
     "answer": 1
   },
   {
     "q": "2022'de 'CODA' ile En İyi Film Oscar'ı kazanan yapımın dağıtımını hangi platform üstlenmişti (ilk streaming platformu En İyi Film)?",
     "options": [
-      "Netflix",
+      "Hulu",
       "Apple TV+",
-      "Amazon Prime",
-      "Hulu"
+      "Netflix",
+      "Amazon Prime"
     ],
     "answer": 1
   }

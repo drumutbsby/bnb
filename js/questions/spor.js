@@ -3,8 +3,8 @@ export default [
   {
     "q": "2018 FIFA Dünya Kupası'nı hangi ülke kazandı?",
     "options": [
-      "Almanya",
       "Brezilya",
+      "Almanya",
       "Fransa",
       "Hırvatistan"
     ],
@@ -13,119 +13,119 @@ export default [
   {
     "q": "Basketbolda bir potadan yapılan normal atış kaç sayıdır?",
     "options": [
-      "1",
-      "2",
       "3",
-      "4"
+      "2",
+      "4",
+      "1"
     ],
     "answer": 1
   },
   {
     "q": "Bir voleybol takımı sahada kaç oyuncuyla oynar?",
     "options": [
-      "5",
-      "6",
+      "11",
       "7",
-      "11"
+      "6",
+      "5"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Tenis turnuvası Wimbledon hangi ülkede düzenlenir?",
     "options": [
       "ABD",
-      "Fransa",
       "İngiltere",
+      "Fransa",
       "Avustralya"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Formula 1'de yarışlar hangi araçla yapılır?",
     "options": [
-      "Motosiklet",
-      "Tek koltuklu yarış arabası",
       "Kamyon",
-      "Bisiklet"
+      "Tek koltuklu yarış arabası",
+      "Bisiklet",
+      "Motosiklet"
     ],
     "answer": 1
   },
   {
     "q": "Olimpiyat Oyunları kaç yılda bir düzenlenir?",
     "options": [
-      "2",
       "3",
       "4",
-      "5"
+      "5",
+      "2"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Futbolda bir maç normal süresi kaç dakikadır?",
     "options": [
-      "60",
       "80",
+      "120",
       "90",
-      "120"
+      "60"
     ],
     "answer": 2
   },
   {
     "q": "Galatasaray, Fenerbahçe ve Beşiktaş hangi şehrin takımlarıdır?",
     "options": [
-      "Ankara",
       "İzmir",
-      "İstanbul",
-      "Bursa"
+      "Ankara",
+      "Bursa",
+      "İstanbul"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Yüzmede en hızlı stil hangisidir?",
     "options": [
-      "Kurbağalama",
       "Sırtüstü",
       "Serbest (kroul)",
+      "Kurbağalama",
       "Kelebek"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Boksta bir raunt kaç dakika sürer (profesyonel)?",
     "options": [
+      "10",
       "1",
-      "3",
       "5",
-      "10"
+      "3"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "2022 FIFA Dünya Kupası'nı hangi ülke kazandı?",
     "options": [
       "Fransa",
       "Arjantin",
-      "Brezilya",
-      "Hırvatistan"
+      "Hırvatistan",
+      "Brezilya"
     ],
     "answer": 1
   },
   {
     "q": "2022 Dünya Kupası finalinde Arjantin, Fransa'yı hangi yöntemle yendi?",
     "options": [
-      "Uzatmada altın gol",
       "Penaltılarla",
+      "Uzatmada altın gol",
       "Normal sürede 2-0",
       "Rövanşta"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Türkiye Süper Lig tarihinde en çok şampiyonluğa sahip kulüp hangisidir?",
     "options": [
-      "Fenerbahçe",
-      "Galatasaray",
       "Beşiktaş",
+      "Galatasaray",
+      "Fenerbahçe",
       "Trabzonspor"
     ],
     "answer": 1
@@ -134,29 +134,29 @@ export default [
     "q": "Bir futbol maçında normal oyun süresi kaç dakikadır?",
     "options": [
       "80",
-      "90",
       "100",
-      "120"
+      "120",
+      "90"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Galatasaray'ın 2000 yılında kazandığı Avrupa kupası hangisidir?",
     "options": [
+      "Intertoto Kupası",
       "UEFA Şampiyonlar Ligi",
-      "UEFA Kupası",
       "Kupa Galipleri Kupası",
-      "Intertoto Kupası"
+      "UEFA Kupası"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "2000 UEFA Süper Kupası'nı kazanarak tarihe geçen Türk kulübü hangisidir?",
     "options": [
-      "Beşiktaş",
       "Fenerbahçe",
+      "Trabzonspor",
       "Galatasaray",
-      "Trabzonspor"
+      "Beşiktaş"
     ],
     "answer": 2
   },
@@ -174,58 +174,58 @@ export default [
     "q": "Bursaspor hangi sezon Süper Lig şampiyonu olmuştur?",
     "options": [
       "2007-08",
-      "2008-09",
+      "2010-11",
       "2009-10",
-      "2010-11"
+      "2008-09"
     ],
     "answer": 2
   },
   {
     "q": "Bir sahada aynı anda kaç oyuncu bulunur (her iki takım toplam)?",
     "options": [
-      "20",
       "22",
-      "24",
-      "18"
+      "20",
+      "18",
+      "24"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Kaleci hariç bir futbolcunun topa eliyle dokunması ne olarak adlandırılır?",
     "options": [
       "Faul",
+      "Taç",
       "El (hand)",
-      "Ofsayt",
-      "Taç"
+      "Ofsayt"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "FIFA Dünya Kupası kaç yılda bir düzenlenir?",
     "options": [
       "2",
-      "3",
+      "5",
       "4",
-      "5"
+      "3"
     ],
     "answer": 2
   },
   {
     "q": "Erkekler futbolunda en fazla Dünya Kupası kazanan ülke hangisidir?",
     "options": [
-      "Almanya",
       "İtalya",
+      "Arjantin",
       "Brezilya",
-      "Arjantin"
+      "Almanya"
     ],
     "answer": 2
   },
   {
     "q": "Brezilya kaç kez Dünya Kupası şampiyonu olmuştur?",
     "options": [
-      "4",
-      "5",
       "6",
+      "5",
+      "4",
       "3"
     ],
     "answer": 1
@@ -243,79 +243,79 @@ export default [
   {
     "q": "2002 Dünya Kupası'nda kaydedilen ve turnuvanın en hızlı golü olan golü hangi Türk oyuncu attı?",
     "options": [
-      "İlhan Mansız",
       "Hakan Şükür",
+      "İlhan Mansız",
       "Ümit Davala",
       "Emre Belözoğlu"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Lionel Messi kariyeri boyunca en uzun süre hangi kulüpte oynamıştır?",
-    "options": [
-      "Paris Saint-Germain",
-      "Barcelona",
-      "Inter Miami",
-      "Manchester City"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Cristiano Ronaldo'nun Portekiz ile kazandığı ilk büyük milli takım kupası hangisidir?",
-    "options": [
-      "2016 Avrupa Şampiyonası",
-      "2018 Dünya Kupası",
-      "2004 Avrupa Şampiyonası",
-      "2019 UEFA Uluslar Ligi"
     ],
     "answer": 0
   },
   {
+    "q": "Lionel Messi kariyeri boyunca en uzun süre hangi kulüpte oynamıştır?",
+    "options": [
+      "Inter Miami",
+      "Paris Saint-Germain",
+      "Barcelona",
+      "Manchester City"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "Cristiano Ronaldo'nun Portekiz ile kazandığı ilk büyük milli takım kupası hangisidir?",
+    "options": [
+      "2019 UEFA Uluslar Ligi",
+      "2018 Dünya Kupası",
+      "2016 Avrupa Şampiyonası",
+      "2004 Avrupa Şampiyonası"
+    ],
+    "answer": 2
+  },
+  {
     "q": "UEFA Şampiyonlar Ligi'ni en çok kazanan kulüp hangisidir?",
     "options": [
-      "AC Milan",
-      "Liverpool",
+      "Real Madrid",
       "Bayern Münih",
-      "Real Madrid"
+      "AC Milan",
+      "Liverpool"
     ],
-    "answer": 3
+    "answer": 0
   },
   {
     "q": "Bir futbol maçını yöneten orta hakeme yardımcı olan yan hakem sayısı kaçtır?",
     "options": [
-      "1",
+      "4",
       "2",
-      "3",
-      "4"
+      "1",
+      "3"
     ],
     "answer": 1
   },
   {
     "q": "VAR sisteminin açılımındaki 'V' harfi neyi ifade eder?",
     "options": [
-      "Verified",
       "Video",
+      "Visual",
       "Virtual",
-      "Visual"
+      "Verified"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Trabzonspor en son hangi sezon Süper Lig şampiyonu oldu?",
     "options": [
-      "2019-20",
       "2020-21",
       "2021-22",
+      "2019-20",
       "2022-23"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Fenerbahçe'nin efsanevi kalecisi olarak bilinen ve uzun yıllar formasını giyen milli oyuncu kimdir?",
     "options": [
-      "Rüştü Reçber",
-      "Volkan Demirel",
       "Engin İpekoğlu",
+      "Volkan Demirel",
+      "Rüştü Reçber",
       "Zoff"
     ],
     "answer": 1
@@ -323,29 +323,29 @@ export default [
   {
     "q": "Beşiktaş'ın stadyumunun adı nedir?",
     "options": [
-      "Ali Sami Yen",
-      "Şükrü Saracoğlu",
       "Tüpraş Stadyumu (Vodafone Park)",
-      "Atatürk Olimpiyat"
-    ],
-    "answer": 2
-  },
-  {
-    "q": "2005 UEFA Şampiyonlar Ligi finali 'İstanbul mucizesi' hangi iki takım arasında oynandı?",
-    "options": [
-      "Milan-Liverpool",
-      "Barcelona-Arsenal",
-      "Real Madrid-Juventus",
-      "Chelsea-Bayern"
+      "Ali Sami Yen",
+      "Atatürk Olimpiyat",
+      "Şükrü Saracoğlu"
     ],
     "answer": 0
   },
   {
+    "q": "2005 UEFA Şampiyonlar Ligi finali 'İstanbul mucizesi' hangi iki takım arasında oynandı?",
+    "options": [
+      "Barcelona-Arsenal",
+      "Real Madrid-Juventus",
+      "Milan-Liverpool",
+      "Chelsea-Bayern"
+    ],
+    "answer": 2
+  },
+  {
     "q": "2005 Şampiyonlar Ligi finalinde devre arasında 3-0 geride olup kupayı kazanan takım hangisidir?",
     "options": [
-      "Milan",
-      "Liverpool",
       "Chelsea",
+      "Liverpool",
+      "Milan",
       "Juventus"
     ],
     "answer": 1
@@ -354,151 +354,151 @@ export default [
     "q": "Bir futbolcunun aynı maçta üç gol atmasına ne denir?",
     "options": [
       "Poker",
+      "Brace",
       "Hat-trick",
-      "Triplet",
-      "Brace"
+      "Triplet"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Diego Maradona'nın 1986 Dünya Kupası'nda İngiltere'ye attığı tartışmalı gol hangi adla anılır?",
     "options": [
-      "Tanrı'nın Eli",
-      "Şeytanın Golü",
       "Altın Vuruş",
-      "Elveda Golü"
+      "Şeytanın Golü",
+      "Elveda Golü",
+      "Tanrı'nın Eli"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "İlk FIFA Dünya Kupası 1930'da hangi ülkede düzenlendi?",
     "options": [
-      "Brezilya",
-      "İtalya",
       "Uruguay",
-      "Arjantin"
+      "Arjantin",
+      "İtalya",
+      "Brezilya"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "1930 ilk Dünya Kupası'nın şampiyonu hangi ülkedir?",
     "options": [
-      "Arjantin",
-      "Uruguay",
+      "ABD",
       "Brezilya",
-      "ABD"
+      "Arjantin",
+      "Uruguay"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Ballon d'Or ödülü hangi alanda verilir?",
     "options": [
+      "Futbol",
       "Basketbol",
       "Tenis",
-      "Futbol",
       "Voleybol"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "Bir futbol maçında sarı karttan sonra ikinci sarı kart alan oyuncu ne olur?",
     "options": [
-      "Sahada kalır",
-      "Kırmızı kart görür ve atılır",
+      "1 dakika bekler",
       "Ceza sahasına gider",
-      "1 dakika bekler"
+      "Kırmızı kart görür ve atılır",
+      "Sahada kalır"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "UEFA Avrupa Şampiyonası (EURO) kaç yılda bir düzenlenir?",
     "options": [
-      "2",
+      "6",
       "3",
       "4",
-      "6"
+      "2"
     ],
     "answer": 2
   },
   {
     "q": "EURO 2008'de Türkiye Milli Takımı hangi tura kadar yükseldi?",
     "options": [
-      "Grup elemesi",
-      "Çeyrek final",
+      "Final",
       "Yarı final",
-      "Final"
+      "Grup elemesi",
+      "Çeyrek final"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Gheorghe Hagi hangi milli takımın efsanevi oyuncusudur?",
     "options": [
-      "Bulgaristan",
       "Romanya",
       "Macaristan",
-      "Sırbistan"
+      "Sırbistan",
+      "Bulgaristan"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Penaltı noktası kale çizgisinden kaç metre uzaklıktadır?",
     "options": [
-      "9 metre",
-      "11 metre",
+      "10 metre",
       "12 metre",
-      "10 metre"
+      "9 metre",
+      "11 metre"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "2010 Dünya Kupası'nı kazanarak ilk kez şampiyon olan ülke hangisidir?",
     "options": [
-      "Hollanda",
       "İspanya",
-      "Almanya",
-      "Uruguay"
+      "Hollanda",
+      "Uruguay",
+      "Almanya"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Kaleye giren topla sayılan ve maçın sonucunu belirleyen temel skor birimi nedir?",
     "options": [
-      "Sayı",
-      "Gol",
+      "Set",
       "Ribaund",
-      "Set"
+      "Gol",
+      "Sayı"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "İlk modern Olimpiyat Oyunları hangi yılda düzenlenmiştir?",
     "options": [
       "1896",
       "1900",
-      "1888",
-      "1904"
+      "1904",
+      "1888"
     ],
     "answer": 0
   },
   {
     "q": "İlk modern Olimpiyat Oyunları hangi şehirde yapılmıştır?",
     "options": [
-      "Paris",
-      "Atina",
       "Londra",
-      "Roma"
+      "Roma",
+      "Atina",
+      "Paris"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Modern Olimpiyat Oyunları'nın kurucusu olarak kabul edilen kişi kimdir?",
     "options": [
+      "Avery Brundage",
       "Pierre de Coubertin",
       "Juan Antonio Samaranch",
-      "Avery Brundage",
       "Jacques Rogge"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Olimpiyat bayrağındaki halka sayısı kaçtır?",
@@ -514,49 +514,49 @@ export default [
     "q": "Olimpiyat halkaları hangi kıtaları temsil eder?",
     "options": [
       "Yaşanabilir beş kıta",
+      "Beş büyük okyanus",
       "Yedi kıta",
-      "Dört büyük ülke",
-      "Beş büyük okyanus"
+      "Dört büyük ülke"
     ],
     "answer": 0
   },
   {
     "q": "Maraton koşusunun standart mesafesi kaç kilometredir?",
     "options": [
-      "40 km",
       "42,195 km",
-      "45 km",
-      "38,5 km"
+      "40 km",
+      "38,5 km",
+      "45 km"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "100 metre erkekler dünya rekorunu 9.58 ile elinde tutan atlet kimdir?",
     "options": [
-      "Usain Bolt",
-      "Tyson Gay",
       "Yohan Blake",
-      "Asafa Powell"
+      "Usain Bolt",
+      "Asafa Powell",
+      "Tyson Gay"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "1936 Berlin Olimpiyatları'nda 4 altın madalya kazanan ünlü Amerikalı atlet kimdir?",
     "options": [
-      "Jesse Owens",
-      "Carl Lewis",
       "Ralph Metcalfe",
-      "Eddie Tolan"
+      "Jesse Owens",
+      "Eddie Tolan",
+      "Carl Lewis"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "İlk Kış Olimpiyat Oyunları hangi yıl yapılmıştır?",
     "options": [
-      "1920",
+      "1932",
       "1924",
-      "1928",
-      "1932"
+      "1920",
+      "1928"
     ],
     "answer": 1
   },
@@ -564,58 +564,58 @@ export default [
     "q": "Olimpiyat meşalesinin yakıldığı antik kent hangisidir?",
     "options": [
       "Delfi",
-      "Olympia",
       "Atina",
+      "Olympia",
       "Sparta"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Atletizmde dekatlon kaç farklı branştan oluşur?",
     "options": [
+      "12",
       "7",
       "8",
-      "10",
-      "12"
+      "10"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Kadınlarda yapılan çok branşlı yarışma olan heptatlon kaç branştan oluşur?",
     "options": [
-      "5",
-      "6",
       "7",
-      "8"
-    ],
-    "answer": 2
-  },
-  {
-    "q": "Sırıkla yüksek atlama branşında sporcular hangi malzemeyi kullanır?",
-    "options": [
-      "Sırık",
-      "Disk",
-      "Cirit",
-      "Gülle"
+      "6",
+      "8",
+      "5"
     ],
     "answer": 0
   },
   {
+    "q": "Sırıkla yüksek atlama branşında sporcular hangi malzemeyi kullanır?",
+    "options": [
+      "Disk",
+      "Gülle",
+      "Cirit",
+      "Sırık"
+    ],
+    "answer": 3
+  },
+  {
     "q": "Türkiye'ye ilk olimpiyat altın madalyasını kazandıran güreşçi kimdir?",
     "options": [
-      "Yaşar Doğu",
       "Yaşar Erkan",
-      "Celal Atik",
-      "Nasuh Akar"
+      "Yaşar Doğu",
+      "Nasuh Akar",
+      "Celal Atik"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "1968 Meksiko Olimpiyatları'nda uzun atlamada 8.90 m ile rekor kıran atlet kimdir?",
     "options": [
       "Bob Beamon",
-      "Carl Lewis",
       "Mike Powell",
+      "Carl Lewis",
       "Ralph Boston"
     ],
     "answer": 0
@@ -623,149 +623,149 @@ export default [
   {
     "q": "Uzun atlamada 8.95 m dünya rekorunu elinde tutan atlet kimdir?",
     "options": [
-      "Bob Beamon",
       "Mike Powell",
-      "Carl Lewis",
-      "Ivan Pedroso"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Modern olimpiyatlarda en çok altın madalya kazanan sporcu kimdir?",
-    "options": [
-      "Michael Phelps",
-      "Usain Bolt",
-      "Larisa Latynina",
+      "Ivan Pedroso",
+      "Bob Beamon",
       "Carl Lewis"
     ],
     "answer": 0
   },
   {
-    "q": "Michael Phelps kariyeri boyunca kaç olimpiyat altın madalyası kazanmıştır?",
+    "q": "Modern olimpiyatlarda en çok altın madalya kazanan sporcu kimdir?",
     "options": [
-      "18",
-      "21",
-      "23",
-      "25"
+      "Usain Bolt",
+      "Larisa Latynina",
+      "Michael Phelps",
+      "Carl Lewis"
     ],
     "answer": 2
+  },
+  {
+    "q": "Michael Phelps kariyeri boyunca kaç olimpiyat altın madalyası kazanmıştır?",
+    "options": [
+      "25",
+      "18",
+      "21",
+      "23"
+    ],
+    "answer": 3
   },
   {
     "q": "400 metre engelli koşuda kadınlarda dünya rekorunu elinde tutan atlet kimdir?",
     "options": [
-      "Sydney McLaughlin-Levrone",
       "Dalilah Muhammad",
+      "Sydney McLaughlin-Levrone",
       "Femke Bol",
       "Shericka Jackson"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Olimpiyat atletizminde 3000 metre engelli koşuda kaç kez su hendeği geçilir?",
     "options": [
+      "Her turda bir kez",
       "Yok",
       "Sabit değil",
-      "Her turda bir kez",
       "İki kez"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "Gülle atma branşında atılan gülle erkeklerde kaç kilogramdır?",
     "options": [
       "5 kg",
-      "6 kg",
       "7,26 kg",
+      "6 kg",
       "10 kg"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "100 metre engelli koşuda 2010 Avrupa Şampiyonu olan Türk atlet kimdir?",
     "options": [
-      "Nevin Yanıt",
-      "Elvan Abeylegesse",
+      "Birsen Bekgöz",
       "Emine Hatun Tuna",
-      "Birsen Bekgöz"
+      "Nevin Yanıt",
+      "Elvan Abeylegesse"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Olimpiyat Oyunları'nda maraton koşusu geleneksel olarak hangi günde yapılır?",
     "options": [
       "Açılış günü",
-      "Genelde son gün",
+      "Ortada",
       "İlk gün",
-      "Ortada"
+      "Genelde son gün"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "1500 metre koşusu halk arasında hangi lakapla anılır?",
     "options": [
-      "Metrik mil",
-      "Kısa maraton",
       "Yarım mil",
+      "Kısa maraton",
+      "Metrik mil",
       "Uzun sprint"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Yüksek atlamada sırtüstü atlama tekniğini popülerleştiren atlet kimdir?",
     "options": [
       "Dick Fosbury",
-      "Valeriy Brumel",
+      "Charles Austin",
       "Javier Sotomayor",
-      "Charles Austin"
+      "Valeriy Brumel"
     ],
     "answer": 0
   },
   {
     "q": "Erkekler yüksek atlama dünya rekoru 2.45 m kime aittir?",
     "options": [
+      "Bohdan Bondarenko",
       "Javier Sotomayor",
       "Mutaz Barshim",
-      "Bohdan Bondarenko",
       "Patrik Sjöberg"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Antik Olimpiyat Oyunları hangi ülkede düzenlenirdi?",
     "options": [
       "Roma",
-      "Mısır",
       "Antik Yunan",
-      "Pers"
+      "Pers",
+      "Mısır"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "2008 Pekin Olimpiyatları hangi ülkede düzenlenmiştir?",
     "options": [
       "Japonya",
+      "Singapur",
       "Çin",
-      "Güney Kore",
-      "Singapur"
+      "Güney Kore"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "2012 Yaz Olimpiyatları hangi şehirde yapılmıştır?",
     "options": [
       "Londra",
-      "Rio de Janeiro",
       "Pekin",
-      "Sidney"
+      "Sidney",
+      "Rio de Janeiro"
     ],
     "answer": 0
   },
   {
     "q": "2016 Yaz Olimpiyatları hangi şehirde düzenlenmiştir?",
     "options": [
-      "Tokyo",
-      "Rio de Janeiro",
       "Londra",
+      "Rio de Janeiro",
+      "Tokyo",
       "Atina"
     ],
     "answer": 1
@@ -774,39 +774,39 @@ export default [
     "q": "2020 Tokyo Olimpiyatları COVID-19 nedeniyle hangi yıl gerçekleştirilmiştir?",
     "options": [
       "2020",
-      "2021",
       "2022",
-      "2019"
+      "2019",
+      "2021"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Çekiç atma branşında atlet çekici nasıl fırlatır?",
     "options": [
       "Dönerek",
-      "Koşarak",
       "Zıplayarak",
-      "Yürüyerek"
+      "Yürüyerek",
+      "Koşarak"
     ],
     "answer": 0
   },
   {
     "q": "Atletizmde 4x100 bayrak yarışında sporcular birbirine ne verir?",
     "options": [
+      "Halka",
       "Bayrak",
-      "Baton (değnek)",
       "Top",
-      "Halka"
+      "Baton (değnek)"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Olimpiyatlarda kadınlar maraton yarışı ilk kez hangi yıl programa alınmıştır?",
     "options": [
+      "1988",
       "1972",
-      "1980",
       "1984",
-      "1988"
+      "1980"
     ],
     "answer": 2
   },
@@ -814,239 +814,239 @@ export default [
     "q": "Usain Bolt hangi ülkenin sporcusudur?",
     "options": [
       "ABD",
-      "Jamaika",
+      "Bahamalar",
       "Trinidad",
-      "Bahamalar"
+      "Jamaika"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Olimpiyat sloganı 'Citius, Altius, Fortius' Türkçe'de ne anlama gelir?",
     "options": [
-      "Daha Hızlı, Daha Yüksek, Daha Güçlü",
       "Barış, Dostluk, Zafer",
-      "Cesaret, Onur, Şeref",
-      "Birlik, Beraberlik, Güç"
+      "Daha Hızlı, Daha Yüksek, Daha Güçlü",
+      "Birlik, Beraberlik, Güç",
+      "Cesaret, Onur, Şeref"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Süreyya Ayhan hangi branşta Avrupa Şampiyonluğu kazanan Türk atlettir?",
     "options": [
-      "1500 metre",
       "100 metre",
       "Maraton",
+      "1500 metre",
       "Yüksek atlama"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Basketbolda bir maç kaç periyottan (çeyrek) oluşur (FIBA kurallarına göre)?",
-    "options": [
-      "2",
-      "3",
-      "4",
-      "5"
     ],
     "answer": 2
   },
   {
-    "q": "FIBA kurallarına göre bir basketbol çeyreği kaç dakikadır?",
+    "q": "Basketbolda bir maç kaç periyottan (çeyrek) oluşur (FIBA kurallarına göre)?",
     "options": [
-      "8 dakika",
-      "10 dakika",
-      "12 dakika",
-      "15 dakika"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "NBA'de bir çeyrek kaç dakikadır?",
-    "options": [
-      "10 dakika",
-      "12 dakika",
-      "15 dakika",
-      "20 dakika"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Basketbolda serbest atış (faul atışı) kaç sayı değerindedir?",
-    "options": [
-      "1",
-      "2",
+      "4",
       "3",
-      "4"
+      "5",
+      "2"
     ],
     "answer": 0
   },
   {
+    "q": "FIBA kurallarına göre bir basketbol çeyreği kaç dakikadır?",
+    "options": [
+      "10 dakika",
+      "12 dakika",
+      "8 dakika",
+      "15 dakika"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "NBA'de bir çeyrek kaç dakikadır?",
+    "options": [
+      "15 dakika",
+      "10 dakika",
+      "20 dakika",
+      "12 dakika"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "Basketbolda serbest atış (faul atışı) kaç sayı değerindedir?",
+    "options": [
+      "3",
+      "2",
+      "4",
+      "1"
+    ],
+    "answer": 3
+  },
+  {
     "q": "Basketbolda üç sayı çizgisinin dışından atılan başarılı bir şut kaç sayıdır?",
     "options": [
-      "1",
       "2",
+      "4",
       "3",
-      "4"
+      "1"
     ],
     "answer": 2
   },
   {
     "q": "Bir basketbol takımında sahada aynı anda kaç oyuncu bulunur?",
     "options": [
-      "5",
-      "6",
       "7",
+      "6",
+      "5",
       "11"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "FIBA basketbolda bir takımın hücumu tamamlaması için tanınan süre kaç saniyedir?",
     "options": [
+      "20 saniye",
       "24 saniye",
       "30 saniye",
-      "20 saniye",
       "35 saniye"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Basketbolda bir oyuncu kaç faul yaptıktan sonra FIBA kurallarına göre oyundan çıkarılır?",
     "options": [
-      "4",
+      "3",
       "5",
-      "6",
-      "3"
+      "4",
+      "6"
     ],
     "answer": 1
   },
   {
     "q": "Basketbol potasının zeminden yüksekliği kaç metredir?",
     "options": [
-      "2,75 m",
-      "3,05 m",
       "3,50 m",
-      "2,50 m"
+      "2,50 m",
+      "2,75 m",
+      "3,05 m"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Basketbolu 1891'de icat eden kişi kimdir?",
     "options": [
-      "James Naismith",
-      "William Morgan",
       "Alfred Nobel",
-      "Pierre de Coubertin"
+      "James Naismith",
+      "Pierre de Coubertin",
+      "William Morgan"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Voleybolu 1895'te icat eden kişi kimdir?",
     "options": [
-      "James Naismith",
       "William G. Morgan",
+      "John Heisman",
       "Walter Camp",
-      "John Heisman"
+      "James Naismith"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Voleybolda bir takım sahada aynı anda kaç oyuncu bulundurur?",
     "options": [
-      "5",
       "6",
-      "7",
-      "9"
+      "9",
+      "5",
+      "7"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Modern voleybolda (rally point) bir seti kazanmak için normalde kaç sayıya ulaşmak gerekir?",
     "options": [
-      "15",
-      "21",
+      "30",
       "25",
-      "30"
+      "15",
+      "21"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Voleybolda bir maç kaç set üzerinden oynanır (en fazla)?",
     "options": [
-      "3 set",
       "5 set",
-      "7 set",
-      "4 set"
+      "3 set",
+      "4 set",
+      "7 set"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Voleybolda maçı kazanmak için kaç set almak gerekir?",
     "options": [
-      "2",
-      "3",
       "4",
-      "5"
+      "5",
+      "2",
+      "3"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Voleybolda beşinci (tie-break) set kaç sayı üzerinden oynanır?",
     "options": [
-      "15",
       "21",
+      "11",
       "25",
-      "11"
+      "15"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Voleybolda bir takım topu karşı sahaya göndermeden önce en fazla kaç kez dokunabilir?",
     "options": [
       "2",
-      "3",
       "4",
-      "5"
+      "5",
+      "3"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Voleybolda savunma uzmanı olan ve farklı renkli forma giyen oyuncuya ne ad verilir?",
     "options": [
-      "Pasör",
-      "Libero",
+      "Orta oyuncu",
       "Smaçör",
-      "Orta oyuncu"
+      "Pasör",
+      "Libero"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Voleybolda erkekler için file yüksekliği yaklaşık kaç metredir?",
     "options": [
-      "2,24 m",
-      "2,43 m",
+      "2,10 m",
       "2,50 m",
-      "2,10 m"
+      "2,24 m",
+      "2,43 m"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Voleybolda kadınlar için file yüksekliği yaklaşık kaç metredir?",
     "options": [
-      "2,24 m",
       "2,43 m",
-      "2,15 m",
-      "2,30 m"
+      "2,24 m",
+      "2,30 m",
+      "2,15 m"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Türkiye Kadın Milli Voleybol Takımı'nın lakabı nedir?",
     "options": [
       "Filenin Sultanları",
+      "Filenin Efeleri",
       "Ay-Yıldızlılar",
-      "Potanın Perileri",
-      "Filenin Efeleri"
+      "Potanın Perileri"
     ],
     "answer": 0
   },
@@ -1063,29 +1063,29 @@ export default [
   {
     "q": "Türkiye Erkek Milli Basketbol Takımı hangi lakapla anılır?",
     "options": [
-      "12 Dev Adam",
-      "Filenin Efeleri",
       "Ay Yıldızlılar",
-      "Potanın Sultanları"
+      "Potanın Sultanları",
+      "Filenin Efeleri",
+      "12 Dev Adam"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Türkiye Kadın Milli Voleybol Takımı 2023 Avrupa Şampiyonası'nda hangi dereceyi elde etti?",
     "options": [
-      "Şampiyon",
       "İkinci",
-      "Üçüncü",
-      "Dördüncü"
+      "Dördüncü",
+      "Şampiyon",
+      "Üçüncü"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "NBA'de 100 sayı atarak tek maçta en çok sayı rekorunu elinde bulunduran oyuncu kimdir?",
     "options": [
       "Wilt Chamberlain",
-      "Michael Jordan",
       "Kobe Bryant",
+      "Michael Jordan",
       "Kareem Abdul-Jabbar"
     ],
     "answer": 0
@@ -1093,49 +1093,49 @@ export default [
   {
     "q": "NBA tarihinin en çok sayı atan (kariyer toplamı) oyuncusu kimdir?",
     "options": [
-      "Kareem Abdul-Jabbar",
+      "Kobe Bryant",
       "Karl Malone",
-      "LeBron James",
-      "Kobe Bryant"
+      "Kareem Abdul-Jabbar",
+      "LeBron James"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Türk basketbolcu Hidayet Türkoğlu NBA'de hangi ödülü kazanan ilk Türk oldu (2008 En Çok Gelişme Gösteren Oyuncu)?",
     "options": [
-      "Most Improved Player",
+      "Defensive Player",
       "MVP",
-      "Rookie of the Year",
-      "Defensive Player"
+      "Most Improved Player",
+      "Rookie of the Year"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "2010 FIBA Dünya Basketbol Şampiyonası hangi ülkede düzenlendi ve Türkiye ikinci oldu?",
     "options": [
-      "Türkiye",
-      "İspanya",
+      "ABD",
       "Yunanistan",
-      "ABD"
+      "İspanya",
+      "Türkiye"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Basketbolda topu yere vurmadan iki adımdan fazla taşımaya ne denir (ihlal)?",
     "options": [
-      "Hatalı ribaunt",
       "Adım (travel) ihlali",
+      "Hatalı ribaunt",
       "Çiftleme",
       "Ofsayt"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Basketbolda topu bırakıp tekrar sürmeye başlamaya verilen ihlalin adı nedir?",
     "options": [
       "Çift top (double dribble)",
-      "Adım",
       "Üç saniye",
+      "Adım",
       "Sekiz saniye"
     ],
     "answer": 0
@@ -1143,130 +1143,130 @@ export default [
   {
     "q": "Basketbolda hücum takımının boyalı alanda en fazla ne kadar kalabileceğini belirten kural nedir?",
     "options": [
+      "On saniye kuralı",
       "Üç saniye kuralı",
-      "Beş saniye kuralı",
       "Sekiz saniye kuralı",
-      "On saniye kuralı"
+      "Beş saniye kuralı"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Voleybolda topun file üzerinden sert biçimde karşı sahaya vurulmasına ne ad verilir?",
     "options": [
-      "Manşet",
+      "Parmak pas",
       "Smaç",
       "Servis",
-      "Parmak pas"
+      "Manşet"
     ],
     "answer": 1
   },
   {
     "q": "Voleybolda oyunu başlatan vuruşa ne ad verilir?",
     "options": [
-      "Servis",
       "Smaç",
-      "Blok",
-      "Libero"
+      "Libero",
+      "Servis",
+      "Blok"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Voleybolda rakibin smacını filenin üzerinde ellerle engellemeye ne denir?",
     "options": [
       "Blok",
       "Manşet",
-      "Ganimet",
-      "Pas"
+      "Pas",
+      "Ganimet"
     ],
     "answer": 0
   },
   {
     "q": "Basketbolda topun potaya girmesini engellemek için havada yapılan savunma hareketine ne denir?",
     "options": [
-      "Blok (kapak)",
       "Ribaunt",
-      "Asist",
-      "Pas kesme"
+      "Blok (kapak)",
+      "Pas kesme",
+      "Asist"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Basketbolda pota altından seken topu kapmaya ne ad verilir?",
     "options": [
-      "Asist",
       "Ribaunt",
       "Blok",
+      "Asist",
       "Smaç"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Basketbolda sayı olacak pası veren oyuncuya kaydedilen istatistik nedir?",
     "options": [
       "Ribaunt",
-      "Asist",
       "Blok",
+      "Asist",
       "Top çalma"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "NBA Şampiyonası kupasının adı nedir?",
     "options": [
-      "Larry O'Brien Kupası",
-      "Stanley Kupası",
+      "Naismith Kupası",
       "Vince Lombardi Kupası",
-      "Naismith Kupası"
+      "Larry O'Brien Kupası",
+      "Stanley Kupası"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Avrupa'nın en üst düzey kulüpler arası basketbol organizasyonunun adı nedir?",
     "options": [
-      "EuroLeague",
       "Champions Cup",
       "NBA Europe",
+      "EuroLeague",
       "Süper Kupa"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Fenerbahçe Erkek Basketbol Takımı hangi yıl EuroLeague şampiyonu oldu?",
     "options": [
+      "2021",
       "2015",
       "2017",
-      "2019",
-      "2021"
+      "2019"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Rugby birliğinde (Rugby Union) bir takımda sahada kaç oyuncu bulunur?",
     "options": [
-      "13",
-      "15",
       "11",
-      "7"
+      "13",
+      "7",
+      "15"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Kriket sporunda bir 'over' kaç yasal toptan oluşur?",
     "options": [
-      "4",
       "6",
       "8",
-      "10"
+      "10",
+      "4"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Buz hokeyinde standart bir takım sahada kaçar oyuncuyla (kaleci dahil) oynar?",
     "options": [
-      "5",
+      "4",
       "6",
-      "7",
-      "4"
+      "5",
+      "7"
     ],
     "answer": 1
   },
@@ -1274,88 +1274,88 @@ export default [
     "q": "Voleybolda bir takımın topu rakip sahaya göndermeden önce yapabileceği en fazla dokunuş sayısı kaçtır?",
     "options": [
       "2",
-      "3",
       "4",
+      "3",
       "5"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Tenis maçında bir oyuncu '40-0' önde ise bir sayı daha alırsa ne olur?",
     "options": [
-      "Deuce",
+      "Avantaj",
       "Oyunu kazanır",
-      "Set biter",
-      "Avantaj"
+      "Deuce",
+      "Set biter"
     ],
     "answer": 1
   },
   {
     "q": "Basketbolda FIBA kurallarına göre bir hücum en fazla kaç saniyede tamamlanmalıdır?",
     "options": [
+      "20",
       "24",
       "30",
-      "20",
       "35"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Amerikan futbolunda bir 'touchdown' kaç sayı değerindedir?",
     "options": [
       "3",
-      "6",
       "7",
-      "2"
+      "2",
+      "6"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Badmintonda modern rally scoring sistemine göre bir set kaç sayıda kazanılır?",
     "options": [
       "11",
-      "15",
       "21",
+      "15",
       "25"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Masa tenisinde bir set kaç sayıda (en az 2 fark) kazanılır?",
     "options": [
-      "11",
       "15",
       "21",
+      "11",
       "25"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Golf sporunda standart bir sahada kaç delik bulunur?",
-    "options": [
-      "9",
-      "12",
-      "18",
-      "21"
     ],
     "answer": 2
   },
   {
+    "q": "Golf sporunda standart bir sahada kaç delik bulunur?",
+    "options": [
+      "21",
+      "9",
+      "12",
+      "18"
+    ],
+    "answer": 3
+  },
+  {
     "q": "Golf terimi 'birdie' ne anlama gelir?",
     "options": [
-      "Par'ın bir altında",
+      "Tam par",
       "Par'ın bir üstünde",
-      "Par'ın iki altında",
-      "Tam par"
+      "Par'ın bir altında",
+      "Par'ın iki altında"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Golfte bir deliği par'ın iki vuruş altında bitirmeye ne denir?",
     "options": [
-      "Birdie",
-      "Eagle",
       "Bogey",
+      "Eagle",
+      "Birdie",
       "Albatross"
     ],
     "answer": 1
@@ -1363,28 +1363,28 @@ export default [
   {
     "q": "Boks maçında profesyonel bir raundun standart süresi kaç dakikadır?",
     "options": [
-      "2",
-      "3",
+      "5",
       "4",
-      "5"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Judo müsabakasında rakibi sırtüstü tam kontrollü düşürerek anında galibiyet getiren puana ne denir?",
-    "options": [
-      "Waza-ari",
-      "Yuko",
-      "Ippon",
-      "Koka"
+      "3",
+      "2"
     ],
     "answer": 2
   },
   {
+    "q": "Judo müsabakasında rakibi sırtüstü tam kontrollü düşürerek anında galibiyet getiren puana ne denir?",
+    "options": [
+      "Ippon",
+      "Waza-ari",
+      "Yuko",
+      "Koka"
+    ],
+    "answer": 0
+  },
+  {
     "q": "Su topunda (water polo) bir takım sahada kaçar oyuncuyla (kaleci dahil) oynar?",
     "options": [
-      "5",
       "6",
+      "5",
       "7",
       "8"
     ],
@@ -1393,19 +1393,19 @@ export default [
   {
     "q": "Beyzbolda bir vurucu kaç 'strike' aldığında oyun dışı (out) olur?",
     "options": [
+      "1",
       "2",
       "3",
-      "4",
-      "1"
+      "4"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Beyzbolda saha içinde toplam kaç kale (base) vardır?",
     "options": [
-      "3",
-      "4",
       "5",
+      "4",
+      "3",
       "2"
     ],
     "answer": 1
@@ -1413,50 +1413,50 @@ export default [
   {
     "q": "Formula 1'de yarış sırasında pit lane'de aşırı hız için verilen tipik ceza türü hangisidir?",
     "options": [
-      "Kırmızı bayrak",
-      "Zaman cezası / drive-through",
+      "Puan silme",
       "Diskalifiye zorunlu",
-      "Puan silme"
+      "Zaman cezası / drive-through",
+      "Kırmızı bayrak"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Eskrimde 'epe' (épée) silahında geçerli vuruş bölgesi neresidir?",
     "options": [
+      "Tüm vücut",
       "Sadece gövde",
       "Bel üstü",
-      "Tüm vücut",
       "Sadece baş ve kollar"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "Curling sporunda her takım bir 'end' içinde kaç taş atar?",
     "options": [
       "6",
-      "8",
       "10",
+      "8",
       "4"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Snooker'da tüm kırmızı toplar bittikten sonra renkli topların oynanma sırasında en yüksek değerli top hangisidir?",
     "options": [
       "Pembe",
-      "Mavi",
       "Siyah",
-      "Kahverengi"
+      "Kahverengi",
+      "Mavi"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Snooker'da bir kırmızı top kaç puan değerindedir?",
     "options": [
       "1",
-      "2",
       "3",
-      "5"
+      "5",
+      "2"
     ],
     "answer": 0
   },
@@ -1464,41 +1464,41 @@ export default [
     "q": "Okçulukta hedefin tam merkezine (altın halka) isabet en fazla kaç puan getirir?",
     "options": [
       "9",
-      "10",
+      "8",
       "12",
-      "8"
+      "10"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Halterde sporcuların yarıştığı iki resmi kaldırış türü hangileridir?",
     "options": [
       "Koparma ve Silkme",
       "İtme ve Çekme",
-      "Basma ve Kaldırma",
-      "Snatch ve Deadlift"
+      "Snatch ve Deadlift",
+      "Basma ve Kaldırma"
     ],
     "answer": 0
   },
   {
     "q": "Bir maraton koşusunun resmi mesafesi kaç kilometredir?",
     "options": [
+      "26 km",
       "21,1 km",
-      "42,195 km",
       "50 km",
-      "26 km"
+      "42,195 km"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Modern pentatlonda (beş branşlı) aşağıdakilerden hangisi YER ALMAZ?",
     "options": [
-      "Eskrim",
+      "Atıcılık",
       "Yüzme",
-      "Bisiklet",
-      "Atıcılık"
+      "Eskrim",
+      "Bisiklet"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Triatlonda yarışın standart sıralaması hangisidir?",
@@ -1513,109 +1513,109 @@ export default [
   {
     "q": "Hentbolda bir takım sahada kaçar oyuncuyla (kaleci dahil) oynar?",
     "options": [
-      "6",
-      "7",
       "5",
-      "8"
+      "8",
+      "6",
+      "7"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Ragbi birliğinde topu elle sadece hangi yöne pas atmak serbesttir?",
     "options": [
-      "Öne",
       "Geriye/yana",
-      "Her yöne",
-      "Sadece kaleye doğru"
+      "Öne",
+      "Sadece kaleye doğru",
+      "Her yöne"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Amerikan futbolunda ilk 'down' hakkını yenilemek için takımın kaç yarda ilerlemesi gerekir?",
     "options": [
       "5 yarda",
-      "10 yarda",
       "15 yarda",
+      "10 yarda",
       "20 yarda"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Sumo güreşinde bir güreşçinin maçı kaybetmesinin temel yollarından biri hangisidir?",
-    "options": [
-      "3 dakika dolması",
-      "Ayak dışında bir yerle yere değmesi veya ringden çıkması",
-      "Puan farkı",
-      "İki uyarı alması"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Bilardo türlerinden '8-ball' oyununda oyunu kazandıran son topa vurulan top hangisidir?",
-    "options": [
-      "Beyaz top",
-      "9 numara",
-      "8 numaralı siyah top",
-      "15 numara"
     ],
     "answer": 2
   },
   {
-    "q": "Kriket sporunda topun sınır çizgisini yerden sekerek geçmesi kaç 'run' değerindedir?",
+    "q": "Sumo güreşinde bir güreşçinin maçı kaybetmesinin temel yollarından biri hangisidir?",
     "options": [
-      "2",
-      "4",
-      "6",
-      "1"
+      "İki uyarı alması",
+      "Puan farkı",
+      "3 dakika dolması",
+      "Ayak dışında bir yerle yere değmesi veya ringden çıkması"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "Bilardo türlerinden '8-ball' oyununda oyunu kazandıran son topa vurulan top hangisidir?",
+    "options": [
+      "9 numara",
+      "8 numaralı siyah top",
+      "15 numara",
+      "Beyaz top"
     ],
     "answer": 1
+  },
+  {
+    "q": "Kriket sporunda topun sınır çizgisini yerden sekerek geçmesi kaç 'run' değerindedir?",
+    "options": [
+      "4",
+      "6",
+      "2",
+      "1"
+    ],
+    "answer": 0
   },
   {
     "q": "Kriket sporunda topun sınırı havadan (yere değmeden) aşması kaç 'run' değerindedir?",
     "options": [
       "4",
-      "6",
       "8",
+      "6",
       "3"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Tenis 'Grand Slam' turnuvalarından hangisi çim kortta oynanır?",
     "options": [
-      "Fransa Açık",
-      "Wimbledon",
       "Avustralya Açık",
-      "ABD Açık"
+      "Fransa Açık",
+      "ABD Açık",
+      "Wimbledon"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Buz pateninde artistik olarak yarışan branş dışında kısa mesafe hızlı yarışlara ne denir?",
     "options": [
-      "Short track",
-      "Slalom",
+      "Skeleton",
       "Curling",
-      "Skeleton"
+      "Slalom",
+      "Short track"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Kayakla atlama (ski jumping) sporunda puanlama neye göre yapılır?",
     "options": [
-      "Sadece mesafe",
       "Mesafe ve stil puanı",
       "Sadece hız",
-      "Süre"
+      "Süre",
+      "Sadece mesafe"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Squash sporunda oyuncular topu neyin üzerine oynar?",
     "options": [
-      "File üzerinden",
-      "Duvara karşı",
       "Yerde çizgiye",
+      "Duvara karşı",
+      "File üzerinden",
       "Rakibe doğrudan"
     ],
     "answer": 1
@@ -1623,140 +1623,140 @@ export default [
   {
     "q": "Dekatlon (atletizm çoklu branş) kaç ayrı disiplinden oluşur?",
     "options": [
-      "7",
-      "10",
+      "12",
       "5",
-      "12"
+      "7",
+      "10"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Erkeklerin artistik jimnastikte yarıştığı alet sayısı kaçtır?",
     "options": [
-      "4",
       "6",
+      "5",
       "8",
-      "5"
+      "4"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "İlk FIFA Dünya Kupası hangi yıl ve hangi ülkede düzenlenmiştir?",
     "options": [
-      "1930 - Uruguay",
-      "1928 - İtalya",
+      "1926 - Arjantin",
       "1934 - Brezilya",
-      "1926 - Arjantin"
+      "1930 - Uruguay",
+      "1928 - İtalya"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "1930 Dünya Kupası finalinde Arjantin'i yenerek ilk şampiyon olan ülke hangisidir?",
     "options": [
       "Brezilya",
       "Uruguay",
-      "İtalya",
-      "Amerika Birleşik Devletleri"
+      "Amerika Birleşik Devletleri",
+      "İtalya"
     ],
     "answer": 1
   },
   {
     "q": "Dünya Kupası'nı 5 kez kazanarak en fazla şampiyonluğa sahip ülke hangisidir?",
     "options": [
-      "Almanya",
-      "İtalya",
       "Brezilya",
-      "Arjantin"
+      "Arjantin",
+      "Almanya",
+      "İtalya"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "q": "1950 Dünya Kupası finalinde ('Maracanazo') Brezilya'yı yenerek şampiyon olan ülke hangisidir?",
     "options": [
-      "Uruguay",
-      "İsveç",
       "Macaristan",
-      "İspanya"
+      "İsveç",
+      "İspanya",
+      "Uruguay"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Avrupa Şampiyon Kulüpler Kupası'nı (bugünkü Şampiyonlar Ligi) ilk 5 sezon üst üste kazanan kulüp hangisidir?",
     "options": [
-      "Benfica",
       "Real Madrid",
+      "Ajax",
       "Milan",
-      "Ajax"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "1992 Avrupa Şampiyonası'nı sürpriz bir şekilde kazanan, aslında turnuvaya sonradan davet edilen ülke hangisidir?",
-    "options": [
-      "Yunanistan",
-      "Danimarka",
-      "İsviçre",
-      "Norveç"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "2004 Avrupa Şampiyonası'nı ev sahibi Portekiz'i finalde yenerek kazanan ülke hangisidir?",
-    "options": [
-      "Çekya",
-      "Yunanistan",
-      "Hollanda",
-      "İsveç"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Diego Maradona'nın ünlü 'Tanrı'nın Eli' golünü attığı 1986 Dünya Kupası maçı hangi ülkeye karşıydı?",
-    "options": [
-      "Belçika",
-      "İngiltere",
-      "Almanya",
-      "Brezilya"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Türkiye Süper Lig'in ilk şampiyonu (1959) hangi kulüptür?",
-    "options": [
-      "Galatasaray",
-      "Fenerbahçe",
-      "Beşiktaş",
-      "Trabzonspor"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "UEFA Kupası'nı (bugünkü Avrupa Ligi) kazanan ilk ve tek Türk kulübü hangisidir?",
-    "options": [
-      "Fenerbahçe",
-      "Galatasaray",
-      "Beşiktaş",
-      "Trabzonspor"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Galatasaray, 2000 yılında UEFA Kupası finalinde hangi takımı penaltılarla yenmiştir?",
-    "options": [
-      "Arsenal",
-      "Leeds United",
-      "Parma",
-      "Chelsea"
+      "Benfica"
     ],
     "answer": 0
   },
   {
+    "q": "1992 Avrupa Şampiyonası'nı sürpriz bir şekilde kazanan, aslında turnuvaya sonradan davet edilen ülke hangisidir?",
+    "options": [
+      "İsviçre",
+      "Yunanistan",
+      "Norveç",
+      "Danimarka"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "2004 Avrupa Şampiyonası'nı ev sahibi Portekiz'i finalde yenerek kazanan ülke hangisidir?",
+    "options": [
+      "İsveç",
+      "Hollanda",
+      "Çekya",
+      "Yunanistan"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "Diego Maradona'nın ünlü 'Tanrı'nın Eli' golünü attığı 1986 Dünya Kupası maçı hangi ülkeye karşıydı?",
+    "options": [
+      "İngiltere",
+      "Almanya",
+      "Belçika",
+      "Brezilya"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Türkiye Süper Lig'in ilk şampiyonu (1959) hangi kulüptür?",
+    "options": [
+      "Beşiktaş",
+      "Trabzonspor",
+      "Fenerbahçe",
+      "Galatasaray"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "UEFA Kupası'nı (bugünkü Avrupa Ligi) kazanan ilk ve tek Türk kulübü hangisidir?",
+    "options": [
+      "Galatasaray",
+      "Fenerbahçe",
+      "Trabzonspor",
+      "Beşiktaş"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Galatasaray, 2000 yılında UEFA Kupası finalinde hangi takımı penaltılarla yenmiştir?",
+    "options": [
+      "Chelsea",
+      "Parma",
+      "Leeds United",
+      "Arsenal"
+    ],
+    "answer": 3
+  },
+  {
     "q": "1958, 1962 ve 1970 Dünya Kupalarını kazanan Brezilya'nın efsanevi oyuncusu Pelé, bu turnuvalarda toplam kaç şampiyonluk yaşamıştır?",
     "options": [
-      "2",
+      "1",
       "3",
       "4",
-      "1"
+      "2"
     ],
     "answer": 1
   },
@@ -1764,9 +1764,9 @@ export default [
     "q": "Anadolu'dan Süper Lig şampiyonu olan ilk kulüp hangisidir?",
     "options": [
       "Trabzonspor",
-      "Bursaspor",
+      "Samsunspor",
       "Eskişehirspor",
-      "Samsunspor"
+      "Bursaspor"
     ],
     "answer": 0
   },
@@ -1774,9 +1774,9 @@ export default [
     "q": "İngiltere Premier Lig'de 2015-16 sezonunda beklenmedik şampiyonluk yaşayan kulüp hangisidir?",
     "options": [
       "Leicester City",
+      "West Ham",
       "Tottenham",
-      "Everton",
-      "West Ham"
+      "Everton"
     ],
     "answer": 0
   },
@@ -1784,18 +1784,18 @@ export default [
     "q": "Real Madrid'in tarihte ilk kez üst üste üç kez (2016, 2017, 2018) kazandığı kupa hangisidir?",
     "options": [
       "La Liga",
-      "Şampiyonlar Ligi",
       "Kral Kupası",
+      "Şampiyonlar Ligi",
       "Dünya Kulüpler Kupası"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "1966 Dünya Kupası'nı kendi evinde kazanan tek ülke hangisidir?",
     "options": [
       "İngiltere",
-      "Almanya",
       "Portekiz",
+      "Almanya",
       "Sovyetler Birliği"
     ],
     "answer": 0
@@ -1803,432 +1803,432 @@ export default [
   {
     "q": "Johan Cruyff ile özdeşleşen 'Toplam Futbol' (Total Football) anlayışıyla 1974 Dünya Kupası finaline çıkan ülke hangisidir?",
     "options": [
-      "Almanya",
-      "Hollanda",
       "İtalya",
-      "Polonya"
+      "Almanya",
+      "Polonya",
+      "Hollanda"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "FC Barcelona'nın tarihi stadyumunun adı nedir?",
     "options": [
+      "Mestalla",
       "Santiago Bernabéu",
       "Camp Nou",
-      "Mestalla",
       "Vicente Calderón"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "1974 ve 1990 Dünya Kupalarını kazanan, 2014'te tekrar şampiyon olan ülke hangisidir?",
-    "options": [
-      "İtalya",
-      "Almanya",
-      "Arjantin",
-      "Fransa"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Fenerbahçe'nin Kadıköy'deki stadyumunun resmi adı nedir?",
-    "options": [
-      "Şükrü Saracoğlu Stadyumu",
-      "Ali Sami Yen Stadyumu",
-      "Vodafone Park",
-      "Atatürk Olimpiyat Stadyumu"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Manchester United'ı 26 yıl (1986-2013) çalıştırıp 13 Premier Lig şampiyonluğu kazandıran teknik direktör kimdir?",
-    "options": [
-      "Arsène Wenger",
-      "Sir Alex Ferguson",
-      "José Mourinho",
-      "Bobby Charlton"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Copa América'yı en fazla kez kazanan iki ülkeden biri Arjantin, diğeri hangisidir?",
-    "options": [
-      "Brezilya",
-      "Uruguay",
-      "Şili",
-      "Paraguay"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "2018 Dünya Kupası finalinde Hırvatistan'ı 4-2 yenerek şampiyon olan ülke hangisidir?",
-    "options": [
-      "Belçika",
-      "Fransa",
-      "İngiltere",
-      "Almanya"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Milano'nun iki büyük kulübü Inter ve Milan'ın paylaştığı stadyumun adı nedir?",
-    "options": [
-      "San Siro",
-      "Allianz Stadium",
-      "Olimpico",
-      "Diego Maradona"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Ajax'ın 1971, 1972 ve 1973'te üst üste üç kez kazandığı kupa hangisidir?",
-    "options": [
-      "UEFA Kupası",
-      "Avrupa Şampiyon Kulüpler Kupası",
-      "Kupa Galipleri Kupası",
-      "Süper Kupa"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Lionel Messi'nin kariyerinde ilk büyük milli takım kupasını (2021 Copa América) kazandığı final rakibi hangi ülkeydi?",
-    "options": [
-      "Brezilya",
-      "Uruguay",
-      "Kolombiya",
-      "Şili"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "1982 Dünya Kupası'nı kazanan ve Paolo Rossi'nin gol kralı olduğu ülke hangisidir?",
-    "options": [
-      "İtalya",
-      "Almanya",
-      "Brezilya",
-      "Arjantin"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Beşiktaş'ın Dolmabahçe'deki modern stadyumunun adı nedir?",
-    "options": [
-      "Türk Telekom Stadyumu",
-      "Vodafone Park",
-      "Şükrü Saracoğlu",
-      "Atatürk Olimpiyat"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Türkiye Milli Takımı'nın 2002 Dünya Kupası'nda elde ettiği en yüksek derece nedir?",
-    "options": [
-      "Şampiyonluk",
-      "İkincilik",
-      "Üçüncülük",
-      "Çeyrek final"
     ],
     "answer": 2
   },
   {
-    "q": "Ballon d'Or (Altın Top) ödülünü ilk kazanan futbolcu (1956) kimdir?",
+    "q": "1974 ve 1990 Dünya Kupalarını kazanan, 2014'te tekrar şampiyon olan ülke hangisidir?",
     "options": [
-      "Alfredo Di Stéfano",
-      "Stanley Matthews",
-      "Raymond Kopa",
-      "Ferenc Puskás"
+      "Almanya",
+      "Arjantin",
+      "İtalya",
+      "Fransa"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Fenerbahçe'nin Kadıköy'deki stadyumunun resmi adı nedir?",
+    "options": [
+      "Atatürk Olimpiyat Stadyumu",
+      "Şükrü Saracoğlu Stadyumu",
+      "Vodafone Park",
+      "Ali Sami Yen Stadyumu"
     ],
     "answer": 1
+  },
+  {
+    "q": "Manchester United'ı 26 yıl (1986-2013) çalıştırıp 13 Premier Lig şampiyonluğu kazandıran teknik direktör kimdir?",
+    "options": [
+      "Bobby Charlton",
+      "Arsène Wenger",
+      "Sir Alex Ferguson",
+      "José Mourinho"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "Copa América'yı en fazla kez kazanan iki ülkeden biri Arjantin, diğeri hangisidir?",
+    "options": [
+      "Uruguay",
+      "Şili",
+      "Paraguay",
+      "Brezilya"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "2018 Dünya Kupası finalinde Hırvatistan'ı 4-2 yenerek şampiyon olan ülke hangisidir?",
+    "options": [
+      "Fransa",
+      "İngiltere",
+      "Belçika",
+      "Almanya"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Milano'nun iki büyük kulübü Inter ve Milan'ın paylaştığı stadyumun adı nedir?",
+    "options": [
+      "Olimpico",
+      "Allianz Stadium",
+      "Diego Maradona",
+      "San Siro"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "Ajax'ın 1971, 1972 ve 1973'te üst üste üç kez kazandığı kupa hangisidir?",
+    "options": [
+      "Kupa Galipleri Kupası",
+      "Süper Kupa",
+      "UEFA Kupası",
+      "Avrupa Şampiyon Kulüpler Kupası"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "Lionel Messi'nin kariyerinde ilk büyük milli takım kupasını (2021 Copa América) kazandığı final rakibi hangi ülkeydi?",
+    "options": [
+      "Kolombiya",
+      "Şili",
+      "Brezilya",
+      "Uruguay"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "1982 Dünya Kupası'nı kazanan ve Paolo Rossi'nin gol kralı olduğu ülke hangisidir?",
+    "options": [
+      "Brezilya",
+      "Almanya",
+      "Arjantin",
+      "İtalya"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "Beşiktaş'ın Dolmabahçe'deki modern stadyumunun adı nedir?",
+    "options": [
+      "Atatürk Olimpiyat",
+      "Türk Telekom Stadyumu",
+      "Vodafone Park",
+      "Şükrü Saracoğlu"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "Türkiye Milli Takımı'nın 2002 Dünya Kupası'nda elde ettiği en yüksek derece nedir?",
+    "options": [
+      "Üçüncülük",
+      "Şampiyonluk",
+      "İkincilik",
+      "Çeyrek final"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Ballon d'Or (Altın Top) ödülünü ilk kazanan futbolcu (1956) kimdir?",
+    "options": [
+      "Stanley Matthews",
+      "Raymond Kopa",
+      "Alfredo Di Stéfano",
+      "Ferenc Puskás"
+    ],
+    "answer": 0
   },
   {
     "q": "Liverpool'un 2005 Şampiyonlar Ligi finalinde ('İstanbul Mucizesi') 3-0 geriden gelip penaltılarla yendiği takım hangisidir?",
     "options": [
-      "Milan",
       "Juventus",
-      "Barcelona",
-      "Chelsea"
+      "Chelsea",
+      "Milan",
+      "Barcelona"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Dünya Kupası tarihinde tek turnuvada en fazla gol atma rekoruna (13 gol, 1958) sahip Fransız futbolcu kimdir?",
     "options": [
+      "Zinedine Zidane",
       "Just Fontaine",
-      "Michel Platini",
       "Thierry Henry",
-      "Zinedine Zidane"
+      "Michel Platini"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Almanya'nın en üst futbol ligi hangi isimle bilinir?",
     "options": [
-      "Serie A",
       "Bundesliga",
       "La Liga",
-      "Eredivisie"
+      "Eredivisie",
+      "Serie A"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Zinedine Zidane'ın 2006 Dünya Kupası finalinde Marco Materazzi'ye kafa atarak kırmızı kart gördüğü maçta rakip ülke hangisiydi?",
     "options": [
       "İtalya",
       "Portekiz",
-      "Almanya",
-      "İspanya"
+      "İspanya",
+      "Almanya"
     ],
     "answer": 0
   },
   {
     "q": "Trabzonspor'un 2021-22 sezonunda kazandığı şampiyonluk, kulübün kaçıncı Süper Lig şampiyonluğuydu (uzun bir aradan sonra)?",
     "options": [
-      "5.",
-      "6.",
+      "8.",
       "7.",
-      "8."
+      "6.",
+      "5."
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Portekizli efsane Eusébio hangi kulübün formasıyla özdeşleşmiştir?",
     "options": [
-      "Porto",
       "Benfica",
+      "Braga",
       "Sporting Lizbon",
-      "Braga"
+      "Porto"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "UEFA Şampiyonlar Ligi bu adı (eski Avrupa Şampiyon Kulüpler Kupası yerine) hangi sezonda almıştır?",
     "options": [
       "1990-91",
-      "1992-93",
+      "1988-89",
       "1995-96",
-      "1988-89"
+      "1992-93"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Arjantin'in başkenti Buenos Aires'in en büyük derbisi hangi iki kulüp arasında oynanır?",
     "options": [
-      "Boca Juniors - River Plate",
       "Racing - Independiente",
       "San Lorenzo - Vélez",
-      "Estudiantes - Gimnasia"
+      "Estudiantes - Gimnasia",
+      "Boca Juniors - River Plate"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Fransa Milli Takımı ilk Dünya Kupası şampiyonluğunu hangi yıl kazanmıştır?",
     "options": [
-      "1998",
+      "1986",
       "1994",
-      "2002",
-      "1986"
+      "1998",
+      "2002"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Erkekler 100 metre dünya rekorunu 9.58 ile elinde tutan atlet kimdir?",
     "options": [
-      "Tyson Gay",
       "Usain Bolt",
+      "Tyson Gay",
       "Yohan Blake",
       "Asafa Powell"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Usain Bolt, 9.58'lik 100 metre dünya rekorunu hangi şehirdeki Dünya Şampiyonası'nda kırmıştır?",
-    "options": [
-      "Pekin",
-      "Berlin",
-      "Londra",
-      "Moskova"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Kadınlar 100 metre dünya rekoru (10.49) hangi atlete aittir?",
-    "options": [
-      "Florence Griffith-Joyner",
-      "Marion Jones",
-      "Shelly-Ann Fraser-Pryce",
-      "Elaine Thompson-Herah"
     ],
     "answer": 0
   },
   {
+    "q": "Usain Bolt, 9.58'lik 100 metre dünya rekorunu hangi şehirdeki Dünya Şampiyonası'nda kırmıştır?",
+    "options": [
+      "Berlin",
+      "Pekin",
+      "Moskova",
+      "Londra"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Kadınlar 100 metre dünya rekoru (10.49) hangi atlete aittir?",
+    "options": [
+      "Shelly-Ann Fraser-Pryce",
+      "Marion Jones",
+      "Elaine Thompson-Herah",
+      "Florence Griffith-Joyner"
+    ],
+    "answer": 3
+  },
+  {
     "q": "Erkekler maratonda 2 saatin altına ilk inen (resmi olmayan koşuda) atlet kimdir?",
     "options": [
-      "Kenenisa Bekele",
-      "Eliud Kipchoge",
+      "Wilson Kipsang",
       "Haile Gebrselassie",
-      "Wilson Kipsang"
+      "Kenenisa Bekele",
+      "Eliud Kipchoge"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Eliud Kipchoge'nin 2 saatin altına indiği (1:59:40) etkinlik hangi şehirde düzenlenmiştir?",
     "options": [
       "Berlin",
-      "Viyana",
       "Londra",
-      "Monza"
+      "Monza",
+      "Viyana"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Sergey Bubka hangi ülkeyi temsil ederek uzun yıllar sırıkla atlama rekorlarını elinde tutmuştur?",
     "options": [
-      "Rusya",
-      "Ukrayna",
+      "Almanya",
       "Polonya",
-      "Almanya"
+      "Ukrayna",
+      "Rusya"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Erkekler yüksek atlama dünya rekoru (2.45 m) hangi atlete aittir?",
     "options": [
-      "Javier Sotomayor",
-      "Mutaz Essa Barshim",
       "Bohdan Bondarenko",
+      "Mutaz Essa Barshim",
+      "Javier Sotomayor",
       "Patrik Sjöberg"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Erkekler uzun atlama dünya rekoru 8.95 m ile 1991'den beri kimin elindedir?",
     "options": [
       "Bob Beamon",
-      "Carl Lewis",
       "Mike Powell",
-      "Dwight Phillips"
-    ],
-    "answer": 2
-  },
-  {
-    "q": "Mike Powell'ın kırdığı ve 23 yıl süren uzun atlama rekoru daha önce kime aitti?",
-    "options": [
-      "Jesse Owens",
-      "Bob Beamon",
-      "Ralph Boston",
+      "Dwight Phillips",
       "Carl Lewis"
     ],
     "answer": 1
   },
   {
+    "q": "Mike Powell'ın kırdığı ve 23 yıl süren uzun atlama rekoru daha önce kime aitti?",
+    "options": [
+      "Ralph Boston",
+      "Carl Lewis",
+      "Jesse Owens",
+      "Bob Beamon"
+    ],
+    "answer": 3
+  },
+  {
     "q": "Modern olimpiyat oyunları ilk kez hangi yıl düzenlenmiştir?",
     "options": [
-      "1892",
       "1896",
+      "1906",
       "1900",
-      "1906"
+      "1892"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "1896 ilk modern olimpiyatları hangi şehirde yapılmıştır?",
     "options": [
+      "Londra",
       "Paris",
       "Atina",
-      "Londra",
       "Roma"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Tek bir olimpiyatta (2008 Pekin) 8 altın madalya kazanarak rekor kıran yüzücü kimdir?",
     "options": [
-      "Ian Thorpe",
+      "Ryan Lochte",
       "Michael Phelps",
-      "Mark Spitz",
-      "Ryan Lochte"
+      "Ian Thorpe",
+      "Mark Spitz"
     ],
     "answer": 1
   },
   {
     "q": "Mark Spitz 1972 Münih Olimpiyatları'nda kaç altın madalya kazanmıştı?",
     "options": [
+      "5",
       "6",
       "7",
-      "8",
-      "5"
+      "8"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Erkekler 200 metre dünya rekoru (19.19) hangi atlete aittir?",
     "options": [
+      "Noah Lyles",
       "Michael Johnson",
       "Usain Bolt",
-      "Yohan Blake",
-      "Noah Lyles"
+      "Yohan Blake"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Michael Johnson'ın 1996 Atlanta'da kırdığı ve uzun süre dayanan 200 m rekoru kaç saniyeydi?",
     "options": [
-      "19.32",
-      "19.66",
       "19.79",
-      "20.01"
+      "20.01",
+      "19.66",
+      "19.32"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Erkekler 400 metre dünya rekoru (43.03) hangi atlete aittir?",
     "options": [
-      "Michael Johnson",
-      "Wayde van Niekerk",
+      "Butch Reynolds",
       "Kirani James",
-      "Butch Reynolds"
+      "Michael Johnson",
+      "Wayde van Niekerk"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Wayde van Niekerk 400 m dünya rekorunu hangi olimpiyatta kırmıştır?",
     "options": [
-      "2012 Londra",
-      "2016 Rio",
       "2020 Tokyo",
-      "2008 Pekin"
+      "2008 Pekin",
+      "2012 Londra",
+      "2016 Rio"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Erkekler 800 metre dünya rekoru (1:40.91) hangi atlete aittir?",
     "options": [
-      "Wilson Kipketer",
       "David Rudisha",
-      "Sebastian Coe",
-      "Nijel Amos"
+      "Wilson Kipketer",
+      "Nijel Amos",
+      "Sebastian Coe"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Kadınlar maraton dünya rekorunu 2:10'un altına indiren Kenyalı atlet kimdir?",
     "options": [
-      "Brigid Kosgei",
       "Ruth Chepngetich",
-      "Paula Radcliffe",
-      "Mary Keitany"
+      "Brigid Kosgei",
+      "Mary Keitany",
+      "Paula Radcliffe"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Erkekler 110 metre engellide dünya rekoru (12.80) hangi atlete aittir?",
     "options": [
-      "Aries Merritt",
-      "Liu Xiang",
       "Grant Holloway",
-      "Colin Jackson"
+      "Colin Jackson",
+      "Aries Merritt",
+      "Liu Xiang"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Erkekler cirit atma dünya rekoru (98.48 m) hangi atlete aittir?",
@@ -2243,492 +2243,492 @@ export default [
   {
     "q": "Erkekler disk atma dünya rekoru uzun yıllar Jürgen Schult ile hangi ülkeye ait olmuştur?",
     "options": [
-      "Doğu Almanya",
-      "Sovyetler Birliği",
       "ABD",
-      "Çekoslovakya"
+      "Sovyetler Birliği",
+      "Çekoslovakya",
+      "Doğu Almanya"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Erkekler gülle atma dünya rekorunu 23.56 m ile elinde tutan atlet kimdir?",
     "options": [
-      "Randy Barnes",
-      "Ryan Crouser",
       "Joe Kovacs",
-      "Ulf Timmermann"
+      "Ulf Timmermann",
+      "Randy Barnes",
+      "Ryan Crouser"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "1968 Meksiko Olimpiyatları'nda 8.90 m ile efsanevi uzun atlama rekoru kıran atlet kimdir?",
     "options": [
-      "Bob Beamon",
-      "Ralph Boston",
       "Igor Ter-Ovanesyan",
-      "Lynn Davies"
+      "Bob Beamon",
+      "Lynn Davies",
+      "Ralph Boston"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Erkekler 1500 metre dünya rekoru (3:26.00) uzun süre hangi atlete aittir?",
     "options": [
-      "Hicham El Guerrouj",
-      "Noureddine Morceli",
       "Bernard Lagat",
-      "Jakob Ingebrigtsen"
+      "Hicham El Guerrouj",
+      "Jakob Ingebrigtsen",
+      "Noureddine Morceli"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Kadınlar sırıkla atlamada birçok kez dünya rekoru kıran Rus atlet kimdir?",
     "options": [
-      "Yelena Isinbayeva",
       "Sandi Morris",
+      "Yelena Isinbayeva",
       "Katie Nageotte",
       "Anzhelika Sidorova"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Erkekler üç adım atlama dünya rekoru (18.29 m) hangi atlete aittir?",
     "options": [
-      "Jonathan Edwards",
-      "Christian Taylor",
       "Kenny Harrison",
-      "Teddy Tamgho"
+      "Christian Taylor",
+      "Teddy Tamgho",
+      "Jonathan Edwards"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "Olimpiyat tarihinde en fazla madalya kazanan sporcu kimdir?",
     "options": [
-      "Larisa Latynina",
-      "Michael Phelps",
       "Carl Lewis",
-      "Paavo Nurmi"
+      "Paavo Nurmi",
+      "Larisa Latynina",
+      "Michael Phelps"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Erkekler 10.000 metre dünya rekoru uzun yıllar hangi Etiyopyalı atlete aitti?",
     "options": [
-      "Haile Gebrselassie",
       "Kenenisa Bekele",
       "Miruts Yifter",
-      "Sileshi Sihine"
+      "Sileshi Sihine",
+      "Haile Gebrselassie"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Kadınlar 400 metre engelli dünya rekorunu 50 saniyenin altına indiren atlet kimdir?",
     "options": [
-      "Sydney McLaughlin-Levrone",
+      "Yuliya Pechonkina",
       "Dalilah Muhammad",
-      "Femke Bol",
-      "Yuliya Pechonkina"
+      "Sydney McLaughlin-Levrone",
+      "Femke Bol"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Armand Duplantis hangi ülke adına sırıkla atlama rekorları kırmaktadır?",
     "options": [
-      "ABD",
-      "İsveç",
       "Fransa",
-      "Norveç"
+      "Norveç",
+      "ABD",
+      "İsveç"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Kış olimpiyatları ilk kez hangi yıl düzenlenmiştir?",
     "options": [
-      "1920",
-      "1924",
       "1928",
-      "1932"
+      "1932",
+      "1924",
+      "1920"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Modern olimpiyatların kurucusu kabul edilen kişi kimdir?",
     "options": [
+      "Juan Antonio Samaranch",
       "Pierre de Coubertin",
-      "Demetrios Vikelas",
       "Avery Brundage",
-      "Juan Antonio Samaranch"
+      "Demetrios Vikelas"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Erkekler maraton dünya rekoru (2:00:35) hangi atlete aittir?",
     "options": [
-      "Eliud Kipchoge",
       "Kelvin Kiptum",
+      "Eliud Kipchoge",
       "Kenenisa Bekele",
       "Birhanu Legese"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Carl Lewis kaç olimpiyatta üst üste uzun atlama altını kazanmıştır?",
     "options": [
       "2",
       "3",
-      "4",
-      "5"
+      "5",
+      "4"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Kadınlar yüksek atlama dünya rekoru (2.09 m) 1987'den beri hangi Bulgar atlete aittir?",
     "options": [
-      "Stefka Kostadinova",
       "Blanka Vlasic",
-      "Yelena Slesarenko",
-      "Kajsa Bergqvist"
+      "Stefka Kostadinova",
+      "Kajsa Bergqvist",
+      "Yelena Slesarenko"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Erkekler 4x100 metre bayrak dünya rekoru (36.84) hangi ülkeye aittir?",
     "options": [
-      "ABD",
-      "Jamaika",
+      "Büyük Britanya",
       "Kanada",
-      "Büyük Britanya"
+      "ABD",
+      "Jamaika"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Erkekler 5000 metre dünya rekoru (12:35.36) hangi Ugandalı atlete aittir?",
     "options": [
-      "Joshua Cheptegei",
       "Jakob Ingebrigtsen",
+      "Joshua Cheptegei",
       "Kenenisa Bekele",
       "Mo Farah"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Tenis tarihinde tek bir takvim yılında dört Grand Slam'i (klasik Grand Slam) kazanan son erkek oyuncu kimdir?",
     "options": [
-      "Roger Federer",
-      "Rod Laver",
+      "Pete Sampras",
       "Bjorn Borg",
-      "Pete Sampras"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Steffi Graf'ın 1988'de gerçekleştirdiği 'Golden Slam' hangi başarıyı ifade eder?",
-    "options": [
-      "Dört Grand Slam + Olimpiyat altını",
-      "Beş Grand Slam üst üste",
-      "Dört Grand Slam finali kaybı",
-      "Kariyer boyunca tüm turnuvalar"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Roland Garros (Fransa Açık) hangi kort zemininde oynanır?",
-    "options": [
-      "Çim",
-      "Sert kort",
-      "Toprak (kil)",
-      "Halı"
+      "Rod Laver",
+      "Roger Federer"
     ],
     "answer": 2
   },
   {
+    "q": "Steffi Graf'ın 1988'de gerçekleştirdiği 'Golden Slam' hangi başarıyı ifade eder?",
+    "options": [
+      "Dört Grand Slam finali kaybı",
+      "Kariyer boyunca tüm turnuvalar",
+      "Dört Grand Slam + Olimpiyat altını",
+      "Beş Grand Slam üst üste"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "Roland Garros (Fransa Açık) hangi kort zemininde oynanır?",
+    "options": [
+      "Toprak (kil)",
+      "Sert kort",
+      "Halı",
+      "Çim"
+    ],
+    "answer": 0
+  },
+  {
     "q": "Tek bir Grand Slam turnuvasında en fazla erkekler tekler şampiyonluğuna (14 kez Roland Garros) sahip oyuncu kimdir?",
     "options": [
-      "Novak Djokovic",
-      "Rafael Nadal",
       "Roger Federer",
-      "Bjorn Borg"
+      "Bjorn Borg",
+      "Rafael Nadal",
+      "Novak Djokovic"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Tenis puanlamasında 40-40 durumundan sonra bir sayı alan oyuncunun konumu nasıl adlandırılır?",
     "options": [
-      "Deuce",
       "Avantaj",
+      "Break",
       "Let",
-      "Break"
+      "Deuce"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "ABD Açık (US Open) hangi şehirde düzenlenir?",
     "options": [
-      "Boston",
-      "New York",
+      "Miami",
       "Chicago",
-      "Miami"
+      "Boston",
+      "New York"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Margaret Court, tekler kategorisinde toplam kaç Grand Slam şampiyonluğuyla rekora sahiptir?",
     "options": [
+      "20",
       "18",
-      "24",
       "22",
-      "20"
+      "24"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Erkekler tenisinde 'Big Three' olarak anılan üçlü hangileridir?",
     "options": [
-      "Federer, Nadal, Murray",
       "Federer, Nadal, Djokovic",
-      "Nadal, Djokovic, Wawrinka",
-      "Federer, Djokovic, Sampras"
+      "Federer, Nadal, Murray",
+      "Federer, Djokovic, Sampras",
+      "Nadal, Djokovic, Wawrinka"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Davis Cup hangi tenis organizasyonudur?",
     "options": [
-      "Bireysel kadınlar turnuvası",
-      "Erkek milli takımlar turnuvası",
+      "Gençler şampiyonası",
       "Karışık çiftler serisi",
-      "Gençler şampiyonası"
+      "Bireysel kadınlar turnuvası",
+      "Erkek milli takımlar turnuvası"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Wimbledon turnuvası hangi kort zemininde oynanan tek Grand Slam'dir?",
     "options": [
       "Toprak",
-      "Çim",
+      "Sentetik",
       "Sert kort",
-      "Sentetik"
+      "Çim"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "NBA tarihinde tek bir sezonda 'triple-double' ortalamasını ilk yakalayan efsane oyuncu kimdir?",
     "options": [
       "Magic Johnson",
-      "Oscar Robertson",
+      "Jerry West",
       "Wilt Chamberlain",
-      "Jerry West"
+      "Oscar Robertson"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Bir NBA maçında 100 sayı atan tek oyuncu kimdir?",
     "options": [
-      "Kobe Bryant",
+      "Kareem Abdul-Jabbar",
       "Wilt Chamberlain",
       "Michael Jordan",
-      "Kareem Abdul-Jabbar"
+      "Kobe Bryant"
     ],
     "answer": 1
   },
   {
     "q": "NBA'de kariyer boyunca en fazla sayı atan (all-time scoring leader) oyuncu kimdir?",
     "options": [
+      "Kobe Bryant",
       "Kareem Abdul-Jabbar",
-      "LeBron James",
       "Karl Malone",
-      "Kobe Bryant"
+      "LeBron James"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "NBA'de üç sayılık atış çizgisi hangi sezonda resmen kullanılmaya başlandı?",
     "options": [
+      "1967-68",
       "1979-80",
-      "1971-72",
       "1985-86",
-      "1967-68"
+      "1971-72"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Basketbolda bir takım hücumda topu ne kadar süre içinde potaya atmak zorundadır (NBA şut saati)?",
     "options": [
-      "30 saniye",
       "24 saniye",
-      "20 saniye",
-      "35 saniye"
+      "30 saniye",
+      "35 saniye",
+      "20 saniye"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "FIBA kurallarında bir basketbol maçı normalde kaç dakikalık dört periyottan oluşur?",
     "options": [
-      "12 dakika",
-      "10 dakika",
+      "8 dakika",
       "15 dakika",
-      "8 dakika"
+      "12 dakika",
+      "10 dakika"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Michael Jordan, NBA şampiyonluklarının tamamını hangi takımla kazandı?",
     "options": [
-      "Washington Wizards",
       "Chicago Bulls",
       "New York Knicks",
-      "Detroit Pistons"
+      "Detroit Pistons",
+      "Washington Wizards"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Türkiye A Milli Erkek Basketbol Takımı, 2010 Dünya Şampiyonası'nda hangi dereceyi elde etti?",
     "options": [
-      "Şampiyon",
       "İkinci (gümüş)",
       "Üçüncü",
+      "Şampiyon",
       "Dördüncü"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "EuroLeague'i (Avrupa'nın en üst kulüp turnuvası) kazanan ilk Türk kulübü hangisidir?",
     "options": [
+      "Galatasaray",
       "Anadolu Efes",
       "Fenerbahçe",
-      "Galatasaray",
       "Beşiktaş"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "NBA'de tek sezon 'Most Valuable Player' (MVP) ödülünü en çok kazanan oyuncu kimdir (6 kez)?",
     "options": [
+      "Bill Russell",
       "Michael Jordan",
       "Kareem Abdul-Jabbar",
-      "LeBron James",
-      "Bill Russell"
+      "LeBron James"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Basketbolda 'traveling' (yürüme) ihlali neyi ifade eder?",
     "options": [
-      "Topu iki elle tutup tekrar sürmek",
-      "Top sürmeden fazla adım atmak",
+      "Topu sahadan çıkarmak",
       "Rakibe faul yapmak",
-      "Topu sahadan çıkarmak"
+      "Topu iki elle tutup tekrar sürmek",
+      "Top sürmeden fazla adım atmak"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Anadolu Efes, EuroLeague şampiyonluğunu üst üste hangi yıllarda kazandı?",
     "options": [
       "2019 ve 2020",
-      "2021 ve 2022",
       "2017 ve 2018",
+      "2021 ve 2022",
       "2022 ve 2023"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Formula 1 tarihinde en fazla dünya şampiyonluğunu paylaşan iki isim (her biri 7 kez) kimlerdir?",
     "options": [
-      "Senna ve Prost",
       "Schumacher ve Hamilton",
+      "Senna ve Prost",
       "Vettel ve Alonso",
       "Fangio ve Clark"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Formula 1'de bir yarış hafta sonu pole belirlemek için hangi seansla şekillenir?",
     "options": [
-      "Ana yarış",
+      "Formasyon turu",
       "Qualifying (sıralama turları)",
-      "Serbest antrenman finali",
-      "Formasyon turu"
+      "Ana yarış",
+      "Serbest antrenman finali"
     ],
     "answer": 1
   },
   {
     "q": "Monako Grand Prix'si hangi kent sokaklarında düzenlenen prestijli bir F1 yarışıdır?",
     "options": [
-      "Nice",
-      "Monte Carlo",
       "Cannes",
-      "Marsilya"
+      "Marsilya",
+      "Monte Carlo",
+      "Nice"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Le Mans 24 Saat dayanıklılık yarışı hangi ülkede düzenlenir?",
     "options": [
-      "İtalya",
-      "Fransa",
+      "Belçika",
       "Almanya",
-      "Belçika"
+      "Fransa",
+      "İtalya"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Formula 1'de DRS kısaltması neyi ifade eder?",
     "options": [
-      "Drag Reduction System",
+      "Downforce Regulation System",
       "Dynamic Racing Speed",
-      "Drive Response Setting",
-      "Downforce Regulation System"
+      "Drag Reduction System",
+      "Drive Response Setting"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Ayrton Senna, Formula 1 kariyerindeki üç dünya şampiyonluğunu hangi takımla kazandı?",
     "options": [
-      "Ferrari",
+      "Lotus",
       "McLaren",
       "Williams",
-      "Lotus"
+      "Ferrari"
     ],
     "answer": 1
   },
   {
     "q": "NASCAR yarışları ağırlıklı olarak hangi ülkede popülerdir?",
     "options": [
-      "Birleşik Krallık",
-      "Amerika Birleşik Devletleri",
+      "Japonya",
       "Avustralya",
-      "Japonya"
+      "Amerika Birleşik Devletleri",
+      "Birleşik Krallık"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Formula 1'de 'pole pozisyonu' neyi ifade eder?",
     "options": [
-      "Yarışı bitiren ilk sıra",
       "Sıralama turlarında en hızlı dereceyle alınan başlangıç ilk sırası",
       "Pit stop hattındaki ilk yer",
-      "Şampiyona liderliği"
+      "Şampiyona liderliği",
+      "Yarışı bitiren ilk sıra"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Michael Schumacher, dünya şampiyonluklarının beşini üst üste hangi takımla kazandı (2000-2004)?",
     "options": [
       "Benetton",
-      "Ferrari",
+      "McLaren",
       "Mercedes",
-      "McLaren"
+      "Ferrari"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Rallide kullanılan 'WRC' kısaltması neyi ifade eder?",
     "options": [
       "World Racing Cup",
+      "World Road Contest",
       "World Rally Championship",
-      "Western Rally Circuit",
-      "World Road Contest"
+      "Western Rally Circuit"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Formula 1'de bir pilotun yarış sırasında lastik değiştirmek için girdiği alana ne denir?",
@@ -2743,102 +2743,102 @@ export default [
   {
     "q": "Lewis Hamilton, ilk Formula 1 dünya şampiyonluğunu hangi yıl kazandı?",
     "options": [
-      "2007",
-      "2008",
       "2010",
-      "2014"
+      "2014",
+      "2008",
+      "2007"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Indianapolis 500 yarışı yaklaşık kaç mil uzunluğundadır?",
     "options": [
-      "300 mil",
       "500 mil",
       "400 mil",
+      "300 mil",
       "250 mil"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Formula 1'de constructors (takımlar) şampiyonası neye göre belirlenir?",
     "options": [
-      "Tek pilotun puanı",
       "İki pilotun topladığı toplam puan",
+      "Tek pilotun puanı",
       "En hızlı tur sayısı",
       "Pole sayısı"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "MotoGP'de Marc Marquez premier sınıf şampiyonluklarının çoğunu hangi üretici için kazandı?",
     "options": [
-      "Yamaha",
-      "Honda",
+      "Suzuki",
       "Ducati",
-      "Suzuki"
+      "Honda",
+      "Yamaha"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Formula 1'de siyah-beyaz damalı bayrak (checkered flag) neyi ifade eder?",
     "options": [
-      "Yarışın durdurulması",
-      "Yarışın bitişi",
       "Tehlike uyarısı",
-      "Sarı bölge"
+      "Sarı bölge",
+      "Yarışın durdurulması",
+      "Yarışın bitişi"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Sebastian Vettel, üst üste dört Formula 1 dünya şampiyonluğunu (2010-2013) hangi takımla kazandı?",
     "options": [
       "Ferrari",
-      "Red Bull Racing",
       "Aston Martin",
+      "Red Bull Racing",
       "Toro Rosso"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Naim Süleymanoğlu 1988 Seul Olimpiyatları'nda hangi halter sıklet kategorisinde altın madalya kazandı?",
-    "options": [
-      "52 kg",
-      "56 kg",
-      "60 kg",
-      "67.5 kg"
     ],
     "answer": 2
   },
   {
+    "q": "Naim Süleymanoğlu 1988 Seul Olimpiyatları'nda hangi halter sıklet kategorisinde altın madalya kazandı?",
+    "options": [
+      "60 kg",
+      "56 kg",
+      "52 kg",
+      "67.5 kg"
+    ],
+    "answer": 0
+  },
+  {
     "q": "Naim Süleymanoğlu toplam kaç kez olimpiyat şampiyonu olmuştur?",
     "options": [
-      "1",
       "2",
+      "4",
       "3",
-      "4"
+      "1"
     ],
     "answer": 2
   },
   {
     "q": "Halil Mutlu 2000 Sidney Olimpiyatları'nda hangi sıklette altın madalya kazandı?",
     "options": [
-      "48 kg",
       "56 kg",
-      "62 kg",
-      "69 kg"
+      "48 kg",
+      "69 kg",
+      "62 kg"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Süreyya Ayhan hangi atletizm branşında 2002 Avrupa Şampiyonu olmuştur?",
     "options": [
-      "800 metre",
       "1500 metre",
-      "3000 metre",
-      "5000 metre"
+      "800 metre",
+      "5000 metre",
+      "3000 metre"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Yaşar Erkan hangi olimpiyatta altın madalya kazanarak Türkiye'nin ilk olimpiyat şampiyonu oldu?",
@@ -2853,52 +2853,52 @@ export default [
   {
     "q": "Ramazan Şahin 2008 Pekin Olimpiyatları'nda hangi güreş stilinde altın madalya kazandı?",
     "options": [
-      "Grekoromen",
+      "Karate",
       "Serbest",
-      "Judo",
-      "Karate"
+      "Grekoromen",
+      "Judo"
     ],
     "answer": 1
   },
   {
     "q": "Rıza Kayaalp hangi güreş stilinin ünlü bir sporcusudur?",
     "options": [
-      "Serbest güreş",
       "Grekoromen güreş",
+      "Serbest güreş",
       "Yağlı güreş",
       "Kuşak güreşi"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Servet Tazegül 2012 Londra Olimpiyatları'nda hangi branşta altın madalya kazandı?",
     "options": [
       "Judo",
+      "Boks",
       "Tekvando",
-      "Karate",
-      "Boks"
+      "Karate"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Nur Tatar hangi spor dalında olimpiyat madalyası kazanan Türk sporcudur?",
     "options": [
-      "Judo",
       "Tekvando",
+      "Judo",
       "Karate",
       "Eskrim"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Elvan Abeylegesse hangi atletizm mesafelerinde Türkiye adına yarışmıştır?",
     "options": [
-      "Sprint (100-200 m)",
       "Orta mesafe (800 m)",
       "Uzun mesafe (5000-10000 m)",
-      "Engelli koşu"
+      "Engelli koşu",
+      "Sprint (100-200 m)"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Nevin Yanıt hangi atletizm branşında Avrupa şampiyonluğu kazanmıştır?",
@@ -2914,18 +2914,18 @@ export default [
     "q": "Hidayet Türkoğlu NBA'de en çok hangi takımda tanınmıştır?",
     "options": [
       "Los Angeles Lakers",
-      "Orlando Magic",
       "Boston Celtics",
-      "Chicago Bulls"
+      "Chicago Bulls",
+      "Orlando Magic"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Mete Gazoz 2020 Tokyo Olimpiyatları'nda hangi branşta altın madalya kazandı?",
     "options": [
-      "Atıcılık",
-      "Okçuluk",
       "Eskrim",
+      "Okçuluk",
+      "Atıcılık",
       "Modern pentatlon"
     ],
     "answer": 1
@@ -2933,10 +2933,10 @@ export default [
   {
     "q": "Busenaz Sürmeneli 2020 Tokyo Olimpiyatları'nda hangi spor dalında altın madalya kazandı?",
     "options": [
-      "Tekvando",
-      "Boks",
       "Judo",
-      "Güreş"
+      "Boks",
+      "Güreş",
+      "Tekvando"
     ],
     "answer": 1
   },
@@ -2955,8 +2955,8 @@ export default [
     "options": [
       "Şampiyonlar Ligi",
       "UEFA Kupası",
-      "Kupa Galipleri Kupası",
-      "Süper Kupa"
+      "Süper Kupa",
+      "Kupa Galipleri Kupası"
     ],
     "answer": 1
   },
@@ -2964,9 +2964,9 @@ export default [
     "q": "Türkiye A Milli Futbol Takımı 2002 Dünya Kupası'nda kaçıncı olmuştur?",
     "options": [
       "1.",
-      "2.",
+      "4.",
       "3.",
-      "4."
+      "2."
     ],
     "answer": 2
   },
@@ -2974,58 +2974,58 @@ export default [
     "q": "Hakan Şükür 2002 Dünya Kupası'nda Güney Kore'ye karşı kaçıncı saniyede gol atarak rekor kırdı?",
     "options": [
       "10.9 saniye",
+      "20 saniye",
       "11 saniye",
-      "15 saniye",
-      "20 saniye"
+      "15 saniye"
     ],
     "answer": 0
   },
   {
     "q": "Naim Süleymanoğlu hangi lakapla anılırdı?",
     "options": [
+      "Şahin",
       "Cep Herkülü",
       "Boğa",
-      "Kanatlı",
-      "Şahin"
+      "Kanatlı"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Ahmet Ayık hangi spor dalında olimpiyat şampiyonu olmuş ünlü bir Türk sporcudur?",
     "options": [
-      "Halter",
-      "Güreş",
       "Boks",
-      "Judo"
+      "Judo",
+      "Güreş",
+      "Halter"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Mahmut Atalay 1968 Meksika Olimpiyatları'nda hangi branşta altın madalya kazandı?",
     "options": [
+      "Boks",
       "Grekoromen güreş",
       "Serbest güreş",
-      "Halter",
-      "Boks"
+      "Halter"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Taha Akgül hangi güreş stilinde dünya ve olimpiyat şampiyonluğu kazanmıştır?",
     "options": [
-      "Serbest güreş",
       "Grekoromen güreş",
       "Yağlı güreş",
+      "Serbest güreş",
       "Aba güreşi"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Şeref Eroğlu hangi güreş stilinde birçok dünya şampiyonluğu kazanmıştır?",
     "options": [
-      "Serbest güreş",
-      "Grekoromen güreş",
       "Sumo",
+      "Grekoromen güreş",
+      "Serbest güreş",
       "Judo"
     ],
     "answer": 1
@@ -3034,31 +3034,31 @@ export default [
     "q": "Kenan Sofuoğlu hangi motor sporunda 5 kez dünya şampiyonu olmuştur?",
     "options": [
       "MotoGP",
-      "Superbike",
       "Supersport",
-      "Motocross"
+      "Motocross",
+      "Superbike"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Türk yüzücü Derya Büyükuncu hangi branşta uzun yıllar Türkiye'yi temsil etti?",
     "options": [
+      "Kurbağalama",
       "Serbest stil",
       "Sırtüstü",
-      "Kelebek",
-      "Kurbağalama"
+      "Kelebek"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Eczacıbaşı VitrA kadın voleybol takımı hangi spor branşında Türkiye'nin en başarılı kulüplerindendir?",
     "options": [
-      "Basketbol",
       "Voleybol",
-      "Hentbol",
-      "Su topu"
+      "Su topu",
+      "Basketbol",
+      "Hentbol"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Milli tekvandocu Hakan Reçber 2024 Paris Olimpiyatları'nda hangi madalyayı kazandı?",
@@ -3073,150 +3073,150 @@ export default [
   {
     "q": "Türk halterci Nurcan Taylan hangi olimpiyatta kadınlarda altın madalya kazanan ilk Türk kadın oldu?",
     "options": [
+      "2008 Pekin",
       "2000 Sidney",
       "2004 Atina",
-      "2008 Pekin",
       "2012 Londra"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Yusuf Dikeç 2024 Paris Olimpiyatları'nda hangi branşta gümüş madalya kazanarak dünya çapında ün kazandı?",
     "options": [
+      "Trap atıcılık",
       "Okçuluk",
       "Havalı tabanca atıcılığı",
-      "Eskrim",
-      "Trap atıcılık"
+      "Eskrim"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Yusuf Dikeç 2024 Paris'te karışık takım atıcılıkta hangi sporcuyla birlikte gümüş madalya kazandı?",
     "options": [
-      "Şevval İlayda Tarhan",
-      "Busenaz Sürmeneli",
       "Nur Tatar",
-      "Buse Naz Çakıroğlu"
+      "Şevval İlayda Tarhan",
+      "Buse Naz Çakıroğlu",
+      "Busenaz Sürmeneli"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Buse Naz Çakıroğlu hangi spor dalında olimpiyat madalyaları kazanmıştır?",
     "options": [
       "Tekvando",
+      "Güreş",
       "Boks",
-      "Judo",
-      "Güreş"
+      "Judo"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "İlhan Mansız 2002 Dünya Kupası'nda Türkiye adına gol atarak öne çıktı; ancak sonraki kariyerinde hangi kış sporuna yöneldi?",
     "options": [
       "Kayak",
+      "Curling",
       "Buz pateni (artistik)",
-      "Snowboard",
-      "Curling"
+      "Snowboard"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Efes (Anadolu Efes) Erkek Basketbol Takımı üst üste hangi yıllarda EuroLeague şampiyonu oldu?",
     "options": [
       "2019 ve 2020",
+      "2022 ve 2023",
       "2020 ve 2021",
-      "2021 ve 2022",
-      "2022 ve 2023"
+      "2021 ve 2022"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "q": "Cüneyt Çakır hangi spor branşında uluslararası üne sahip bir Türk'tür?",
     "options": [
       "Futbol hakemliği",
-      "Basketbol koçluğu",
+      "Atletizm",
       "Voleybol antrenörlüğü",
-      "Atletizm"
+      "Basketbol koçluğu"
     ],
     "answer": 0
   },
   {
     "q": "Gökhan Saki hangi dövüş sporunda dünya çapında tanınan bir Türk sporcudur?",
     "options": [
+      "Judo",
       "Boks",
       "Kickboks",
-      "Güreş",
-      "Judo"
+      "Güreş"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Recep Uslu değil; okçu Yasemin Ecem Anagöz hangi branşta Türkiye'yi temsil etmiştir?",
     "options": [
-      "Klasik yay okçuluk",
       "Makaralı yay okçuluk",
       "Atıcılık",
-      "Eskrim"
+      "Eskrim",
+      "Klasik yay okçuluk"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "q": "1930 yılında düzenlenen ilk FIFA Dünya Kupası'nı hangi ülke kazandı?",
     "options": [
       "Arjantin",
-      "Uruguay",
       "Brezilya",
+      "Uruguay",
+      "İtalya"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "İlk FIFA Dünya Kupası hangi ülkede düzenlendi?",
+    "options": [
+      "Brezilya",
+      "Uruguay",
+      "İtalya",
+      "Fransa"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "Dünya Kupası'nı en fazla (5 kez) kazanan ülke hangisidir?",
+    "options": [
+      "Brezilya",
+      "İtalya",
+      "Almanya",
+      "Arjantin"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "1950 Dünya Kupası finalinde Brezilya'yı yenerek 'Maracanazo' olarak anılan sürprizi yapan ülke hangisidir?",
+    "options": [
+      "Arjantin",
+      "Uruguay",
+      "İspanya",
       "İtalya"
     ],
     "answer": 1
   },
   {
-    "q": "İlk FIFA Dünya Kupası hangi ülkede düzenlendi?",
+    "q": "Real Madrid'in ilk beş Avrupa Şampiyon Kulüpler Kupası'nı üst üste kazandığı dönem hangi yıllardır?",
     "options": [
-      "Uruguay",
-      "İtalya",
-      "Fransa",
-      "Brezilya"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Dünya Kupası'nı en fazla (5 kez) kazanan ülke hangisidir?",
-    "options": [
-      "Almanya",
-      "İtalya",
-      "Brezilya",
-      "Arjantin"
+      "1955-1959",
+      "1960-1964",
+      "1956-1960",
+      "1958-1962"
     ],
     "answer": 2
   },
   {
-    "q": "1950 Dünya Kupası finalinde Brezilya'yı yenerek 'Maracanazo' olarak anılan sürprizi yapan ülke hangisidir?",
-    "options": [
-      "Uruguay",
-      "Arjantin",
-      "İtalya",
-      "İspanya"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Real Madrid'in ilk beş Avrupa Şampiyon Kulüpler Kupası'nı üst üste kazandığı dönem hangi yıllardır?",
-    "options": [
-      "1956-1960",
-      "1960-1964",
-      "1955-1959",
-      "1958-1962"
-    ],
-    "answer": 0
-  },
-  {
     "q": "1992'de UEFA Şampiyonlar Ligi'nin ilk kez bu isimle düzenlenmesinden önceki adı neydi?",
     "options": [
-      "UEFA Kupası",
+      "Intertoto Kupası",
       "Avrupa Şampiyon Kulüpler Kupası",
       "Kupa Galipleri Kupası",
-      "Intertoto Kupası"
+      "UEFA Kupası"
     ],
     "answer": 1
   },
@@ -3224,48 +3224,48 @@ export default [
     "q": "2004 Avrupa Şampiyonası'nı sürpriz bir şekilde kazanan ülke hangisidir?",
     "options": [
       "Portekiz",
-      "Yunanistan",
       "Çek Cumhuriyeti",
-      "Hollanda"
+      "Hollanda",
+      "Yunanistan"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Diego Maradona'nın 1986 Dünya Kupası'nda İngiltere'ye attığı tartışmalı elle gol hangi isimle anılır?",
     "options": [
-      "Tanrı'nın Eli",
+      "Gümüş Gol",
       "Şeytanın Golü",
-      "Altın Gol",
-      "Gümüş Gol"
+      "Tanrı'nın Eli",
+      "Altın Gol"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "UEFA Şampiyonlar Ligi'ni en fazla kazanan kulüp hangisidir?",
     "options": [
-      "AC Milan",
-      "Bayern Münih",
+      "Real Madrid",
       "Liverpool",
-      "Real Madrid"
+      "AC Milan",
+      "Bayern Münih"
     ],
-    "answer": 3
+    "answer": 0
   },
   {
     "q": "Galatasaray hangi yıl UEFA Kupası'nı kazanarak bu kupayı kazanan ilk Türk takımı oldu?",
     "options": [
       "1999",
-      "2000",
+      "1998",
       "2001",
-      "1998"
+      "2000"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "2000 UEFA Kupası finalinde Galatasaray hangi takımı penaltılarla yendi?",
     "options": [
       "Arsenal",
-      "Leeds United",
       "Parma",
+      "Leeds United",
       "Chelsea"
     ],
     "answer": 0
@@ -3274,91 +3274,91 @@ export default [
     "q": "Türkiye A Milli Futbol Takımı 2002 Dünya Kupası'nda kaçıncı olmuştur?",
     "options": [
       "İkinci",
+      "Beşinci",
       "Üçüncü",
-      "Dördüncü",
-      "Beşinci"
+      "Dördüncü"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "2002 Dünya Kupası'nda gol kralı olan Brezilyalı futbolcu kimdir?",
     "options": [
       "Ronaldinho",
-      "Rivaldo",
       "Ronaldo",
-      "Kaka"
+      "Kaka",
+      "Rivaldo"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Bir Dünya Kupası maçında en hızlı gol (11. saniye) rekoru 2002'de hangi Türk futbolcuya aittir?",
     "options": [
-      "Hakan Şükür",
       "Nihat Kahveci",
       "İlhan Mansız",
+      "Hakan Şükür",
       "Hasan Şaş"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "İngiltere'de düzenlenen 1966 Dünya Kupası'nı hangi ülke kazandı?",
     "options": [
-      "Almanya",
       "İngiltere",
+      "Almanya",
       "Brezilya",
       "Portekiz"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Johan Cruyff'un simgesi haline gelen ve 'Total Futbol' anlayışıyla anılan ülke hangisidir?",
-    "options": [
-      "Almanya",
-      "Hollanda",
-      "Belçika",
-      "İtalya"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Manchester United'ın 1958'de yaşadığı ve birçok oyuncusunun hayatını kaybettiği uçak kazası hangi isimle anılır?",
-    "options": [
-      "Münih Faciası",
-      "Heysel Faciası",
-      "Hillsborough Faciası",
-      "Superga Faciası"
     ],
     "answer": 0
   },
   {
-    "q": "1985'te Liverpool ile Juventus arasındaki Avrupa Kupası finalinde yaşanan ve 39 kişinin öldüğü facia hangisidir?",
+    "q": "Johan Cruyff'un simgesi haline gelen ve 'Total Futbol' anlayışıyla anılan ülke hangisidir?",
+    "options": [
+      "Hollanda",
+      "Almanya",
+      "Belçika",
+      "İtalya"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "Manchester United'ın 1958'de yaşadığı ve birçok oyuncusunun hayatını kaybettiği uçak kazası hangi isimle anılır?",
     "options": [
       "Hillsborough Faciası",
-      "Heysel Faciası",
-      "Bradford Faciası",
-      "İbrox Faciası"
+      "Superga Faciası",
+      "Münih Faciası",
+      "Heysel Faciası"
     ],
-    "answer": 1
+    "answer": 2
+  },
+  {
+    "q": "1985'te Liverpool ile Juventus arasındaki Avrupa Kupası finalinde yaşanan ve 39 kişinin öldüğü facia hangisidir?",
+    "options": [
+      "İbrox Faciası",
+      "Bradford Faciası",
+      "Heysel Faciası",
+      "Hillsborough Faciası"
+    ],
+    "answer": 2
   },
   {
     "q": "Copa America'yı en fazla kazanan iki ülkeden biri Arjantin'dir. Diğeri hangisidir?",
     "options": [
       "Brezilya",
       "Uruguay",
-      "Şili",
-      "Paraguay"
+      "Paraguay",
+      "Şili"
     ],
     "answer": 1
   },
   {
     "q": "Ballon d'Or ödülünü ilk kazanan futbolcu (1956) kimdir?",
     "options": [
-      "Alfredo Di Stefano",
-      "Stanley Matthews",
       "Ferenc Puskas",
-      "Raymond Kopa"
+      "Raymond Kopa",
+      "Stanley Matthews",
+      "Alfredo Di Stefano"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Fenerbahçe hangi yıl kurulmuştur?",
@@ -3373,12 +3373,12 @@ export default [
   {
     "q": "Galatasaray Spor Kulübü hangi yıl kurulmuştur?",
     "options": [
-      "1905",
       "1907",
-      "1903",
-      "1909"
+      "1905",
+      "1909",
+      "1903"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "Beşiktaş Jimnastik Kulübü hangi yıl kurulmuştur?",
@@ -3393,79 +3393,79 @@ export default [
   {
     "q": "İspanya A Milli Takımı 2008, 2012 ve 2010'da art arda kazandığı büyük turnuvalardan hangisini 2010'da kazandı?",
     "options": [
-      "Avrupa Şampiyonası",
-      "Dünya Kupası",
       "Konfederasyonlar Kupası",
-      "Uluslar Ligi"
+      "Avrupa Şampiyonası",
+      "Uluslar Ligi",
+      "Dünya Kupası"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "q": "Leicester City'nin sürpriz Premier Lig şampiyonluğu hangi sezonda gerçekleşti?",
     "options": [
+      "2016-17",
       "2014-15",
       "2015-16",
-      "2016-17",
       "2013-14"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "1954 Dünya Kupası finalinde Macaristan'ı yenerek 'Bern Mucizesi'ni gerçekleştiren ülke hangisidir?",
     "options": [
       "Batı Almanya",
-      "İtalya",
       "Brezilya",
-      "Avusturya"
+      "Avusturya",
+      "İtalya"
     ],
     "answer": 0
   },
   {
     "q": "Pele'nin kariyeri boyunca oynadığı ana Brezilya kulübü hangisidir?",
     "options": [
-      "Flamengo",
       "Corinthians",
       "Santos",
+      "Flamengo",
       "Palmeiras"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Dünya Kupası'nı hem oyuncu hem teknik direktör olarak kazanan futbolculardan biri olan Franz Beckenbauer hangi ülkedendir?",
     "options": [
+      "İsviçre",
       "Almanya",
       "Avusturya",
-      "Hollanda",
-      "İsviçre"
+      "Hollanda"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "2016 Avrupa Şampiyonası'nı ilk kez kazanan ülke hangisidir?",
     "options": [
-      "Fransa",
       "Portekiz",
       "Galler",
-      "İtalya"
+      "İtalya",
+      "Fransa"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Zinedine Zidane'ın 2006 Dünya Kupası finalinde kafa attığı ve kırmızı kart gördüğü İtalyan oyuncu kimdir?",
     "options": [
-      "Fabio Cannavaro",
       "Marco Materazzi",
+      "Alessandro Nesta",
       "Gennaro Gattuso",
-      "Alessandro Nesta"
+      "Fabio Cannavaro"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "q": "Trabzonspor hangi yıl Anadolu kulüpleri adına ilk Türkiye Süper Lig şampiyonluğunu kazandı?",
     "options": [
       "1976",
-      "1974",
       "1980",
+      "1974",
       "1978"
     ],
     "answer": 0
@@ -3473,91 +3473,81 @@ export default [
   {
     "q": "AC Milan ile Inter'in oynadığı şehir derbisi hangi isimle bilinir?",
     "options": [
+      "Derby della Mole",
       "Derby della Madonnina",
-      "Derby d'Italia",
       "Derby della Capitale",
-      "Derby della Mole"
+      "Derby d'Italia"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "q": "FIFA Dünya Kupası trofesi (mevcut kupa) ilk kez hangi Dünya Kupası'nda verilmeye başlandı?",
     "options": [
-      "1970",
+      "1982",
       "1974",
       "1978",
-      "1982"
+      "1970"
     ],
     "answer": 1
   },
   {
     "q": "Jules Rimet Kupası'nı üçüncü kez kazanarak temelli kendisine ait kılan ülke hangisidir?",
     "options": [
-      "İtalya",
       "Brezilya",
       "Uruguay",
-      "Almanya"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Bir sezonda Avrupa'da 'treble' (üçleme) yapan ilk İngiliz kulübü hangisidir?",
-    "options": [
-      "Liverpool",
-      "Manchester United",
-      "Arsenal",
-      "Chelsea"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Manchester United'ın 1999'da treble yaptığı sezonda Şampiyonlar Ligi finalinde yendiği takım hangisidir?",
-    "options": [
-      "Bayern Münih",
-      "Juventus",
-      "Barcelona",
-      "Real Madrid"
+      "Almanya",
+      "İtalya"
     ],
     "answer": 0
   },
   {
+    "q": "Bir sezonda Avrupa'da 'treble' (üçleme) yapan ilk İngiliz kulübü hangisidir?",
+    "options": [
+      "Chelsea",
+      "Liverpool",
+      "Manchester United",
+      "Arsenal"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "Manchester United'ın 1999'da treble yaptığı sezonda Şampiyonlar Ligi finalinde yendiği takım hangisidir?",
+    "options": [
+      "Real Madrid",
+      "Juventus",
+      "Barcelona",
+      "Bayern Münih"
+    ],
+    "answer": 3
+  },
+  {
     "q": "Arjantinli Lionel Messi'nin milli takımla ilk kez Dünya Kupası kazandığı turnuva hangi yıldır?",
     "options": [
-      "2018",
-      "2022",
       "2014",
-      "2010"
+      "2022",
+      "2010",
+      "2018"
     ],
     "answer": 1
   },
   {
     "q": "Ajax'ın efsanevi futbolcusu Johan Cruyff daha sonra hangi İspanyol kulübünde hem oynadı hem teknik direktörlük yaptı?",
     "options": [
-      "Real Madrid",
-      "Barcelona",
       "Atletico Madrid",
-      "Valencia"
+      "Valencia",
+      "Barcelona",
+      "Real Madrid"
     ],
-    "answer": 1
-  },
-  {
-    "q": "UEFA Avrupa Ligi'nin (eski UEFA Kupası) 2009-10 sezonundan itibaren aldığı yeni isim nedir?",
-    "options": [
-      "UEFA Konferans Ligi",
-      "UEFA Avrupa Ligi",
-      "UEFA Süper Ligi",
-      "UEFA Kupa Ligi"
-    ],
-    "answer": 1
+    "answer": 2
   },
   {
     "q": "Dünya Kupası tarihinde tek turnuvada en fazla gol atarak (13 gol) rekor kıran Fransız futbolcu kimdir?",
     "options": [
-      "Just Fontaine",
       "Michel Platini",
+      "Zinedine Zidane",
       "Thierry Henry",
-      "Zinedine Zidane"
+      "Just Fontaine"
     ],
-    "answer": 0
+    "answer": 3
   }
 ];
