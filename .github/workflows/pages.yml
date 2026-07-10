@@ -1,11 +1,12 @@
 name: Deploy to GitHub Pages
 
 # Statik site — build gerektirmez, olduğu gibi Pages'e yüklenir.
+# Yalnızca yayın dalı (main) deploy eder; başka dallar boş yere Pages'e
+# deploy etmeye çalışıp hata/iptal üretmesin diye tek dalla sınırlı.
 on:
   push:
     branches:
       - main
-      - claude/bildim-game-app-8dlr77
   workflow_dispatch:
 
 permissions:
