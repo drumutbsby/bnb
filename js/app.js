@@ -11,7 +11,7 @@ import { CATEGORIES, CUSTOM_CATEGORY, buildQuestionSet } from "./questions.js";
 import { unlock, sfx, isMuted, toggleMute } from "./sound.js";
 import { confetti } from "./confetti.js";
 import qrcode from "./vendor/qrcode.js";
-import { loadProfile, setName, setAvatar, rankFor, rankProgress, recordGame, RANKS, levelFromXp, levelProgress, xpForLevel } from "./profile.js";
+import { loadProfile, saveProfile, setName, setAvatar, rankFor, rankProgress, recordGame, RANKS, levelFromXp, levelProgress, xpForLevel } from "./profile.js";
 import { CHARACTERS, pickPhrase, CATEGORY_QUIPS } from "./characters.js";
 import { ACHIEVEMENTS } from "./achievements.js";
 import { CAMPAIGN, SCENES, loadCampaignProgress, saveCampaignProgress, starsFor } from "./campaign.js";
@@ -527,6 +527,8 @@ function hostShowQuestion(i) {
   const q = state.localQuestions[i];
   state.revealingIndex = -1;
   clearTimeout(state.autoRevealTimer);
+  // Hayatta Kalma: süre kademeli kısalır (20s → min 8s), gerilim artar.
+  if (state.room.meta.survival) state.room.meta.timeLimit = Math.max(8, 20 - Math.floor(i / 2));
 
   if (!state.room.answers) state.room.answers = {};
   state.room.answers[i] = {};
@@ -622,11 +624,22 @@ function hostRevealQuestion(i) {
 
 function hostNext() {
   clearTimeout(state.autoNextTimer);
-  const i = state.room.meta.questionIndex;
-  if (i + 1 < state.room.meta.totalQuestions) {
+  const m = state.room.meta;
+  const i = m.questionIndex;
+  // Hayatta Kalma: son soruyu yanlış cevapladıysan (ya da hiç cevaplamadıysan) elenirsin.
+  if (m.survival) {
+    const meHost = state.room.players.host;
+    if (meHost && !meHost.lastCorrect) {
+      m.status = "ended";
+      hostPublish();
+      render();
+      return;
+    }
+  }
+  if (i + 1 < m.totalQuestions) {
     hostShowQuestion(i + 1);
   } else {
-    state.room.meta.status = "ended";
+    m.status = "ended";
     hostPublish();
     render();
   }
@@ -920,6 +933,7 @@ function renderHome() {
       <button class="btn btn-primary btn-big" id="goHost">🎮 Oda Kur</button>
       <button class="btn btn-secondary btn-big" id="goJoin">🙋 Odaya Katıl</button>
       <button class="btn btn-secondary btn-big" id="solo">🎯 Tek Başına</button>
+      <button class="btn btn-secondary btn-big" id="survival">🔥 Hayatta Kalma</button>
       <button class="btn btn-secondary btn-big" id="duel">⚔️ Düello (1v1)</button>
       <button class="btn btn-story btn-big" id="campaign">🗺️ Macera</button>
       <button class="btn btn-secondary btn-big" id="quick">⚡ Hızlı Eşleş</button>
@@ -933,6 +947,7 @@ function renderHome() {
   document.getElementById("goHost").onclick = () => { sfx.click(); renderHostSetup(); };
   document.getElementById("goJoin").onclick = () => { sfx.click(); renderJoin(); };
   document.getElementById("solo").onclick = () => { sfx.click(); renderSoloSetup(); };
+  document.getElementById("survival").onclick = () => { sfx.click(); renderSurvivalSetup(); };
   document.getElementById("duel").onclick = () => { sfx.click(); renderDuelMenu(); };
   document.getElementById("campaign").onclick = () => { sfx.click(); renderCampaignMap(); };
   document.getElementById("quick").onclick = () => { sfx.click(); renderQuickMatch(); };
@@ -1515,6 +1530,94 @@ async function startSolo(categories, count, difficultyKey, settings) {
       autoNext: !!settings.autoNext, teamMode: false,
       solo: true,
       gameId: "solo-" + uid() + Date.now().toString(36),
+    },
+    players: {
+      host: {
+        name: state.name, score: 0, streak: 0, team: "A",
+        avatar: prof.avatar || "🙂",
+        lastGain: 0, lastCorrect: false, lastStreak: 0,
+        jokers: { ...START_JOKERS },
+      },
+    },
+    requests: {}, publicQuestions: {}, reveal: {}, answers: {}, fifty: {}, doubles: {},
+  };
+  requestWake();
+  hostShowQuestion(0);
+}
+
+// ---------------------------------------------------------------------------
+// Hayatta Kalma modu — solo motoru üzerinde eleme: yanlış cevapta oyun biter,
+// süre her soruda biraz kısalır, kaç soru "hayatta kaldığın" ölçülür.
+// ---------------------------------------------------------------------------
+function renderSurvivalSetup() {
+  state.currentView = "survivalSetup"; armBackGuard();
+  const best = (loadProfile().survivalBest || 0);
+  APP.innerHTML = `
+    <div class="card">
+      <button class="link-back" id="back">‹ Geri</button>
+      <h2>🔥 Hayatta Kalma</h2>
+      <p class="muted small">Tek yanlış = elenirsin. Süre her soruda biraz kısalır. Ne kadar ileri gidebilirsin? İnternet gerekmez.</p>
+      ${best ? `<div class="survival-best">🏆 En iyi: <b>${best}</b> soru</div>` : ""}
+      <label class="field-label">Kategoriler</label>
+      <div class="cat-grid">${categoryChips()}</div>
+      <div class="cat-actions">
+        <button class="mini-btn" id="selAll">Tümü</button>
+        <button class="mini-btn" id="selNone">Hiçbiri</button>
+        <button class="mini-btn" id="editCustom">✏️ Kendi Sorularım</button>
+      </div>
+      <button class="btn btn-primary btn-big" id="startSurvival">🔥 Başla</button>
+    </div>`;
+  document.getElementById("back").onclick = renderHome;
+  const boxes = () => [...APP.querySelectorAll(".cat-chip input")];
+  document.getElementById("selAll").onclick = () => boxes().forEach((b) => (b.checked = b.value !== "ozel"));
+  document.getElementById("selNone").onclick = () => boxes().forEach((b) => (b.checked = false));
+  document.getElementById("editCustom").onclick = () => renderCustomEditor();
+  document.getElementById("startSurvival").onclick = () => {
+    const selected = boxes().filter((b) => b.checked).map((b) => b.value);
+    if (selected.length === 0) { alert("En az bir kategori seç."); return; }
+    if (selected.includes("ozel") && loadCustom().length === 0) {
+      alert("Kendi Sorularım boş. Önce soru ekle ya da bu kategoriyi kaldır.");
+      return;
+    }
+    sfx.click();
+    startSurvival(selected);
+  };
+}
+
+async function startSurvival(categories) {
+  const prof = loadProfile();
+  const custom = categories.includes("ozel") ? loadCustom() : null;
+  renderLoadingCard("Sorular hazırlanıyor...");
+  // Bol soru yükle (endless havuz); elenene kadar bunlardan gidilir.
+  const qset = await buildQuestionSet(categories, 150, custom);
+  if (qset.length < 3) { alert("Sorular yüklenemedi — internet bağlantını kontrol edip tekrar dene."); renderSurvivalSetup(); return; }
+
+  clearTimeout(state.autoRevealTimer);
+  clearTimeout(state.autoNextTimer);
+  clearSoloState(); // eski yarım solo oyunu ile karışmasın
+  state.solo = true;
+  state.campaign = null;
+  state.role = "host";
+  state.playerId = "host";
+  state.name = prof.name || "Sen";
+  state.code = "SOLO";
+  state.localQuestions = qset;
+  state.answeredIndex = -1;
+  state.revealingIndex = -1;
+  state.statsInit = false; state.recorded = false; state.gameStats = null; state.lastRevealIndex = -1;
+  state.survivalParams = { categories };
+  state.room = {
+    meta: {
+      hostName: state.name, status: "lobby", questionIndex: -1,
+      totalQuestions: qset.length, timeLimit: 20,
+      pointFactor: 1, difficulty: "survival",
+      categories, hostPlays: true,
+      speedBonus: true, wrongPenalty: 0,
+      teamName: null, teamAName: null, teamBName: null,
+      requireApproval: false, teamAvg: false,
+      autoNext: false, teamMode: false,
+      solo: true, survival: true,
+      gameId: "surv-" + uid() + Date.now().toString(36),
     },
     players: {
       host: {
@@ -2140,7 +2243,7 @@ function renderHostQuestion() {
   APP.innerHTML = `
     <div class="card question-card">
       <div class="q-top">
-        <span class="q-progress">Soru ${i + 1}/${m.totalQuestions}</span>
+        <span class="q-progress">${m.survival ? `🔥 ${i + 1}. soru` : `Soru ${i + 1}/${m.totalQuestions}`}</span>
         ${catBadge(pq.category)}
         ${comboPillHtml()}
       </div>
@@ -2266,7 +2369,7 @@ function renderPlayerQuestion() {
   APP.innerHTML = `
     <div class="card question-card">
       <div class="q-top">
-        <span class="q-progress">Soru ${i + 1}/${m.totalQuestions}</span>
+        <span class="q-progress">${m.survival ? `🔥 ${i + 1}. soru` : `Soru ${i + 1}/${m.totalQuestions}`}</span>
         ${catBadge(pq.category)}
         ${comboPillHtml()}
       </div>
@@ -2439,14 +2542,26 @@ function renderHostReveal() {
   }
   const isLast = i + 1 >= m.totalQuestions;
   const meHost = m.hostPlays ? state.room.players["host"] : null;
+  const survived = meHost && meHost.lastCorrect;
   let hostBanner = "";
   if (meHost) {
-    if (meHost.lastCorrect) hostBanner = `<div class="host-result good">Senin cevabın: ✓ Doğru +${meHost.lastGain || 0}${(meHost.lastStreak || 0) >= 2 ? ` 🔥${meHost.lastStreak}` : ""}</div>`;
-    else hostBanner = `<div class="host-result bad">Senin cevabın: ✗ Yanlış${(meHost.lastGain || 0) < 0 ? ` ${meHost.lastGain}` : ""}</div>`;
+    if (m.survival) {
+      hostBanner = survived
+        ? `<div class="host-result good">❤️ Hayattasın! ${i + 1}. soruyu geçtin (+${meHost.lastGain || 0})${(meHost.lastStreak || 0) >= 2 ? ` 🔥${meHost.lastStreak}` : ""}</div>`
+        : `<div class="host-result bad">💀 Elendin — ${i + 1}. soruda kaldın.</div>`;
+    } else if (meHost.lastCorrect) {
+      hostBanner = `<div class="host-result good">Senin cevabın: ✓ Doğru +${meHost.lastGain || 0}${(meHost.lastStreak || 0) >= 2 ? ` 🔥${meHost.lastStreak}` : ""}</div>`;
+    } else {
+      hostBanner = `<div class="host-result bad">Senin cevabın: ✗ Yanlış${(meHost.lastGain || 0) < 0 ? ` ${meHost.lastGain}` : ""}</div>`;
+    }
   }
+  const progressLabel = m.survival ? `🔥 ${i + 1}. soru` : `Soru ${i + 1}/${m.totalQuestions}`;
+  const nextLabel = m.survival
+    ? (survived ? "Devam ▶" : "💀 Sonucu Gör")
+    : (isLast ? "Sonuçları Göster 🏆" : "Sıradaki Soru ›");
   APP.innerHTML = `
     <div class="card">
-      <div class="q-top"><span class="q-progress">Soru ${i + 1}/${m.totalQuestions}</span></div>
+      <div class="q-top"><span class="q-progress">${progressLabel}</span></div>
       ${visualHTML(state.room.publicQuestions[i])}
       <div class="q-text small">${esc(q.q)}</div>
       <div class="options reveal">${opts}</div>
@@ -2454,7 +2569,7 @@ function renderHostReveal() {
       ${hostBanner}
       ${m.teamMode ? teamScoreHtml() : ""}
       ${state.solo ? "" : `<div class="players-title">Skor Tablosu</div>${leaderboardHTML(5)}`}
-      <button class="btn btn-primary btn-big" id="next">${isLast ? "Sonuçları Göster 🏆" : "Sıradaki Soru ›"}</button>
+      <button class="btn btn-primary btn-big" id="next">${nextLabel}</button>
     </div>`;
   document.getElementById("next").onclick = () => { sfx.click(); hostNext(); };
   sfx.whoosh();
@@ -2640,6 +2755,46 @@ function renderSoloEnded(m, players) {
   document.getElementById("soloHome").onclick = () => { sfx.click(); state.solo = false; resetToHome(); };
 }
 
+function renderSurvivalEnded(m, players) {
+  clearSoloState();
+  const meP = (state.room.players && state.room.players.host) || {};
+  const gs = state.gameStats || { correct: 0, questions: 0, maxStreak: 0 };
+  const survived = gs.correct || 0; // hayatta kaldığın (doğru geçtiğin) soru sayısı
+  // En iyi rekoru güncelle
+  const prof = loadProfile();
+  const prevBest = prof.survivalBest || 0;
+  const isRecord = survived > prevBest;
+  if (isRecord) { prof.survivalBest = survived; saveProfile(prof); }
+  // XP/rekor işle (host = yerel oyuncu)
+  const xpSummary = recordLocalResult(m, players);
+  const grade = survived >= 20 ? "Efsane dayanıklılık! 🏆" : survived >= 10 ? "Çok iyi! 🎉" : survived >= 5 ? "Fena değil 👍" : "Isınma turu 💪";
+  APP.innerHTML = `
+    <div class="card center">
+      <div class="logo small">🔥 Hayatta Kalma Bitti!</div>
+      <p class="winner-line">${grade}</p>
+      <div class="solo-score">${survived} <span>soru hayatta kaldın</span></div>
+      ${isRecord ? `<div class="survival-record">🏆 Yeni rekor!</div>` : `<div class="muted small">En iyin: ${prevBest} soru</div>`}
+      <div class="solo-stats">
+        <div><b>${meP.score || 0}</b><span>puan</span></div>
+        <div><b>🔥 ${gs.maxStreak || survived}</b><span>seri</span></div>
+        <div><b>${Math.max(prevBest, survived)}</b><span>rekor</span></div>
+      </div>
+      ${xpSummary}
+      <button class="btn btn-primary btn-big" id="survAgain">🔁 Tekrar Dene</button>
+      ${SHARE_BTN}
+      <button class="btn btn-secondary" id="survHome">🏠 Ana Sayfa</button>
+    </div>`;
+  if (isRecord || survived >= 10) confetti(3000);
+  sfx.fanfare();
+  bindShareBtn("🔥 Hayatta Kalma");
+  document.getElementById("survAgain").onclick = () => {
+    sfx.click();
+    const p = state.survivalParams;
+    if (p) startSurvival(p.categories); else renderSurvivalSetup();
+  };
+  document.getElementById("survHome").onclick = () => { sfx.click(); state.solo = false; resetToHome(); };
+}
+
 function renderDuelEnded(m, players) {
   const me = players.find(([id]) => id === state.playerId) || players[0] || ["", {}];
   const opp = players.find(([id]) => id !== state.playerId) || players[1] || ["", { name: "Rakip" }];
@@ -2681,6 +2836,7 @@ function renderEnded() {
   const m = state.room.meta;
   const players = playersList().sort((a, b) => (b[1].score || 0) - (a[1].score || 0));
   if (state.campaign || m.campaign) { renderCampaignStageResult(m); return; }
+  if (m.survival) { renderSurvivalEnded(m, players); return; }
   if (state.solo || m.solo) { renderSoloEnded(m, players); return; }
   if (m.duel) { renderDuelEnded(m, players); return; }
   const podium = players.slice(0, 3);
@@ -3155,11 +3311,15 @@ function renderSoloResumePrompt(saved) {
   const m = saved.room && saved.room.meta;
   const qi = m ? (m.questionIndex + 1) : 1;
   const tot = m ? m.totalQuestions : "?";
-  const mode = saved.campaign ? "🗺️ Macera bölümü" : "🎯 Tek Başına";
+  const isSurv = !!(m && m.survival);
+  const mode = isSurv ? "🔥 Hayatta Kalma" : (saved.campaign ? "🗺️ Macera bölümü" : "🎯 Tek Başına");
+  const progressLine = isSurv
+    ? `${mode} oyunun yarım kaldı — <b>${qi}.</b> soruda hayattaydın.`
+    : `${mode} oyunun yarım kaldı — <b>${qi}/${tot}</b>. soruda.`;
   APP.innerHTML = `
     <div class="card center">
       <div class="logo small">Devam edelim mi?</div>
-      <p class="story-text">${mode} oyunun yarım kaldı — <b>${qi}/${tot}</b>. soruda.</p>
+      <p class="story-text">${progressLine}</p>
       <button class="btn btn-primary btn-big" id="resumeGo">▶️ Kaldığın yerden devam et</button>
       <button class="btn btn-secondary" id="resumeDrop">Yeni oyun / vazgeç</button>
     </div>`;
