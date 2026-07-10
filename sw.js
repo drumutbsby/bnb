@@ -1,6 +1,6 @@
 // Service worker — uygulama kabuğunu önbelleğe alır (hızlı açılış + çevrimdışı kabuk).
 // Oyun gerçek zamanlı olduğu için ağ önceliklidir; önbellek yalnızca yedek olarak kullanılır.
-const VERSION = "bnb-v4";
+const VERSION = "bnb-v5";
 const SHELL = [
   "./",
   "./index.html",

@@ -3728,5 +3728,17 @@ export default [
     ],
     "answer": 1,
     "type": "tf"
+  },
+  {
+    "q": "Karada yaşayan en büyük hayvan hangisidir?",
+    "type": "text",
+    "answer": "Fil",
+    "accept": ["afrika fili"]
+  },
+  {
+    "q": "En hızlı kara hayvanı hangisidir?",
+    "type": "text",
+    "answer": "Çita",
+    "accept": ["cheetah","cita"]
   }
 ];

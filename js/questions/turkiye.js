@@ -3615,5 +3615,21 @@ export default [
     ],
     "answer": 1,
     "type": "tf"
+  },
+  {
+    "q": "Türkiye'nin en kalabalık şehri hangisidir?",
+    "type": "text",
+    "answer": "İstanbul"
+  },
+  {
+    "q": "Anıtkabir hangi şehirdedir?",
+    "type": "text",
+    "answer": "Ankara"
+  },
+  {
+    "q": "Türkiye'nin para birimi nedir?",
+    "type": "text",
+    "answer": "Lira",
+    "accept": ["türk lirası","tl"]
   }
 ];

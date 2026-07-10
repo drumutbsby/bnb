@@ -3615,5 +3615,28 @@ export default [
     ],
     "answer": 0,
     "type": "tf"
+  },
+  {
+    "q": "Türkiye'nin başkenti neresidir?",
+    "type": "text",
+    "answer": "Ankara"
+  },
+  {
+    "q": "Bir düzine kaç tanedir?",
+    "type": "text",
+    "answer": "12",
+    "accept": ["on iki"]
+  },
+  {
+    "q": "Gökkuşağında kaç renk bulunur? (sayı)",
+    "type": "text",
+    "answer": "7",
+    "accept": ["yedi"]
+  },
+  {
+    "q": "Bir haftada kaç gün vardır?",
+    "type": "text",
+    "answer": "7",
+    "accept": ["yedi"]
   }
 ];

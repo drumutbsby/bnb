@@ -3626,5 +3626,11 @@ export default [
     ],
     "answer": 1,
     "type": "tf"
+  },
+  {
+    "q": "Mona Lisa tablosunu kim yaptı? (soyadı yeterli)",
+    "type": "text",
+    "answer": "da Vinci",
+    "accept": ["leonardo da vinci","leonardo","davinci","vinci"]
   }
 ];

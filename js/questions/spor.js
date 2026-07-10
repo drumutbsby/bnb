@@ -3585,5 +3585,17 @@ export default [
     ],
     "answer": 0,
     "type": "tf"
+  },
+  {
+    "q": "Bir futbol takımı sahada kaç oyuncuyla başlar?",
+    "type": "text",
+    "answer": "11",
+    "accept": ["on bir"]
+  },
+  {
+    "q": "Bir basketbol takımı sahada kaç oyuncuyla oynar?",
+    "type": "text",
+    "answer": "5",
+    "accept": ["beş"]
   }
 ];

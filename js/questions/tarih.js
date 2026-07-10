@@ -3635,5 +3635,22 @@ export default [
     ],
     "answer": 0,
     "type": "tf"
+  },
+  {
+    "q": "İstanbul'u fetheden padişah kimdir? (kısaca)",
+    "type": "text",
+    "answer": "Fatih",
+    "accept": ["fatih sultan mehmet","ii mehmet","2 mehmet","sultan mehmet","fatih sultan mehmed"]
+  },
+  {
+    "q": "Türkiye Cumhuriyeti hangi yıl kuruldu?",
+    "type": "text",
+    "answer": "1923"
+  },
+  {
+    "q": "Kurtuluş Savaşı'na önderlik eden lider kimdir?",
+    "type": "text",
+    "answer": "Atatürk",
+    "accept": ["mustafa kemal","mustafa kemal ataturk","gazi mustafa kemal"]
   }
 ];

@@ -3604,5 +3604,27 @@ export default [
     ],
     "answer": 0,
     "type": "tf"
+  },
+  {
+    "q": "Fransa'nın başkenti neresidir?",
+    "type": "text",
+    "answer": "Paris"
+  },
+  {
+    "q": "Japonya'nın başkenti neresidir?",
+    "type": "text",
+    "answer": "Tokyo"
+  },
+  {
+    "q": "Dünyanın en büyük okyanusu hangisidir?",
+    "type": "text",
+    "answer": "Pasifik",
+    "accept": ["büyük okyanus","pasifik okyanusu"]
+  },
+  {
+    "q": "Türkiye'nin en yüksek dağı hangisidir?",
+    "type": "text",
+    "answer": "Ağrı",
+    "accept": ["agri dagi","büyük ağrı","ararat","ağrı dağı"]
   }
 ];

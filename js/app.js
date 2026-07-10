@@ -116,6 +116,40 @@ function optShape(pq, idx) {
   return OPTION_STYLES[idx] ? OPTION_STYLES[idx].shape : "●";
 }
 
+// ---- "Cevabı yaz" tipi: Türkçe-duyarlı bulanık metin eşleştirme ----
+function trNorm(s) {
+  const map = { "ç": "c", "ğ": "g", "ı": "i", "ö": "o", "ş": "s", "ü": "u" };
+  return String(s || "")
+    .replace(/İ/g, "i").replace(/I/g, "ı")
+    .toLowerCase()
+    .replace(/[çğıöşü]/g, (c) => map[c] || c)
+    .replace(/[^a-z0-9 ]/g, " ")
+    .replace(/\s+/g, " ").trim();
+}
+function levDist(a, b) {
+  const m = a.length, n = b.length;
+  if (!m) return n; if (!n) return m;
+  const d = Array.from({ length: m + 1 }, (_, i) => [i, ...Array(n).fill(0)]);
+  for (let j = 0; j <= n; j++) d[0][j] = j;
+  for (let i = 1; i <= m; i++) for (let j = 1; j <= n; j++) {
+    const c = a[i - 1] === b[j - 1] ? 0 : 1;
+    d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + c);
+  }
+  return d[m][n];
+}
+// Yazılan cevap doğru mu? answer + accept dizisine karşı, küçük yazım toleransı.
+function textAnswerCorrect(input, q) {
+  const g = trNorm(input);
+  if (!g) return false;
+  const cands = [q.answer, ...(q.accept || [])].map(trNorm).filter(Boolean);
+  for (const c of cands) {
+    if (g === c) return true;
+    if (c.length >= 5 && levDist(g, c) <= 1) return true;   // 1 harf hata
+    if (c.length >= 9 && levDist(g, c) <= 2) return true;   // uzun kelimede 2
+  }
+  return false;
+}
+
 // ---------------------------------------------------------------------------
 // Yardımcılar
 // ---------------------------------------------------------------------------
@@ -496,7 +530,7 @@ function hostShowQuestion(i) {
 
   if (!state.room.answers) state.room.answers = {};
   state.room.answers[i] = {};
-  state.room.publicQuestions[i] = { q: q.q, options: q.options, category: q.category, visual: q.visual || null, image: q.image || null, type: q.type || "mc" };
+  state.room.publicQuestions[i] = { q: q.q, options: q.options || [], category: q.category, visual: q.visual || null, image: q.image || null, type: q.type || "mc" };
   state.room.meta.questionIndex = i;
   state.room.meta.status = "question";
   hostPublish();
@@ -536,19 +570,21 @@ function hostRevealQuestion(i) {
   const speedBonus = room.meta.speedBonus !== false;
   const penalty = room.meta.wrongPenalty || 0;
   const multi = Object.keys(players).length > 1;
+  const isText = q.type === "text";
+  const matches = (a) => a && (isText ? textAnswerCorrect(a.choice, q) : a.choice === correct);
 
   // İlk doğru cevaplayanı bul (en kısa süre)
   let firstCorrectPid = null, firstElapsed = Infinity;
   for (const pid in players) {
     const a = answers[pid];
-    if (a && a.choice === correct && (a.elapsed || 0) < firstElapsed) { firstElapsed = a.elapsed || 0; firstCorrectPid = pid; }
+    if (matches(a) && (a.elapsed || 0) < firstElapsed) { firstElapsed = a.elapsed || 0; firstCorrectPid = pid; }
   }
 
   for (const pid in players) {
     const a = answers[pid];
     const p = players[pid];
     let gained = 0, base = 0, combo = 1, firstBonus = 0, milestone = 0, doubled = false;
-    const isCorrect = a && a.choice === correct;
+    const isCorrect = matches(a);
     if (a && typeof a.choice === "number" && counts[a.choice] !== undefined) counts[a.choice]++;
     if (isCorrect) {
       // Hız eğrisi: erken cevap üstel ödül (anında≈1000, yarı süre≈810, son an≈250)
@@ -575,7 +611,9 @@ function hostRevealQuestion(i) {
     p.lastDoubled = doubled;
     p.lastCorrect = !!isCorrect;
   }
-  room.reveal[i] = { correct, counts };
+  room.reveal[i] = isText
+    ? { correct: -1, counts, isText: true, answerText: q.answer }
+    : { correct, counts };
   room.meta.status = "reveal";
   hostPublish();
   if (state.solo) saveSoloState();
@@ -2073,12 +2111,31 @@ function renderHostQuestion() {
     </div>`;
   }).join("");
 
-  const jokersHtml = (hostPlays && !answered) ? `
-    <div class="jokers" id="jokers">
-      <button class="joker-btn" id="jFifty" ${jok.fifty > 0 && !hidden.length ? "" : "disabled"}>➗ 50:50 (${jok.fifty})</button>
-      <button class="joker-btn ${doubleOn ? "active" : ""}" id="jDouble" ${jok.double > 0 && !doubleOn ? "" : "disabled"}>✖️ Çift Puan (${doubleOn ? "aktif" : jok.double})</button>
-    </div>` : "";
-  const answeredNote = (hostPlays && answered) ? `<div class="host-answered-note">✓ Cevabın alındı — diğerleri bekleniyor</div>` : "";
+  const isText = pq.type === "text";
+  let bodyHtml;
+  if (isText) {
+    if (hostPlays && !answered) {
+      bodyHtml = `<form class="text-answer" id="textForm" autocomplete="off">
+        <input class="input" id="textAns" placeholder="Cevabını yaz..." maxlength="40" autocomplete="off" autocapitalize="off">
+        <button type="submit" class="btn btn-primary" id="textSubmit">Gönder ›</button>
+      </form>`;
+    } else if (hostPlays && answered) {
+      bodyHtml = `<div class="typed-answer">✍️ "${esc(String(state.playerChoice || ""))}"</div>`;
+    } else {
+      bodyHtml = `<div class="text-answer-wait muted">✍️ Oyuncular cevabını yazıyor...</div>`;
+    }
+  } else {
+    bodyHtml = `<div class="options ${pq.type === "tf" ? "tf" : ""}">${opts}</div>`;
+  }
+  const jokersHtml = (hostPlays && !answered)
+    ? (isText
+      ? `<div class="jokers" id="jokers"><button class="joker-btn ${doubleOn ? "active" : ""}" id="jDouble" ${jok.double > 0 && !doubleOn ? "" : "disabled"}>✖️ Çift Puan (${doubleOn ? "aktif" : jok.double})</button></div>`
+      : `<div class="jokers" id="jokers">
+        <button class="joker-btn" id="jFifty" ${jok.fifty > 0 && !hidden.length ? "" : "disabled"}>➗ 50:50 (${jok.fifty})</button>
+        <button class="joker-btn ${doubleOn ? "active" : ""}" id="jDouble" ${jok.double > 0 && !doubleOn ? "" : "disabled"}>✖️ Çift Puan (${doubleOn ? "aktif" : jok.double})</button>
+      </div>`)
+    : "";
+  const answeredNote = (hostPlays && answered && !isText) ? `<div class="host-answered-note">✓ Cevabın alındı — diğerleri bekleniyor</div>` : "";
 
   APP.innerHTML = `
     <div class="card question-card">
@@ -2091,19 +2148,24 @@ function renderHostQuestion() {
       ${visualHTML(pq)}
       <div class="q-text">${esc(pq.q)}</div>
       ${state.solo ? "" : `<div class="answered-count"><span id="answeredCount">${alreadyAnswered}</span>/${players.length} yanıtladı</div>`}
-      <div class="options ${pq.type === "tf" ? "tf" : ""}">${opts}</div>
+      ${bodyHtml}
       ${jokersHtml}
       ${answeredNote}
       ${state.solo ? "" : `<button class="btn btn-secondary" id="skip">Herkes yanıtladı, göster ›</button>`}
     </div>`;
 
   if (hostPlays && !answered) {
-    APP.querySelectorAll(".opt-btn").forEach((b) => {
-      b.onclick = () => {
-        if (b.classList.contains("opt-hidden")) return;
-        hostAnswer(parseInt(b.dataset.choice, 10));
-      };
-    });
+    if (isText) {
+      const form = document.getElementById("textForm");
+      if (form) form.onsubmit = (e) => { e.preventDefault(); const inp = document.getElementById("textAns"); const v = inp ? inp.value.trim() : ""; if (v) hostAnswer(v); };
+    } else {
+      APP.querySelectorAll(".opt-btn").forEach((b) => {
+        b.onclick = () => {
+          if (b.classList.contains("opt-hidden")) return;
+          hostAnswer(parseInt(b.dataset.choice, 10));
+        };
+      });
+    }
     const jf = document.getElementById("jFifty");
     const jd = document.getElementById("jDouble");
     if (jf) jf.onclick = () => hostSelfJoker("fifty");
@@ -2115,6 +2177,7 @@ function renderHostQuestion() {
     state.hostLocalStart = Date.now();
     sfx.whoosh();
     startTicker();
+    if (isText && hostPlays && !answered) { const inp = document.getElementById("textAns"); if (inp) inp.focus(); }
   });
 }
 
@@ -2133,10 +2196,14 @@ function hostAnswer(choice) {
     b.disabled = true;
     if (parseInt(b.dataset.choice, 10) === choice) b.classList.add("opt-chosen");
   });
+  // Metin sorusunda: giriş formunu yazılan cevapla değiştir
+  const form = document.getElementById("textForm");
+  if (form) form.outerHTML = `<div class="typed-answer">✍️ "${esc(String(choice))}"</div>`;
   const jk = document.getElementById("jokers");
   if (jk) jk.remove();
+  const isTextQ = form != null;
   const card = APP.querySelector(".card");
-  if (card && !card.querySelector(".host-answered-note")) {
+  if (!isTextQ && card && !card.querySelector(".host-answered-note")) {
     const note = document.createElement("div");
     note.className = "host-answered-note";
     note.textContent = "✓ Cevabın alındı — diğerleri bekleniyor";
@@ -2176,11 +2243,25 @@ function renderPlayerQuestion() {
   const hidden = myFiftyHidden(i) || [];
   const jok = myJokers();
   const doubleOn = myDoubleActive(i);
-  const opts = pq.options.map((o, idx) => `
-    <button class="opt opt-btn ${hidden.includes(idx) ? "opt-hidden" : ""}" data-choice="${idx}" style="background:${optColor(pq, idx)}">
-      <span class="opt-shape">${optShape(pq, idx)}</span>
-      <span class="opt-text">${esc(o)}</span>
-    </button>`).join("");
+  const isText = pq.type === "text";
+  const bodyHtml = isText
+    ? `<form class="text-answer" id="textForm" autocomplete="off">
+        <input class="input" id="textAns" placeholder="Cevabını yaz..." maxlength="40" autocomplete="off" autocapitalize="off">
+        <button type="submit" class="btn btn-primary" id="textSubmit">Gönder ›</button>
+      </form>`
+    : `<div class="options ${pq.type === "tf" ? "tf" : ""}">${pq.options.map((o, idx) => `
+        <button class="opt opt-btn ${hidden.includes(idx) ? "opt-hidden" : ""}" data-choice="${idx}" style="background:${optColor(pq, idx)}">
+          <span class="opt-shape">${optShape(pq, idx)}</span>
+          <span class="opt-text">${esc(o)}</span>
+        </button>`).join("")}</div>`;
+  const jokersHtml = isText
+    ? `<div class="jokers" id="jokers">
+        <button class="joker-btn ${doubleOn ? "active" : ""}" id="jDouble" ${jok.double > 0 && !doubleOn ? "" : "disabled"}>✖️ Çift Puan (${doubleOn ? "aktif" : jok.double})</button>
+      </div>`
+    : `<div class="jokers" id="jokers">
+        <button class="joker-btn" id="jFifty" ${jok.fifty > 0 && !hidden.length ? "" : "disabled"}>➗ 50:50 (${jok.fifty})</button>
+        <button class="joker-btn ${doubleOn ? "active" : ""}" id="jDouble" ${jok.double > 0 && !doubleOn ? "" : "disabled"}>✖️ Çift Puan (${doubleOn ? "aktif" : jok.double})</button>
+      </div>`;
 
   APP.innerHTML = `
     <div class="card question-card">
@@ -2192,22 +2273,30 @@ function renderPlayerQuestion() {
       ${timerBarHTML()}
       ${visualHTML(pq)}
       <div class="q-text">${esc(pq.q)}</div>
-      <div class="options ${pq.type === "tf" ? "tf" : ""}">${opts}</div>
-      <div class="jokers" id="jokers">
-        <button class="joker-btn" id="jFifty" ${jok.fifty > 0 && !hidden.length ? "" : "disabled"}>➗ 50:50 (${jok.fifty})</button>
-        <button class="joker-btn ${doubleOn ? "active" : ""}" id="jDouble" ${jok.double > 0 && !doubleOn ? "" : "disabled"}>✖️ Çift Puan (${doubleOn ? "aktif" : jok.double})</button>
-      </div>
+      ${bodyHtml}
+      ${jokersHtml}
     </div>`;
 
-  const bindOpts = () => APP.querySelectorAll(".opt-btn").forEach((b) => {
-    b.onclick = () => {
-      if (b.classList.contains("opt-hidden")) return;
-      const choice = parseInt(b.dataset.choice, 10);
-      playerAnswer(choice);
-      renderPlayerWaiting(pq, choice);
-    };
-  });
-  bindOpts();
+  const submitText = () => {
+    const inp = document.getElementById("textAns");
+    const v = inp ? inp.value.trim() : "";
+    if (!v) return;
+    playerAnswer(v);
+    renderPlayerWaiting(pq, null, v);
+  };
+  if (isText) {
+    const form = document.getElementById("textForm");
+    if (form) form.onsubmit = (e) => { e.preventDefault(); submitText(); };
+  } else {
+    APP.querySelectorAll(".opt-btn").forEach((b) => {
+      b.onclick = () => {
+        if (b.classList.contains("opt-hidden")) return;
+        const choice = parseInt(b.dataset.choice, 10);
+        playerAnswer(choice);
+        renderPlayerWaiting(pq, choice);
+      };
+    });
+  }
   const jf = document.getElementById("jFifty");
   const jd = document.getElementById("jDouble");
   if (jf) jf.onclick = () => playerJoker("fifty");
@@ -2216,18 +2305,21 @@ function renderPlayerQuestion() {
   runCountdown(() => {
     state.playerLocalStart = Date.now();
     startTicker();
+    if (isText) { const inp = document.getElementById("textAns"); if (inp) inp.focus(); }
   });
 }
 
-function renderPlayerWaiting(pq, choice) {
+function renderPlayerWaiting(pq, choice, typedText) {
   const chosen = choice != null ? { color: optColor(pq, choice), shape: optShape(pq, choice) } : null;
   const doubleOn = myDoubleActive(state.room.meta.questionIndex);
+  const typed = (typedText == null && pq && pq.type === "text") ? state.playerChoice : typedText;
   APP.innerHTML = `
     <div class="card center question-card">
       ${timerBarHTML()}
       ${visualHTML(pq)}
       <div class="q-text small">${esc(pq.q)}</div>
       ${chosen ? `<div class="chosen" style="background:${chosen.color}">${chosen.shape}</div>` : ""}
+      ${typed != null && typed !== "" ? `<div class="typed-answer">✍️ "${esc(typed)}"</div>` : ""}
       ${doubleOn ? `<div class="double-badge">✖️ Çift Puan aktif</div>` : ""}
       <div class="big-name">Cevabın alındı!</div>
       <p class="muted">Diğer oyuncular bekleniyor...</p>
@@ -2319,17 +2411,26 @@ function renderHostReveal() {
   const i = m.questionIndex;
   const q = state.localQuestions[i];
   const rev = (state.room.reveal && state.room.reveal[i]) || { correct: q.answer, counts: [0, 0, 0, 0] };
-  const total = Math.max(1, rev.counts.reduce((a, b) => a + b, 0));
-  const opts = q.options.map((o, idx) => {
-    const isCorrect = idx === rev.correct;
-    const pct = Math.round((rev.counts[idx] / total) * 100);
-    return `<div class="opt reveal-opt ${isCorrect ? "correct" : "dim"}" style="background:${isCorrect ? "#26890c" : "#6b7075"}">
-      <span class="opt-shape">${optShape(q, idx)}</span>
-      <span class="opt-text">${esc(o)} ${isCorrect ? "✓" : ""}</span>
-      <span class="opt-count">${rev.counts[idx]}</span>
-      <span class="opt-bar" style="width:${pct}%"></span>
+  const isText = q.type === "text";
+  let opts;
+  if (isText) {
+    opts = `<div class="opt reveal-opt correct" style="background:#26890c">
+      <span class="opt-shape">✍️</span>
+      <span class="opt-text">Doğru cevap: ${esc(q.answer)} ✓</span>
     </div>`;
-  }).join("");
+  } else {
+    const total = Math.max(1, (rev.counts || []).reduce((a, b) => a + b, 0));
+    opts = q.options.map((o, idx) => {
+      const isCorrect = idx === rev.correct;
+      const pct = Math.round(((rev.counts[idx] || 0) / total) * 100);
+      return `<div class="opt reveal-opt ${isCorrect ? "correct" : "dim"}" style="background:${isCorrect ? "#26890c" : "#6b7075"}">
+        <span class="opt-shape">${optShape(q, idx)}</span>
+        <span class="opt-text">${esc(o)} ${isCorrect ? "✓" : ""}</span>
+        <span class="opt-count">${rev.counts[idx] || 0}</span>
+        <span class="opt-bar" style="width:${pct}%"></span>
+      </div>`;
+    }).join("");
+  }
   const isLast = i + 1 >= m.totalQuestions;
   const meHost = m.hostPlays ? state.room.players["host"] : null;
   let hostBanner = "";
@@ -2378,7 +2479,15 @@ function renderPlayerReveal() {
   const correctIdx = typeof rev.correct === "number" ? rev.correct : -1;
   const myChoice = state.answeredIndex === qi ? state.playerChoice : null;
   let answerHtml = "";
-  if (correctIdx >= 0 && opts[correctIdx] != null) {
+  if (rev.isText) {
+    // Yazılı cevap: doğru metni ve (yanlışsa) senin yazdığın
+    answerHtml = `<div class="reveal-answer">
+      <div class="ra-opt ra-correct"><span class="opt-shape">✍️</span><span class="opt-text">${esc(rev.answerText || "")}</span><span class="ra-tag">✓ Doğru</span></div>`;
+    if (!correct && myChoice != null && myChoice !== "") {
+      answerHtml += `<div class="ra-opt ra-wrong"><span class="opt-shape">✗</span><span class="opt-text">${esc(String(myChoice))}</span><span class="ra-tag">✗ Senin</span></div>`;
+    }
+    answerHtml += `</div>`;
+  } else if (correctIdx >= 0 && opts[correctIdx] != null) {
     answerHtml = `<div class="reveal-answer">
       <div class="ra-opt ra-correct"><span class="opt-shape">${optShape(pq, correctIdx)}</span><span class="opt-text">${esc(opts[correctIdx])}</span><span class="ra-tag">✓ Doğru</span></div>`;
     if (!correct && myChoice != null && myChoice !== correctIdx && opts[myChoice] != null) {
@@ -2400,7 +2509,8 @@ function renderPlayerReveal() {
       </div>`}
     </div>`;
   // Ekran okuyucuya sonucu duyur
-  announce(`${correct ? "Doğru" : "Yanlış"}.${correctIdx >= 0 && opts[correctIdx] != null ? " Doğru cevap: " + opts[correctIdx] + "." : ""} ${correct ? "+" + gain + " puan." : ""}`.trim());
+  const announceAnswer = rev.isText ? (rev.answerText || "") : (correctIdx >= 0 && opts[correctIdx] != null ? opts[correctIdx] : "");
+  announce(`${correct ? "Doğru" : "Yanlış"}.${announceAnswer ? " Doğru cevap: " + announceAnswer + "." : ""} ${correct ? "+" + gain + " puan." : ""}`.trim());
   // Aynı sorunun reveal'ı tekrar gelirse (yeniden bağlanma) efekt/sayımı bir kez yap
   const i = state.room.meta.questionIndex;
   if (state.lastRevealIndex !== i) {

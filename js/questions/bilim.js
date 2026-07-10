@@ -3655,5 +3655,27 @@ export default [
     ],
     "answer": 0,
     "type": "tf"
+  },
+  {
+    "q": "Güneş sistemindeki en büyük gezegen hangisidir?",
+    "type": "text",
+    "answer": "Jüpiter"
+  },
+  {
+    "q": "Altının kimyasal sembolü nedir?",
+    "type": "text",
+    "answer": "Au"
+  },
+  {
+    "q": "Suyun donma sıcaklığı kaç santigrat derecedir?",
+    "type": "text",
+    "answer": "0",
+    "accept": ["sıfır","0 derece"]
+  },
+  {
+    "q": "İnsan vücudundaki en büyük organ hangisidir?",
+    "type": "text",
+    "answer": "Deri",
+    "accept": ["cilt"]
   }
 ];
