@@ -48,7 +48,8 @@ export default [
       "Roma",
       "Paris"
     ],
-    "answer": 3
+    "answer": 3,
+    "explain": "Paris, Seine Nehri kıyısında kurulmuştur."
   },
   {
     "q": "Dünyada kaç kıta vardır?",
@@ -68,7 +69,8 @@ export default [
       "Ağrı Dağı",
       "Uludağ"
     ],
-    "answer": 2
+    "answer": 2,
+    "explain": "Ağrı Dağı 5.137 m ile Türkiye'nin en yüksek noktasıdır."
   },
   {
     "q": "Sahra Çölü hangi kıtadadır?",
@@ -88,7 +90,8 @@ export default [
       "Seul",
       "Tokyo"
     ],
-    "answer": 3
+    "answer": 3,
+    "explain": "Tokyo, dünyanın en kalabalık metropol alanlarından biridir."
   },
   {
     "q": "Türkiye kaç coğrafi bölgeye ayrılır?",
@@ -3608,23 +3611,35 @@ export default [
   {
     "q": "Fransa'nın başkenti neresidir?",
     "type": "text",
-    "answer": "Paris"
+    "answer": "Paris",
+    "explain": "Paris, Seine Nehri kıyısında kurulmuştur."
   },
   {
     "q": "Japonya'nın başkenti neresidir?",
     "type": "text",
-    "answer": "Tokyo"
+    "answer": "Tokyo",
+    "explain": "Tokyo, dünyanın en kalabalık metropol alanlarından biridir."
   },
   {
     "q": "Dünyanın en büyük okyanusu hangisidir?",
     "type": "text",
     "answer": "Pasifik",
-    "accept": ["büyük okyanus","pasifik okyanusu"]
+    "accept": [
+      "büyük okyanus",
+      "pasifik okyanusu"
+    ],
+    "explain": "Pasifik Okyanusu yüzölçümüyle en büyüğüdür; onu Atlas izler."
   },
   {
     "q": "Türkiye'nin en yüksek dağı hangisidir?",
     "type": "text",
     "answer": "Ağrı",
-    "accept": ["agri dagi","büyük ağrı","ararat","ağrı dağı"]
+    "accept": [
+      "agri dagi",
+      "büyük ağrı",
+      "ararat",
+      "ağrı dağı"
+    ],
+    "explain": "Ağrı Dağı 5.137 m ile Türkiye'nin en yüksek noktasıdır."
   }
 ];

@@ -3590,12 +3590,18 @@ export default [
     "q": "Bir futbol takımı sahada kaç oyuncuyla başlar?",
     "type": "text",
     "answer": "11",
-    "accept": ["on bir"]
+    "accept": [
+      "on bir"
+    ],
+    "explain": "Kaleci dahil 11 oyuncuyla başlanır."
   },
   {
     "q": "Bir basketbol takımı sahada kaç oyuncuyla oynar?",
     "type": "text",
     "answer": "5",
-    "accept": ["beş"]
+    "accept": [
+      "beş"
+    ],
+    "explain": "Her takım sahada 5 oyuncuyla oynar."
   }
 ];

@@ -68,7 +68,8 @@ export default [
       "6",
       "5"
     ],
-    "answer": 0
+    "answer": 0,
+    "explain": "Pazartesi'den pazara 7 gün vardır."
   },
   {
     "q": "Aşağıdakilerden hangisi bir asal sayıdır?",
@@ -3619,24 +3620,34 @@ export default [
   {
     "q": "Türkiye'nin başkenti neresidir?",
     "type": "text",
-    "answer": "Ankara"
+    "answer": "Ankara",
+    "explain": "Ankara 1923'te başkent ilan edildi; İstanbul en büyük şehir olsa da başkent değildir."
   },
   {
     "q": "Bir düzine kaç tanedir?",
     "type": "text",
     "answer": "12",
-    "accept": ["on iki"]
+    "accept": [
+      "on iki"
+    ],
+    "explain": "Bir düzine = 12; bir deste ise 10'dur."
   },
   {
     "q": "Gökkuşağında kaç renk bulunur? (sayı)",
     "type": "text",
     "answer": "7",
-    "accept": ["yedi"]
+    "accept": [
+      "yedi"
+    ],
+    "explain": "Kırmızı, turuncu, sarı, yeşil, mavi, çivit (lacivert), mor: 7 renk."
   },
   {
     "q": "Bir haftada kaç gün vardır?",
     "type": "text",
     "answer": "7",
-    "accept": ["yedi"]
+    "accept": [
+      "yedi"
+    ],
+    "explain": "Pazartesi'den pazara 7 gün vardır."
   }
 ];

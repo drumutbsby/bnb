@@ -68,7 +68,8 @@ export default [
       "Fil",
       "Su aygırı"
     ],
-    "answer": 2
+    "answer": 2,
+    "explain": "Afrika fili, karadaki en büyük ve en ağır hayvandır."
   },
   {
     "q": "Balıklar suyun altında hangi organ sayesinde nefes alır?",
@@ -3733,12 +3734,19 @@ export default [
     "q": "Karada yaşayan en büyük hayvan hangisidir?",
     "type": "text",
     "answer": "Fil",
-    "accept": ["afrika fili"]
+    "accept": [
+      "afrika fili"
+    ],
+    "explain": "Afrika fili, karadaki en büyük ve en ağır hayvandır."
   },
   {
     "q": "En hızlı kara hayvanı hangisidir?",
     "type": "text",
     "answer": "Çita",
-    "accept": ["cheetah","cita"]
+    "accept": [
+      "cheetah",
+      "cita"
+    ],
+    "explain": "Çita kısa mesafede saatte 100+ km hıza ulaşabilir."
   }
 ];

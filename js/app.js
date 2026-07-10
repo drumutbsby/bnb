@@ -530,7 +530,7 @@ function hostShowQuestion(i) {
 
   if (!state.room.answers) state.room.answers = {};
   state.room.answers[i] = {};
-  state.room.publicQuestions[i] = { q: q.q, options: q.options || [], category: q.category, visual: q.visual || null, image: q.image || null, type: q.type || "mc" };
+  state.room.publicQuestions[i] = { q: q.q, options: q.options || [], category: q.category, visual: q.visual || null, image: q.image || null, type: q.type || "mc", explain: q.explain || null };
   state.room.meta.questionIndex = i;
   state.room.meta.status = "question";
   hostPublish();
@@ -2406,6 +2406,12 @@ function leaderboardHTML(limit) {
   return `<div class="leaderboard">${rows || '<div class="muted small">—</div>'}</div>`;
 }
 
+// Öğretici açıklama (opsiyonel `explain` alanı) — reveal ekranında gösterilir
+function explainHTML(explain) {
+  if (!explain) return "";
+  return `<div class="explain"><span class="explain-icon">💡</span><span class="explain-text">${esc(explain)}</span></div>`;
+}
+
 function renderHostReveal() {
   const m = state.room.meta;
   const i = m.questionIndex;
@@ -2444,6 +2450,7 @@ function renderHostReveal() {
       ${visualHTML(state.room.publicQuestions[i])}
       <div class="q-text small">${esc(q.q)}</div>
       <div class="options reveal">${opts}</div>
+      ${explainHTML(q.explain)}
       ${hostBanner}
       ${m.teamMode ? teamScoreHtml() : ""}
       ${state.solo ? "" : `<div class="players-title">Skor Tablosu</div>${leaderboardHTML(5)}`}
@@ -2502,6 +2509,7 @@ function renderPlayerReveal() {
       ${correct ? `<div class="gain">+${gain} puan</div>${breakdown}` : (gain < 0 ? `<div class="gain" style="color:#e21b3c">${gain} puan</div>` : `<div class="gain muted">+0 puan</div>`)}
       ${correct && (me.lastCombo || 1) > 1 ? `<div class="combo-badge">COMBO ×${me.lastCombo} 🔥</div>` : (correct && streak >= 2 ? `<div class="streak-fire">🔥 ${streak} seri!</div>` : "")}
       ${answerHtml}
+      ${explainHTML(pq.explain)}
       ${state.room.meta.teamMode ? teamScoreHtml() : `<div class="rank-box">
         <div>Sıralaman</div>
         <div class="rank-num">${myRank}. / ${players.length}</div>

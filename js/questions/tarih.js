@@ -3640,17 +3640,30 @@ export default [
     "q": "İstanbul'u fetheden padişah kimdir? (kısaca)",
     "type": "text",
     "answer": "Fatih",
-    "accept": ["fatih sultan mehmet","ii mehmet","2 mehmet","sultan mehmet","fatih sultan mehmed"]
+    "accept": [
+      "fatih sultan mehmet",
+      "ii mehmet",
+      "2 mehmet",
+      "sultan mehmet",
+      "fatih sultan mehmed"
+    ],
+    "explain": "II. Mehmed, 1453'te İstanbul'u fethedince 'Fatih' unvanını aldı."
   },
   {
     "q": "Türkiye Cumhuriyeti hangi yıl kuruldu?",
     "type": "text",
-    "answer": "1923"
+    "answer": "1923",
+    "explain": "29 Ekim 1923'te Cumhuriyet ilan edildi."
   },
   {
     "q": "Kurtuluş Savaşı'na önderlik eden lider kimdir?",
     "type": "text",
     "answer": "Atatürk",
-    "accept": ["mustafa kemal","mustafa kemal ataturk","gazi mustafa kemal"]
+    "accept": [
+      "mustafa kemal",
+      "mustafa kemal ataturk",
+      "gazi mustafa kemal"
+    ],
+    "explain": "Mustafa Kemal Atatürk, Kurtuluş Savaşı'nın başkomutanıdır."
   }
 ];

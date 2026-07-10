@@ -8,7 +8,8 @@ export default [
       "İstanbul",
       "İzmir"
     ],
-    "answer": 2
+    "answer": 2,
+    "explain": "İstanbul, 15 milyonu aşan nüfusuyla en kalabalık şehirdir."
   },
   {
     "q": "Türk bayrağında hangi iki sembol bulunur?",
@@ -28,7 +29,8 @@ export default [
       "Dolar",
       "Dinar"
     ],
-    "answer": 1
+    "answer": 1,
+    "explain": "Türk Lirası (TL), 2005'te 'Yeni Türk Lirası' olarak yeniden düzenlendi."
   },
   {
     "q": "Boğaziçi Köprüsü hangi şehirdedir?",
@@ -78,7 +80,8 @@ export default [
       "Bursa",
       "İstanbul"
     ],
-    "answer": 1
+    "answer": 1,
+    "explain": "Anıtkabir, Atatürk'ün kabri, Ankara'dadır."
   },
   {
     "q": "Efes Antik Kenti hangi ilimizdedir?",
@@ -3619,17 +3622,23 @@ export default [
   {
     "q": "Türkiye'nin en kalabalık şehri hangisidir?",
     "type": "text",
-    "answer": "İstanbul"
+    "answer": "İstanbul",
+    "explain": "İstanbul, 15 milyonu aşan nüfusuyla en kalabalık şehirdir."
   },
   {
     "q": "Anıtkabir hangi şehirdedir?",
     "type": "text",
-    "answer": "Ankara"
+    "answer": "Ankara",
+    "explain": "Anıtkabir, Atatürk'ün kabri, Ankara'dadır."
   },
   {
     "q": "Türkiye'nin para birimi nedir?",
     "type": "text",
     "answer": "Lira",
-    "accept": ["türk lirası","tl"]
+    "accept": [
+      "türk lirası",
+      "tl"
+    ],
+    "explain": "Türk Lirası (TL), 2005'te 'Yeni Türk Lirası' olarak yeniden düzenlendi."
   }
 ];

@@ -18,7 +18,8 @@ export default [
       "Dünya",
       "Jüpiter"
     ],
-    "answer": 3
+    "answer": 3,
+    "explain": "Jüpiter, bir gaz devidir ve tüm gezegenlerin toplamından daha kütlelidir."
   },
   {
     "q": "Kanı vücuda pompalayan organ hangisidir?",
@@ -3659,23 +3660,32 @@ export default [
   {
     "q": "Güneş sistemindeki en büyük gezegen hangisidir?",
     "type": "text",
-    "answer": "Jüpiter"
+    "answer": "Jüpiter",
+    "explain": "Jüpiter, bir gaz devidir ve tüm gezegenlerin toplamından daha kütlelidir."
   },
   {
     "q": "Altının kimyasal sembolü nedir?",
     "type": "text",
-    "answer": "Au"
+    "answer": "Au",
+    "explain": "Au, Latince 'aurum' kelimesinden gelir."
   },
   {
     "q": "Suyun donma sıcaklığı kaç santigrat derecedir?",
     "type": "text",
     "answer": "0",
-    "accept": ["sıfır","0 derece"]
+    "accept": [
+      "sıfır",
+      "0 derece"
+    ],
+    "explain": "Deniz seviyesinde su 0 °C'de donar, 100 °C'de kaynar."
   },
   {
     "q": "İnsan vücudundaki en büyük organ hangisidir?",
     "type": "text",
     "answer": "Deri",
-    "accept": ["cilt"]
+    "accept": [
+      "cilt"
+    ],
+    "explain": "Deri (cilt), vücudun en büyük ve en ağır organıdır."
   }
 ];
