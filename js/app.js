@@ -16,6 +16,7 @@ import { CHARACTERS, pickPhrase, CATEGORY_QUIPS } from "./characters.js";
 import { ACHIEVEMENTS } from "./achievements.js";
 import { CAMPAIGN, SCENES, loadCampaignProgress, saveCampaignProgress, starsFor } from "./campaign.js";
 import { pickReaction } from "./reactions.js";
+import { shareResultCard } from "./share.js";
 
 const APP = document.getElementById("app");
 
@@ -2496,10 +2497,12 @@ function renderSoloEnded(m, players) {
       </div>
       ${xpSummary}
       <button class="btn btn-primary btn-big" id="soloAgain">🔁 Tekrar Oyna</button>
+      ${SHARE_BTN}
       <button class="btn btn-secondary" id="soloHome">🏠 Ana Sayfa</button>
     </div>`;
   if (acc >= 50) confetti(3000);
   sfx.fanfare();
+  bindShareBtn("🎯 Tek Başına");
   document.getElementById("soloAgain").onclick = () => {
     sfx.click();
     const p = state.soloParams;
@@ -2531,6 +2534,7 @@ function renderDuelEnded(m, players) {
         ${side(opp, false, !win && !draw)}
       </div>
       ${xpSummary}
+      ${SHARE_BTN}
       ${state.role === "host"
         ? `<button class="btn btn-primary btn-big" id="rematch">🔁 Rövanş</button>
            <button class="mini-btn danger" id="close">Düelloyu Kapat</button>`
@@ -2538,6 +2542,7 @@ function renderDuelEnded(m, players) {
     </div>`;
   if (win || draw) confetti(3000);
   if (win) sfx.fanfare(); else sfx.whoosh();
+  bindShareBtn(draw ? "⚔️ Düello · Berabere" : (win ? "⚔️ Düello · Kazandı!" : "⚔️ Düello"));
   if (state.role === "host") {
     document.getElementById("rematch").onclick = () => { sfx.click(); hostRematch(); };
     document.getElementById("close").onclick = hostCloseRoom;
@@ -2585,6 +2590,7 @@ function renderEnded() {
       ${xpSummary}
       <div class="players-title">Tam Sıralama</div>
       ${leaderboardHTML()}
+      ${SHARE_BTN}
       ${state.role === "host"
         ? `<button class="btn btn-primary btn-big" id="rematch">🔁 Aynı Kadroyla Tekrar</button>
            <button class="btn btn-secondary" id="again">Yeni Oyun (ayarlar)</button>
@@ -2593,6 +2599,7 @@ function renderEnded() {
     </div>`;
   confetti(3000);
   sfx.fanfare();
+  bindShareBtn(m.teamMode ? "⚔️ Takım Düellosu" : "🎮 Çok Oyunculu");
   if (state.role === "host") {
     document.getElementById("rematch").onclick = () => { sfx.click(); hostRematch(); };
     document.getElementById("again").onclick = () => {
@@ -2882,6 +2889,28 @@ function announce(msg) {
   const el = document.getElementById("srLive");
   if (el) { el.textContent = ""; el.textContent = msg; }
 }
+
+// ---- Sonuç kartı paylaşımı ----
+function shareCurrentResult(subtitle) {
+  const prof = loadProfile();
+  const localPid = state.role === "host" ? "host" : state.playerId;
+  const meP = (state.room && state.room.players && state.room.players[localPid]) || {};
+  const gs = state.gameStats || { correct: 0, questions: 0 };
+  const acc = gs.questions ? Math.round((gs.correct / gs.questions) * 100) : 0;
+  const score = meP.score || 0;
+  shareResultCard({
+    name: meP.name || prof.name || "Oyuncu",
+    avatar: meP.avatar || prof.avatar || "🙂",
+    score, correct: gs.correct || 0, total: gs.questions || 0, acc,
+    subtitle: subtitle || "",
+    shareText: `Ben Bildim'de ${score} puan yaptım! 🧠 Sen de dene: https://drumutbsby.github.io/bnb/`,
+  });
+}
+function bindShareBtn(subtitle) {
+  const b = document.getElementById("shareResult");
+  if (b) b.onclick = async () => { sfx.click(); b.disabled = true; b.textContent = "Hazırlanıyor..."; await shareCurrentResult(subtitle); b.disabled = false; b.textContent = "📤 Sonucu Paylaş"; };
+}
+const SHARE_BTN = `<button class="btn btn-secondary" id="shareResult">📤 Sonucu Paylaş</button>`;
 
 // ---- Reaction paketi: reveal'da bağlama özel animasyonlu tepki + ses ----
 function reactionsEnabled() {
