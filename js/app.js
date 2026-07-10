@@ -15,6 +15,7 @@ import { loadProfile, setName, setAvatar, rankFor, rankProgress, recordGame, RAN
 import { CHARACTERS, pickPhrase, CATEGORY_QUIPS } from "./characters.js";
 import { ACHIEVEMENTS } from "./achievements.js";
 import { CAMPAIGN, SCENES, loadCampaignProgress, saveCampaignProgress, starsFor } from "./campaign.js";
+import { pickReaction } from "./reactions.js";
 
 const APP = document.getElementById("app");
 
@@ -980,6 +981,7 @@ function renderSettings() {
       <label class="field-label">Ses</label>
       <label class="toggle-chip"><input type="checkbox" id="setSound" ${isMuted() ? "" : "checked"}> <span>🔊 Ses efektleri</span></label>
       <label class="toggle-chip"><input type="checkbox" id="setTick" ${tickEnabled() ? "checked" : ""}> <span>⏱️ Son saniyelerde gerilim tıkırtısı</span></label>
+      <label class="toggle-chip"><input type="checkbox" id="setReactions" ${reactionsEnabled() ? "checked" : ""}> <span>🎬 Tepki animasyonları (reveal'da meme tepkileri)</span></label>
     </div>`;
   document.getElementById("back").onclick = renderHome;
   APP.querySelectorAll(".theme-opt").forEach((b) => {
@@ -993,6 +995,7 @@ function renderSettings() {
   });
   document.getElementById("setSound").onchange = (e) => { if (isMuted() === e.target.checked) toggleMute(); const mb = document.getElementById("muteBtn"); if (mb) mb.textContent = isMuted() ? "🔇" : "🔊"; };
   document.getElementById("setTick").onchange = (e) => { try { localStorage.setItem("bnb_tick", e.target.checked ? "1" : "0"); } catch (x) {} };
+  document.getElementById("setReactions").onchange = (e) => { try { localStorage.setItem("bnb_reactions", e.target.checked ? "1" : "0"); } catch (x) {} if (e.target.checked) showReaction(pickReaction("correct")); };
 }
 
 function renderQuickMatch() {
@@ -2256,7 +2259,7 @@ function renderHostReveal() {
     </div>`;
   document.getElementById("next").onclick = () => { sfx.click(); hostNext(); };
   sfx.whoosh();
-  if (meHost && state.lastRevealIndex !== i) { state.lastRevealIndex = i; tallyGameStat(meHost.lastCorrect, meHost.lastStreak || 0); }
+  if (meHost && state.lastRevealIndex !== i) { state.lastRevealIndex = i; tallyGameStat(meHost.lastCorrect, meHost.lastStreak || 0); maybeShowReaction(meHost, !state.solo); }
   // Otomatik ilerleme
   clearTimeout(state.autoNextTimer);
   if (m.autoNext) {
@@ -2315,6 +2318,7 @@ function renderPlayerReveal() {
     if (correct) { sfx.correct(); if (streak >= 2) setTimeout(() => sfx.streak(), 350); }
     else sfx.wrong();
     tallyGameStat(correct, streak);
+    maybeShowReaction(me, true);
   }
 }
 
@@ -2761,6 +2765,37 @@ function setupErrorHandling() {
 function announce(msg) {
   const el = document.getElementById("srLive");
   if (el) { el.textContent = ""; el.textContent = msg; }
+}
+
+// ---- Reaction paketi: reveal'da bağlama özel animasyonlu tepki + ses ----
+function reactionsEnabled() {
+  try { return localStorage.getItem("bnb_reactions") !== "0"; } catch (e) { return true; }
+}
+function showReaction(r) {
+  if (!r) return;
+  const reduce = typeof matchMedia === "function" && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const el = document.createElement("div");
+  el.className = "reaction-pop " + (reduce ? "no-anim" : "anim-" + r.anim);
+  el.setAttribute("aria-hidden", "true");
+  el.innerHTML = `<div class="rx-emoji">${r.emoji}</div><div class="rx-text">${esc(r.text)}</div>`;
+  document.body.appendChild(el);
+  if (r.sfx && sfx[r.sfx]) { try { sfx[r.sfx](); } catch (e) {} }
+  setTimeout(() => { el.classList.add("out"); setTimeout(() => el.remove(), 400); }, 1700);
+}
+// Yerel oyuncunun son sonucuna göre tepki seç. Özel anlar (combo/seri/ilk) her
+// zaman; sıradan doğru/yanlış "arada sırada" (yorgunluk yaratmasın diye).
+function maybeShowReaction(p, isMulti) {
+  if (!reactionsEnabled() || !p) return;
+  let tag = null;
+  if (p.lastCorrect) {
+    if ((p.lastStreak || 0) >= 5) tag = "streak";
+    else if ((p.lastCombo || 1) >= 3) tag = "combo";
+    else if (p.lastFirst && isMulti) tag = "first";
+    else if (Math.random() < 0.5) tag = "correct";
+  } else if (Math.random() < 0.5) {
+    tag = "wrong";
+  }
+  if (tag) showReaction(pickReaction(tag));
 }
 
 // ---------------------------------------------------------------------------

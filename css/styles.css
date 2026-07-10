@@ -78,6 +78,31 @@ button, .opt, .cat-chip, .diff-chip, .theme-opt, .av-opt, .toggle-chip { touch-a
 .solo-stats b { font-size: 1.35rem; }
 .solo-stats span { font-size: .72rem; color: var(--muted); }
 
+/* ---- Reaction paketi (reveal tepkileri) ---- */
+.reaction-pop {
+  position: fixed; left: 50%; top: 36%; z-index: 9997; text-align: center;
+  pointer-events: none; will-change: transform, opacity;
+}
+.rx-emoji { font-size: 5rem; line-height: 1; filter: drop-shadow(0 6px 10px rgba(0,0,0,.35)); }
+.rx-text {
+  margin-top: 6px; font-weight: 900; font-size: 1.7rem; color: #fff; letter-spacing: 1px;
+  -webkit-text-stroke: 1px rgba(0,0,0,.45); text-shadow: 0 3px 8px rgba(0,0,0,.55);
+}
+.reaction-pop { transform: translate(-50%, -50%); }
+.reaction-pop.out { animation: rxOut .38s ease forwards; }
+@keyframes rxOut { to { opacity: 0; transform: translate(-50%, -72%) scale(.82); } }
+.anim-pop { animation: rxPop .5s cubic-bezier(.2,1.5,.4,1); }
+@keyframes rxPop { 0% { transform: translate(-50%,-50%) scale(0); } 60% { transform: translate(-50%,-50%) scale(1.22); } 100% { transform: translate(-50%,-50%) scale(1); } }
+.anim-zoom { animation: rxZoom .5s ease; }
+@keyframes rxZoom { 0% { transform: translate(-50%,-50%) scale(2.4); opacity: 0; } 100% { transform: translate(-50%,-50%) scale(1); opacity: 1; } }
+.anim-shake { animation: rxShake .55s ease; }
+@keyframes rxShake { 0%,100% { transform: translate(-50%,-50%) rotate(0); } 20% { transform: translate(-54%,-50%) rotate(-9deg); } 40% { transform: translate(-46%,-50%) rotate(9deg); } 60% { transform: translate(-52%,-50%) rotate(-5deg); } 80% { transform: translate(-48%,-50%) rotate(5deg); } }
+.anim-drop { animation: rxDrop .6s ease; }
+@keyframes rxDrop { 0% { transform: translate(-50%,-130%); opacity: 0; } 65% { transform: translate(-50%,-44%); } 100% { transform: translate(-50%,-50%); opacity: 1; } }
+.anim-rain { animation: rxPop .5s cubic-bezier(.2,1.5,.4,1); }
+/* Hareket azaltma tercihi: animasyonsuz, kısa süre statik göster */
+.reaction-pop.no-anim { animation: none; }
+
 /* ---- Macera (kampanya) modu ---- */
 .btn-story {
   background: linear-gradient(135deg, #7c2fd6, #e2691b); color: #fff;

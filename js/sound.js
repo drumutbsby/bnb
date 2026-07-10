@@ -88,4 +88,17 @@ export const sfx = {
     notes.forEach((f, i) => tone(f, i * 0.14, 0.3, "triangle", 0.2));
     tone(1047, 0.6, 0.5, "sine", 0.22);
   },
+  // Reaction paketi sesleri (özgün, sentezlenmiş)
+  airhorn() {
+    for (let i = 0; i < 3; i++) {
+      tone(440, i * 0.14, 0.11, "sawtooth", 0.18);
+      tone(554, i * 0.14, 0.11, "square", 0.12);
+    }
+  },
+  pop() { tone(700, 0, 0.05, "sine", 0.22); tone(1100, 0.05, 0.07, "sine", 0.18); },
+  boing() { slide(700, 200, 0, 0.28, "sine", 0.18); },
+  sad() {
+    // "womp womp" — inen üçlü
+    [415, 370, 311].forEach((f, i) => tone(f, i * 0.16, 0.22, "sawtooth", 0.14));
+  },
 };
