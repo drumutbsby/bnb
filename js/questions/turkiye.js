@@ -3579,5 +3579,41 @@ export default [
       "Artvin"
     ],
     "answer": 2
+  },
+  {
+    "q": "Türkiye’nin para birimi Türk Lirası’dır.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "Pamukkale travertenleri Denizli ilindedir.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "Anıtkabir Ankara’dadır.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "Türkiye toprakları yalnızca tek bir kıtada yer alır.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 1,
+    "type": "tf"
   }
 ];

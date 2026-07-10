@@ -3609,5 +3609,41 @@ export default [
       "İterasyon"
     ],
     "answer": 0
+  },
+  {
+    "q": "HTML, web sayfaları oluşturmak için kullanılır.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "Steve Jobs, Apple şirketinin kurucularından biridir.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "1 bayt 8 bitten oluşur.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "CPU, bilgisayarın ekranına verilen addır.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 1,
+    "type": "tf"
   }
 ];

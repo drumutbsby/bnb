@@ -3599,5 +3599,41 @@ export default [
       "Fetret Devri"
     ],
     "answer": 1
+  },
+  {
+    "q": "Türkiye Cumhuriyeti 1923 yılında ilan edilmiştir.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "İstanbul 1453 yılında fethedilmiştir.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "Osmanlı Devleti’nin kurucusu Fatih Sultan Mehmet’tir.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 1,
+    "type": "tf"
+  },
+  {
+    "q": "Atatürk 1881 yılında doğmuştur.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
   }
 ];

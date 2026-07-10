@@ -3549,5 +3549,41 @@ export default [
       "Just Fontaine"
     ],
     "answer": 3
+  },
+  {
+    "q": "Bir futbol maçı normal süresi 90 dakikadır.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "Voleybolda bir takım sahada 6 oyuncuyla oynar.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "Olimpiyat Oyunları her 2 yılda bir düzenlenir.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 1,
+    "type": "tf"
+  },
+  {
+    "q": "Basketbolda üç sayı çizgisi ardından atılan basket 3 sayıdır.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
   }
 ];

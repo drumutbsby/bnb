@@ -3568,5 +3568,41 @@ export default [
       "Düzce"
     ],
     "answer": 2
+  },
+  {
+    "q": "Türkiye’nin başkenti İstanbul’dur.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 1,
+    "type": "tf"
+  },
+  {
+    "q": "Everest dünyanın en yüksek dağıdır.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "Nil Nehri Afrika kıtasındadır.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "Avustralya hem bir ülke hem de bir kıtadır.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
   }
 ];

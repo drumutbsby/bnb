@@ -3692,5 +3692,41 @@ export default [
       "Primatlar"
     ],
     "answer": 0
+  },
+  {
+    "q": "Balıklar solungaçlarıyla nefes alır.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "Yarasa bir kuş türüdür.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 1,
+    "type": "tf"
+  },
+  {
+    "q": "Bal arıları bal üretir.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "Penguenler uçabilen kuşlardır.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 1,
+    "type": "tf"
   }
 ];

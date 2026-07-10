@@ -3590,5 +3590,41 @@ export default [
       "Kar"
     ],
     "answer": 2
+  },
+  {
+    "q": "Mona Lisa tablosunu Leonardo da Vinci yapmıştır.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "İstiklal Marşı’nın şairi Mehmet Akif Ersoy’dur.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "Standart bir piyanoda 88 tuş vardır.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "Vincent van Gogh ünlü bir müzisyendir.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 1,
+    "type": "tf"
   }
 ];

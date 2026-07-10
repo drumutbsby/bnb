@@ -3579,5 +3579,41 @@ export default [
       "Kutsal sayılmasıyla"
     ],
     "answer": 0
+  },
+  {
+    "q": "Bir yılda 12 ay vardır.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "Işık, sesten daha hızlı yayılır.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "Bir üçgenin iç açıları toplamı 360 derecedir.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 1,
+    "type": "tf"
+  },
+  {
+    "q": "Bir düzine 12 adettir.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
   }
 ];

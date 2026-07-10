@@ -3619,5 +3619,41 @@ export default [
       "31"
     ],
     "answer": 3
+  },
+  {
+    "q": "Suyun kimyasal formülü H2O’dur.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "Bir örümceğin 6 bacağı vardır.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 1,
+    "type": "tf"
+  },
+  {
+    "q": "Güneş bir yıldızdır.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "Yetişkin bir insanda 206 kemik bulunur.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
   }
 ];

@@ -106,6 +106,16 @@ const OPTION_STYLES = [
   { color: "#26890c", shape: "■" },
 ];
 
+// Şık rengi/şekli — soru tipine duyarlı (doğru-yanlış: yeşil ✓ / kırmızı ✗)
+function optColor(pq, idx) {
+  if (pq && pq.type === "tf") return idx === 0 ? "#1a7a2e" : "#c02032";
+  return OPTION_STYLES[idx] ? OPTION_STYLES[idx].color : "#666";
+}
+function optShape(pq, idx) {
+  if (pq && pq.type === "tf") return idx === 0 ? "✓" : "✗";
+  return OPTION_STYLES[idx] ? OPTION_STYLES[idx].shape : "●";
+}
+
 // ---------------------------------------------------------------------------
 // Yardımcılar
 // ---------------------------------------------------------------------------
@@ -486,7 +496,7 @@ function hostShowQuestion(i) {
 
   if (!state.room.answers) state.room.answers = {};
   state.room.answers[i] = {};
-  state.room.publicQuestions[i] = { q: q.q, options: q.options, category: q.category, visual: q.visual || null, image: q.image || null };
+  state.room.publicQuestions[i] = { q: q.q, options: q.options, category: q.category, visual: q.visual || null, image: q.image || null, type: q.type || "mc" };
   state.room.meta.questionIndex = i;
   state.room.meta.status = "question";
   hostPublish();
@@ -2052,13 +2062,13 @@ function renderHostQuestion() {
   const opts = pq.options.map((o, idx) => {
     if (hostPlays) {
       const chosen = answered && state.playerChoice === idx ? "opt-chosen" : "";
-      return `<button class="opt opt-btn ${hidden.includes(idx) ? "opt-hidden" : ""} ${chosen}" data-choice="${idx}" style="background:${OPTION_STYLES[idx].color}" ${answered ? "disabled" : ""}>
-        <span class="opt-shape">${OPTION_STYLES[idx].shape}</span>
+      return `<button class="opt opt-btn ${hidden.includes(idx) ? "opt-hidden" : ""} ${chosen}" data-choice="${idx}" style="background:${optColor(pq, idx)}" ${answered ? "disabled" : ""}>
+        <span class="opt-shape">${optShape(pq, idx)}</span>
         <span class="opt-text">${esc(o)}</span>
       </button>`;
     }
-    return `<div class="opt opt-host" style="background:${OPTION_STYLES[idx].color}">
-      <span class="opt-shape">${OPTION_STYLES[idx].shape}</span>
+    return `<div class="opt opt-host" style="background:${optColor(pq, idx)}">
+      <span class="opt-shape">${optShape(pq, idx)}</span>
       <span class="opt-text">${esc(o)}</span>
     </div>`;
   }).join("");
@@ -2081,7 +2091,7 @@ function renderHostQuestion() {
       ${visualHTML(pq)}
       <div class="q-text">${esc(pq.q)}</div>
       ${state.solo ? "" : `<div class="answered-count"><span id="answeredCount">${alreadyAnswered}</span>/${players.length} yanıtladı</div>`}
-      <div class="options">${opts}</div>
+      <div class="options ${pq.type === "tf" ? "tf" : ""}">${opts}</div>
       ${jokersHtml}
       ${answeredNote}
       ${state.solo ? "" : `<button class="btn btn-secondary" id="skip">Herkes yanıtladı, göster ›</button>`}
@@ -2167,8 +2177,8 @@ function renderPlayerQuestion() {
   const jok = myJokers();
   const doubleOn = myDoubleActive(i);
   const opts = pq.options.map((o, idx) => `
-    <button class="opt opt-btn ${hidden.includes(idx) ? "opt-hidden" : ""}" data-choice="${idx}" style="background:${OPTION_STYLES[idx].color}">
-      <span class="opt-shape">${OPTION_STYLES[idx].shape}</span>
+    <button class="opt opt-btn ${hidden.includes(idx) ? "opt-hidden" : ""}" data-choice="${idx}" style="background:${optColor(pq, idx)}">
+      <span class="opt-shape">${optShape(pq, idx)}</span>
       <span class="opt-text">${esc(o)}</span>
     </button>`).join("");
 
@@ -2182,7 +2192,7 @@ function renderPlayerQuestion() {
       ${timerBarHTML()}
       ${visualHTML(pq)}
       <div class="q-text">${esc(pq.q)}</div>
-      <div class="options">${opts}</div>
+      <div class="options ${pq.type === "tf" ? "tf" : ""}">${opts}</div>
       <div class="jokers" id="jokers">
         <button class="joker-btn" id="jFifty" ${jok.fifty > 0 && !hidden.length ? "" : "disabled"}>➗ 50:50 (${jok.fifty})</button>
         <button class="joker-btn ${doubleOn ? "active" : ""}" id="jDouble" ${jok.double > 0 && !doubleOn ? "" : "disabled"}>✖️ Çift Puan (${doubleOn ? "aktif" : jok.double})</button>
@@ -2210,7 +2220,7 @@ function renderPlayerQuestion() {
 }
 
 function renderPlayerWaiting(pq, choice) {
-  const chosen = choice != null ? OPTION_STYLES[choice] : null;
+  const chosen = choice != null ? { color: optColor(pq, choice), shape: optShape(pq, choice) } : null;
   const doubleOn = myDoubleActive(state.room.meta.questionIndex);
   APP.innerHTML = `
     <div class="card center question-card">
@@ -2314,7 +2324,7 @@ function renderHostReveal() {
     const isCorrect = idx === rev.correct;
     const pct = Math.round((rev.counts[idx] / total) * 100);
     return `<div class="opt reveal-opt ${isCorrect ? "correct" : "dim"}" style="background:${isCorrect ? "#26890c" : "#6b7075"}">
-      <span class="opt-shape">${OPTION_STYLES[idx].shape}</span>
+      <span class="opt-shape">${optShape(q, idx)}</span>
       <span class="opt-text">${esc(o)} ${isCorrect ? "✓" : ""}</span>
       <span class="opt-count">${rev.counts[idx]}</span>
       <span class="opt-bar" style="width:${pct}%"></span>
@@ -2370,9 +2380,9 @@ function renderPlayerReveal() {
   let answerHtml = "";
   if (correctIdx >= 0 && opts[correctIdx] != null) {
     answerHtml = `<div class="reveal-answer">
-      <div class="ra-opt ra-correct"><span class="opt-shape">${OPTION_STYLES[correctIdx].shape}</span><span class="opt-text">${esc(opts[correctIdx])}</span><span class="ra-tag">✓ Doğru</span></div>`;
+      <div class="ra-opt ra-correct"><span class="opt-shape">${optShape(pq, correctIdx)}</span><span class="opt-text">${esc(opts[correctIdx])}</span><span class="ra-tag">✓ Doğru</span></div>`;
     if (!correct && myChoice != null && myChoice !== correctIdx && opts[myChoice] != null) {
-      answerHtml += `<div class="ra-opt ra-wrong"><span class="opt-shape">${OPTION_STYLES[myChoice].shape}</span><span class="opt-text">${esc(opts[myChoice])}</span><span class="ra-tag">✗ Senin</span></div>`;
+      answerHtml += `<div class="ra-opt ra-wrong"><span class="opt-shape">${optShape(pq, myChoice)}</span><span class="opt-text">${esc(opts[myChoice])}</span><span class="ra-tag">✗ Senin</span></div>`;
     }
     answerHtml += `</div>`;
   }

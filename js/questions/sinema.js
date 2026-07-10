@@ -3479,5 +3479,41 @@ export default [
       "Amazon Prime"
     ],
     "answer": 1
+  },
+  {
+    "q": "Titanic filminin yönetmeni James Cameron’dur.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "Oscar ödülleri Amerika Birleşik Devletleri’nde verilir.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "Klasik bir akustik gitarda genellikle 6 tel bulunur.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 0,
+    "type": "tf"
+  },
+  {
+    "q": "Charlie Chaplin renkli sesli filmleriyle ünlüdür.",
+    "options": [
+      "Doğru",
+      "Yanlış"
+    ],
+    "answer": 1,
+    "type": "tf"
   }
 ];
