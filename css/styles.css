@@ -78,6 +78,15 @@ button, .opt, .cat-chip, .diff-chip, .theme-opt, .av-opt, .toggle-chip { touch-a
 .solo-stats b { font-size: 1.35rem; }
 .solo-stats span { font-size: .72rem; color: var(--muted); }
 
+/* ---- Düello 1v1 sonuç ---- */
+.duel-score { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 14px 0; }
+.ds-side { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 12px 10px; border-radius: 14px; background: var(--secondary); min-width: 104px; }
+.ds-side.win { background: #e7f6e7; box-shadow: 0 0 0 2px #7bc86c inset; }
+.ds-av { font-size: 2.1rem; line-height: 1; }
+.ds-name { font-size: .8rem; font-weight: 800; overflow-wrap: anywhere; }
+.ds-pts { font-size: 1.9rem; font-weight: 900; color: var(--primary); }
+.ds-vs { font-size: 1.5rem; font-weight: 900; color: var(--muted); }
+
 /* ---- Reaction paketi (reveal tepkileri) ---- */
 .reaction-pop {
   position: fixed; left: 50%; top: 36%; z-index: 9997; text-align: center;

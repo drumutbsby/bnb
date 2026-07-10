@@ -260,6 +260,7 @@ async function createRoom(categories, count, difficultyKey, hostName, settings) 
       teamAvg: !!settings.teamAvg,
       autoNext: !!settings.autoNext,
       teamMode: false,
+      duel: !!settings.duel,
     },
     players: {}, requests: {}, publicQuestions: {}, reveal: {}, answers: {}, fifty: {}, doubles: {},
   };
@@ -295,6 +296,11 @@ function hostOnInput(msg) {
     if (room.meta.status !== "lobby") return;
     if (!msg.pid || !msg.name) return;
     if (room.kicked && room.kicked[msg.pid]) return; // atılan geri giremez
+    // Düello 1v1: en fazla 2 oyuncu; fazlasını reddet (rakip dolu)
+    if (room.meta.duel && !room.players[msg.pid] && Object.keys(room.players || {}).length >= 2) {
+      room.rejected = room.rejected || {}; room.rejected[msg.pid] = true;
+      hostPublish(); return;
+    }
     // 'B' takımı yalnızca bir düello kabulünden sonra (teamMode) geçerlidir;
     // aksi halde 'A' kabul edilir — böylece team:'B' ile onay atlatılamaz.
     const team = (msg.team === "B" && room.meta.teamMode) ? "B" : "A";
@@ -865,6 +871,7 @@ function renderHome() {
       <button class="btn btn-primary btn-big" id="goHost">🎮 Oda Kur</button>
       <button class="btn btn-secondary btn-big" id="goJoin">🙋 Odaya Katıl</button>
       <button class="btn btn-secondary btn-big" id="solo">🎯 Tek Başına</button>
+      <button class="btn btn-secondary btn-big" id="duel">⚔️ Düello (1v1)</button>
       <button class="btn btn-story btn-big" id="campaign">🗺️ Macera</button>
       <button class="btn btn-secondary btn-big" id="quick">⚡ Hızlı Eşleş</button>
       <div class="home-links">
@@ -877,6 +884,7 @@ function renderHome() {
   document.getElementById("goHost").onclick = () => { sfx.click(); renderHostSetup(); };
   document.getElementById("goJoin").onclick = () => { sfx.click(); renderJoin(); };
   document.getElementById("solo").onclick = () => { sfx.click(); renderSoloSetup(); };
+  document.getElementById("duel").onclick = () => { sfx.click(); renderDuelMenu(); };
   document.getElementById("campaign").onclick = () => { sfx.click(); renderCampaignMap(); };
   document.getElementById("quick").onclick = () => { sfx.click(); renderQuickMatch(); };
   document.getElementById("records").onclick = () => { sfx.click(); renderProfile(); };
@@ -1352,6 +1360,75 @@ function renderSoloSetup() {
   };
 }
 
+// ---- Düello (1v1) ----
+function renderDuelMenu() {
+  state.currentView = "duelMenu"; armBackGuard();
+  APP.innerHTML = `
+    <div class="card center">
+      <button class="link-back" id="back">‹ Geri</button>
+      <div class="logo small">⚔️ Düello</div>
+      <p class="muted small">Bire bir kapışma: aynı sorular, ilk doğru cevaplayan daha çok puan alır; geç kalan az, yanlış hiç. Rakibini nickname + kodla çağır.</p>
+      <button class="btn btn-primary btn-big" id="duelCreate">⚔️ Düello Kur</button>
+      <button class="btn btn-secondary btn-big" id="duelJoin">🔑 Koda Katıl</button>
+    </div>`;
+  document.getElementById("back").onclick = renderHome;
+  document.getElementById("duelCreate").onclick = () => { sfx.click(); renderDuelSetup(); };
+  document.getElementById("duelJoin").onclick = () => { sfx.click(); renderJoin(); };
+}
+
+function renderDuelSetup() {
+  state.currentView = "duelSetup"; armBackGuard();
+  const prof = loadProfile();
+  const diffs = Object.entries(DIFFICULTY).map(([key, d]) => `
+    <div class="diff-chip ${state.setupDifficulty === key ? "active" : ""}" data-diff="${key}">
+      <span class="diff-emoji">${d.emoji}</span>${esc(d.name)}
+      <span class="diff-sub">${esc(d.sub)}</span>
+    </div>`).join("");
+  APP.innerHTML = `
+    <div class="card">
+      <button class="link-back" id="back">‹ Geri</button>
+      <h2>⚔️ Düello Kur</h2>
+      <label class="field-label">Adın</label>
+      <input class="input" id="duelName" placeholder="Adın" maxlength="16" value="${esc(prof.name || "")}">
+      <label class="field-label">Avatarın</label>
+      ${avatarPickerHtml()}
+      <label class="field-label">Kategoriler</label>
+      <div class="cat-grid">${categoryChips()}</div>
+      <div class="cat-actions">
+        <button class="mini-btn" id="selAll">Tümü</button>
+        <button class="mini-btn" id="selNone">Hiçbiri</button>
+        <button class="mini-btn" id="editCustom">✏️ Kendi Sorularım</button>
+      </div>
+      <label class="field-label">Zorluk</label>
+      <div class="difficulty-grid">${diffs}</div>
+      <label class="field-label">Soru sayısı: <b id="qcountLbl">7</b></label>
+      <input type="range" id="qcount" min="3" max="30" value="7" step="1" class="range" aria-label="Soru sayısı (3-30)">
+      <button class="btn btn-primary btn-big" id="duelGo">Düelloyu Kur</button>
+    </div>`;
+  document.getElementById("back").onclick = renderDuelMenu;
+  bindAvatarPicker();
+  document.getElementById("qcount").oninput = (e) => (document.getElementById("qcountLbl").textContent = e.target.value);
+  const boxes = () => [...APP.querySelectorAll(".cat-chip input")];
+  document.getElementById("selAll").onclick = () => boxes().forEach((b) => (b.checked = b.value !== "ozel" ? true : b.checked));
+  document.getElementById("selNone").onclick = () => boxes().forEach((b) => (b.checked = false));
+  document.getElementById("editCustom").onclick = () => renderCustomEditor();
+  APP.querySelectorAll(".diff-chip").forEach((el) => {
+    el.onclick = () => { state.setupDifficulty = el.dataset.diff; APP.querySelectorAll(".diff-chip").forEach((x) => x.classList.remove("active")); el.classList.add("active"); sfx.click(); };
+  });
+  document.getElementById("duelGo").onclick = async () => {
+    const name = document.getElementById("duelName").value.trim() || "Oyuncu";
+    const selected = boxes().filter((b) => b.checked).map((b) => b.value);
+    if (!selected.length) { alert("En az bir kategori seç."); return; }
+    if (selected.includes("ozel") && loadCustom().length === 0) { alert("Kendi Sorularım boş. Önce soru ekle ya da bu kategoriyi kaldır."); return; }
+    const count = parseInt(document.getElementById("qcount").value, 10);
+    setName(name);
+    const btn = document.getElementById("duelGo"); btn.disabled = true; btn.textContent = "Kuruluyor...";
+    try {
+      await createRoom(selected, count, state.setupDifficulty, name, { duel: true, hostPlays: true, speedBonus: true });
+    } catch (e) { alert("Düello kurulamadı: " + e.message); btn.disabled = false; btn.textContent = "Düelloyu Kur"; }
+  };
+}
+
 // Tek kişilik oyunu başlat — bellekte "host" olarak, ağ olmadan.
 async function startSolo(categories, count, difficultyKey, settings) {
   settings = settings || {};
@@ -1729,10 +1806,12 @@ function renderHostLobby() {
         </div>`).join("")}
     </div>` : "";
 
-  // Meydan okuma durumu
+  // Meydan okuma durumu (düello 1v1 modunda takım meydan okuması gizli)
   const incoming = m.challengeFrom;
   let challengeHtml = "";
-  if (m.teamMode) {
+  if (m.duel) {
+    challengeHtml = "";
+  } else if (m.teamMode) {
     challengeHtml = `<div class="challenge-box pending">⚔️ Düello kuruldu: <b>${esc(m.teamAName)}</b> vs <b>${esc(m.teamBName)}</b></div>`;
   } else if (incoming) {
     challengeHtml = `
@@ -1757,7 +1836,7 @@ function renderHostLobby() {
     <div class="card">
       <div class="lobby-head">
         <div>
-          <div class="muted small">Oda Kodu · ${esc(m.teamName)}</div>
+          <div class="muted small">${m.duel ? "⚔️ Düello · Kod" : "Oda Kodu · " + esc(m.teamName)}</div>
           <div class="room-code">${esc(state.code)}</div>
         </div>
         <button class="mini-btn danger" id="close">Kapat</button>
@@ -1772,10 +1851,11 @@ function renderHostLobby() {
       </div>
       ${requestsHtml}
       ${challengeHtml}
-      <div class="players-title">Katılanlar (<span id="pcount">${players.length}</span>)</div>
+      <div class="players-title">${m.duel ? "Rakip" : "Katılanlar"} (<span id="pcount">${players.length}</span>${m.duel ? "/2" : ""})</div>
       ${teamListHtml(players, m, true)}
-      <button class="btn btn-primary btn-big" id="start" ${players.length ? "" : "disabled"}>
-        ${m.teamMode ? "Düelloyu Başlat" : "Başlat"} (${m.totalQuestions} soru)
+      ${m.duel && players.length < 2 ? `<div class="muted small center" style="margin:8px 0">⏳ Rakip bekleniyor — kodu paylaş: <b>${esc(state.code)}</b></div>` : ""}
+      <button class="btn btn-primary btn-big" id="start" ${(players.length && (!m.duel || players.length >= 2)) ? "" : "disabled"}>
+        ${m.duel ? "⚔️ Düelloyu Başlat" : m.teamMode ? "Düelloyu Başlat" : "Başlat"} (${m.totalQuestions} soru)
       </button>
     </div>`;
   document.getElementById("start").onclick = () => { sfx.click(); hostStartGame(); };
@@ -2429,11 +2509,47 @@ function renderSoloEnded(m, players) {
   document.getElementById("soloHome").onclick = () => { sfx.click(); state.solo = false; resetToHome(); };
 }
 
+function renderDuelEnded(m, players) {
+  const me = players.find(([id]) => id === state.playerId) || players[0] || ["", {}];
+  const opp = players.find(([id]) => id !== state.playerId) || players[1] || ["", { name: "Rakip" }];
+  const myScore = me[1].score || 0;
+  const oppScore = opp[1].score || 0;
+  const draw = myScore === oppScore;
+  const win = myScore > oppScore;
+  const xpSummary = recordLocalResult(m, players);
+  const side = (p, isMe, winner) => `<div class="ds-side ${winner ? "win" : ""}">
+    <div class="ds-av">${esc(p[1].avatar || "🙂")}</div>
+    <div class="ds-name">${esc(p[1].name || (isMe ? "Sen" : "Rakip"))}${isMe ? " (sen)" : ""}</div>
+    <div class="ds-pts">${p[1].score || 0}</div></div>`;
+  APP.innerHTML = `
+    <div class="card center">
+      <div class="logo small">⚔️ Düello Bitti!</div>
+      <p class="winner-line">${draw ? "Berabere! 🤝" : (win ? "Kazandın! 🏆" : "Kaybettin 😔")}</p>
+      <div class="duel-score">
+        ${side(me, true, win && !draw)}
+        <div class="ds-vs">–</div>
+        ${side(opp, false, !win && !draw)}
+      </div>
+      ${xpSummary}
+      ${state.role === "host"
+        ? `<button class="btn btn-primary btn-big" id="rematch">🔁 Rövanş</button>
+           <button class="mini-btn danger" id="close">Düelloyu Kapat</button>`
+        : `<p class="muted">Rakibin "rövanş" derse yeni tur başlar.</p>`}
+    </div>`;
+  if (win || draw) confetti(3000);
+  if (win) sfx.fanfare(); else sfx.whoosh();
+  if (state.role === "host") {
+    document.getElementById("rematch").onclick = () => { sfx.click(); hostRematch(); };
+    document.getElementById("close").onclick = hostCloseRoom;
+  }
+}
+
 function renderEnded() {
   const m = state.room.meta;
   const players = playersList().sort((a, b) => (b[1].score || 0) - (a[1].score || 0));
   if (state.campaign || m.campaign) { renderCampaignStageResult(m); return; }
   if (state.solo || m.solo) { renderSoloEnded(m, players); return; }
+  if (m.duel) { renderDuelEnded(m, players); return; }
   const podium = players.slice(0, 3);
   const medals = ["🥇", "🥈", "🥉"];
   const podiumHTML = podium.map(([id, p], idx) =>
