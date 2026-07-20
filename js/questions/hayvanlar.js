@@ -266,8 +266,8 @@ export default [
     "options": [
       "Koloni",
       "Kabile",
-      "Sürü",
-      "Prides (Aile sürüsü)"
+      "Klan",
+      "Pride (Aile sürüsü)"
     ],
     "answer": 3
   },
@@ -596,8 +596,7 @@ export default [
       "Kondor",
       "Devekuşu"
     ],
-    "answer": 3,
-    "visual": "🦤"
+    "answer": 3
   },
   {
     "q": "Balinalar hangi hayvan sınıfına aittir?",
@@ -1356,8 +1355,7 @@ export default [
       "Yanlış",
       "Sadece yavrularda"
     ],
-    "answer": 1,
-    "visual": "🦤"
+    "answer": 1
   },
   {
     "q": "Bal arıları hangi yönde dans ederek besin kaynağının yerini bildirir?",
@@ -2285,7 +2283,7 @@ export default [
     "answer": 0
   },
   {
-    "q": "Kutup kuşlarından karabatakların (kormoranların) diğer su kuşlarından farklı olarak avdan sonra sık görülen davranışı nedir?",
+    "q": "Karabatakların (kormoranların) diğer su kuşlarından farklı olarak avdan sonra sık görülen davranışı nedir?",
     "options": [
       "Ötmesi",
       "Kanatlarını açıp kuruması",
@@ -3149,7 +3147,7 @@ export default [
     "options": [
       "Kansız olması",
       "İkinci bir kalbi olması",
-      "Solunumu vücuttaki traşe delikleriyle yapması ve açık dolaşım sistemi",
+      "Solunumu vücuttaki trake delikleriyle (stigma) yapması ve açık dolaşım sistemi",
       "Beyninin karında olması"
     ],
     "answer": 2

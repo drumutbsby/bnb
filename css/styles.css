@@ -184,6 +184,7 @@ button, .opt, .cat-chip, .diff-chip, .theme-opt, .av-opt, .toggle-chip { touch-a
   padding: 24px;
   animation: pop .25s ease;
   overflow-wrap: anywhere; /* boşluksuz uzun ad/soru kartı taşırmasın */
+  position: relative; /* kart içi absolute katmanlar (geri sayım perdesi) karta çapalanır */
 }
 @keyframes pop { from { transform: translateY(8px) scale(.98); opacity: 0; } to { transform: none; opacity: 1; } }
 

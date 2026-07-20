@@ -311,7 +311,7 @@ export default [
     "answer": 1
   },
   {
-    "q": "Fenerbahçe'nin efsanevi kalecisi olarak bilinen ve uzun yıllar formasını giyen milli oyuncu kimdir?",
+    "q": "2002-2019 yılları arasında Fenerbahçe kalesini koruyan efsanevi milli kaleci kimdir?",
     "options": [
       "Engin İpekoğlu",
       "Volkan Demirel",
@@ -591,7 +591,7 @@ export default [
     "answer": 0
   },
   {
-    "q": "Sırıkla yüksek atlama branşında sporcular hangi malzemeyi kullanır?",
+    "q": "Sırıkla atlama branşında çıtayı aşmak için kullanılan araç nedir?",
     "options": [
       "Disk",
       "Gülle",
@@ -1781,17 +1781,17 @@ export default [
     "answer": 0
   },
   {
-    "q": "Real Madrid'in tarihte ilk kez üst üste üç kez (2016, 2017, 2018) kazandığı kupa hangisidir?",
+    "q": "Real Madrid'in Şampiyonlar Ligi adıyla ilk kez üst üste üç sezon (2016-2018) kazandığı kupa hangisidir?",
     "options": [
       "La Liga",
       "Kral Kupası",
       "Şampiyonlar Ligi",
-      "Dünya Kulüpler Kupası"
+      "UEFA Avrupa Ligi"
     ],
     "answer": 2
   },
   {
-    "q": "1966 Dünya Kupası'nı kendi evinde kazanan tek ülke hangisidir?",
+    "q": "1966 Dünya Kupası'nı kendi evinde kazanan ülke hangisidir?",
     "options": [
       "İngiltere",
       "Portekiz",
@@ -2311,7 +2311,7 @@ export default [
     "answer": 3
   },
   {
-    "q": "Erkekler 10.000 metre dünya rekoru uzun yıllar hangi Etiyopyalı atlete aitti?",
+    "q": "2005-2020 arasında erkekler 10.000 metre dünya rekorunu elinde tutan Etiyopyalı atlet kimdir?",
     "options": [
       "Kenenisa Bekele",
       "Miruts Yifter",
@@ -2321,7 +2321,7 @@ export default [
     "answer": 0
   },
   {
-    "q": "Kadınlar 400 metre engelli dünya rekorunu 50 saniyenin altına indiren atlet kimdir?",
+    "q": "Kadınlar 400 metre engelli dünya rekorunu art arda kırarak 50.37'ye taşıyan atlet kimdir?",
     "options": [
       "Yuliya Pechonkina",
       "Dalilah Muhammad",
@@ -2381,7 +2381,7 @@ export default [
     "answer": 3
   },
   {
-    "q": "Kadınlar yüksek atlama dünya rekoru (2.09 m) 1987'den beri hangi Bulgar atlete aittir?",
+    "q": "1987'den 2024'e kadar 37 yıl kadınlar yüksek atlama dünya rekorunu (2.09 m) elinde tutan Bulgar atlet kimdir?",
     "options": [
       "Blanka Vlasic",
       "Stefka Kostadinova",
@@ -2973,7 +2973,7 @@ export default [
   {
     "q": "Hakan Şükür 2002 Dünya Kupası'nda Güney Kore'ye karşı kaçıncı saniyede gol atarak rekor kırdı?",
     "options": [
-      "10.9 saniye",
+      "10.8 saniye",
       "20 saniye",
       "11 saniye",
       "15 saniye"
@@ -3151,7 +3151,7 @@ export default [
     "answer": 2
   },
   {
-    "q": "Recep Uslu değil; okçu Yasemin Ecem Anagöz hangi branşta Türkiye'yi temsil etmiştir?",
+    "q": "Okçu Yasemin Ecem Anagöz hangi branşta Türkiye'yi temsil etmiştir?",
     "options": [
       "Makaralı yay okçuluk",
       "Atıcılık",
@@ -3271,16 +3271,6 @@ export default [
     "answer": 0
   },
   {
-    "q": "Türkiye A Milli Futbol Takımı 2002 Dünya Kupası'nda kaçıncı olmuştur?",
-    "options": [
-      "İkinci",
-      "Beşinci",
-      "Üçüncü",
-      "Dördüncü"
-    ],
-    "answer": 2
-  },
-  {
     "q": "2002 Dünya Kupası'nda gol kralı olan Brezilyalı futbolcu kimdir?",
     "options": [
       "Ronaldinho",
@@ -3291,7 +3281,7 @@ export default [
     "answer": 1
   },
   {
-    "q": "Bir Dünya Kupası maçında en hızlı gol (11. saniye) rekoru 2002'de hangi Türk futbolcuya aittir?",
+    "q": "Bir Dünya Kupası maçında en hızlı gol (10.8 saniye) rekoru 2002'de hangi Türk futbolcuya aittir?",
     "options": [
       "Nihat Kahveci",
       "İlhan Mansız",
@@ -3391,7 +3381,7 @@ export default [
     "answer": 0
   },
   {
-    "q": "İspanya A Milli Takımı 2008, 2012 ve 2010'da art arda kazandığı büyük turnuvalardan hangisini 2010'da kazandı?",
+    "q": "İspanya, 2008 ve 2012 Avrupa Şampiyonlukları arasında 2010'da hangi büyük turnuvayı kazandı?",
     "options": [
       "Konfederasyonlar Kupası",
       "Avrupa Şampiyonası",

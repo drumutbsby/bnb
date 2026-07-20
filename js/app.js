@@ -6,7 +6,7 @@ import {
   publishState, clearState, sendInput, publishHof, subscribeHof, subscribeRooms,
   publishLeague, subscribeLeague, onStatus,
 } from "./net.js";
-import { ensureDaily, updateDailyAfterGame, loginStreak, dailyQuestionStatus, recordDailyQuestion, inviteStatus, recordInviteShare } from "./daily.js";
+import { ensureDaily, updateDailyAfterGame, loginStreak, dailyQuestionStatus, recordDailyQuestion, inviteStatus, recordInviteShare, dayNumber } from "./daily.js";
 import { CATEGORIES, CUSTOM_CATEGORY, buildQuestionSet, loadCategory } from "./questions.js";
 import { unlock, sfx, isMuted, toggleMute } from "./sound.js";
 import { confetti } from "./confetti.js";
@@ -187,7 +187,8 @@ function saveSoloState() {
   if (!state.solo || !state.room) return;
   try {
     localStorage.setItem(SOLO_KEY, JSON.stringify({
-      v: 1, campaign: state.campaign, soloParams: state.soloParams, name: state.name,
+      v: 1, campaign: state.campaign, soloParams: state.soloParams,
+      survivalParams: state.survivalParams, name: state.name,
       room: state.room, localQuestions: state.localQuestions,
       gameStats: state.gameStats, statsInit: state.statsInit, recorded: state.recorded,
       lastRevealIndex: state.lastRevealIndex, answeredIndex: state.answeredIndex,
@@ -203,6 +204,7 @@ function resumeSolo(saved) {
   state.solo = true;
   state.campaign = saved.campaign || null;
   state.soloParams = saved.soloParams || null;
+  state.survivalParams = saved.survivalParams || null;
   state.role = "host"; state.playerId = "host";
   state.name = saved.name || loadProfile().name || "Sen";
   state.code = state.campaign ? "MACERA" : "SOLO";
@@ -923,7 +925,17 @@ function renderLoadingCard(msg) {
   APP.innerHTML = `<div class="card center"><div class="spinner"></div><p class="muted">${esc(msg || "Yükleniyor...")}</p></div>`;
 }
 
+// Görünüme özel temizlik (abonelik/zamanlayıcı) — görünümden her çıkışta çalışır.
+// Lig/Global/Hızlı Eşleş gibi ekranlar tarayıcı geri tuşuyla terk edildiğinde de
+// aboneliklerinin sızmaması için buraya kayıt olur.
+function runViewCleanup() {
+  const fn = state.viewCleanup;
+  state.viewCleanup = null;
+  if (fn) { try { fn(); } catch (e) {} }
+}
+
 function renderHome() {
+  runViewCleanup();
   state.currentView = "home";
   APP.innerHTML = `
     <div class="card center home">
@@ -971,14 +983,14 @@ function renderDaily() {
     </div>`;
   }).join("");
   // Son 7 günün takvimi
-  const today = Math.floor(Date.now() / 86400000);
+  const today = dayNumber();
   const log = new Set(d.log || []);
   const days = ["Pt", "Sa", "Ça", "Pe", "Cu", "Ct", "Pz"];
   let cal = "";
   for (let i = 6; i >= 0; i--) {
     const dn = today - i;
     const active = log.has(dn);
-    const dow = new Date(dn * 86400000).getDay(); // 0=Paz
+    const dow = new Date(dn * 86400000).getUTCDay(); // dn yerel gün numarası; 0=Paz
     const label = days[(dow + 6) % 7];
     cal += `<div class="cal-day ${active ? "on" : ""}">${active ? "🔥" : "·"}<span>${label}</span></div>`;
   }
@@ -1022,7 +1034,7 @@ function renderDaily() {
 
 // Günün Sorusu — güne göre deterministik (herkese aynı), günde tek hak.
 async function pickDailyQuestion() {
-  const dn = Math.floor(Date.now() / 86400000);
+  const dn = dayNumber(); // günde-tek-hak kilidiyle aynı (yerel) gün tanımı
   const cats = ["genel", "tarih", "cografya", "bilim", "spor", "sanat", "sinema", "teknoloji", "turkiye", "hayvanlar"];
   const cat = cats[dn % cats.length];
   let list = await loadCategory(cat);
@@ -1133,7 +1145,8 @@ function renderLeague() {
     </div>`;
   const entries = new Map();
   let unsub = null, rt = null, cancelled = false;
-  const done = () => { cancelled = true; if (unsub) unsub(); clearTimeout(rt); };
+  const done = () => { cancelled = true; if (unsub) { unsub(); unsub = null; } clearTimeout(rt); };
+  state.viewCleanup = done; // tarayıcı geri tuşuyla çıkışta da aboneliği bırak
   document.getElementById("back").onclick = () => { done(); renderHome(); };
   const paint = () => {
     const mine = loadProfile();
@@ -1207,17 +1220,23 @@ function renderQuickMatch() {
       <p class="muted" id="qmNote">Açık oda aranıyor...</p>
     </div>`;
   const rooms = new Map();
-  let unsub = null, decided = false;
-  const cleanup = () => { if (unsub) unsub(); };
+  let unsub = null, decided = false, qmTimer = null;
+  const cleanup = () => { if (unsub) { unsub(); unsub = null; } clearTimeout(qmTimer); };
+  // Tarayıcı geri tuşuyla çıkışta aramayı iptal et (aksi halde 2.2 sn sonra
+  // kullanıcı ana sayfadayken zorla odaya sokuluyordu).
+  state.viewCleanup = () => { decided = true; cleanup(); };
   whenConnected().then(() => {
+    if (decided) return;
     unsub = subscribeRooms((code, data) => {
       if (!data || !data.meta) { rooms.delete(code); return; }
       const m = data.meta;
       const open = m.status === "lobby" && !m.redirectTo && !m.teamMode;
       if (open) rooms.set(code, data); else rooms.delete(code);
     });
-    setTimeout(() => {
-      if (decided) return; decided = true; cleanup();
+    if (decided) { cleanup(); return; }
+    qmTimer = setTimeout(() => {
+      if (decided || state.currentView !== "quick") { cleanup(); return; }
+      decided = true; cleanup();
       const codes = [...rooms.keys()];
       if (!codes.length) {
         const n = document.getElementById("qmNote");
@@ -1249,7 +1268,8 @@ function renderGlobal() {
     </div>`;
   const entries = new Map();
   let unsub = null, rt = null, cancelled = false;
-  const done = () => { cancelled = true; if (unsub) unsub(); clearTimeout(rt); };
+  const done = () => { cancelled = true; if (unsub) { unsub(); unsub = null; } clearTimeout(rt); };
+  state.viewCleanup = done; // tarayıcı geri tuşuyla çıkışta da aboneliği bırak
   document.getElementById("back").onclick = () => { done(); renderHome(); };
 
   const paint = () => {
@@ -2774,7 +2794,7 @@ function renderPlayerReveal() {
 
 // Yerel oyuncunun oyun-içi istatistiğini biriktir (rekorlar + karakterler için)
 function tallyGameStat(correct, streak) {
-  if (!state.gameStats) state.gameStats = { correct: 0, questions: 0, maxStreak: 0, wrongStreak: 0 };
+  if (!state.gameStats) state.gameStats = { correct: 0, questions: 0, maxStreak: 0, wrongStreak: 0, fastMs: 0 };
   const gs = state.gameStats;
   gs.questions += 1;
   if (correct) {

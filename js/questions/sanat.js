@@ -181,7 +181,7 @@ export default [
     "answer": 3
   },
   {
-    "q": "Garip akımını (Birinci Yeni) başlatan üç şairden biri değildir?",
+    "q": "Aşağıdakilerden hangisi Garip akımını (Birinci Yeni) başlatan üç şairden biri değildir?",
     "options": [
       "Oktay Rifat",
       "Orhan Veli Kanık",
@@ -265,7 +265,7 @@ export default [
     "options": [
       "Garipname",
       "Risaletü'n-Nushiyye ve Divan",
-      "Divan",
+      "Mesnevi",
       "Mantıku't-Tayr"
     ],
     "answer": 1
@@ -421,7 +421,7 @@ export default [
     "answer": 3
   },
   {
-    "q": "'Sokakta', 'Aylak Adam' ve 'Anayurt Oteli' romanlarının yazarı kimdir?",
+    "q": "'Aylak Adam' ve 'Anayurt Oteli' romanlarının yazarı kimdir?",
     "options": [
       "Oğuz Atay",
       "Adalet Ağaoğlu",
@@ -441,7 +441,7 @@ export default [
     "answer": 1
   },
   {
-    "q": "'Sağanak', 'Otuz Beş Yaş' ve 'Düşten Güzel' şairi olmayan, mistik-metafizik şiirleriyle tanınan 'Çile' kitabının şairi kimdir?",
+    "q": "Mistik-metafizik şiirleriyle tanınan 'Çile' kitabının şairi kimdir?",
     "options": [
       "Necip Fazıl Kısakürek",
       "Ahmet Muhip Dıranas",
@@ -1131,7 +1131,7 @@ export default [
     "answer": 3
   },
   {
-    "q": "Edvard Munch, Van Gogh gibi ressamların bağlı olduğu, yoğun duygusal ifadeyi öne çıkaran akım hangisidir?",
+    "q": "Edvard Munch, Van Gogh gibi ressamların öncülük ettiği ve etkilediği, yoğun duygusal ifadeyi öne çıkaran akım hangisidir?",
     "options": [
       "Ekspresyonizm",
       "Rokoko",
@@ -1231,7 +1231,7 @@ export default [
     "answer": 0
   },
   {
-    "q": "Türk heykel sanatının öncülerinden, birçok Atatürk anıtı yapan sanatçı kimdir?",
+    "q": "Menemen Kubilay Anıtı'nın heykeltıraşı olan, Türk heykel sanatının öncülerinden, birçok Atatürk anıtı yapan sanatçı kimdir?",
     "options": [
       "Ratip Aşir Acudoğu",
       "Zühtü Müridoğlu",
@@ -1561,7 +1561,7 @@ export default [
     "answer": 3
   },
   {
-    "q": "Rönesans'ın 'Doğuşu' (Venüs'ün Doğuşu) tablosunun ressamı kimdir?",
+    "q": "'Venüs'ün Doğuşu' tablosunun ressamı kimdir?",
     "options": [
       "Caravaggio",
       "Tiziano",
@@ -1671,7 +1671,7 @@ export default [
     "answer": 1
   },
   {
-    "q": "Sembolik damlayan saatleriyle bilinen 'Belleğin Azmi' tablosunun ressamı kimdir?",
+    "q": "Sembolik eriyen saatleriyle bilinen 'Belleğin Azmi' tablosunun ressamı kimdir?",
     "options": [
       "Joan Miró",
       "Salvador Dalí",
@@ -2602,7 +2602,7 @@ export default [
     "answer": 3
   },
   {
-    "q": "Jackson Pollock'un damlatma (drip) tekniğiyle çalışan bu ressamın bağlı olduğu akım hangisidir?",
+    "q": "Damlatma (drip) tekniğiyle tanınan Jackson Pollock hangi akıma bağlıdır?",
     "options": [
       "Fütürizm",
       "Soyut Ekspresyonizm",
@@ -2627,7 +2627,7 @@ export default [
       "Deniz manzaraları",
       "Savaş sahneleri",
       "Portreler",
-      "Baleriler"
+      "Balerinler"
     ],
     "answer": 3
   },
@@ -3222,7 +3222,7 @@ export default [
     "answer": 1
   },
   {
-    "q": "Tanzimat dönemi yazarı Ahmet Mithat Efendi'nin, okuyucuyu bilgilendirmek amacıyla romanlarına araya girip açıklamalar yapmasıyla ünlü olduğu yayımladığı gazete hangisidir?",
+    "q": "Okuyucuyu bilgilendirmek amacıyla romanlarında araya girip açıklamalar yapmasıyla ünlü Tanzimat dönemi yazarı Ahmet Mithat Efendi'nin çıkardığı gazete hangisidir?",
     "options": [
       "Tercüman-ı Hakikat",
       "İbret",
@@ -3262,7 +3262,7 @@ export default [
     "answer": 2
   },
   {
-    "q": "Sait Faik Abasıyanık'ın adına verilen hikâye ödülünü kazanan ilk kişi olan, aynı zamanda 'Menekşeli Vadi' hikâyesiyle tanınan yazar kimdir?",
+    "q": "Sait Faik Hikâye Armağanı'nı 1956'da 'On İkiye Bir Var' kitabıyla kazanan yazar kimdir?",
     "options": [
       "Haldun Taner",
       "Orhan Kemal",
@@ -3452,7 +3452,7 @@ export default [
     "answer": 3
   },
   {
-    "q": "Cenap Şahabettin'in Servet-i Fünûn şiirinde ağır ve müzikal dilini yansıtan, yağmuru betimleyen ünlü şiiri hangisidir?",
+    "q": "Cenap Şahabettin'in Servet-i Fünûn şiirinde ağır ve müzikal dilini yansıtan, kar yağışını betimleyen ünlü şiiri hangisidir?",
     "options": [
       "Riyah-ı Leyal",
       "Temaşa-yı Leyal",
@@ -3472,7 +3472,7 @@ export default [
     "answer": 1
   },
   {
-    "q": "Necip Fazıl Kısakürek'in bunalım ve arayış temalı şiirlerini topladığı, adını bir sokak lambasından alan kitabı hangisidir?",
+    "q": "Necip Fazıl Kısakürek'in bunalım ve arayış temalı şiirlerini topladığı kitabı hangisidir?",
     "options": [
       "Çile",
       "Ben ve Ötesi",
@@ -3512,7 +3512,7 @@ export default [
     "answer": 2
   },
   {
-    "q": "Behçet Necatigil'in radyo tiyatrosu türünde de eser veren, 'ev-eş-yol' üçgeninde orta hâlli insanın yaşamını işleyen şairdir. Onun sözcük ve deyim kaynağı niteliğindeki başvuru eseri hangisidir?",
+    "q": "Behçet Necatigil'in radyo tiyatrosu türünde de eser veren, 'ev-eş-yol' üçgeninde orta hâlli insanın yaşamını işleyen şairdir. Onun yazar biyografilerini tanıtan başvuru eseri hangisidir?",
     "options": [
       "Edebiyatımızda İsimler Sözlüğü",
       "Kareler Aklar",
@@ -3542,7 +3542,7 @@ export default [
     "answer": 2
   },
   {
-    "q": "Memduh Şevket Esendal'ın, olay örgüsünü geri plana atıp Çehov tarzı durum hikâyeleri yazdığı ve İttihatçı bir ailenin çöküşünü anlattığı romanı hangisidir?",
+    "q": "Memduh Şevket Esendal'ın, olay örgüsünü geri plana atıp Çehov tarzı durum hikâyeleri yazdığı ve erken Cumhuriyet Ankara'sında bir apartman dairesinin kiracılarını anlattığı romanı hangisidir?",
     "options": [
       "Miras",
       "Vassaf Bey",

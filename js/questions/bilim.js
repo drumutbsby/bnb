@@ -205,7 +205,7 @@ export default [
     "q": "Momentum aşağıdakilerden hangisiyle ifade edilir?",
     "options": [
       "Kütle çarpı hız",
-      "Kuvvet çarpı zaman farkı olmayan büyüklük",
+      "Kuvvet çarpı zaman",
       "Kütle bölü hız",
       "Kütle çarpı ivme"
     ],
@@ -3207,7 +3207,7 @@ export default [
       "Geçiş (transit) yöntemi",
       "Doğrudan görüntüleme",
       "Radyometri",
-      "Dopler kayması yöntemi"
+      "Doppler kayması yöntemi"
     ],
     "answer": 0
   },

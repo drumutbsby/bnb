@@ -12,17 +12,20 @@ export const RANKS = [
   { min: 300000, name: "Efsane", emoji: "👑" },
 ];
 
-const DEFAULT = {
+// Fabrika: her çağrıda TAZE iç nesneler döner. (Modül-tekil bir nesne, sığ
+// kopya nedeniyle history/badges'i tüm profillerle paylaşıyor ve kayıt
+// başarısız olan ortamlarda kalıcı kirlenmeye yol açıyordu.)
+const defaults = () => ({
   name: "", avatar: "🙂", deviceId: "", xp: 0, games: 0, wins: 0,
   bestScore: 0, bestStreak: 0,
   totalCorrect: 0, totalQuestions: 0,
   history: [], badges: {}, daily: null, weekly: { week: "", xp: 0 },
-};
+});
 
 export function loadProfile() {
   let p;
-  try { p = Object.assign({}, DEFAULT, JSON.parse(localStorage.getItem(KEY)) || {}); }
-  catch (e) { p = { ...DEFAULT }; }
+  try { p = Object.assign(defaults(), JSON.parse(localStorage.getItem(KEY)) || {}); }
+  catch (e) { p = defaults(); }
   if (!p.deviceId) { p.deviceId = "d_" + Math.random().toString(36).slice(2, 12) + Date.now().toString(36); saveProfile(p); }
   return p;
 }

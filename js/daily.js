@@ -11,7 +11,10 @@ const QUEST_POOL = [
   { id: "duel1", text: "1 takım düellosu oyna", goal: 1, xp: 350, metric: "duel" },
 ];
 
-function dayNumber() { return Math.floor(Date.now() / 86400000); }
+// Yerel takvim gününün numarası — todayStr ile AYNI gün tanımını kullanır.
+// (UTC tabanlı sayım, TR'de 00:00-03:00 arasında seriyi haksız sıfırlıyor ve
+// Günün Sorusu'nun 03:00'e kadar değişmemesine yol açıyordu.)
+export function dayNumber() { return Math.floor((Date.now() - new Date().getTimezoneOffset() * 60000) / 86400000); }
 function todayStr() { const d = new Date(); return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`; }
 
 // Bugünün görevlerini ve giriş serisini garantiye alır (gün değiştiyse yeniler).

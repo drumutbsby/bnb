@@ -1,5 +1,10 @@
-// Soru bankası — çok kategorili, çoktan seçmeli.
-// Her soru: { q: soru metni, options: [4 şık], answer: doğru şıkkın index'i (0-3) }
+// Soru bankası — çok kategorili.
+// Her soru: { q: soru metni, options: [şıklar], answer: doğru şıkkın index'i }
+// İsteğe bağlı alanlar:
+//   type: "mc" (vars.) | "tf" (Doğru/Yanlış, 2 şık) | "text" (yazılı cevap;
+//         answer: string, accept: [kabul edilen ek yazımlar])
+//   explain: reveal ekranında gösterilen kısa öğretici not
+//   visual: soru kartında büyük gösterilen emoji/görsel (bayrak, emoji bilmece)
 //
 // Sorular kategori dosyalarına bölünmüştür (js/questions/<kategori>.js) ve
 // yalnızca oyunda seçilen kategoriler TALEP ANINDA (lazy) yüklenir. Böylece
