@@ -41,17 +41,6 @@ export default [
     "answer": 3
   },
   {
-    "q": "Fransa'nın başkenti neresidir?",
-    "options": [
-      "Berlin",
-      "Londra",
-      "Roma",
-      "Paris"
-    ],
-    "answer": 3,
-    "explain": "Paris, Seine Nehri kıyısında kurulmuştur."
-  },
-  {
     "q": "Dünyada kaç kıta vardır?",
     "options": [
       "7",
@@ -62,17 +51,6 @@ export default [
     "answer": 0
   },
   {
-    "q": "Türkiye'nin en yüksek dağı hangisidir?",
-    "options": [
-      "Kaçkar",
-      "Erciyes",
-      "Ağrı Dağı",
-      "Uludağ"
-    ],
-    "answer": 2,
-    "explain": "Ağrı Dağı 5.137 m ile Türkiye'nin en yüksek noktasıdır."
-  },
-  {
     "q": "Sahra Çölü hangi kıtadadır?",
     "options": [
       "Asya",
@@ -81,17 +59,6 @@ export default [
       "Güney Amerika"
     ],
     "answer": 1
-  },
-  {
-    "q": "Japonya'nın başkenti neresidir?",
-    "options": [
-      "Bangkok",
-      "Pekin",
-      "Seul",
-      "Tokyo"
-    ],
-    "answer": 3,
-    "explain": "Tokyo, dünyanın en kalabalık metropol alanlarından biridir."
   },
   {
     "q": "Türkiye kaç coğrafi bölgeye ayrılır?",
@@ -274,7 +241,7 @@ export default [
     "answer": 2
   },
   {
-    "q": "Türkiye'nin en yüksek ikinci dağı olan ve Doğu Anadolu'da yer alan sönmüş volkan hangisidir?",
+    "q": "Ağrı Dağı'ndan sonra Türkiye'nin en yüksek volkanı olan ve Doğu Anadolu'da yer alan dağ hangisidir?",
     "options": [
       "Süphan Dağı",
       "Kaçkar Dağı",
@@ -634,7 +601,7 @@ export default [
     "answer": 1
   },
   {
-    "q": "İsrail ile birlikte Kudüs'ü başkent olarak tanıyan uluslararası genel kabul dışında, Tel Aviv hangi ülkede yer alır?",
+    "q": "Tel Aviv hangi ülkede yer alır?",
     "options": [
       "Ürdün",
       "Lübnan",
@@ -764,7 +731,7 @@ export default [
     "answer": 2
   },
   {
-    "q": "Aşağıdaki ülkelerden hangisi İskandinav ülkelerinden biri değildir?",
+    "q": "Aşağıdaki ülkelerden hangisi Nordik (Kuzey Avrupa) ülkelerinden biri değildir?",
     "options": [
       "İsveç",
       "Estonya",
@@ -816,7 +783,7 @@ export default [
   {
     "q": "Aşağıdaki ülkelerden hangisi Afrika kıtasında yer alır?",
     "options": [
-      "Georgia",
+      "Gürcistan",
       "Gana",
       "Guatemala",
       "Guyana"
@@ -1094,7 +1061,7 @@ export default [
     "answer": 2
   },
   {
-    "q": "Deniz kıyısında dalga ve akıntıların oluşturduğu kum setinin bir koyu denizden ayırmasıyla oluşan gölere ne ad verilir?",
+    "q": "Deniz kıyısında dalga ve akıntıların oluşturduğu kum setinin bir koyu denizden ayırmasıyla oluşan göllere ne ad verilir?",
     "options": [
       "Buzul gölü",
       "Krater gölü",
@@ -1272,17 +1239,6 @@ export default [
       "Fiyort"
     ],
     "answer": 0
-  },
-  {
-    "q": "Dünya'nın en büyük okyanusu hangisidir?",
-    "options": [
-      "Arktik Okyanusu",
-      "Büyük Okyanus (Pasifik)",
-      "Hint Okyanusu",
-      "Atlas Okyanusu"
-    ],
-    "answer": 1,
-    "visual": "🌊"
   },
   {
     "q": "Yüzölçümü bakımından en büyük kıta hangisidir?",
@@ -1619,7 +1575,7 @@ export default [
     "options": [
       "Arap Denizi",
       "Kızıldeniz",
-      "Umman Denizi",
+      "Andaman Denizi",
       "Bengal Körfezi"
     ],
     "answer": 0,
@@ -1715,7 +1671,7 @@ export default [
   {
     "q": "Aşağıdaki illerden hangisinin Ermenistan ile kara sınırı YOKTUR?",
     "options": [
-      "Ağrı",
+      "Ardahan",
       "Kars",
       "Van",
       "Iğdır"
@@ -2063,7 +2019,7 @@ export default [
     "answer": 3
   },
   {
-    "q": "Sönmüş volkanik bir gölet olan Çıldır Gölü'nün büyük bölümü hangi ildedir?",
+    "q": "Bir lav seti (volkanik set) gölü olan Çıldır Gölü'nün büyük bölümü hangi ildedir?",
     "options": [
       "Iğdır",
       "Ardahan",
@@ -2198,7 +2154,7 @@ export default [
       "Galle",
       "Kandy",
       "Jaffna",
-      "Sri Jayawardenapura Kotte"
+      "Sri Jayawardenepura Kotte"
     ],
     "answer": 3
   },
@@ -2955,7 +2911,7 @@ export default [
   {
     "q": "Havai Adaları'nda bulunan ve Dünya'nın en aktif volkanlarından biri sayılan volkan hangisidir?",
     "options": [
-      "Mauna Loa aynı zamanda söndü",
+      "Mauna Loa",
       "Kilauea",
       "Diamond Head",
       "Haleakala"
@@ -3013,7 +2969,7 @@ export default [
     "answer": 2
   },
   {
-    "q": "Andlar boyunca uzanan ve Kuzey ve Güney Amerika'yı çevreleyen yoğun volkanik-sismik kuşağa ne ad verilir?",
+    "q": "Andlar boyunca uzanan ve Pasifik Okyanusu'nu çevreleyen yoğun volkanik-sismik kuşağa ne ad verilir?",
     "options": [
       "Alp-Himalaya Kuşağı",
       "Doğu Afrika Rift Vadisi",
@@ -3063,7 +3019,7 @@ export default [
     "answer": 0
   },
   {
-    "q": "Kıtalar dışta tutulduğunda dünyanın en büyük çölü aslında hangisidir?",
+    "q": "Kutup çölleri de sayıldığında dünyanın en büyük çölü hangisidir?",
     "options": [
       "Sahra",
       "Antarktika",
@@ -3183,7 +3139,7 @@ export default [
     "answer": 1
   },
   {
-    "q": "Japonya'nın simgesi olan ve sönük bir stratovolkan olan dağın adı nedir?",
+    "q": "Japonya'nın simgesi olan ve uykuda kabul edilen bir stratovolkan olan dağın adı nedir?",
     "options": [
       "Sakurajima",
       "Fuji",
@@ -3281,16 +3237,6 @@ export default [
       "Antalya"
     ],
     "answer": 1
-  },
-  {
-    "q": "Tuz Gölü hangi coğrafi bölgede yer alır?",
-    "options": [
-      "Marmara",
-      "Doğu Anadolu",
-      "İç Anadolu",
-      "Akdeniz"
-    ],
-    "answer": 2
   },
   {
     "q": "Türkiye'nin en uzun akarsuyu olan Kızılırmak hangi ilde denize dökülür?",
@@ -3463,7 +3409,7 @@ export default [
     "answer": 0
   },
   {
-    "q": "Türkiye'nin en fazla ada bulunduran ili hangisidir?",
+    "q": "Ayvalık ve Marmara adalarının bağlı olduğu, çok sayıda adası olan il hangisidir?",
     "options": [
       "İzmir",
       "Muğla",
@@ -3523,7 +3469,7 @@ export default [
     "answer": 0
   },
   {
-    "q": "Karadeniz ile Marmara'yı birbirine bağlayan İstanbul Boğazı'nın kuzey çıkışındaki fener hangi bölgededir?",
+    "q": "İstanbul Boğazı'nın kuzey çıkışındaki Anadolu Feneri hangi yakadadır?",
     "options": [
       "İç Anadolu",
       "Ege kıyısı",

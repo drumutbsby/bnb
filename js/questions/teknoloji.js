@@ -131,7 +131,7 @@ export default [
     "answer": 0
   },
   {
-    "q": "Bir bilgisayarın anakartına takılan ve tüm bileşenleri birbirine bağlayan ana devre kartına ne ad verilir?",
+    "q": "Bir bilgisayarda tüm bileşenleri birbirine bağlayan ana devre kartına ne ad verilir?",
     "options": [
       "Ses kartı",
       "Ekran kartı",
@@ -1011,7 +1011,7 @@ export default [
     "answer": 2
   },
   {
-    "q": "Twitter'ın (X) kurucu ortaklarından olan ve şirketin ilk CEO'larından olan kişi kimdir?",
+    "q": "Twitter'ın (X) kurucu ortaklarından olan ve şirketin ilk CEO'su olan kişi kimdir?",
     "options": [
       "Noah Glass",
       "Evan Williams",
@@ -1021,7 +1021,7 @@ export default [
     "answer": 2
   },
   {
-    "q": "IBM şirketini modern haline getiren ve 'Bilgisayarların Babası' unvanıyla anılan efsanevi yöneticisi kimdir?",
+    "q": "IBM şirketini modern haline getiren efsanevi yöneticisi kimdir?",
     "options": [
       "Lou Gerstner",
       "Herman Hollerith",
@@ -1071,7 +1071,7 @@ export default [
     "answer": 2
   },
   {
-    "q": "LinkedIn'in kurucusu olan girişimci kimdir?",
+    "q": "LinkedIn'in kurucu ortağı ve ilk CEO'su olan girişimci kimdir?",
     "options": [
       "Allen Blue",
       "Reid Hoffman",
@@ -1091,7 +1091,7 @@ export default [
     "answer": 2
   },
   {
-    "q": "Uber şirketinin kurucu ortağı ve ilk CEO'su olan tartışmalı girişimci kimdir?",
+    "q": "Uber şirketinin kurucu ortağı ve uzun süre CEO'luğunu yapan tartışmalı girişimci kimdir?",
     "options": [
       "Garrett Camp",
       "Dara Khosrowshahi",
@@ -1101,7 +1101,7 @@ export default [
     "answer": 3
   },
   {
-    "q": "Dünyanın ilk mikroişlemcisi olan Intel 4004'ün tasarımına öncülük eden mühendis kimdir?",
+    "q": "Dünyanın ilk mikroişlemcisi olan Intel 4004 çipinin silikon tasarımını yöneten mühendis kimdir?",
     "options": [
       "Ted Hoff",
       "Masatoshi Shima",
@@ -1261,7 +1261,7 @@ export default [
     "answer": 3
   },
   {
-    "q": "Sony şirketinin kurucularından olan ve Walkman'in geliştirilmesine öncülük eden kişi kimdir?",
+    "q": "Sony şirketinin kurucularından olan ve Walkman'i pazara sürme kararıyla tanınan kişi kimdir?",
     "options": [
       "Masaru Ibuka",
       "Soichiro Honda",
@@ -1531,7 +1531,7 @@ export default [
     "answer": 0
   },
   {
-    "q": "Apple mobil cihazlarında kullandığı işlemci çipleri hangi seriyle adlandırılır (ör. A17)?",
+    "q": "Apple'ın mobil cihazlarında kullandığı işlemci çipleri hangi seriyle adlandırılır (ör. A17)?",
     "options": [
       "Snapdragon",
       "Tensor",
@@ -1831,36 +1831,6 @@ export default [
     "answer": 3
   },
   {
-    "q": "HTML kısaltmasının açılımı nedir?",
-    "options": [
-      "Hyperlink Text Management Logic",
-      "Home Tool Markup Language",
-      "High Tech Modern Language",
-      "Hyper Text Markup Language"
-    ],
-    "answer": 3
-  },
-  {
-    "q": "IPv4 adresleri kaç bit uzunluğundadır?",
-    "options": [
-      "128",
-      "64",
-      "32",
-      "16"
-    ],
-    "answer": 2
-  },
-  {
-    "q": "IPv6 adresleri kaç bit uzunluğundadır?",
-    "options": [
-      "256",
-      "64",
-      "32",
-      "128"
-    ],
-    "answer": 3
-  },
-  {
     "q": "Aşağıdaki dillerden hangisi Google tarafından geliştirilen açık kaynak programlama dilidir?",
     "options": [
       "Swift",
@@ -2121,16 +2091,6 @@ export default [
     "answer": 0
   },
   {
-    "q": "HTTP protokolünde '404' durum kodu neyi ifade eder?",
-    "options": [
-      "Kaynak bulunamadı",
-      "Yönlendirme",
-      "Sunucu iç hatası",
-      "Yetkisiz erişim"
-    ],
-    "answer": 0
-  },
-  {
     "q": "HTTP durum kodlarında '301' kodu ne anlama gelir?",
     "options": [
       "İçerik değişmedi",
@@ -2199,16 +2159,6 @@ export default [
       "NS"
     ],
     "answer": 1
-  },
-  {
-    "q": "IPv4 adres uzunluğu kaç bittir?",
-    "options": [
-      "64 bit",
-      "128 bit",
-      "32 bit",
-      "16 bit"
-    ],
-    "answer": 2
   },
   {
     "q": "Özel (private) ağlarda kullanılan '192.168.x.x' bloğu hangi RFC ile tanımlanmıştır?",
@@ -2501,7 +2451,7 @@ export default [
     "answer": 3
   },
   {
-    "q": "Uber'in kurucu ortağı ve ilk CEO'su olup 2017'de istifa eden kişi kimdir?",
+    "q": "Uber'in kurucu ortağı ve uzun süre CEO'luğunu yapan, 2017'de istifa eden kişi kimdir?",
     "options": [
       "Travis Kalanick",
       "Logan Green",
@@ -2725,7 +2675,7 @@ export default [
     "options": [
       "Ken Olsen",
       "Michael Dell",
-      "Compaq Wozniak",
+      "Jim Harris",
       "Rod Canion"
     ],
     "answer": 1
@@ -2801,7 +2751,7 @@ export default [
     "answer": 3
   },
   {
-    "q": "Dropbox'ı MIT'de okurken kuran kişi kimdir?",
+    "q": "Dropbox'ın fikir sahibi, kurucu ortağı ve CEO'su kimdir?",
     "options": [
       "Drew Houston",
       "Bret Taylor",
@@ -2851,7 +2801,7 @@ export default [
     "answer": 3
   },
   {
-    "q": "eBay'i 1995'te kuran Fransız asıllı İranlı-Amerikalı girişimci kimdir?",
+    "q": "eBay'i 1995'te kuran, Fransa doğumlu, İran asıllı Amerikalı girişimci kimdir?",
     "options": [
       "Pierre Omidyar",
       "Jeff Skoll",
@@ -2951,9 +2901,9 @@ export default [
     "answer": 0
   },
   {
-    "q": "Bir uzay aracının bir gök cismini kütle çekimini kullanarak hızlanması ya da yön değiştirmesine ne ad verilir?",
+    "q": "Bir uzay aracının bir gök cisminin kütle çekimini kullanarak hızlanması ya da yön değiştirmesine ne ad verilir?",
     "options": [
-      "Aerobreaking",
+      "Aerobraking",
       "Hohmann transferi",
       "Yörünge sönümlemesi",
       "Kütle çekimsel sapan (gravity assist)"
@@ -3151,7 +3101,7 @@ export default [
     "answer": 1
   },
   {
-    "q": "Pekişmeli öğrenmede (reinforcement learning) bir ajanın davranışını yönlendiren geri bildirim sinyaline ne ad verilir?",
+    "q": "Pekiştirmeli öğrenmede (reinforcement learning) bir ajanın davranışını yönlendiren geri bildirim sinyaline ne ad verilir?",
     "options": [
       "Kayıp",
       "Etiket",
@@ -3195,7 +3145,7 @@ export default [
     "options": [
       "Gravity assist",
       "Bi-eliptik transfer",
-      "Aerobreaking",
+      "Aerobraking",
       "Retrograd yakma"
     ],
     "answer": 2
@@ -3349,16 +3299,6 @@ export default [
       "DROP"
     ],
     "answer": 0
-  },
-  {
-    "q": "IPv4 adresleri kaç bit uzunluğundadır?",
-    "options": [
-      "16 bit",
-      "64 bit",
-      "32 bit",
-      "128 bit"
-    ],
-    "answer": 2
   },
   {
     "q": "'GNU' kısaltması neyin açılımıdır?",
@@ -3621,15 +3561,6 @@ export default [
   },
   {
     "q": "Steve Jobs, Apple şirketinin kurucularından biridir.",
-    "options": [
-      "Doğru",
-      "Yanlış"
-    ],
-    "answer": 0,
-    "type": "tf"
-  },
-  {
-    "q": "1 bayt 8 bitten oluşur.",
     "options": [
       "Doğru",
       "Yanlış"

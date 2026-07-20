@@ -135,61 +135,6 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "Belçika",
-      "Almanya",
-      "Avusturya",
-      "Hollanda"
-    ],
-    "answer": 1,
-    "visual": "🇩🇪"
-  },
-  {
-    "q": "Bu bayrak hangi ülkenindir?",
-    "options": [
-      "Rusya",
-      "İtalya",
-      "Fransa",
-      "İrlanda"
-    ],
-    "answer": 2,
-    "visual": "🇫🇷"
-  },
-  {
-    "q": "Bu bayrak hangi ülkenindir?",
-    "options": [
-      "İtalya",
-      "Macaristan",
-      "İrlanda",
-      "Bulgaristan"
-    ],
-    "answer": 0,
-    "visual": "🇮🇹"
-  },
-  {
-    "q": "Bu bayrak hangi ülkenindir?",
-    "options": [
-      "İspanya",
-      "Andorra",
-      "Portekiz",
-      "Monako"
-    ],
-    "answer": 0,
-    "visual": "🇪🇸"
-  },
-  {
-    "q": "Bu bayrak hangi ülkenindir?",
-    "options": [
-      "Norveç",
-      "İzlanda",
-      "İrlanda",
-      "Birleşik Krallık"
-    ],
-    "answer": 3,
-    "visual": "🇬🇧"
-  },
-  {
-    "q": "Bu bayrak hangi ülkenindir?",
-    "options": [
       "Portekiz",
       "İspanya",
       "Romanya",
@@ -201,18 +146,7 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "Yunanistan",
-      "Kıbrıs",
-      "Slovenya",
-      "Malta"
-    ],
-    "answer": 0,
-    "visual": "🇬🇷"
-  },
-  {
-    "q": "Bu bayrak hangi ülkenindir?",
-    "options": [
-      "Lüksemburg",
+      "Almanya",
       "Hırvatistan",
       "Hollanda",
       "Rusya"
@@ -230,17 +164,6 @@ export default [
     ],
     "answer": 3,
     "visual": "🇧🇪"
-  },
-  {
-    "q": "Bu bayrak hangi ülkenindir?",
-    "options": [
-      "İsveç",
-      "Norveç",
-      "Danimarka",
-      "Finlandiya"
-    ],
-    "answer": 0,
-    "visual": "🇸🇪"
   },
   {
     "q": "Bu bayrak hangi ülkenindir?",
@@ -311,17 +234,6 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "İsviçre",
-      "Tonga",
-      "Danimarka",
-      "Malta"
-    ],
-    "answer": 0,
-    "visual": "🇨🇭"
-  },
-  {
-    "q": "Bu bayrak hangi ülkenindir?",
-    "options": [
       "Endonezya",
       "Malta",
       "Polonya",
@@ -345,7 +257,7 @@ export default [
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
       "Slovakya",
-      "Slovenya",
+      "Polonya",
       "Hırvatistan",
       "Rusya"
     ],
@@ -366,7 +278,7 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "Çad",
+      "Bulgaristan",
       "Andorra",
       "Romanya",
       "Moldova"
@@ -400,7 +312,7 @@ export default [
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
       "Hırvatistan",
-      "Slovakya",
+      "Avusturya",
       "Slovenya",
       "Rusya"
     ],
@@ -423,7 +335,7 @@ export default [
     "options": [
       "Ukrayna",
       "Kazakistan",
-      "Rwanda",
+      "Ruanda",
       "İsveç"
     ],
     "answer": 0,
@@ -478,7 +390,7 @@ export default [
     "options": [
       "Rusya",
       "Lüksemburg",
-      "Hollanda",
+      "Belçika",
       "Paraguay"
     ],
     "answer": 1,
@@ -487,7 +399,7 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "Endonezya",
+      "San Marino",
       "Malta",
       "Monako",
       "Polonya"
@@ -510,9 +422,9 @@ export default [
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
       "Rusya",
-      "Slovakya",
+      "Ukrayna",
       "Hollanda",
-      "Slovenya"
+      "Polonya"
     ],
     "answer": 0,
     "visual": "🇷🇺"
@@ -555,22 +467,11 @@ export default [
     "options": [
       "Çad",
       "Moldova",
-      "Andorra",
-      "Romanya"
+      "Ukrayna",
+      "Bulgaristan"
     ],
     "answer": 1,
     "visual": "🇲🇩"
-  },
-  {
-    "q": "Bu bayrak hangi ülkenindir?",
-    "options": [
-      "Güney Kore",
-      "Çin",
-      "Bangladeş",
-      "Japonya"
-    ],
-    "answer": 3,
-    "visual": "🇯🇵"
   },
   {
     "q": "Bu bayrak hangi ülkenindir?",
@@ -608,7 +509,7 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "Monako",
+      "Malezya",
       "Polonya",
       "Endonezya",
       "Singapur"
@@ -696,20 +597,9 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "Türkiye",
-      "Tunus",
-      "Pakistan",
-      "Azerbaycan"
-    ],
-    "answer": 0,
-    "visual": "🇹🇷"
-  },
-  {
-    "q": "Bu bayrak hangi ülkenindir?",
-    "options": [
-      "Mısır",
-      "Yemen",
-      "Suriye",
+      "Ürdün",
+      "Lübnan",
+      "Suudi Arabistan",
       "Irak"
     ],
     "answer": 3,
@@ -729,7 +619,7 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "Ürdün",
+      "Lübnan",
       "Kuveyt",
       "Filistin",
       "Sudan"
@@ -743,7 +633,7 @@ export default [
       "Birleşik Arap Emirlikleri",
       "Umman",
       "Katar",
-      "Bahreyn"
+      "Kuveyt"
     ],
     "answer": 2,
     "visual": "🇶🇦"
@@ -753,7 +643,7 @@ export default [
     "options": [
       "Bahreyn",
       "Umman",
-      "Katar",
+      "Birleşik Arap Emirlikleri",
       "Yemen"
     ],
     "answer": 0,
@@ -784,10 +674,10 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "Suriye",
-      "Mısır",
+      "Ürdün",
+      "Lübnan",
       "Yemen",
-      "Irak"
+      "Umman"
     ],
     "answer": 2,
     "visual": "🇾🇪"
@@ -798,7 +688,7 @@ export default [
       "Batı Sahra",
       "Sudan",
       "Ürdün",
-      "Filistin"
+      "Lübnan"
     ],
     "answer": 2,
     "visual": "🇯🇴"
@@ -808,8 +698,8 @@ export default [
     "options": [
       "Suriye",
       "Lübnan",
-      "Mısır",
-      "Irak"
+      "Ürdün",
+      "Suudi Arabistan"
     ],
     "answer": 0,
     "visual": "🇸🇾"
@@ -895,7 +785,7 @@ export default [
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
       "Myanmar",
-      "Bhutan",
+      "Butan",
       "Nepal",
       "Sri Lanka"
     ],
@@ -906,7 +796,7 @@ export default [
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
       "Sri Lanka",
-      "Bhutan",
+      "Butan",
       "Nepal",
       "Myanmar"
     ],
@@ -938,7 +828,7 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "Bhutan",
+      "Butan",
       "Sri Lanka",
       "Nepal",
       "Maldivler"
@@ -1004,17 +894,6 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "Arjantin",
-      "Peru",
-      "Brezilya",
-      "Kolombiya"
-    ],
-    "answer": 2,
-    "visual": "🇧🇷"
-  },
-  {
-    "q": "Bu bayrak hangi ülkenindir?",
-    "options": [
       "Paraguay",
       "Arjantin",
       "Uruguay",
@@ -1022,17 +901,6 @@ export default [
     ],
     "answer": 1,
     "visual": "🇦🇷"
-  },
-  {
-    "q": "Bu bayrak hangi ülkenindir?",
-    "options": [
-      "Kanada",
-      "Küba",
-      "Meksika",
-      "ABD"
-    ],
-    "answer": 0,
-    "visual": "🇨🇦"
   },
   {
     "q": "Bu bayrak hangi ülkenindir?",
@@ -1048,7 +916,7 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "Liberya",
+      "Kanada",
       "Malezya",
       "ABD",
       "Şili"
@@ -1070,7 +938,7 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "Ekvador",
+      "Peru",
       "Kolombiya",
       "Venezuela",
       "Bolivya"
@@ -1136,7 +1004,7 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "Kolombiya",
+      "Peru",
       "İspanya",
       "Venezuela",
       "Ekvador"
@@ -1236,9 +1104,9 @@ export default [
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
       "Mısır",
-      "Suriye",
-      "Yemen",
-      "Irak"
+      "Libya",
+      "Tunus",
+      "Fas"
     ],
     "answer": 0,
     "visual": "🇪🇬"
@@ -1258,7 +1126,7 @@ export default [
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
       "Zimbabve",
-      "Malawi",
+      "Malavi",
       "Kenya",
       "Sudan"
     ],
@@ -1326,7 +1194,7 @@ export default [
       "Senegal",
       "Kamerun",
       "Gine",
-      "Mali"
+      "Nijerya"
     ],
     "answer": 0,
     "visual": "🇸🇳"
@@ -1357,7 +1225,7 @@ export default [
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
       "Zimbabve",
-      "Malawi",
+      "Malavi",
       "Angola",
       "Uganda"
     ],
@@ -1370,7 +1238,7 @@ export default [
       "Zambiya",
       "Botsvana",
       "Namibya",
-      "Lesoto"
+      "Lesotho"
     ],
     "answer": 2,
     "visual": "🇳🇦"
@@ -1378,7 +1246,7 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "Malawi",
+      "Malavi",
       "Mozambik",
       "Zambiya",
       "Zimbabve"
@@ -1446,7 +1314,7 @@ export default [
     "options": [
       "Avustralya",
       "İngiltere",
-      "Yeni Zelanda",
+      "Papua Yeni Gine",
       "Fiji"
     ],
     "answer": 0,
@@ -1458,7 +1326,7 @@ export default [
       "Malavi",
       "Botsvana",
       "Lesotho",
-      "Svaziland"
+      "Esvatini"
     ],
     "answer": 1,
     "visual": "🇧🇼"
@@ -1488,7 +1356,7 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "Svaziland",
+      "Esvatini",
       "Lesotho",
       "Botsvana",
       "Namibya"
@@ -1590,7 +1458,7 @@ export default [
       "Mali",
       "Kamerun",
       "Gine",
-      "Senegal"
+      "Gana"
     ],
     "answer": 0,
     "visual": "🇲🇱"
@@ -1609,7 +1477,7 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "Romanya",
+      "Sudan",
       "Kamerun",
       "Nijer",
       "Çad"
@@ -1700,7 +1568,7 @@ export default [
       "Mauritius",
       "Seyşeller",
       "Komorlar",
-      "Cape Verde"
+      "Yeşil Burun Adaları"
     ],
     "answer": 1,
     "visual": "🇸🇨"
@@ -1711,7 +1579,7 @@ export default [
       "Gine-Bissau",
       "Sao Tome ve Principe",
       "Gambiya",
-      "Cape Verde"
+      "Yeşil Burun Adaları"
     ],
     "answer": 3,
     "visual": "🇨🇻"
@@ -1787,22 +1655,11 @@ export default [
     "options": [
       "Gine-Bissau",
       "Ekvator Ginesi",
-      "Cape Verde",
+      "Yeşil Burun Adaları",
       "Sao Tome ve Principe"
     ],
     "answer": 3,
     "visual": "🇸🇹"
-  },
-  {
-    "q": "Bu bayrak hangi ülkenindir?",
-    "options": [
-      "Bangladeş",
-      "Butan",
-      "Nepal",
-      "Myanmar"
-    ],
-    "answer": 1,
-    "visual": "🇧🇹"
   },
   {
     "q": "Bu bayrak hangi ülkenindir?",
@@ -1897,7 +1754,7 @@ export default [
     "options": [
       "Samoa",
       "Fiji",
-      "Tuvalu",
+      "Vanuatu",
       "Tonga"
     ],
     "answer": 1,
@@ -2008,7 +1865,7 @@ export default [
       "Kiribati",
       "Samoa",
       "Tuvalu",
-      "Fiji"
+      "Tonga"
     ],
     "answer": 2,
     "visual": "🇹🇻"
@@ -2017,7 +1874,7 @@ export default [
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
       "Guyana",
-      "Suriname",
+      "Surinam",
       "Jamaika",
       "Kongo"
     ],
@@ -2030,7 +1887,7 @@ export default [
       "Guyana",
       "Malavi",
       "Gana",
-      "Suriname"
+      "Surinam"
     ],
     "answer": 3,
     "visual": "🇸🇷"
@@ -2061,7 +1918,7 @@ export default [
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
       "Guyana",
-      "Suriname",
+      "Surinam",
       "Trinidad ve Tobago",
       "Jamaika"
     ],
@@ -2149,8 +2006,8 @@ export default [
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
       "Honduras",
-      "El Salvador",
-      "Nikaragua",
+      "Meksika",
+      "Panama",
       "Guatemala"
     ],
     "answer": 0,
@@ -2160,9 +2017,9 @@ export default [
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
       "El Salvador",
-      "Arjantin",
-      "Honduras",
-      "Nikaragua"
+      "Meksika",
+      "Panama",
+      "Belize"
     ],
     "answer": 0,
     "visual": "🇸🇻"
@@ -2171,15 +2028,15 @@ export default [
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
       "Nikaragua",
-      "Honduras",
-      "El Salvador",
+      "Panama",
+      "Meksika",
       "Guatemala"
     ],
     "answer": 0,
     "visual": "🇳🇮"
   },
   {
-    "q": "Bu bayrak hangi ülkenindir?",
+    "q": "Bu bayrak hangi ülke veya bölgeye aittir?",
     "options": [
       "Şili",
       "Küba",
@@ -2190,7 +2047,7 @@ export default [
     "visual": "🇵🇷"
   },
   {
-    "q": "Bu bayrak hangi ülkenindir?",
+    "q": "Bu bayrak hangi ülke veya bölgeye aittir?",
     "options": [
       "Danimarka",
       "Grönland",
@@ -2201,7 +2058,7 @@ export default [
     "visual": "🇬🇱"
   },
   {
-    "q": "Bu bayrak hangi ülkenindir?",
+    "q": "Bu bayrak hangi ülke veya bölgeye aittir?",
     "options": [
       "Bahamalar",
       "Bermuda",
@@ -2212,9 +2069,9 @@ export default [
     "visual": "🇦🇼"
   },
   {
-    "q": "Bu bayrak hangi ülkenindir?",
+    "q": "Bu bayrak hangi ülke veya bölgeye aittir?",
     "options": [
-      "Suriname",
+      "Surinam",
       "Curaçao",
       "Belize",
       "Aruba"
@@ -2223,7 +2080,7 @@ export default [
     "visual": "🇨🇼"
   },
   {
-    "q": "Bu bayrak hangi ülkenindir?",
+    "q": "Bu bayrak hangi ülke veya bölgeye aittir?",
     "options": [
       "Bermuda",
       "Bahamalar",
@@ -2236,9 +2093,9 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "Romanya",
+      "Liechtenstein",
       "Çad",
-      "Moldova",
+      "San Marino",
       "Andorra"
     ],
     "answer": 3,
@@ -2282,7 +2139,7 @@ export default [
     "options": [
       "Somali",
       "Kosova",
-      "Avrupa Birliği",
+      "Karadağ",
       "Bosna-Hersek"
     ],
     "answer": 1,
@@ -2300,7 +2157,7 @@ export default [
     "visual": "🇧🇾"
   },
   {
-    "q": "Bu bayrak hangi ülkenindir?",
+    "q": "Bu bayrak hangi ülke veya bölgeye aittir?",
     "options": [
       "İzlanda",
       "Norveç",
@@ -2327,7 +2184,7 @@ export default [
       "Sierra Leone",
       "Fildişi Sahili",
       "Liberya",
-      "Malezya"
+      "Gana"
     ],
     "answer": 2,
     "visual": "🇱🇷"
@@ -2342,16 +2199,5 @@ export default [
     ],
     "answer": 0,
     "visual": "🇸🇩"
-  },
-  {
-    "q": "Bu bayrak hangi ülkenindir?",
-    "options": [
-      "Sao Tome",
-      "Yeşil Burun Adaları",
-      "Gine-Bissau",
-      "Komorlar"
-    ],
-    "answer": 1,
-    "visual": "🇨🇻"
   }
 ];

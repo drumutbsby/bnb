@@ -61,7 +61,7 @@ export default [
     "answer": 0
   },
   {
-    "q": "'Star Wars' evreninde ışın kılıcını kullananlara ne denir?",
+    "q": "Star Wars evreninde Güç'ün aydınlık tarafında savaşan, ışın kılıçlı savaşçı düzenine ne ad verilir?",
     "options": [
       "Sith",
       "Jedi",
@@ -294,7 +294,7 @@ export default [
     "q": "Fransız yönetmen Jean Renoir'ın Birinci Dünya Savaşı esir kampında geçen 1937 yapımı klasiği hangisidir?",
     "options": [
       "Boudu Sulardan Kurtuldu",
-      "Büyük Yanılgı",
+      "Büyük Yanılsama",
       "Kızgın Toprak",
       "Oyunun Kuralı"
     ],
@@ -331,7 +331,7 @@ export default [
     "answer": 0
   },
   {
-    "q": "Danimarkalı yönetmen Thomas Vinterberg'in Mads Mikkelsen'e Oscar kazandıran, alkolle ilgili 2020 yapımı filmi hangisidir?",
+    "q": "Mads Mikkelsen'in başrolünde olduğu, En İyi Uluslararası Film Oscar'ını kazanan 2020 yapımı film hangisidir?",
     "options": [
       "Submarino",
       "Kutlama",
@@ -343,7 +343,7 @@ export default [
   {
     "q": "Japon yönetmen Yasujiro Ozu'nun aile ilişkilerini anlatan 1953 tarihli başyapıtı hangisidir?",
     "options": [
-      "Kayışığı",
+      "Tokyo Alacakaranlığı",
       "Tokyo Hikayesi",
       "Yüzen Otlar",
       "Geç Bahar"
@@ -411,7 +411,7 @@ export default [
     "answer": 2
   },
   {
-    "q": "'Cehennem Silahı' değil; Hong Kong sineması ustası Wong Kar-wai'nin 2000 yapımı, bastırılmış aşkı anlatan filmi hangisidir?",
+    "q": "Hong Kong sineması ustası Wong Kar-wai'nin 2000 yapımı, bastırılmış aşkı anlatan filmi hangisidir?",
     "options": [
       "Aşk Zamanı (In the Mood for Love)",
       "Chungking Ekspresi",
@@ -543,7 +543,7 @@ export default [
   {
     "q": "Türk sinemasının 'Yeşilçam' olarak anılan döneminin adı hangi İstanbul semtinden gelir?",
     "options": [
-      "Beyoğlu'ndaki bir cadde",
+      "Beyoğlu'ndaki bir sokak",
       "Kadıköy'deki bir sokak",
       "Üsküdar'daki bir mahalle",
       "Fatih'teki bir meydan"
@@ -581,7 +581,7 @@ export default [
     "answer": 0
   },
   {
-    "q": "Şener Şen ve Cem Yılmaz'ın başrolde olduğu, Yavuz Turgul'un yönettiği 2005 yapımı film hangisidir?",
+    "q": "Şener Şen ve Meltem Cumbul'un başrolde olduğu, Yavuz Turgul'un yönettiği 2005 yapımı film hangisidir?",
     "options": [
       "Av Mevsimi",
       "Eşkıya",
@@ -711,7 +711,7 @@ export default [
     "answer": 3
   },
   {
-    "q": "Zeki Demirkubuz'un 'Karanlık Öyküler' üçlemesinin ilk filmi hangisidir?",
+    "q": "Zeki Demirkubuz'un 'Karanlık Üzerine Öyküler' üçlemesinin ilk filmi hangisidir?",
     "options": [
       "Kader",
       "İtiraf",
@@ -1361,7 +1361,7 @@ export default [
     "answer": 1
   },
   {
-    "q": "En fazla Oscar kazanan tek kişi (toplam 22 ödül) kimdir?",
+    "q": "En fazla Oscar kazanan tek kişi (22 yarışmalı ödül) kimdir?",
     "options": [
       "Alfred Hitchcock",
       "John Williams",
@@ -1621,7 +1621,7 @@ export default [
     "answer": 0
   },
   {
-    "q": "En genç En İyi Kadın Oyuncu Oscar'ı sahibi (21 yaşında, Monster's Ball değil) hangi filmle bu ödülü aldı?",
+    "q": "En genç En İyi Kadın Oyuncu Oscar'ı sahibi (21 yaşında) hangi filmle bu ödülü aldı?",
     "options": [
       "Jennifer Lawrence - Silver Linings Playbook",
       "Brie Larson - Room",
@@ -1665,7 +1665,7 @@ export default [
     "options": [
       "Parazit (Parasite)",
       "Anne (Mother)",
-      "Yolcu (The Handmaiden)",
+      "Ah-ga-ssi (The Handmaiden)",
       "Oldboy"
     ],
     "answer": 0
@@ -1866,7 +1866,7 @@ export default [
       "Aşk (Amour)",
       "Beyaz Bant (Das weiße Band)",
       "Saklı (Caché)",
-      "-"
+      "Piyanist"
     ],
     "answer": 2
   },
@@ -2011,16 +2011,6 @@ export default [
     "answer": 1
   },
   {
-    "q": "Alfred Hitchcock kariyeri boyunca kaç kez En İyi Yönetmen Oscar'ı kazanmıştır?",
-    "options": [
-      "2",
-      "3",
-      "1",
-      "Hiç kazanmadı"
-    ],
-    "answer": 3
-  },
-  {
     "q": "Costa-Gavras'ın 1969 tarihli, En İyi Yabancı Film Oscar'ı kazanan ve aynı zamanda En İyi Film dalına da aday gösterilen politik gerilim filmi hangisidir?",
     "options": [
       "L'Aveu",
@@ -2121,7 +2111,7 @@ export default [
     "answer": 3
   },
   {
-    "q": "Türk televizyon tarihinin en uzun soluklu dizilerinden 'Bizimkiler' hangi kanalda yayınlanmıştır?",
+    "q": "Türk televizyon tarihinin en uzun soluklu dizilerinden 'Bizimkiler' ilk olarak hangi kanalda yayınlanmıştır?",
     "options": [
       "TRT",
       "Star TV",
@@ -2141,7 +2131,7 @@ export default [
     "answer": 0
   },
   {
-    "q": "Yılmaz Güney'in senaryosunu hapishanede yazdığı, 1970 yapımı ve umudun temsili olan filmi hangisidir?",
+    "q": "Yılmaz Güney'in 1970 yapımı ve umudun temsili olan filmi hangisidir?",
     "options": [
       "Umut",
       "Arkadaş",
@@ -2781,11 +2771,11 @@ export default [
     "answer": 2
   },
   {
-    "q": "Oscar tarihinde 'En İyi Animasyon Filmi' kategorisi ilk kez hangi yıl verilmeye başlanmıştır?",
+    "q": "Oscar tarihinde 'En İyi Animasyon Filmi' kategorisi ilk kez hangi yılki Oscar töreninde verilmiştir?",
     "options": [
       "1990",
       "1995",
-      "2001",
+      "2002",
       "2005"
     ],
     "answer": 2
@@ -3041,7 +3031,7 @@ export default [
     "answer": 0
   },
   {
-    "q": "'Uzay Kovboyu' (Toy Story) filmindeki uzay askeri oyuncak karakterin adı nedir?",
+    "q": "'Oyuncak Hikayesi' (Toy Story) filmindeki uzay askeri oyuncak karakterin adı nedir?",
     "options": [
       "Buzz Lightyear",
       "Rex",
@@ -3281,7 +3271,7 @@ export default [
     "answer": 1
   },
   {
-    "q": "Walt Disney kariyeri boyunca toplam kaç Oscar kazanarak en çok Oscar'a sahip kişi olmuştur?",
+    "q": "Walt Disney kariyeri boyunca kaç yarışmalı Oscar kazanarak en çok Oscar'a sahip kişi olmuştur?",
     "options": [
       "12",
       "18",

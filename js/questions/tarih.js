@@ -231,7 +231,7 @@ export default [
     "answer": 3
   },
   {
-    "q": "Tanzimat Fermanı'nı okuyarak ilan eden dönemin sadrazamı kimdir?",
+    "q": "Tanzimat Fermanı'nı okuyarak ilan eden dönemin devlet adamı kimdir?",
     "options": [
       "Midhat Paşa",
       "Ali Paşa",
@@ -553,7 +553,7 @@ export default [
   {
     "q": "Cumhuriyetin ilanıyla göreve gelen ilk başbakan (İcra Vekilleri Heyeti Reisi) kimdir?",
     "options": [
-      "Ali Fethi Bey",
+      "Celal Bayar",
       "Fethi Okyar",
       "İsmet İnönü",
       "Rauf Orbay"
@@ -945,7 +945,7 @@ export default [
     "options": [
       "I. Edward",
       "II. Henry",
-      "Kralsız John (Yurtsuz John)",
+      "Yurtsuz Kral John",
       "I. Richard"
     ],
     "answer": 2
@@ -1256,7 +1256,7 @@ export default [
       "Kıta Ablukası",
       "Marshall Planı",
       "Avrupa Uyumu (Concert of Europe)",
-      "Kutsal İttifak yalnız başına"
+      "Kutsal İttifak"
     ],
     "answer": 2
   },
@@ -1273,7 +1273,7 @@ export default [
   {
     "q": "Karolenj İmparatorluğu'nun kurucusu ve 800'de Roma İmparatoru taç giyen hükümdar kimdir?",
     "options": [
-      "Kılıç Charles",
+      "Çekiç Charles (Charles Martel)",
       "Clovis",
       "Otto",
       "Şarlman (Charlemagne)"
@@ -1503,7 +1503,7 @@ export default [
   {
     "q": "Fenikeliler tarih boyunca özellikle hangi alandaki başarılarıyla tanınır?",
     "options": [
-      "Cam üfleme yasağı",
+      "Cam işçiliği",
       "At yetiştiriciliği",
       "Piramit yapımı",
       "Denizcilik ve ticaret"
@@ -1541,7 +1541,7 @@ export default [
     "answer": 2
   },
   {
-    "q": "Roma'da MÖ 44'te suikaste uğrayan devlet adamı kimdir?",
+    "q": "Roma'da MÖ 44'te suikasta uğrayan devlet adamı kimdir?",
     "options": [
       "Julius Caesar",
       "Marcus Antonius",
@@ -1811,7 +1811,7 @@ export default [
     "answer": 3
   },
   {
-    "q": "Osmanlı Devleti'nde tımar sisteminin bozulmaya başlamasıyla ortaya çıkan, maaşlı asker olmayan başıbozuk gruplara ne ad verilir?",
+    "q": "Osmanlı Devleti'nde tımar sisteminin bozulmasıyla Anadolu'da isyan eden gruplara ne ad verilir?",
     "options": [
       "Sekban",
       "Yeniçeri",
@@ -2055,7 +2055,7 @@ export default [
     "options": [
       "Otlukbeli",
       "Çaldıran",
-      "Başkent",
+      "Mercidabık",
       "Malazgirt"
     ],
     "answer": 0
@@ -2065,7 +2065,7 @@ export default [
     "options": [
       "Fatih Sultan Mehmed",
       "Yıldırım Bayezid",
-      "Orhan Bey / I. Murad dönemi",
+      "I. Murad",
       "Osman Bey"
     ],
     "answer": 2
@@ -2451,7 +2451,7 @@ export default [
     "answer": 2
   },
   {
-    "q": "1. Dünya Savaşı'nın patlak vermesine yol açan Avusturya-Macaristan veliahtı Arşidük Franz Ferdinand hangi şehirde suikaste uğradı?",
+    "q": "1. Dünya Savaşı'nın patlak vermesine yol açan Avusturya-Macaristan veliahtı Arşidük Franz Ferdinand hangi şehirde suikasta uğradı?",
     "options": [
       "Viyana",
       "Belgrad",
@@ -2851,7 +2851,7 @@ export default [
     "answer": 2
   },
   {
-    "q": "Antik Yunan'da Isparta'nın iki krallı yönetim sistemine ne ad verilir?",
+    "q": "Antik Yunan'da Sparta'nın iki krallı yönetim sistemine ne ad verilir?",
     "options": [
       "Diarşi",
       "Oligarşi",
@@ -2884,7 +2884,7 @@ export default [
     "q": "Roma İmparatoru Diocletianus'un imparatorluğu dört yöneticiye bölen yönetim sistemine ne ad verilir?",
     "options": [
       "Principatus",
-      "Triumvira",
+      "Triumvirlik",
       "Tetrarşi",
       "Dominatus"
     ],
@@ -2951,7 +2951,7 @@ export default [
     "answer": 0
   },
   {
-    "q": "MÖ 480'de az sayıda Isparta savaşçısının büyük Pers ordusuna karşı savunma yaptığı geçit savaşı hangisidir?",
+    "q": "MÖ 480'de az sayıda Sparta savaşçısının büyük Pers ordusuna karşı savunma yaptığı geçit savaşı hangisidir?",
     "options": [
       "Thermopylai",
       "Plataea",
@@ -2965,8 +2965,8 @@ export default [
     "options": [
       "Optimates",
       "Senato Konseyi",
-      "Birinci Triumvira",
-      "İkinci Triumvira"
+      "Birinci Triumvirlik",
+      "İkinci Triumvirlik"
     ],
     "answer": 2
   },
@@ -3093,10 +3093,10 @@ export default [
   {
     "q": "Antik Yunan'da Peloponnesos Savaşı hangi iki şehir devleti arasında yapılmıştır?",
     "options": [
-      "Isparta ve Korint",
-      "Atina ve Isparta",
+      "Sparta ve Korint",
+      "Atina ve Sparta",
       "Atina ve Thebai",
-      "Thebai ve Isparta"
+      "Thebai ve Sparta"
     ],
     "answer": 1
   },
@@ -3151,7 +3151,7 @@ export default [
     "answer": 3
   },
   {
-    "q": "Antik Yunan'da Isparta toplumunda devlet mülkiyetinde olan ve tarım işçiliği yapan köle sınıfına ne ad verilir?",
+    "q": "Antik Yunan'da Sparta toplumunda devlet mülkiyetinde olan ve tarım işçiliği yapan köle sınıfına ne ad verilir?",
     "options": [
       "Perioikos",
       "Helot",
