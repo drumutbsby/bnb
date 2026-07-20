@@ -21,16 +21,6 @@ export default [
     "answer": 0
   },
   {
-    "q": "Türkiye'nin en büyük gölü hangisidir?",
-    "options": [
-      "Van Gölü",
-      "Beyşehir Gölü",
-      "Tuz Gölü",
-      "İznik Gölü"
-    ],
-    "answer": 0
-  },
-  {
     "q": "En büyük okyanus hangisidir?",
     "options": [
       "Arktik",
@@ -61,16 +51,6 @@ export default [
     "answer": 1
   },
   {
-    "q": "Türkiye kaç coğrafi bölgeye ayrılır?",
-    "options": [
-      "7",
-      "6",
-      "8",
-      "5"
-    ],
-    "answer": 0
-  },
-  {
     "q": "Türkiye'nin en uzun akarsuyu (ülke sınırları içindeki uzunluğuyla) hangisidir?",
     "options": [
       "Fırat",
@@ -99,26 +79,6 @@ export default [
       "Sodalı (acı) sudur"
     ],
     "answer": 3
-  },
-  {
-    "q": "Türkiye'nin yüzölçümü bakımından en büyük ili hangisidir?",
-    "options": [
-      "Ankara",
-      "Konya",
-      "Sivas",
-      "Erzurum"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Türkiye'nin yüzölçümü bakımından en küçük ili hangisidir?",
-    "options": [
-      "Düzce",
-      "Yalova",
-      "Rize",
-      "Kilis"
-    ],
-    "answer": 1
   },
   {
     "q": "Toroslar (Toros Dağları) genel olarak hangi bölgemiz boyunca uzanır?",
@@ -189,16 +149,6 @@ export default [
       "Doğu Anadolu Bölgesi"
     ],
     "answer": 3
-  },
-  {
-    "q": "Uludağ hangi ilimizin sınırları içinde yer alır?",
-    "options": [
-      "Balıkesir",
-      "Kütahya",
-      "Bursa",
-      "Bolu"
-    ],
-    "answer": 2
   },
   {
     "q": "Sakarya Nehri hangi denize dökülür?",
@@ -1789,16 +1739,6 @@ export default [
     "answer": 3
   },
   {
-    "q": "Türkiye'nin en güneydeki ili hangisidir?",
-    "options": [
-      "Şırnak",
-      "Kilis",
-      "Hatay",
-      "Mardin"
-    ],
-    "answer": 2
-  },
-  {
     "q": "Türkiye'de çay üretiminin en yoğun yapıldığı il hangisidir?",
     "options": [
       "Rize",
@@ -1965,16 +1905,6 @@ export default [
       "Bayburt",
       "Erzurum",
       "Kars"
-    ],
-    "answer": 2
-  },
-  {
-    "q": "Manavgat Şelalesi hangi ildedir?",
-    "options": [
-      "Mersin",
-      "Isparta",
-      "Antalya",
-      "Muğla"
     ],
     "answer": 2
   },
@@ -3229,16 +3159,6 @@ export default [
     "answer": 3
   },
   {
-    "q": "Türkiye'nin en kalabalık ikinci ili hangisidir?",
-    "options": [
-      "İzmir",
-      "Ankara",
-      "Bursa",
-      "Antalya"
-    ],
-    "answer": 1
-  },
-  {
     "q": "Türkiye'nin en uzun akarsuyu olan Kızılırmak hangi ilde denize dökülür?",
     "options": [
       "Sinop",
@@ -3305,16 +3225,6 @@ export default [
       "Gediz ve Menderes",
       "Sakarya ve Kızılırmak",
       "Fırat ve Dicle"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Pamukkale travertenleri hangi il sınırları içindedir?",
-    "options": [
-      "Denizli",
-      "Burdur",
-      "Uşak",
-      "Afyonkarahisar"
     ],
     "answer": 0
   },

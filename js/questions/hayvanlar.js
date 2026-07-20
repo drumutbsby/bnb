@@ -3729,15 +3729,6 @@ export default [
     "type": "tf"
   },
   {
-    "q": "Karada yaşayan en büyük hayvan hangisidir?",
-    "type": "text",
-    "answer": "Fil",
-    "accept": [
-      "afrika fili"
-    ],
-    "explain": "Afrika fili, karadaki en büyük ve en ağır hayvandır."
-  },
-  {
     "q": "En hızlı kara hayvanı hangisidir?",
     "type": "text",
     "answer": "Çita",

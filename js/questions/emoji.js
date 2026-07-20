@@ -2960,17 +2960,6 @@ export default [
     "visual": "💧🪨"
   },
   {
-    "q": "Bu emojiler hangi atasözünü anlatıyor?",
-    "options": [
-      "Meyveli ağacı taşlarlar",
-      "Armut dibine düşer",
-      "Armut piş ağzıma düş",
-      "Ağaç yaşken eğilir"
-    ],
-    "answer": 1,
-    "visual": "🍐🌳⬇️"
-  },
-  {
     "q": "Bu emojiler hangi diziyi anlatıyor?",
     "options": [
       "Fringe",

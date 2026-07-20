@@ -2322,32 +2322,12 @@ export default [
     "answer": 2
   },
   {
-    "q": "İnsan vücudundaki en uzun kemik hangisidir?",
-    "options": [
-      "Fibula",
-      "Femur (uyluk kemiği)",
-      "Tibia",
-      "Humerus"
-    ],
-    "answer": 1
-  },
-  {
     "q": "Gözde net görüntü oluşması için merceğin kalınlığını değiştirerek odaklanmayı sağlayan olaya ne denir?",
     "options": [
       "Akomodasyon",
       "Refraksiyon",
       "Adaptasyon",
       "Difüzyon"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Bağışıklık sisteminde antikor üreten kan hücreleri hangileridir?",
-    "options": [
-      "B lenfositler",
-      "Nötrofiller",
-      "T lenfositler",
-      "Bazofiller"
     ],
     "answer": 0
   },
@@ -3656,12 +3636,6 @@ export default [
     ],
     "answer": 0,
     "type": "tf"
-  },
-  {
-    "q": "Güneş sistemindeki en büyük gezegen hangisidir?",
-    "type": "text",
-    "answer": "Jüpiter",
-    "explain": "Jüpiter, bir gaz devidir ve tüm gezegenlerin toplamından daha kütlelidir."
   },
   {
     "q": "Altının kimyasal sembolü nedir?",

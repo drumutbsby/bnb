@@ -31,16 +31,6 @@ export default [
     "answer": 0
   },
   {
-    "q": "Bir futbol takımı sahada kaç oyuncuyla başlar?",
-    "options": [
-      "9",
-      "10",
-      "11",
-      "12"
-    ],
-    "answer": 2
-  },
-  {
     "q": "İnsan vücudunda kaç kemik bulunur?",
     "options": [
       "246",
@@ -112,42 +102,12 @@ export default [
     "answer": 1
   },
   {
-    "q": "İnsan vücudundaki en uzun kemik hangisidir?",
-    "options": [
-      "Uyluk kemiği (femur)",
-      "Kürek kemiği",
-      "Kaval kemiği",
-      "Kol kemiği"
-    ],
-    "answer": 0
-  },
-  {
     "q": "Periyodik tabloda 'Au' sembolü hangi elementi ifade eder?",
     "options": [
       "Altın",
       "Alüminyum",
       "Bakır",
       "Gümüş"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Dünyanın en büyük okyanusu hangisidir?",
-    "options": [
-      "Arktik Okyanusu",
-      "Büyük Okyanus (Pasifik)",
-      "Atlas Okyanusu",
-      "Hint Okyanusu"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "Türkiye'nin yüzölçümü bakımından en büyük ili hangisidir?",
-    "options": [
-      "Konya",
-      "Sivas",
-      "Ankara",
-      "Erzurum"
     ],
     "answer": 0
   },
@@ -252,16 +212,6 @@ export default [
     "answer": 0
   },
   {
-    "q": "Suyun kimyasal formülü nedir?",
-    "options": [
-      "CO2",
-      "O2",
-      "H2O",
-      "NaCl"
-    ],
-    "answer": 2
-  },
-  {
     "q": "'Beşinci Senfoni' ile ünlü besteci kimdir?",
     "options": [
       "Mozart",
@@ -270,16 +220,6 @@ export default [
       "Bach"
     ],
     "answer": 2
-  },
-  {
-    "q": "Türkiye'nin en uzun akarsuyu hangisidir?",
-    "options": [
-      "Yeşilırmak",
-      "Kızılırmak",
-      "Sakarya",
-      "Fırat"
-    ],
-    "answer": 1
   },
   {
     "q": "Bir üçgenin iç açıları toplamı kaç derecedir?",
@@ -330,16 +270,6 @@ export default [
       "Hidrojen"
     ],
     "answer": 1
-  },
-  {
-    "q": "Malazgirt Savaşı hangi yılda yapılmıştır?",
-    "options": [
-      "1176",
-      "1048",
-      "1071",
-      "1243"
-    ],
-    "answer": 2
   },
   {
     "q": "'Guernica' adlı ünlü tablo hangi ressama aittir?",
@@ -440,16 +370,6 @@ export default [
       "Endonezya"
     ],
     "answer": 1
-  },
-  {
-    "q": "Osmanlı Devleti'nin kurucusu kimdir?",
-    "options": [
-      "Alaeddin Bey",
-      "Orhan Bey",
-      "Ertuğrul Gazi",
-      "Osman Bey"
-    ],
-    "answer": 3
   },
   {
     "q": "Ses hangi ortamda yayılamaz?",
@@ -672,16 +592,6 @@ export default [
     "answer": 0
   },
   {
-    "q": "Basıncın SI birimi nedir?",
-    "options": [
-      "Pascal",
-      "Hertz",
-      "Joule",
-      "Newton"
-    ],
-    "answer": 0
-  },
-  {
     "q": "Bir dik açı kaç derecedir?",
     "options": [
       "180",
@@ -710,16 +620,6 @@ export default [
       "19"
     ],
     "answer": 1
-  },
-  {
-    "q": "Bir sayının kendisiyle çarpımına ne denir?",
-    "options": [
-      "Karesi",
-      "Yarısı",
-      "Karekökü",
-      "Küpü"
-    ],
-    "answer": 0
   },
   {
     "q": "Enerji ve işin SI birimi hangisidir?",
@@ -1388,26 +1288,6 @@ export default [
       "ABD",
       "Rusya",
       "Çin"
-    ],
-    "answer": 2
-  },
-  {
-    "q": "Berlin Duvarı hangi yıl yıkılmıştır?",
-    "options": [
-      "1979",
-      "1991",
-      "1989",
-      "1985"
-    ],
-    "answer": 2
-  },
-  {
-    "q": "Güneş sistemindeki en büyük gezegen hangisidir?",
-    "options": [
-      "Satürn",
-      "Dünya",
-      "Jüpiter",
-      "Neptün"
     ],
     "answer": 2
   },
@@ -2100,16 +1980,6 @@ export default [
       "ABD"
     ],
     "answer": 1
-  },
-  {
-    "q": "Karada yaşayan en büyük memeli hayvan hangisidir?",
-    "options": [
-      "Su aygırı",
-      "Zürafa",
-      "Beyaz gergedan",
-      "Afrika fili"
-    ],
-    "answer": 3
   },
   {
     "q": "Dünyanın en yüksek dağı Everest hangi sıradağların üzerindedir?",
@@ -3022,16 +2892,6 @@ export default [
     "answer": 2
   },
   {
-    "q": "Müzikte 'a cappella' terimi neyi ifade eder?",
-    "options": [
-      "Yalnızca insan sesiyle, çalgısız icra",
-      "Enstrüman eşliğinde solo",
-      "Orkestra eşliğinde koro",
-      "Doğaçlama çalış"
-    ],
-    "answer": 0
-  },
-  {
     "q": "Hukukta 'müruruzaman' terimi hangi kavramın eski/Osmanlıca karşılığıdır?",
     "options": [
       "Tebligat",
@@ -3618,12 +3478,6 @@ export default [
     "type": "tf"
   },
   {
-    "q": "Türkiye'nin başkenti neresidir?",
-    "type": "text",
-    "answer": "Ankara",
-    "explain": "Ankara 1923'te başkent ilan edildi; İstanbul en büyük şehir olsa da başkent değildir."
-  },
-  {
     "q": "Bir düzine kaç tanedir?",
     "type": "text",
     "answer": "12",
@@ -3640,14 +3494,5 @@ export default [
       "yedi"
     ],
     "explain": "Kırmızı, turuncu, sarı, yeşil, mavi, çivit (lacivert), mor: 7 renk."
-  },
-  {
-    "q": "Bir haftada kaç gün vardır?",
-    "type": "text",
-    "answer": "7",
-    "accept": [
-      "yedi"
-    ],
-    "explain": "Pazartesi'den pazara 7 gün vardır."
   }
 ];

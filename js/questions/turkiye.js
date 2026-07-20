@@ -1,17 +1,6 @@
 // Soru shard: turkiye — tembel yüklenir (js/questions.js).
 export default [
   {
-    "q": "Türkiye'nin en kalabalık şehri hangisidir?",
-    "options": [
-      "Bursa",
-      "Ankara",
-      "İstanbul",
-      "İzmir"
-    ],
-    "answer": 2,
-    "explain": "İstanbul, 15 milyonu aşan nüfusuyla en kalabalık şehirdir."
-  },
-  {
     "q": "Türk bayrağında hangi iki sembol bulunur?",
     "options": [
       "Aslan ve yıldız",
@@ -20,17 +9,6 @@ export default [
       "Ay ve yıldız"
     ],
     "answer": 3
-  },
-  {
-    "q": "Türkiye'nin para birimi nedir?",
-    "options": [
-      "Euro",
-      "Lira",
-      "Dolar",
-      "Dinar"
-    ],
-    "answer": 1,
-    "explain": "Türk Lirası (TL), 2005'te 'Yeni Türk Lirası' olarak yeniden düzenlendi."
   },
   {
     "q": "Boğaziçi Köprüsü hangi şehirdedir?",
@@ -53,16 +31,6 @@ export default [
     "answer": 3
   },
   {
-    "q": "Türkiye'nin en uzun nehri hangisidir?",
-    "options": [
-      "Dicle",
-      "Fırat",
-      "Kızılırmak",
-      "Sakarya"
-    ],
-    "answer": 2
-  },
-  {
     "q": "Pamukkale'nin ünlü beyaz travertenleri hangi ildedir?",
     "options": [
       "Antalya",
@@ -71,17 +39,6 @@ export default [
       "Denizli"
     ],
     "answer": 3
-  },
-  {
-    "q": "Anıtkabir hangi şehirdedir?",
-    "options": [
-      "İzmir",
-      "Ankara",
-      "Bursa",
-      "İstanbul"
-    ],
-    "answer": 1,
-    "explain": "Anıtkabir, Atatürk'ün kabri, Ankara'dadır."
   },
   {
     "q": "Efes Antik Kenti hangi ilimizdedir?",
@@ -2064,14 +2021,14 @@ export default [
     "answer": 3
   },
   {
-    "q": "Maraş dondurmasına o karakteristik çekilebilir/kesilebilir kıvamını veren, salep dışındaki temel bileşen nedir?",
+    "q": "Maraş dondurmasına çekilebilir kıvamını veren, orkide kökünden elde edilen katkı nedir?",
     "options": [
       "Jelatin",
-      "Guar gam",
+      "Salep",
       "Mastik (damla sakızı)",
       "Nişasta"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "q": "Tokat yöresine özgü, bağbozumu döneminde yapılan, üzüm şırasının nişasta ile koyulaştırılıp cevizle kurutulmasıyla elde edilen ürün hangisidir?",
@@ -2114,7 +2071,7 @@ export default [
     "answer": 0
   },
   {
-    "q": "Antakya ve çevresinde yapılan, közlenmiş közleme yerine kuru meyve ve baharatlarla hazırlanan, kırmızı biber salçası ağırlıklı meze hangisidir?",
+    "q": "Antakya ve çevresinde yapılan, biber salçası, ceviz ve baharatla hazırlanan, kırmızı biber ağırlıklı meze hangisidir?",
     "options": [
       "Muhammara",
       "Humus",
@@ -2144,7 +2101,7 @@ export default [
     "answer": 3
   },
   {
-    "q": "Bolu yöresiyle özdeşleşen aşçılık geleneği dışında, Mengen'in ünlü olduğu meslek hangisidir?",
+    "q": "Bolu'nun Mengen ilçesi hangi mesleğiyle ünlüdür?",
     "options": [
       "Aşçılık",
       "Çömlekçilik",
@@ -2154,10 +2111,10 @@ export default [
     "answer": 0
   },
   {
-    "q": "Erzurum'un meşhur, ızgarada pişirilen kaburga eti yemeğinin adı nedir?",
+    "q": "Erzurum'un, yatay şişte odun ateşinde döndürülerek pişirilen meşhur kebabının adı nedir?",
     "options": [
       "Cağ kebabı",
-      "Oltu kebabı",
+      "Tepsi kebabı",
       "Kağıt kebabı",
       "Ali Nazik"
     ],
@@ -2364,7 +2321,7 @@ export default [
     "answer": 3
   },
   {
-    "q": "Denizli ve Ege'de yapılan, közde pişirilen tavuğun 'çöp' adı verilen küçük şişlerde satılmasıyla ünlü yemek hangisidir?",
+    "q": "Denizli ve Ege'de yapılan, közde pişirilen kuzu etinin 'çöp' adı verilen küçük şişlerde satılmasıyla ünlü yemek hangisidir?",
     "options": [
       "Kağıt kebabı",
       "Tandır",
@@ -2914,7 +2871,7 @@ export default [
     "answer": 0
   },
   {
-    "q": "Türk boylarında ve Anadolu'da yeni yürümeye başlayamayan çocuğun ayakları arasından sembolik olarak kesilen görünmez bağa ne ad verilir?",
+    "q": "Türk boylarında ve Anadolu'da yürümekte geciken çocuğun ayakları arasından sembolik olarak kesilen görünmez bağa ne ad verilir?",
     "options": [
       "Kırk bağı",
       "Köstek",
@@ -3214,7 +3171,7 @@ export default [
     "answer": 1
   },
   {
-    "q": "Plaka kodu 81 olan ve Türkiye'nin en son il olan (1999) hangisidir?",
+    "q": "Plaka kodu 81 olan, 1999'da il yapılan en yeni ilimiz hangisidir?",
     "options": [
       "Karabük",
       "Yalova",
@@ -3264,14 +3221,14 @@ export default [
     "answer": 3
   },
   {
-    "q": "Türkiye'nin en batısındaki il hangisidir?",
+    "q": "Türkiye'nin en batı ucu olan Avlaka Burnu'nun (Gökçeada) bulunduğu il hangisidir?",
     "options": [
       "Edirne",
       "İzmir",
       "Çanakkale",
       "Balıkesir"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "q": "Türkiye'nin en yüksek dağı olan Ağrı Dağı'nın zirvesi yaklaşık kaç metredir?",
@@ -3282,16 +3239,6 @@ export default [
       "5642"
     ],
     "answer": 1
-  },
-  {
-    "q": "Türkiye'nin en uzun akarsuyu hangisidir?",
-    "options": [
-      "Kızılırmak",
-      "Fırat",
-      "Dicle",
-      "Sakarya"
-    ],
-    "answer": 0
   },
   {
     "q": "Türkiye'nin en büyük gölü olan Van Gölü hangi bölgededir?",

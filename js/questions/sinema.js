@@ -1891,16 +1891,6 @@ export default [
     "answer": 0
   },
   {
-    "q": "'Nomadland' filmiyle 2021'de En İyi Yönetmen Oscar'ını kazanarak bu dalı kazanan ikinci kadın olan yönetmen kimdir?",
-    "options": [
-      "Greta Gerwig",
-      "Emerald Fennell",
-      "Jane Campion",
-      "Chloé Zhao"
-    ],
-    "answer": 3
-  },
-  {
     "q": "'Nomadland' aynı yıl Venedik Film Festivali'nde hangi ödülü kazanmıştı?",
     "options": [
       "Altın Palmiye",
@@ -2079,16 +2069,6 @@ export default [
       "1968"
     ],
     "answer": 2
-  },
-  {
-    "q": "Zeki Demirkubuz'un 'Karanlık Üzerine Öyküler' üçlemesinin ilk filmi hangisidir?",
-    "options": [
-      "Yazgı",
-      "Kader",
-      "İtiraf",
-      "Masumiyet"
-    ],
-    "answer": 0
   },
   {
     "q": "Fatih Akın'ın 2004 Berlin Film Festivali'nde Altın Ayı kazanan filmi hangisidir?",
@@ -3151,16 +3131,6 @@ export default [
     "answer": 2
   },
   {
-    "q": "Alfred Hitchcock kariyeri boyunca kaç kez En İyi Yönetmen Oscar'ı kazandı?",
-    "options": [
-      "Hiç kazanmadı",
-      "İki kez",
-      "Üç kez",
-      "Bir kez"
-    ],
-    "answer": 0
-  },
-  {
     "q": "En fazla Oscar kazanan filmler arasında 11 ödülle yer alan üç filmden biri olan 'Ben-Hur' hangi yılda gösterime girdi?",
     "options": [
       "1951",
@@ -3301,26 +3271,6 @@ export default [
     "answer": 0
   },
   {
-    "q": "En İyi Yönetmen Oscar'ı kazanan ilk kadın kimdir?",
-    "options": [
-      "Kathryn Bigelow",
-      "Chloé Zhao",
-      "Jane Campion",
-      "Sofia Coppola"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "Kathryn Bigelow hangi filmle En İyi Yönetmen Oscar'ını kazandı?",
-    "options": [
-      "The Hurt Locker",
-      "Strange Days",
-      "Zero Dark Thirty",
-      "Point Break"
-    ],
-    "answer": 0
-  },
-  {
     "q": "Bir oyuncu için art arda iki kez En İyi Erkek Oyuncu Oscar'ı kazanan Tom Hanks'in kazandığı filmler hangileridir?",
     "options": [
       "Saving Private Ryan ve Philadelphia",
@@ -3369,16 +3319,6 @@ export default [
       "Ron Howard"
     ],
     "answer": 0
-  },
-  {
-    "q": "2019'da 'Roma' ile En İyi Yönetmen Oscar'ı kazanan Meksikalı yönetmen kimdir?",
-    "options": [
-      "Guillermo del Toro",
-      "Emmanuel Lubezki",
-      "Alejandro González Iñárritu",
-      "Alfonso Cuarón"
-    ],
-    "answer": 3
   },
   {
     "q": "En İyi Uluslararası Film Oscar'ı kazanan ilk İran filmi hangisidir?",
