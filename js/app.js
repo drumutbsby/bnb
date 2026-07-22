@@ -4,7 +4,7 @@
 import {
   isConfigured, whenConnected, subscribeInput, subscribeState,
   publishState, clearState, sendInput, publishHof, subscribeHof, subscribeRooms,
-  publishLeague, subscribeLeague, onStatus,
+  publishLeague, subscribeLeague, onStatus, pinBroker, activeBrokerIndex, findRoom,
 } from "./net.js";
 import { ensureDaily, updateDailyAfterGame, loginStreak, dailyQuestionStatus, recordDailyQuestion, inviteStatus, recordInviteShare } from "./daily.js";
 import { CATEGORIES, CUSTOM_CATEGORY, buildQuestionSet, loadCategory } from "./questions.js";
@@ -172,6 +172,7 @@ function saveSession() {
     sessionStorage.setItem("bnb_session", JSON.stringify({
       role: state.role, code: state.code, playerId: state.playerId,
       name: state.name, localQuestions: state.localQuestions,
+      brokerIdx: activeBrokerIndex(),
     }));
   } catch (e) {}
 }
@@ -694,7 +695,9 @@ async function joinRoom(code, name) {
   try { await whenConnected(); }
   catch (e) { return { ok: false, error: e.message }; }
 
-  const data = await getStateOnce(code);
+  // Odayı TÜM brokerlarda ara: host farklı bir broker'a düşmüş olabilir
+  // (ağ kısıtları yüzünden). Bulunursa o broker'a otomatik geçilir.
+  const data = await findRoom(code);
   if (!data) return { ok: false, error: "Bu kodla bir oda bulunamadı." };
   if (data.meta && data.meta.status !== "lobby") {
     return { ok: false, error: "Bu oyun çoktan başlamış." };
@@ -2049,7 +2052,10 @@ function playersList() {
 }
 
 function shareUrl() {
-  return location.origin + location.pathname + "?oda=" + state.code;
+  // Linke host'un broker'ını da ekle (?b=N): katılan aynı broker'a bağlanır.
+  // Varsayılan broker (0) için parametre eklenmez — linkler temiz kalır.
+  const b = activeBrokerIndex();
+  return location.origin + location.pathname + "?oda=" + state.code + (b > 0 ? "&b=" + b : "");
 }
 
 function renderHostLobby() {
@@ -3228,9 +3234,11 @@ async function resumeSession(saved) {
   state.playerId = saved.playerId;
   state.name = saved.name;
   state.localQuestions = saved.localQuestions || null;
+  // Oturum hangi broker'da kurulduysa oraya dön (oda retained state'i orada)
+  if (Number.isInteger(saved.brokerIdx)) pinBroker(saved.brokerIdx);
   try { await whenConnected(); } catch (e) { clearSession(); renderHome(); return; }
 
-  const data = await getStateOnce(saved.code);
+  const data = await findRoom(saved.code);
   if (!data) { clearSession(); renderHome(); return; }
   state.room = data;
 
@@ -3433,6 +3441,9 @@ function boot() {
   // ?oda=KOD ile gelen deep-link
   const params = new URLSearchParams(location.search);
   const deepCode = (params.get("oda") || "").toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 4);
+  // Davet linkindeki broker ipucu: host hangi broker'daysa ona sabitlen
+  const deepBroker = parseInt(params.get("b") || "", 10);
+  if (deepCode && Number.isInteger(deepBroker)) pinBroker(deepBroker);
 
   const saved = loadSession();
   if (saved && saved.code) { resumeSession(saved); return; }
