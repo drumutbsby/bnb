@@ -11,6 +11,7 @@ import { CATEGORIES, CUSTOM_CATEGORY, buildQuestionSet, loadCategory } from "./q
 import { unlock, sfx, isMuted, toggleMute } from "./sound.js";
 import { confetti } from "./confetti.js";
 import qrcode from "./vendor/qrcode.js";
+import { visualToHTML } from "./visuals.js";
 import { loadProfile, saveProfile, setName, setAvatar, rankFor, rankProgress, recordGame, RANKS, levelFromXp, levelProgress, xpForLevel } from "./profile.js";
 import { CHARACTERS, pickPhrase, CATEGORY_QUIPS } from "./characters.js";
 import { ACHIEVEMENTS } from "./achievements.js";
@@ -2316,7 +2317,9 @@ function visualHTML(pq) {
   if (!pq) return "";
   // Gömülü SVG resimli soru (güvenilir, dahili içerik) — çerçeveli göster
   if (pq.image) return `<div class="q-image">${pq.image}</div>`;
-  return pq.visual ? `<div class="visual-block">${esc(pq.visual)}</div>` : "";
+  // visualToHTML: bayrak/emoji desteklenmeyen platformlarda (ör. Windows'ta
+  // ülke bayrakları) görsel <img> yedeğine çevrilir; desteklenende metin kalır.
+  return pq.visual ? `<div class="visual-block">${visualToHTML(pq.visual)}</div>` : "";
 }
 
 function renderHostQuestion() {

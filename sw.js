@@ -1,6 +1,9 @@
 // Service worker — uygulama kabuğunu önbelleğe alır (hızlı açılış + çevrimdışı kabuk).
 // Oyun gerçek zamanlı olduğu için ağ önceliklidir; önbellek yalnızca yedek olarak kullanılır.
-const VERSION = "bnb-v9";
+const VERSION = "bnb-v10";
+// Bayrak/Twemoji görselleri (js/visuals.js): değişmez içerik, ayrı kalıcı önbellek
+const IMG_CACHE = "bnb-img-v1";
+const IMG_HOSTS = ["flagcdn.com", "cdn.jsdelivr.net"];
 const SHELL = [
   "./",
   "./index.html",
@@ -43,14 +46,28 @@ self.addEventListener("install", (e) => {
 self.addEventListener("activate", (e) => {
   e.waitUntil(
     caches.keys()
-      .then((keys) => Promise.all(keys.filter((k) => k !== VERSION).map((k) => caches.delete(k))))
+      .then((keys) => Promise.all(keys.filter((k) => k !== VERSION && k !== IMG_CACHE).map((k) => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });
 
 self.addEventListener("fetch", (e) => {
   const url = new URL(e.request.url);
-  if (e.request.method !== "GET" || url.origin !== location.origin) return;
+  if (e.request.method !== "GET") return;
+  // Bayrak/emoji görselleri: önbellek öncelikli (değişmezler) — bir kez
+  // görülen bayrak çevrimdışı da çalışır.
+  if (IMG_HOSTS.includes(url.hostname)) {
+    e.respondWith(
+      caches.open(IMG_CACHE).then((c) =>
+        c.match(e.request).then((hit) => hit || fetch(e.request).then((res) => {
+          if (res && (res.ok || res.type === "opaque")) c.put(e.request, res.clone()).catch(() => {});
+          return res;
+        }))
+      )
+    );
+    return;
+  }
+  if (url.origin !== location.origin) return;
   // Ağ öncelikli, düşerse önbellek: her zaman en güncel kod, çevrimdışıysa kabuk yine açılır.
   e.respondWith(
     fetch(e.request)

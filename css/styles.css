@@ -440,6 +440,15 @@ code { background: #f0eef7; padding: 2px 6px; border-radius: 6px; font-size: .85
   font-size: 4.5rem; text-align: center; margin: 6px 0 4px; line-height: 1.1;
   letter-spacing: 4px;
 }
+/* Emoji desteklenmeyince kullanılan görsel yedekler (bkz. js/visuals.js) */
+.visual-block .flag-img {
+  height: 1em; width: auto; vertical-align: middle; margin: 0 4px;
+  border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+  background: #fff;
+}
+.visual-block .emoji-img {
+  height: 1em; width: auto; vertical-align: -0.12em; display: inline-block;
+}
 
 /* Jokerler */
 .jokers { display: flex; gap: 8px; margin-top: 12px; }
