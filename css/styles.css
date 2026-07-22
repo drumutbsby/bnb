@@ -446,8 +446,53 @@ code { background: #f0eef7; padding: 2px 6px; border-radius: 6px; font-size: .85
   border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
   background: #fff;
 }
-.visual-block .emoji-img {
+.emoji-img {
   height: 1em; width: auto; vertical-align: -0.12em; display: inline-block;
+}
+
+/* 🏁 Yarış Patikası (js/racepath.js): avatarlar sıralamalarına göre patikada */
+.race-track {
+  position: relative; width: 100%; margin: 10px 0 6px; color: #b9a8e8;
+}
+.race-track svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.race-line { animation: race-dash 16s linear infinite; }
+@keyframes race-dash { to { stroke-dashoffset: -160; } }
+.race-flag {
+  position: absolute; transform: translate(-30%, -110%); font-size: 1.4rem;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,.2));
+}
+.race-av {
+  position: absolute; transform: translate(-50%, -50%); text-align: center; line-height: 1;
+  transition: left 1.2s cubic-bezier(.45, 1.35, .4, 1), top 1.2s cubic-bezier(.45, 1.35, .4, 1);
+  pointer-events: none;
+}
+.race-em {
+  display: inline-block; font-size: 1.9rem;
+  animation: race-bob 2.6s ease-in-out infinite;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,.25));
+}
+.race-av:nth-child(odd) .race-em { animation-delay: -1.3s; }
+@keyframes race-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9%); } }
+.race-nm {
+  display: block; font-size: .62rem; font-weight: 700; color: #6b6b7b;
+  max-width: 64px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 2px;
+}
+.race-av.me .race-em {
+  border: 2px solid #ffb400; border-radius: 50%; padding: 3px; background: #fff6e0;
+}
+.race-av.teamA .race-em { border: 2px solid #1368ce; border-radius: 50%; padding: 3px; background: #eaf2fd; }
+.race-av.teamB .race-em { border: 2px solid #e21b3c; border-radius: 50%; padding: 3px; background: #fdeaee; }
+.race-av.me.teamA .race-em, .race-av.me.teamB .race-em { border-color: #ffb400; }
+.race-crowd .race-em { font-size: 1.3rem; }
+.race-crowd .race-nm { display: none; }
+.race-mini { margin: 8px 0 0; }
+.race-mini .race-em { font-size: 1.2rem; animation: none; }
+.race-mini .race-av.me .race-em, .race-mini .race-av.teamA .race-em, .race-mini .race-av.teamB .race-em { padding: 2px; border-width: 1.5px; }
+.race-mini .race-flag { font-size: .95rem; }
+.race-title { margin-top: 12px; }
+@media (prefers-reduced-motion: reduce) {
+  .race-line, .race-em { animation: none; }
+  .race-av { transition: none; }
 }
 
 /* Jokerler */

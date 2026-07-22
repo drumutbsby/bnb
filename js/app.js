@@ -12,6 +12,7 @@ import { unlock, sfx, isMuted, toggleMute } from "./sound.js";
 import { confetti } from "./confetti.js";
 import qrcode from "./vendor/qrcode.js";
 import { visualToHTML } from "./visuals.js";
+import { raceTrackHTML, raceTrackStart } from "./racepath.js";
 import { loadProfile, saveProfile, setName, setAvatar, rankFor, rankProgress, recordGame, RANKS, levelFromXp, levelProgress, xpForLevel } from "./profile.js";
 import { CHARACTERS, pickPhrase, CATEGORY_QUIPS } from "./characters.js";
 import { ACHIEVEMENTS } from "./achievements.js";
@@ -2389,6 +2390,7 @@ function renderHostQuestion() {
       ${bodyHtml}
       ${jokersHtml}
       ${answeredNote}
+      ${raceHTML(true, false)}
       ${state.solo ? "" : `<button class="btn btn-secondary" id="skip">Herkes yanıtladı, göster ›</button>`}
     </div>`;
 
@@ -2513,6 +2515,7 @@ function renderPlayerQuestion() {
       <div class="q-text">${esc(pq.q)}</div>
       ${bodyHtml}
       ${jokersHtml}
+      ${raceHTML(true, false)}
     </div>`;
 
   const submitText = () => {
@@ -2561,6 +2564,7 @@ function renderPlayerWaiting(pq, choice, typedText) {
       ${doubleOn ? `<div class="double-badge">✖️ Çift Puan aktif</div>` : ""}
       <div class="big-name">Cevabın alındı!</div>
       <p class="muted">Diğer oyuncular bekleniyor...</p>
+      ${raceHTML(true, false)}
     </div>`;
 }
 
@@ -2644,6 +2648,24 @@ function leaderboardHTML(limit) {
   return `<div class="leaderboard">${rows || '<div class="muted small">—</div>'}</div>`;
 }
 
+// 🏁 Yarış patikası: puan/sıra rakamı göstermeden, avatarları o eldeki
+// sıralamalarına göre patikada gösterir. animate=true → reveal (kayma animasyonu),
+// mini=true → soru ekranındaki ince şerit.
+function raceHTML(mini, animate) {
+  if (state.solo || !state.room) return "";
+  const m = state.room.meta;
+  const players = playersList();
+  if (!players.length) return "";
+  const total = Math.max(1, m.totalQuestions || 1);
+  const i = Math.max(0, m.questionIndex);
+  const progress = Math.min(1, (i + (animate ? 1 : 0)) / total);
+  return raceTrackHTML({
+    players, meId: state.playerId, progress,
+    teamMode: !!m.teamMode, mini,
+    animKey: animate ? `${state.code}:${i}` : null,
+  });
+}
+
 // Öğretici açıklama (opsiyonel `explain` alanı) — reveal ekranında gösterilir
 function explainHTML(explain) {
   if (!explain) return "";
@@ -2703,10 +2725,11 @@ function renderHostReveal() {
       ${explainHTML(q.explain)}
       ${hostBanner}
       ${m.teamMode ? teamScoreHtml() : ""}
-      ${state.solo ? "" : `<div class="players-title">Skor Tablosu</div>${leaderboardHTML(5)}`}
+      ${state.solo ? "" : `<div class="players-title">🏁 Yarış</div>${raceHTML(false, true)}`}
       <button class="btn btn-primary btn-big" id="next">${nextLabel}</button>
     </div>`;
   document.getElementById("next").onclick = () => { sfx.click(); hostNext(); };
+  raceTrackStart();
   sfx.whoosh();
   if (meHost && state.lastRevealIndex !== i) { state.lastRevealIndex = i; tallyGameStat(meHost.lastCorrect, meHost.lastStreak || 0); maybeShowReaction(meHost, !state.solo); }
   // Otomatik ilerleme
@@ -2723,8 +2746,6 @@ function renderPlayerReveal() {
   const correct = me.lastCorrect;
   const gain = me.lastGain || 0;
   const streak = me.lastStreak || 0;
-  const players = playersList().sort((a, b) => (b[1].score || 0) - (a[1].score || 0));
-  const myRank = players.findIndex(([id]) => id === state.playerId) + 1;
   const breakdown = correct
     ? `<div class="gain-breakdown">${me.lastBase || 0} temel${(me.lastCombo || 1) > 1 ? ` × ${me.lastCombo} combo` : ""}${me.lastFirst ? ` + ${me.lastFirst} ilk` : ""}${me.lastMilestone ? ` + ${me.lastMilestone} seri` : ""}${me.lastDoubled ? " × 2 çift puan" : ""}</div>`
     : "";
@@ -2760,12 +2781,11 @@ function renderPlayerReveal() {
       ${correct && (me.lastCombo || 1) > 1 ? `<div class="combo-badge">COMBO ×${me.lastCombo} 🔥</div>` : (correct && streak >= 2 ? `<div class="streak-fire">🔥 ${streak} seri!</div>` : "")}
       ${answerHtml}
       ${explainHTML(pq.explain)}
-      ${state.room.meta.teamMode ? teamScoreHtml() : `<div class="rank-box">
-        <div>Sıralaman</div>
-        <div class="rank-num">${myRank}. / ${players.length}</div>
-        <div class="muted small">Toplam: ${me.score || 0} puan</div>
-      </div>`}
+      ${state.room.meta.teamMode ? teamScoreHtml() : ""}
+      <div class="players-title race-title">🏁 Yarış</div>
+      ${raceHTML(false, true)}
     </div>`;
+  raceTrackStart();
   // Ekran okuyucuya sonucu duyur
   const announceAnswer = rev.isText ? (rev.answerText || "") : (correctIdx >= 0 && opts[correctIdx] != null ? opts[correctIdx] : "");
   announce(`${correct ? "Doğru" : "Yanlış"}.${announceAnswer ? " Doğru cevap: " + announceAnswer + "." : ""} ${correct ? "+" + gain + " puan." : ""}`.trim());
