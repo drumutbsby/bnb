@@ -1,6 +1,6 @@
 // Service worker — uygulama kabuğunu önbelleğe alır (hızlı açılış + çevrimdışı kabuk).
 // Oyun gerçek zamanlı olduğu için ağ önceliklidir; önbellek yalnızca yedek olarak kullanılır.
-const VERSION = "bnb-v11";
+const VERSION = "bnb-v12";
 // Bayrak/Twemoji görselleri (js/visuals.js): değişmez içerik, ayrı kalıcı önbellek
 const IMG_CACHE = "bnb-img-v1";
 const IMG_HOSTS = ["flagcdn.com", "cdn.jsdelivr.net"];

@@ -453,6 +453,9 @@ code { background: #f0eef7; padding: 2px 6px; border-radius: 6px; font-size: .85
 /* 🏁 Yarış Patikası (js/racepath.js): avatarlar sıralamalarına göre patikada */
 .race-track {
   position: relative; width: 100%; margin: 10px 0 6px; color: #b9a8e8;
+  /* Avatar z-index'leri kart içinde kalsın: geri sayım overlay'i (z:20)
+     patikanın üstünde kalabilsin diye kendi katman bağlamını oluştur */
+  isolation: isolate;
 }
 .race-track svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .race-line { animation: race-dash 16s linear infinite; }

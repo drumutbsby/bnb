@@ -366,7 +366,7 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "Çad",
+      "Belçika",
       "Andorra",
       "Romanya",
       "Moldova"
@@ -487,7 +487,7 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "Endonezya",
+      "Avusturya",
       "Malta",
       "Monako",
       "Polonya"
@@ -608,7 +608,7 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "Monako",
+      "Bahreyn",
       "Polonya",
       "Endonezya",
       "Singapur"
@@ -1609,7 +1609,7 @@ export default [
   {
     "q": "Bu bayrak hangi ülkenindir?",
     "options": [
-      "Romanya",
+      "Mali",
       "Kamerun",
       "Nijer",
       "Çad"
